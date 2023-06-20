@@ -6,3 +6,4 @@ export 'resources_widget.dart';
 export 'document_resources_widget.dart';
 export 'course_info_widget.dart';
 export 'card_widget.dart';
+export 'recent_class_widget.dart';

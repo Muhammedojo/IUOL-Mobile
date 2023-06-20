@@ -19,10 +19,15 @@ class HomeView extends StatelessView<Home, HomeController> {
             title: const Text(
               'Enrolled Courses',
             )),
-        body: WidgetWrapper(child: _body()));
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            moreActions(context);
+          },
+        ),
+        body: WidgetWrapper(child: _body(context)));
   }
 
-  Widget _body() {
+  Widget _body(context) {
     return SingleChildScrollView(
       child: Padding(
         padding: REdgeInsets.all(10.0),
@@ -78,31 +83,31 @@ class HomeView extends StatelessView<Home, HomeController> {
             height: 10.h,
           ),
           SizedBox(
-            height: 120.h,
+            height: 80.h,
             child: ListView(
                 scrollDirection: Axis.horizontal,
                           children:   <Widget> [
-                            const CardWidget(
-                              title: 'Resources',
-                              number: '18',
+                            const RecentClassWidget(
+                              title: 'Introduction to Arabic Language I',
+                              code: 'ARB 111',
                               onTap: null,
                             ),
                             SizedBox(width: 15.w,),
-                            const CardWidget(
-                              title: 'Resources',
-                              number: '18',
+                            const RecentClassWidget(
+                              title: 'Introduction to Chemistry',
+                              code: 'CHM 141',
                               onTap: null,
                             ),
                             SizedBox(width: 15.w,),
-                            const CardWidget(
-                              title: 'Resources',
-                              number: '18',
+                            const RecentClassWidget(
+                              title: 'General Studies',
+                              code: 'GNS 101',
                               onTap: null,
                             ),
                             SizedBox(width: 15.w,),
-                            CardWidget(
-                              title: 'Resources',
-                              number: '18',
+                             const RecentClassWidget(
+                              title: 'MAthematics',
+                              code: 'MTH 111',
                               onTap: null,
                             ),
 
@@ -182,5 +187,42 @@ class HomeView extends StatelessView<Home, HomeController> {
         ]),
       ),
     );
+  }
+
+  moreActions(context) {
+    showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.transparent,
+        builder: (context) {
+          return Container(
+            decoration: BoxDecoration(
+              // border: Border.all(color: Color(0xffD1D5DB)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(16.r),
+                    topRight: Radius.circular(16.r)),
+                color: const Color(0xff25435B)),
+            child: Padding(
+              padding: REdgeInsets.symmetric(vertical: 18.0),
+              child: Container(
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                // border: Border.all(color: Color(0xffD1D5DB)),
+                borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16.r),
+              topRight: Radius.circular(16.r)),
+              color: Colors.white
+              ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(height: 8.h,),
+                   SvgPicture.asset('assets/images/rectangle.svg')
+                  ],),
+                ),
+              ),
+            ),
+          );
+        });
   }
 }
