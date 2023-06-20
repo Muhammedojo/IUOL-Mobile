@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: '',
               theme: ThemeData(
+                fontFamily: 'Inter',
                 primarySwatch: Colors.blue,
                 textTheme: Typography.englishLike2018.apply(
                     fontSizeFactor: 1.sp),
