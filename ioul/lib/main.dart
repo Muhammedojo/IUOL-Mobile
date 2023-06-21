@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           builder: (context, child) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: '',
+              title: 'title',
               theme: ThemeData(
                 fontFamily: 'Inter',
                 primarySwatch: Colors.blue,
