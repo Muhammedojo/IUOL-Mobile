@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import '../router/route_constants.dart';
 import '../screens/screens.dart';
 import 'stateless_view.dart';
 
@@ -13,25 +15,25 @@ class SplashScreenView
 
   @override
   Widget build(BuildContext context) {
-    Timer(
-        const Duration(seconds: 3),
-            () => Navigator.of(context).pushReplacement(CupertinoPageRoute(
-            builder: (BuildContext context) => const Home())));
-
     return SafeArea(
       child: Scaffold(
-        body: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            color:const Color(0xffC4E4FF),
-            child: Center(
-              child:
-
-              Image.asset(
-              'assets/images/logos.png',
-                fit: BoxFit.cover,
-              ),
-            )),
+        body: Column(
+          children: [
+            Container(
+                height: MediaQuery.of(context).size.height / 2,
+                width: MediaQuery.of(context).size.width / 2,
+                color: const Color(0xffC4E4FF),
+                child: Center(
+                  child: Image.asset(
+                    'assets/images/logos.png',
+                    fit: BoxFit.cover,
+                  ),
+                )),
+            ElevatedButton(
+                onPressed: () => context.goNamed(RouteConstants.courses),
+                child: Text("Move to Home"))
+          ],
+        ),
       ),
     );
   }

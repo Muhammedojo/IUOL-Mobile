@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ioul/router/router.dart';
 import 'package:ioul/screens/screens.dart';
 import 'packages/package.dart';
 
@@ -12,23 +13,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return
-      ScreenUtilInit(
-          designSize: const Size(360, 690),
-          minTextAdapt: true,
-          splitScreenMode: true,
-          builder: (context, child) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'title',
-              theme: ThemeData(
-                fontFamily: 'Inter',
-                primarySwatch: Colors.blue,
-                textTheme: Typography.englishLike2018.apply(
-                    fontSizeFactor: 1.sp),
-              ),
-              home: const SplashScreen(),
-            );
-          });
+    return ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            routerConfig: AppRouter.router,
+            title: '',
+            theme: ThemeData(
+              fontFamily: 'Inter',
+              primarySwatch: Colors.blue,
+              textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+            ),
+          );
+        });
   }
 }
