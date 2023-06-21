@@ -4,5 +4,6 @@ class RouteConstants{
   static const assignment = "assignment";
   static const report = "report";
   static const more = "more";
+  static const login = "login";
   
 }

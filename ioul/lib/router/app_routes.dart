@@ -3,6 +3,7 @@ import 'package:ioul/screens/screens.dart';
 import 'package:ioul/screens_controllers/assignment_controller.dart';
 import 'package:ioul/screens_controllers/course_controller.dart';
 import 'package:ioul/screens_controllers/home_controller.dart';
+import 'package:ioul/screens_controllers/login_controller.dart';
 import 'package:ioul/screens_controllers/more_controller.dart';
 import 'package:ioul/screens_controllers/report_controller.dart';
 
@@ -19,11 +20,11 @@ class AppRouter {
         name: RouteConstants.splash,
         builder: (context, state) => const SplashScreen(),
       ),
-      // GoRoute(
-      //   path: '/${RouteConstants.home}}',
-      //   name: RouteConstants.home,
-      //   builder: (context, state) => const Home(),
-      // ),
+      GoRoute(
+        path: '/${RouteConstants.login}',
+        name: RouteConstants.login,
+        builder: (context, state) => const Login(),
+      ),
       // GoRoute(
       //   path: '/${RouteConstants.login}',
       //   name: RouteConstants.login,
