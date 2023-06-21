@@ -123,6 +123,48 @@ class HomeView extends StatelessView<Home, HomeController> {
             height: 10.h,
           ),
           Row(
+            mainAxisAlignment:MainAxisAlignment.center,
+            children: [
+              Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.r),
+                      color: Colors.grey.withOpacity(0.1),
+                      border:
+                      Border.all(color: Colors.transparent, width: 1)),
+                  child: ToggleSwitch(
+                    minHeight: 30.h,
+                    minWidth: 120.0.w,
+                    cornerRadius: 5.0.r,
+                    fontSize: 14.0.sp,
+                    activeBgColors: const [
+                      [Color(0xff25435B)],
+                      [Color(0xff25435B)],
+                    ],
+                    activeFgColor:Colors.white,
+                    customTextStyles:[TextStyle(
+                      fontSize: 12.sp
+                    )],
+                    inactiveBgColor: Colors.transparent,
+                    inactiveFgColor:Colors.black,
+                    initialLabelIndex: state.selectedPage,
+                    totalSwitches: 2,
+                    labels: const [
+                      'Overview',
+                      'Resources'
+                    ],
+
+                    radiusStyle: true,
+                    onToggle: (index) {
+                      state.onChipSelected(index!);
+                    },
+                  )),
+            ],
+          ),
+
+          SizedBox(
+            height: 10.h,
+          ),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
               ResourcesWidget(

@@ -15,6 +15,7 @@ class Home extends StatefulWidget {
 class HomeController extends State<Home> {
 
   //... //Initialization code, state vars etc, all go here
+  int selectedPage = 0;
 
   @override
   void initState(){
@@ -34,6 +35,10 @@ class HomeController extends State<Home> {
     NavigatorHelper(context).closeScreen();
   }
 
-
+  onChipSelected(int index) {
+    setState(() {
+      selectedPage = index;
+    });
+  }
 
 }
