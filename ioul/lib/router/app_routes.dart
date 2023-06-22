@@ -2,12 +2,17 @@ import 'package:ioul/router/route_constants.dart';
 import 'package:ioul/screens/screens.dart';
 import 'package:ioul/screens_controllers/assignment_controller.dart';
 import 'package:ioul/screens_controllers/course_controller.dart';
+import 'package:ioul/screens_controllers/create_account.dart';
+import 'package:ioul/screens_controllers/forgot_password_controller.dart';
 import 'package:ioul/screens_controllers/home_controller.dart';
 import 'package:ioul/screens_controllers/login_controller.dart';
 import 'package:ioul/screens_controllers/more_controller.dart';
 import 'package:ioul/screens_controllers/report_controller.dart';
+import 'package:ioul/screens_controllers/reset_password.dart';
+import 'package:ioul/screens_controllers/verify_email_controller.dart';
 
 import '../packages/package.dart';
+import '../screens_controllers/code_input_controller.dart';
 import '../utils/global_variables.dart';
 
 class AppRouter {
@@ -25,31 +30,31 @@ class AppRouter {
         name: RouteConstants.login,
         builder: (context, state) => const Login(),
       ),
-      // GoRoute(
-      //   path: '/${RouteConstants.login}',
-      //   name: RouteConstants.login,
-      //   builder: (context, state) => const Home(),
-      // ),
-      // GoRoute(
-      //   path: '/${RouteConstants.forgotPassword}',
-      //   name: RouteConstants.forgotPassword,
-      //   builder: (context, state) => const Home(),
-      // ),
-      // GoRoute(
-      //   path: '/${RouteConstants.createNewPassword}',
-      //   name: RouteConstants.createNewPassword,
-      //   builder: (context, state) => const Home(),
-      // ),
-      // GoRoute(
-      //   path: '/${RouteConstants.termsAndCondition}',
-      //   name: RouteConstants.termsAndCondition,
-      //   builder: (context, state) => const Home(),
-      // ),
-      // GoRoute(
-      //   path: '/${RouteConstants.accountVerification}',
-      //   name: RouteConstants.accountVerification,
-      //   builder: (context, state) => const Home(),
-      // ),
+      GoRoute(
+        path: '/${RouteConstants.forgotPassword}',
+        name: RouteConstants.forgotPassword,
+        builder: (context, state) => const ForgotPassword(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.codeInput}',
+        name: RouteConstants.codeInput,
+        builder: (context, state) => const CodeInput(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.resetPassword}',
+        name: RouteConstants.resetPassword,
+        builder: (context, state) => const ResetPassword(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.createAccount}',
+        name: RouteConstants.createAccount,
+        builder: (context, state) => const CreateAccount(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.accountVerification}',
+        name: RouteConstants.accountVerification,
+        builder: (context, state) => const VerifyEmail(),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return Home(

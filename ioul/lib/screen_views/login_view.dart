@@ -1,9 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/components/elevated_button_widget.dart';
 import 'package:ioul/components/text_widget.dart';
 import 'package:ioul/components/textfield_widget.dart';
+import 'package:ioul/helpers/helper.dart';
 import 'package:ioul/helpers/widget_helper.dart';
+import 'package:ioul/router/route_constants.dart';
 import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
 import '../screens_controllers/login_controller.dart';
@@ -18,7 +21,7 @@ class LoginView extends StatelessView<Login, LoginController> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.backgroundWhite,
-      appBar: WidgetHelper().appBackArrowOnly(),
+      appBar: WidgetHelper().appBackArrowOnly(context),
       body: WidgetWrapper(
         child: SingleChildScrollView(
           child: SizedBox(
@@ -61,9 +64,14 @@ class LoginView extends StatelessView<Login, LoginController> {
                     ),
                   ),
                   SizedBox(height: 16.h),
-                  TextWidget(
-                    text: "Forgot Password?",
-                    style: Styles.x16dp_4EAFFF_500w(),
+                  InkWell(
+                    onTap: () => NavigatorHelper(context).pushNamedScreen(
+                      RouteConstants.forgotPassword,
+                    ),
+                    child: TextWidget(
+                      text: "Forgot Password?",
+                      style: Styles.x16dp_4EAFFF_500w(),
+                    ),
                   ),
                   SizedBox(height: 147.h),
                   RichText(
@@ -90,6 +98,27 @@ class LoginView extends StatelessView<Login, LoginController> {
                   ElevatedButtonWidget(
                     title: "Log in",
                     onTap: () {},
+                  ),
+                  SizedBox(height: 20.h),
+                  Align(
+                    alignment: Alignment.center,
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Don't have an account? ",
+                        style: Styles.x12dp_090A0A_400w(),
+                        children: [
+                          TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () =>
+                                  NavigatorHelper(context).pushNamedScreen(
+                                    RouteConstants.createAccount,
+                                  ),
+                            text: "Sign up ",
+                            style: Styles.x12dp_4EAFFF_400w(),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),

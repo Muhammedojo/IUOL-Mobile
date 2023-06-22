@@ -48,21 +48,29 @@ class Styles {
         fontWeight: FontWeight.w400,
         fontFamily: "Inter",
       );
-  static x16dp_4EAFFF_500w() => TextStyle(
+  static x16dp_4EAFFF_500w({TextDecoration? decoration}) => TextStyle(
         fontSize: 16.sp,
         color: AppColors.primaryBase,
         fontWeight: FontWeight.w500,
         fontFamily: "Inter",
+        decoration: decoration,
       );
-  static x12dp_4EAFFF_400w() => TextStyle(
+  static x12dp_4EAFFF_400w({TextDecoration? decoration}) => TextStyle(
         fontSize: 12.sp,
         color: AppColors.primaryBase,
         fontWeight: FontWeight.w400,
         fontFamily: "Inter",
+        decoration: decoration,
       );
   static x16dp_0FFFFFF_500w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.backgroundWhite,
+        fontWeight: FontWeight.w500,
+        fontFamily: "Inter",
+      );
+  static x36dp_25435B_500w() => TextStyle(
+        fontSize: 36.sp,
+        color: AppColors.primary,
         fontWeight: FontWeight.w500,
         fontFamily: "Inter",
       );
