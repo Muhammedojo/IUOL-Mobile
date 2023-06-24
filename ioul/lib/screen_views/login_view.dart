@@ -97,7 +97,8 @@ class LoginView extends StatelessView<Login, LoginController> {
                   SizedBox(height: 20.h),
                   ElevatedButtonWidget(
                     title: "Log in",
-                    onTap: () {},
+                    onTap: () => NavigatorHelper(context)
+                        .pushNamedScreen(RouteConstants.admissionPayment),
                   ),
                   SizedBox(height: 20.h),
                   Align(

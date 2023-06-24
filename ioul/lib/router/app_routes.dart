@@ -1,5 +1,7 @@
 import 'package:ioul/router/route_constants.dart';
 import 'package:ioul/screens/screens.dart';
+import 'package:ioul/screens_controllers/admission_payment.dart';
+import 'package:ioul/screens_controllers/application_confirmation.dart';
 import 'package:ioul/screens_controllers/assignment_controller.dart';
 import 'package:ioul/screens_controllers/course_controller.dart';
 import 'package:ioul/screens_controllers/create_account.dart';
@@ -9,6 +11,7 @@ import 'package:ioul/screens_controllers/login_controller.dart';
 import 'package:ioul/screens_controllers/more_controller.dart';
 import 'package:ioul/screens_controllers/report_controller.dart';
 import 'package:ioul/screens_controllers/reset_password.dart';
+import 'package:ioul/screens_controllers/scratch_card.dart';
 import 'package:ioul/screens_controllers/verify_email_controller.dart';
 
 import '../packages/package.dart';
@@ -54,6 +57,21 @@ class AppRouter {
         path: '/${RouteConstants.accountVerification}',
         name: RouteConstants.accountVerification,
         builder: (context, state) => const VerifyEmail(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.admissionPayment}',
+        name: RouteConstants.admissionPayment,
+        builder: (context, state) => const AdmissionPayment(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.scratchCard}',
+        name: RouteConstants.scratchCard,
+        builder: (context, state) => const ScratchCard(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.applicationConfirmation}',
+        name: RouteConstants.applicationConfirmation,
+        builder: (context, state) => const ApplicationConfirmation(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

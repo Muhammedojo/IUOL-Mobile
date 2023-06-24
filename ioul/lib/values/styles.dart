@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'colors.dart';
@@ -48,6 +49,30 @@ class Styles {
         fontWeight: FontWeight.w400,
         fontFamily: "Inter",
       );
+  static x16dp_000000_400w() => TextStyle(
+        fontSize: 16.sp,
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Inter",
+      );
+  static x18dp_000000_400w() => TextStyle(
+        fontSize: 18.sp,
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Inter",
+      );
+  static x16dp_202325_400w() => TextStyle(
+        fontSize: 16.sp,
+        color: AppColors.inkDarker,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Inter",
+      );
+  static x16dp_404446_400w() => TextStyle(
+        fontSize: 16.sp,
+        color: AppColors.inkBase,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Inter",
+      );
   static x16dp_4EAFFF_500w({TextDecoration? decoration}) => TextStyle(
         fontSize: 16.sp,
         color: AppColors.primaryBase,
@@ -72,6 +97,12 @@ class Styles {
         fontSize: 36.sp,
         color: AppColors.primary,
         fontWeight: FontWeight.w500,
+        fontFamily: "Inter",
+      );
+  static x16dp_4EAFFF_400w() => TextStyle(
+        fontSize: 16.sp,
+        color: AppColors.primaryBase,
+        fontWeight: FontWeight.w400,
         fontFamily: "Inter",
       );
 }

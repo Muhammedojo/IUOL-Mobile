@@ -36,7 +36,7 @@ class VerifyEmailView
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   TextWidget(
-                    text: "Verifyh email address",
+                    text: "Verify email address",
                     style: Styles.x24dp_090A0A_700w(),
                   ),
                   SizedBox(height: 171.h),

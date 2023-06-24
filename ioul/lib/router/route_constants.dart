@@ -10,4 +10,7 @@ class RouteConstants {
   static const resetPassword = "reset_password";
   static const createAccount = "create_account";
   static const accountVerification = "account_verification";
+  static const admissionPayment = "admission_payment";
+  static const scratchCard = "scratch_card";
+  static const applicationConfirmation = "application_confirmation";
 }

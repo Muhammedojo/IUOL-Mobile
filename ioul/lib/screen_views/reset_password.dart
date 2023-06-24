@@ -78,7 +78,7 @@ class ResetPasswordView
                   SizedBox(height: 16.h),
                   InkWell(
                     onTap: () => NavigatorHelper(context).pushNamedScreen(
-                      RouteConstants.forgotPassword,
+                      RouteConstants.login,
                     ),
                     child: TextWidget(
                       text: "Return to log in",
