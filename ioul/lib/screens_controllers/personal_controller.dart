@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/rendering.dart';
 import 'package:ioul/values/values.dart';
 
 import '../helpers/helper.dart';
@@ -26,7 +27,8 @@ class Personal extends StatefulWidget {
   PersonalController createState() => PersonalController();
 }
 
-class PersonalController extends State<Personal> {
+class PersonalController extends State<Personal>
+    with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
@@ -52,22 +54,13 @@ class PersonalController extends State<Personal> {
   final TextEditingController passwordConfirmController =
       TextEditingController();
 
-  // double initialProgress = (100 / 7 / 100);
-
-  // setProgress(int value) {
-  //   setState(() {
-  //     GlobalVariables().initialProgress = (100 / 7 * 2 / 100);
-  //   });
-  //   log(GlobalVariables().initialProgress.toString());
-  // }
-
   onNextPressed() {
-    if (widget.selectedIndex! < 6) {
-      setState(() {
-        widget.controller!.animateTo(1);
-        widget.initialProgress!();
-      });
-    }
+    // if (widget.selectedIndex! < 6) {
+    setState(() {
+      widget.controller!.animateTo(1);
+      widget.initialProgress!();
+    });
+    // }
   }
 
   String selectedValue = "";
@@ -86,7 +79,7 @@ class PersonalController extends State<Personal> {
       lastDate: DateTime(2200),
       builder: (context, child) => Theme(
           data: Theme.of(context).copyWith(
-              colorScheme: ColorScheme.light(
+              colorScheme: const ColorScheme.light(
             primary: AppColors.primary,
           )),
           child: child!),
@@ -116,4 +109,8 @@ class PersonalController extends State<Personal> {
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

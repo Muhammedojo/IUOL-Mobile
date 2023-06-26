@@ -26,10 +26,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
 
   Widget _body(BuildContext context) {
     return SingleChildScrollView(
-      // physics: const NeverScrollableScrollPhysics(),
       child: SizedBox(
-        // padding: MediaQuery.of(context).viewInsets,
-        // height: 500.h,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,

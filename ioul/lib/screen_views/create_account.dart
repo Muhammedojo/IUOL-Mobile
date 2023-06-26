@@ -160,8 +160,8 @@ class CreateAccountView
                         ),
                         ElevatedButtonWidget(
                           title: "Submit",
-                          onTap: () => NavigatorHelper(context).pushNamedScreen(
-                              RouteConstants.accountVerification),
+                          onTap: () => NavigatorHelper(context)
+                              .goNamedScreen(RouteConstants.courses),
                         ),
                         SizedBox(height: 20.h),
                         Align(
