@@ -80,9 +80,9 @@ class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,
                   SizedBox(height: 95.h),
                   ElevatedButtonWidget(
                     title: "Proceed",
-                    onTap: () {},
-                    // onTap: () => NavigatorHelper(context)
-                    //     .pushNamedScreen(RouteConstants.codeInput),
+                    // onTap: () {},
+                    onTap: () => NavigatorHelper(context)
+                        .pushNamedScreen(RouteConstants.applicationForm),
                   ),
                 ],
               ),

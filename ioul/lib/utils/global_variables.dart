@@ -9,4 +9,15 @@ class GlobalVariables {
   final shellNavigatorReportKey =
       GlobalKey<NavigatorState>(debugLabel: 'Report');
   final shellNavigatorMoreKey = GlobalKey<NavigatorState>(debugLabel: 'More');
+
+  // double initialProgress = (100 / 7 / 100);
+
+  // double get getInitialProgress => initialProgress;
+
+  // set setInitialProgress(double value) {
+  //   // setState(() {
+  //   initialProgress = getInitialProgress * value;
+  //   // });
+  //   print(initialProgress);
+  // }
 }

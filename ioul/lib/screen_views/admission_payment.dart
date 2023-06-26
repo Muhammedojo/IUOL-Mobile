@@ -12,6 +12,7 @@ import 'package:ioul/packages/package.dart';
 import 'package:ioul/router/route_constants.dart';
 import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
+import '../components/custom_dropdown_widget.dart';
 import '../screens_controllers/admission_payment.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
@@ -67,24 +68,13 @@ class AdmissionPaymentView
                     alignment: Alignment.centerLeft,
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,
-                      child: CustomDropdown(
-                        borderSide: BorderSide(
-                          color: AppColors.inkLight,
-                          width: 1.w,
-                        ),
-                        borderRadius: BorderRadius.circular(8.r),
-                        hintText: 'Select',
-                        items: const [
+                      child: CustomDropdownWidget(
+                        dropdownList: const [
                           'Online Payment (Cards Payment)',
                           'Scratch Card',
                         ],
                         controller: state.dropdownController,
-                        selectedStyle: Styles.x16dp_72777A_400w(),
-                        listItemStyle: Styles.x16dp_000000_400w(),
-                        // fieldSuffixIcon: ,
-                        onChanged: (value) {
-                          state.setSelectedValue(value);
-                        },
+                        onChange: (value) => state.setSelectedValue(value),
                       ),
                     ),
                   ),
@@ -106,3 +96,5 @@ class AdmissionPaymentView
     );
   }
 }
+
+

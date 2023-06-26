@@ -7,16 +7,19 @@ import '../values/styles.dart';
 class TextfieldWidget extends StatelessWidget {
   const TextfieldWidget({
     Key? key,
-    required this.title,
+    this.title,
     this.passwordIcon,
     this.obscureText,
+    this.hint,
+    this.readOnly,
     required this.controller,
   }) : super(key: key);
-  final String title;
+  final String? title;
+  final bool? readOnly;
   final Widget? passwordIcon;
   final TextEditingController controller;
   final bool? obscureText;
-
+  final String? hint;
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +27,18 @@ class TextfieldWidget extends StatelessWidget {
       style: Styles.x16dp_72777A_400w(),
       controller: controller,
       obscureText: obscureText ?? false,
+      readOnly: readOnly ?? false,
       decoration: InputDecoration(
-        
         isCollapsed: true,
+        isDense: true,
         contentPadding: REdgeInsets.all(16),
+        fillColor: AppColors.backgroundWhite,
         filled: true,
         suffixIcon: passwordIcon,
         labelText: title,
+        hintText: hint,
+        hintStyle: Styles.x12dp_72777A_400w(),
         labelStyle: Styles.x12dp_72777A_400w(),
-        fillColor: AppColors.backgroundWhite,
 
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: AppColors.inkLight),

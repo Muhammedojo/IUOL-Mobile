@@ -1,21 +1,29 @@
 import 'package:ioul/router/route_constants.dart';
 import 'package:ioul/screens/screens.dart';
+import 'package:ioul/screens_controllers/address_controller.dart';
 import 'package:ioul/screens_controllers/admission_payment.dart';
 import 'package:ioul/screens_controllers/application_confirmation.dart';
+import 'package:ioul/screens_controllers/application_form_controller.dart';
 import 'package:ioul/screens_controllers/assignment_controller.dart';
+import 'package:ioul/screens_controllers/certificate_view.dart';
+import 'package:ioul/screens_controllers/contact_view.dart';
 import 'package:ioul/screens_controllers/course_controller.dart';
 import 'package:ioul/screens_controllers/create_account.dart';
 import 'package:ioul/screens_controllers/forgot_password_controller.dart';
 import 'package:ioul/screens_controllers/home_controller.dart';
 import 'package:ioul/screens_controllers/login_controller.dart';
 import 'package:ioul/screens_controllers/more_controller.dart';
+import 'package:ioul/screens_controllers/programme_view.dart';
 import 'package:ioul/screens_controllers/report_controller.dart';
 import 'package:ioul/screens_controllers/reset_password.dart';
 import 'package:ioul/screens_controllers/scratch_card.dart';
+import 'package:ioul/screens_controllers/sponsor_view.dart';
+import 'package:ioul/screens_controllers/upload_view.dart';
 import 'package:ioul/screens_controllers/verify_email_controller.dart';
 
 import '../packages/package.dart';
 import '../screens_controllers/code_input_controller.dart';
+import '../screens_controllers/personal_controller.dart';
 import '../utils/global_variables.dart';
 
 class AppRouter {
@@ -72,6 +80,48 @@ class AppRouter {
         path: '/${RouteConstants.applicationConfirmation}',
         name: RouteConstants.applicationConfirmation,
         builder: (context, state) => const ApplicationConfirmation(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.applicationForm}',
+        name: RouteConstants.applicationForm,
+        builder: (context, state) => const ApplicationForm(),
+        routes: [
+          GoRoute(
+            path: RouteConstants.personal,
+            name: RouteConstants.personal,
+            builder: (context, state) => Personal(),
+          ),
+          GoRoute(
+            path: RouteConstants.address,
+            name: RouteConstants.address,
+            builder: (context, state) => const Address(),
+          ),
+          GoRoute(
+            path: RouteConstants.contacts,
+            name: RouteConstants.contacts,
+            builder: (context, state) => const Contact(),
+          ),
+          GoRoute(
+            path: RouteConstants.sponsor,
+            name: RouteConstants.sponsor,
+            builder: (context, state) => const Sponsor(),
+          ),
+          GoRoute(
+            path: RouteConstants.programme,
+            name: RouteConstants.programme,
+            builder: (context, state) => const Programme(),
+          ),
+          GoRoute(
+            path: RouteConstants.certificates,
+            name: RouteConstants.certificates,
+            builder: (context, state) => const Certificate(),
+          ),
+          GoRoute(
+            path: RouteConstants.uploads,
+            name: RouteConstants.uploads,
+            builder: (context, state) => const Upload(),
+          ),
+        ],
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

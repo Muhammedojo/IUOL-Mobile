@@ -9,7 +9,7 @@ class AppColors {
   static const Color primary = Color(0xFF25435B);
   static const Color lightGrey = Color.fromRGBO(227, 229, 229, 1);
   static const Color textLight = Color(0xff303437);
-  static const Color skyLightest = Color.fromRGBO(247, 249, 250, 1);
+  static const Color skyLightest = Color(0xFFF7F9FA);
   static const Color inkDarkest = Color(0xff090A0A);
   static const Color inkDarker = Color(0xff202325);
   static const Color inkLighter = Color(0xff72777A);
@@ -18,4 +18,5 @@ class AppColors {
   static const Color primaryLightest = Color(0xffE7F4FF);
   static const Color skyLighter = Color(0xffF2F4F5);
   static const Color inkBase = Color(0xff404446);
+  // static const Color inkBase = Color(0xff404446);
 }
