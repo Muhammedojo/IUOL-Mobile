@@ -12,230 +12,184 @@ class HomeView extends StatelessView<Home, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.backgroundWhite,
-        appBar: AppBar(
-            backgroundColor: const Color(0xff25435B),
-            centerTitle: true,
-            title: const Text(
-              'Enrolled Courses',
-            )),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            moreActions(context);
-          },
+      backgroundColor: AppColors.backgroundWhite,
+      floatingActionButton: InkWell(
+        radius: 100.r,
+        splashColor: Colors.transparent,
+        onTap: () {},
+        child: Container(
+          width: 68.w,
+          height: 68.h,
+          decoration: BoxDecoration(
+            color: AppColors.primary,
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.shade500,
+                  blurRadius: 2.r,
+                  spreadRadius: 1.r)
+            ],
+          ),
+          child: SvgPicture.asset(
+            "assets/images/course.svg",
+            fit: BoxFit.none,
+            width: 32.w,
+          ),
         ),
-        body: WidgetWrapper(child: _body(context)));
-  }
-
-  Widget _body(context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: REdgeInsets.all(10.0),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          SizedBox(
-            height: 20.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          Row(
-            children: [
-              const Expanded(
-                child: CardWidget(
-                  title: 'Enrolled Course',
-                  number: '12',
-                  onTap: null,
-                ),
-              ),
-              SizedBox(
-                width: 10.w,
-              ),
-              const Expanded(
-                child: CardWidget(
-                  title: 'Resources',
-                  number: '18',
-                  onTap: null,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 10.h,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const Expanded(
-                child: CardWidget(
-                  title: 'Assignment',
-                  number: '4',
-                  onTap: null,
-                ),
-              ),
-              SizedBox(
-                width: 10.w,
-              ),
-              const Expanded(child: SizedBox()),
-            ],
-          ),
-          SizedBox(
-            height: 10.h,
-          ),
-          SizedBox(
-            height: 80.h,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                const RecentClassWidget(
-                  title: 'Introduction to Arabic Language I',
-                  code: 'ARB 111',
-                  onTap: null,
-                ),
-                SizedBox(
-                  width: 15.w,
-                ),
-                const RecentClassWidget(
-                  title: 'Introduction to Chemistry',
-                  code: 'CHM 141',
-                  onTap: null,
-                ),
-                SizedBox(
-                  width: 15.w,
-                ),
-                const RecentClassWidget(
-                  title: 'General Studies',
-                  code: 'GNS 101',
-                  onTap: null,
-                ),
-                SizedBox(
-                  width: 15.w,
-                ),
-                const RecentClassWidget(
-                  title: 'MAthematics',
-                  code: 'MTH 111',
-                  onTap: null,
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10.h,
-          ),
-          Row(
-            mainAxisAlignment:MainAxisAlignment.center,
-            children: [
-              Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.r),
-                      color: Colors.grey.withOpacity(0.1),
-                      border:
-                      Border.all(color: Colors.transparent, width: 1)),
-                  child: ToggleSwitch(
-                    minHeight: 30.h,
-                    minWidth: 120.0.w,
-                    cornerRadius: 5.0.r,
-                    fontSize: 14.0.sp,
-                    activeBgColors: const [
-                      [Color(0xff25435B)],
-                      [Color(0xff25435B)],
-                    ],
-                    activeFgColor:Colors.white,
-                    customTextStyles:[TextStyle(
-                      fontSize: 12.sp
-                    )],
-                    inactiveBgColor: Colors.transparent,
-                    inactiveFgColor:Colors.black,
-                    initialLabelIndex: state.selectedPage,
-                    totalSwitches: 2,
-                    labels: const [
-                      'Overview',
-                      'Resources'
-                    ],
-
-                    radiusStyle: true,
-                    onToggle: (index) {
-                      state.onChipSelected(index!);
-                    },
-                  )),
-            ],
-          ),
-
-          SizedBox(
-            height: 10.h,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              ResourcesWidget(
-                onTap: null,
-                type: 'Document',
-                number: '12',
-                color: Color(0xffFFD188),
-                image: 'assets/images/documents.svg',
-              ),
-              ResourcesWidget(
-                onTap: null,
-                type: 'Videos',
-                number: '12',
-                color: Color(0xffC4E4FF),
-                image: 'assets/images/videos.svg',
-              ),
-              ResourcesWidget(
-                onTap: null,
-                type: 'Audios',
-                number: '12',
-                color: Color(0xff7DDE86),
-                image: 'assets/images/audios.svg',
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 10.h,
-          ),
-          const DocumentResourcesWidget(
-              image: 'assets/images/pdf.svg', onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const CourseInfoWidget(
-            onTap: null,
-          ),
-          SizedBox(
-            height: 10.h,
-          ),
-          const DocumentResourcesWidget(
-              image: 'assets/images/audio_doc.svg', onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const DocumentResourcesWidget(
-              image: 'assets/images/pdf.svg', onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const DocumentResourcesWidget(
-              image: 'assets/images/audio_doc.svg', onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const DocumentResourcesWidget(
-              image: 'assets/images/pdf.svg', onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const DocumentResourcesWidget(
-              image: 'assets/images/audio_doc.svg', onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const DocumentResourcesWidget(
-              image: 'assets/images/pdf.svg', onTap: null),
-        ]),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        padding: EdgeInsets.zero,
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 8,
+        height: 80.h,
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width / 2 - 34.w,
+              padding: REdgeInsets.only(left: 25, right: 35),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () => state.setCurrentIndex(0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Opacity(
+                          opacity:
+                              state.widget.navigationShell.currentIndex != 0
+                                  ? 0.7
+                                  : 1,
+                          child: SvgPicture.asset(
+                            // state.widget.navigationShell.currentIndex == 0
+                            //     ? "assets/svgs/home_active.svg"
+                            "assets/images/course.svg",
+                            fit: BoxFit.cover,
+                            width: 20.w,
+                          ),
+                        ),
+                        SizedBox(height: 8.h),
+                        Text(
+                          "Course",
+                          style: TextStyle(
+                              fontSize: 8.sp, color: AppColors.primaryBlue),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => state.setCurrentIndex(1),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Opacity(
+                          opacity:
+                              state.widget.navigationShell.currentIndex != 1
+                                  ? 0.7
+                                  : 1,
+                          child: SvgPicture.asset(
+                            // state.widget.navigationShell.currentIndex == 1
+                            //     ? "assets/svgs/winner_active.svg"
+                            "assets/images/assignment.svg",
+                            fit: BoxFit.cover,
+                            width: 20.w,
+                          ),
+                        ),
+                        SizedBox(height: 8.h),
+                        Text(
+                          "Assignment",
+                          style: TextStyle(
+                              fontSize: 8.sp, color: AppColors.primaryBlue),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width / 2 - 34.w,
+              padding: REdgeInsets.only(right: 25, left: 35),
+              // color: Colors.amber,
+              // height: 120,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  GestureDetector(
+                    onTap: () => state.setCurrentIndex(2),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Opacity(
+                          opacity:
+                              state.widget.navigationShell.currentIndex != 2
+                                  ? 0.7
+                                  : 1,
+                          child: SvgPicture.asset(
+                            // state.widget.navigationShell.currentIndex == 2
+                            //     ? "assets/svgs/wallet_active.svg"
+                            "assets/images/report.svg",
+                            fit: BoxFit.cover,
+                            width: 20.w,
+                          ),
+                        ),
+                        SizedBox(height: 8.h),
+                        Text(
+                          "Report",
+                          style: TextStyle(
+                              fontSize: 8.sp, color: AppColors.primaryBlue),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => moreActions(context),
+                        //state.setCurrentIndex(3),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Opacity(
+                          opacity:
+                              state.widget.navigationShell.currentIndex != 3
+                                  ? 0.7
+                                  : 1,
+                          child: SvgPicture.asset(
+                            // state.widget.navigationShell.currentIndex == 3
+                            //     ? "assets/svgs/profile_active.svg"
+                            "assets/images/more_active.svg",
+                            fit: BoxFit.cover,
+                            width: 20.w,
+                          ),
+                        ),
+                        SizedBox(height: 8.h),
+                        Text(
+                          "More",
+                          style: TextStyle(
+                              fontSize: 8.sp, color: AppColors.primaryBlue),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: state.widget.navigationShell,
     );
   }
-
   moreActions(context) {
     showModalBottomSheet(
         context: context,
@@ -243,17 +197,17 @@ class HomeView extends StatelessView<Home, HomeController> {
         builder: (context) {
           return Container(
             decoration: BoxDecoration(
-                // border: Border.all(color: Color(0xffD1D5DB)),
+              // border: Border.all(color: Color(0xffD1D5DB)),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16.r),
                     topRight: Radius.circular(16.r)),
                 color: const Color(0xff25435B)),
             child: Padding(
-              padding: REdgeInsets.symmetric(vertical: 18.0),
+              padding: REdgeInsets.only(top: 18.0),
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    // border: Border.all(color: Color(0xffD1D5DB)),
+                  // border: Border.all(color: Color(0xffD1D5DB)),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(16.r),
                         topRight: Radius.circular(16.r)),
@@ -363,7 +317,9 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     height: 10,
                                     color: Colors.black,
                                   ),
-                                  SizedBox(width: 5.w,),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
                                   Text(
                                     'Extension',
                                     style: TextStyle(
@@ -398,9 +354,92 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   SizedBox(
                                     width: 20.w,
                                   ),
-                                  SvgPicture.asset('assets/images/test_rest.svg',
+                                  SvgPicture.asset(
+                                      'assets/images/test_rest.svg',
                                       fit: BoxFit.scaleDown)
                                 ],
+                              ),
+                              Row(
+                                children: [
+                                  const Divider(
+                                    color: Colors.red,
+                                  ),
+                                  Text(
+                                    'Course',
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: const Color(0xff202325)),
+                                  ),
+                                  const Divider(
+                                    color: Colors.red,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 16.h,
+                              ),
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/images/reg.svg',
+                                    fit: BoxFit.scaleDown,
+                                  ),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
+                                  SvgPicture.asset('assets/images/add.svg',
+                                      fit: BoxFit.scaleDown),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
+                                  SvgPicture.asset('assets/images/res.svg',
+                                      fit: BoxFit.scaleDown)
+                                ],
+                              ),
+                              SizedBox(
+                                height: 35.h,
+                              ),
+                              Row(
+                                children: [
+                                  const Divider(
+                                    color: Colors.red,
+                                  ),
+                                  Text(
+                                    'Course',
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: const Color(0xff202325)),
+                                  ),
+                                  const Divider(
+                                    color: Colors.red,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 16.h,
+                              ),
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/images/reg.svg',
+                                    fit: BoxFit.scaleDown,
+                                  ),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
+                                  SvgPicture.asset('assets/images/add.svg',
+                                      fit: BoxFit.scaleDown),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
+                                  SvgPicture.asset('assets/images/res.svg',
+                                      fit: BoxFit.scaleDown)
+                                ],
+                              ),
+                              SizedBox(
+                                height: 35.h,
                               ),
                               SizedBox(
                                 height: 35.h,
