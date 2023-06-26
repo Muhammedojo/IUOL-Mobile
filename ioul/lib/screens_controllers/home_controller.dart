@@ -47,10 +47,6 @@ class HomeController extends State<Home> {
     NavigatorHelper(context).closeScreen();
   }
 
-  onChipSelected(int index) {
-    setState(() {
-      selectedPage = index;
-    });
-  }
+
 
 }

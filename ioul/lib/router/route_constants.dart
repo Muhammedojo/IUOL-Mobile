@@ -21,4 +21,5 @@ class RouteConstants {
   static const programme = "programme";
   static const certificates = "certificate";
   static const uploads = "uploads";
+  static const courseDetailOverview = "course_detail_overview";
 }

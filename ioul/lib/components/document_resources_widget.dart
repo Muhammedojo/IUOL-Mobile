@@ -3,7 +3,7 @@ import '../packages/package.dart';
 
 class DocumentResourcesWidget extends StatelessWidget {
   final String? image;
-  final Function? onTap;
+  final Function()? onTap;
 
   const DocumentResourcesWidget({
     Key? key,
@@ -14,7 +14,7 @@ class DocumentResourcesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,

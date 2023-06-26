@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
 class EnrolledCourseWidget extends StatelessWidget {
-  final Function? onTap;
-  const EnrolledCourseWidget({
-    Key? key,
-    required this.onTap
-  }) : super(key: key);
+  final Function()? onTap;
+  const EnrolledCourseWidget({Key? key, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:() => onTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,

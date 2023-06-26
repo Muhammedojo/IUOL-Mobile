@@ -6,7 +6,7 @@ class ResourcesWidget extends StatelessWidget {
   final String? number;
   final Color? color;
   final String? image;
-  final Function? onTap;
+  final Function()? onTap;
 
   const ResourcesWidget({
     Key? key,
@@ -20,7 +20,7 @@ class ResourcesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: color,

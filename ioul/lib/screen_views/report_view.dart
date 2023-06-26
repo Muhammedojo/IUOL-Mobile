@@ -7,8 +7,7 @@ import '../values/values.dart';
 import 'stateless_view.dart';
 
 class ReportView extends StatelessView<Report, ReportController> {
-  const ReportView(ReportController state, {Key? key})
-      : super(state, key: key);
+  const ReportView(ReportController state, {Key? key}) : super(state, key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +17,15 @@ class ReportView extends StatelessView<Report, ReportController> {
             backgroundColor: const Color(0xff25435B),
             centerTitle: true,
             bottom: PreferredSize(
-                preferredSize:Size.fromHeight(40.0.h),
-                child: const SizedBox()
-            ),
-            title:  Text(
-              '2023 Spring Semester Report',style: TextStyle(fontSize: 18.sp,
-                fontWeight: FontWeight.w700),
+                preferredSize: Size.fromHeight(40.0.h),
+                child: const SizedBox()),
+            title: Text(
+              '2023 Spring Semester Report',
+              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
             )),
         body: _body(context));
   }
+
   Widget _body(context) {
     return SingleChildScrollView(
       child: Padding(
@@ -36,25 +35,42 @@ class ReportView extends StatelessView<Report, ReportController> {
             height: 20.h,
           ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           const EnrolledCourseWidget(onTap: null),
-
         ]),
       ),
     );

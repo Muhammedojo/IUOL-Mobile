@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/widget_helper.dart';
 import 'package:ioul/screens_controllers/address_controller.dart';
 import 'package:ioul/screens_controllers/certificate_view.dart';
-import 'package:ioul/screens_controllers/contact_view.dart';
+import 'package:ioul/screens_controllers/contact_controller.dart';
 import 'package:ioul/screens_controllers/programme_view.dart';
 import 'package:ioul/screens_controllers/sponsor_view.dart';
 import 'package:ioul/screens_controllers/upload_view.dart';
