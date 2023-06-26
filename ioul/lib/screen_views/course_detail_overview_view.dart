@@ -45,10 +45,10 @@ class CourseOverviewView
                     color: Colors.grey.withOpacity(0.1),
                     border: Border.all(color: Colors.transparent, width: 1)),
                 child: ToggleSwitch(
-                  minHeight: 30.h,
+                  minHeight: 40.h,
                   minWidth: 120.0.w,
-                  cornerRadius: 5.0.r,
-                  fontSize: 14.0.sp,
+                  cornerRadius: 7.0.r,
+                  fontSize: 16.0.sp,
                   activeBgColors: const [
                     [Color(0xff25435B)],
                     [Color(0xff25435B)],
@@ -178,11 +178,37 @@ class CourseOverviewView
                                 children: [
                                   Padding(
                                     padding:REdgeInsets.symmetric(horizontal: 10.0,vertical: 5),
-                                    child: Text(
-                                      '''The aim and objective of this course is computer literacy. Information Technology is the frontier hero of the new century,driven by ambition and full courage, replicating itself like a virus and sweping all before it, So in order not to be marginalized ''',
-                                      textAlign: TextAlign.justify,
-                                      style: TextStyle(color: const Color(0xff000000), fontSize: 15.sp,
-                                        fontWeight: FontWeight.w400,),
+                                    child: Container(
+                                      alignment: Alignment.centerLeft,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                       // mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text('Module 1',
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(color: const Color(0xff000000), fontSize: 16.sp,
+                                            fontWeight: FontWeight.w700,),),
+                                          SizedBox(height: 3.h,),
+                                          Text('Unit 1 What is Computer',style: TextStyle(color: const Color(0xff000000), fontSize: 15.sp,
+                                            fontWeight: FontWeight.w400,)),
+                                          Text('Unit 2 Element of Computer: Hardware',style: TextStyle(color: const Color(0xff000000), fontSize: 15.sp,
+                                            fontWeight: FontWeight.w400,)),
+                                          Text('Unit 3 Element of Computer: Software',style: TextStyle(color: const Color(0xff000000), fontSize: 15.sp,
+                                            fontWeight: FontWeight.w400,)),
+                                          SizedBox(height: 10.h,),
+                                          Text('Module 2',
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(color: const Color(0xff000000), fontSize: 16.sp,
+                                              fontWeight: FontWeight.w700,),),
+                                          SizedBox(height: 3.h,),
+                                          Text('Unit 1 What is Computer',style: TextStyle(color: const Color(0xff000000), fontSize: 15.sp,
+                                            fontWeight: FontWeight.w400,)),
+                                          Text('Unit 2 Element of Computer: Hardware',style: TextStyle(color: const Color(0xff000000), fontSize: 15.sp,
+                                            fontWeight: FontWeight.w400,)),
+                                          Text('Unit 3 Element of Computer: Software',style: TextStyle(color: const Color(0xff000000), fontSize: 15.sp,
+                                            fontWeight: FontWeight.w400,)),
+                                        ],
+                                      ),
                                     ),
                                   )
                                 ],
