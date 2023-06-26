@@ -129,6 +129,7 @@ class CreateAccountView
                         ),
                         SizedBox(height: 176.h),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Checkbox(
                               activeColor: AppColors.primary,
