@@ -251,9 +251,11 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                 ],
                               ),
+                              const Divider(color: Color(0xff0f0f0f),),
                               SizedBox(
                                 height: 16.h,
                               ),
+
                               Row(
                                 children: [
                                   SvgPicture.asset(
@@ -292,6 +294,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                 ],
                               ),
+                              const Divider(color: Color(0xff0f0f0f),),
                               SizedBox(
                                 height: 16.h,
                               ),
@@ -331,7 +334,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     color: Colors.red,
                                   ),
                                 ],
-                              ),
+                              ),const Divider(color: Color(0xff0f0f0f),),
                               SizedBox(
                                 height: 16.h,
                               ),
@@ -358,6 +361,8 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       'assets/images/test_rest.svg',
                                       fit: BoxFit.scaleDown)
                                 ],
+                              ),SizedBox(
+                                height: 35.h,
                               ),
                               Row(
                                 children: [
@@ -376,6 +381,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                 ],
                               ),
+                              const Divider(color: Color(0xff0f0f0f),),
                               SizedBox(
                                 height: 16.h,
                               ),
@@ -417,6 +423,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                 ],
                               ),
+                              const Divider(color: Color(0xff0f0f0f),),
                               SizedBox(
                                 height: 16.h,
                               ),
@@ -437,9 +444,6 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   SvgPicture.asset('assets/images/res.svg',
                                       fit: BoxFit.scaleDown)
                                 ],
-                              ),
-                              SizedBox(
-                                height: 35.h,
                               ),
                               SizedBox(
                                 height: 35.h,

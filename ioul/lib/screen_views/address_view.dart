@@ -1,12 +1,8 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ioul/components/elevated_button_widget.dart';
-import 'package:ioul/helpers/widget_helper.dart';
-import 'package:ioul/values/styles.dart';
+import '../values/values.dart';
 import '../components/components.dart';
+import '../screens/screens.dart';
+import '../packages/package.dart';
 import '../screens_controllers/address_controller.dart';
-import '../screens_controllers/application_form_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 

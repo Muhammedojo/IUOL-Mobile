@@ -18,3 +18,4 @@ export '../screens_controllers/report_controller.dart';
 export '../screens_controllers/login_controller.dart';
 export '../screens_controllers/personal_controller.dart';
 export '../screens_controllers/forgot_password_controller.dart';
+export '../screens_controllers/notification_controller.dart';
