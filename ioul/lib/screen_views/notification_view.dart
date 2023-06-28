@@ -27,7 +27,7 @@ class NotificationView extends StatelessView<Notification, NotificationControlle
           padding: REdgeInsets.symmetric(horizontal: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
 
             ],
