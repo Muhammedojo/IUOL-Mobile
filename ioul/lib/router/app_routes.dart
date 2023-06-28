@@ -126,10 +126,15 @@ class AppRouter {
                   child: Course(),
                 ),
                 routes:  [
+                  // GoRoute(
+                  //   path: RouteConstants.courseDetailOverview,
+                  //   name: RouteConstants.courseDetailOverview,
+                  //   builder: (context, state) => const CourseOverview(),
+                  // ),
                   GoRoute(
-                    path: RouteConstants.courseDetailOverview,
-                    name: RouteConstants.courseDetailOverview,
-                    builder: (context, state) => const CourseOverview(),
+                    path: RouteConstants.documentResources,
+                    name: RouteConstants.documentResources,
+                    builder: (context, state) => const DocumentResources(),
                   ),
                 ],
               ),

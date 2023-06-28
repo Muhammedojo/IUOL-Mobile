@@ -2,17 +2,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/widget_helper.dart';
-import 'package:ioul/screens_controllers/address_controller.dart';
-import 'package:ioul/screens_controllers/certificate_view.dart';
-import 'package:ioul/screens_controllers/contact_controller.dart';
 import 'package:ioul/screens_controllers/programme_view.dart';
 import 'package:ioul/screens_controllers/sponsor_view.dart';
 import 'package:ioul/screens_controllers/upload_view.dart';
-import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
-import '../screens_controllers/application_form_controller.dart';
-import '../screens_controllers/personal_controller.dart';
 import '../values/values.dart';
+import '../helpers/helper.dart';
+import '../screens/screens.dart';
 import 'stateless_view.dart';
 
 class ApplicationFormView

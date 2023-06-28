@@ -22,4 +22,7 @@ class RouteConstants {
   static const certificates = "certificate";
   static const uploads = "uploads";
   static const courseDetailOverview = "course_detail_overview";
+  static const documentResources = "document_resources";
+  static const audioResources = "audio_resources";
+  static const videoResources = "video_resources";
 }

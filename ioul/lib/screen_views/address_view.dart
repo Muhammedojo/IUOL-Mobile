@@ -15,7 +15,7 @@ class AddressView extends StatelessView<Address, AddressController> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.transparent,
-      body: _body(context),
+      body: WidgetWrapper(child: _body(context)),
     );
   }
 

@@ -27,7 +27,7 @@ class CourseView extends StatelessView<Course, CourseController> {
               'Enrolled Courses',style: TextStyle(fontSize: 18.sp,
               fontWeight: FontWeight.w700),
             )),
-        body: _body(context));
+        body: WidgetWrapper(child: _body(context)));
   }
 
    Widget _body(context) {
@@ -39,7 +39,7 @@ class CourseView extends StatelessView<Course, CourseController> {
             height: 20.h,
           ),
            EnrolledCourseWidget(onTap:() => NavigatorHelper(context).pushNamedScreen(
-            RouteConstants.courseDetailOverview,
+            RouteConstants.documentResources,
           )),
           SizedBox(height: 10.h,),
           const EnrolledCourseWidget(onTap: null),
