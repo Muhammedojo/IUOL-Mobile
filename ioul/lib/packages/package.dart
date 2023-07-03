@@ -7,3 +7,4 @@ export 'package:go_router/go_router.dart';
 export 'package:flutter/gestures.dart';
 export 'package:flutter/material.dart';
 export 'package:chips_choice/chips_choice.dart';
+export 'package:flutter_windowmanager/flutter_windowmanager.dart';
