@@ -67,6 +67,12 @@ class Styles {
         fontWeight: FontWeight.w500,
         fontFamily: "Inter",
       );
+  static x18dp_202325_500g() => TextStyle(
+    fontSize: 18.sp,
+    color: AppColors.backgroundWhite,
+    fontWeight: FontWeight.w500,
+    fontFamily: "Inter",
+  );
   static x16dp_202325_400w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.inkDarker,

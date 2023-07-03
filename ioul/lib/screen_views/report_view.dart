@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
@@ -43,34 +42,7 @@ class ReportView extends StatelessView<Report, ReportController> {
             height: 10.h,
           ),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
+
         ]),
       ),
     );

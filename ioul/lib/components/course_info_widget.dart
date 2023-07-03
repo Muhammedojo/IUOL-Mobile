@@ -35,6 +35,7 @@ class CourseInfoWidget extends StatelessWidget {
                     'ARB 111 - Introduction to Arabic Language',
                     style: TextStyle(
                         fontSize: 14.sp,
+                        fontFamily: 'Inter',
                         fontWeight: FontWeight.w800,
                         color: const Color(0xff000000)),
                   )
@@ -68,6 +69,7 @@ class CourseInfoWidget extends StatelessWidget {
                             '1st Semester',
                             style: TextStyle(
                                 fontSize: 15.sp,
+                                fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )
@@ -86,6 +88,7 @@ class CourseInfoWidget extends StatelessWidget {
                             '4 Resources',
                             style: TextStyle(
                                 fontSize: 15.sp,
+                                fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )
@@ -109,6 +112,7 @@ class CourseInfoWidget extends StatelessWidget {
                             '2 Assignments',
                             style: TextStyle(
                                 fontSize: 15.sp,
+                                fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )
@@ -127,6 +131,7 @@ class CourseInfoWidget extends StatelessWidget {
                             '2 Reports',
                             style: TextStyle(
                                 fontSize: 15.sp,
+                                fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )

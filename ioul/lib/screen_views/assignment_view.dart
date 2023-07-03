@@ -21,7 +21,7 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
                 child: const SizedBox()
             ),
             title:  Text(
-              '2023 Spring Semester Assignment',style: TextStyle(fontSize: 18.sp,
+              '2023 Spring Semester Assignment',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
                 fontWeight: FontWeight.w700),
             )),
         body: _body(context));
@@ -34,16 +34,6 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
           SizedBox(
             height: 20.h,
           ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
           const EnrolledCourseWidget(onTap: null),
           SizedBox(height: 10.h,),
           const EnrolledCourseWidget(onTap: null),

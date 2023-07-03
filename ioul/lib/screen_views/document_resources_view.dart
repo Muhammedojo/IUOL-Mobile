@@ -1,3 +1,5 @@
+import 'package:ioul/helpers/helper.dart';
+
 import '../components/components.dart';
 import '../packages/package.dart';
 import '../screens/screens.dart';
@@ -14,16 +16,9 @@ class DocumentResourcesView
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
-        appBar: AppBar(
-            backgroundColor: const Color(0xff25435B),
-            centerTitle: true,
-            bottom: PreferredSize(
-                preferredSize: Size.fromHeight(40.0.h),
-                child: const SizedBox()),
-            title: Text(
-              'ARB 111 - Document Resources',
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
-            )),
+        appBar: WidgetHelper().appBackArrowWithTitleAndTabBar(context,
+            title: 'ARB 111 - Document Resources',
+            bottomWidget: const SizedBox()),
         body: WidgetWrapper(child: _body()));
   }
 
@@ -65,10 +60,8 @@ class DocumentResourcesView
                   state.selectedPeriod == 0
                       ? WidgetWrapper(child: _firstPeriod())
                       : (state.selectedPeriod == 1
-                          ? WidgetWrapper(
-                              child: _secondPeriod())
-                          : WidgetWrapper(
-                              child: _thirdPeriod()))
+                          ? WidgetWrapper(child: _secondPeriod())
+                          : WidgetWrapper(child: _thirdPeriod()))
                 ],
               ),
             ),
@@ -80,21 +73,20 @@ class DocumentResourcesView
 
   Widget _firstPeriod() {
     return Column(
-      children:  [
+      children: [
         //AudioResourcesWidget( onTap: (){}),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
-
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
       ],
     );
   }
@@ -103,15 +95,17 @@ class DocumentResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg',),
+        DocumentResourcesWidget(
+          onTap: () {},
+          image: 'assets/images/pdf.svg',
+        ),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
         SizedBox(
           height: 10.h,
         ),
-
       ],
     );
   }
@@ -120,28 +114,27 @@ class DocumentResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/pdf.svg'),
-
+        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
       ],
     );
   }

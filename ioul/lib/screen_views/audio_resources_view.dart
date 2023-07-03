@@ -1,13 +1,13 @@
 import '../components/components.dart';
 import '../packages/package.dart';
 import '../screens/screens.dart';
-import '../screens_controllers/document_resources_controller.dart';
+import '../screens_controllers/audio_resources_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 
 class AudioResourcesView
-    extends StatelessView<DocumentResources, DocumentResourcesController> {
-  const AudioResourcesView(DocumentResourcesController state, {Key? key})
+    extends StatelessView<AudioResources, AudioResourcesController> {
+  const AudioResourcesView(AudioResourcesController state, {Key? key})
       : super(state, key: key);
 
   @override

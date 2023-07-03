@@ -60,13 +60,13 @@ class WidgetHelper {
   AppBar appBackArrowWithTitleAndTabBar(BuildContext context,
       {required String title, required Widget bottomWidget}) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: const Color(0xff25435B),
       iconTheme: const IconThemeData(color: Colors.black),
       elevation: 0,
       leadingWidth: 45.w,
       title: TextWidget(
         text: title,
-        style: Styles.x18dp_202325_500w(),
+        style: Styles.x18dp_202325_500g(),
       ),
       // centerTitle: false,
       leading: InkWell(

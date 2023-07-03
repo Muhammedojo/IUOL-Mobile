@@ -44,6 +44,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       'Introduction to Arabic Language',
                       style: TextStyle(
                           fontSize: 14.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     ),
@@ -54,6 +55,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       'ARB 111',
                       style: TextStyle(
                           fontSize: 13.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     ),
@@ -64,6 +66,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       'Unit: 4',
                       style: TextStyle(
                           fontSize: 12.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     )

@@ -25,4 +25,5 @@ class RouteConstants {
   static const documentResources = "document_resources";
   static const audioResources = "audio_resources";
   static const videoResources = "video_resources";
+  static const assignmentPreview = "assignment_preview";
 }

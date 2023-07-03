@@ -41,6 +41,7 @@ class CardWidget extends StatelessWidget {
                     child: Text('$number',style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
+                      fontFamily: 'Inter',
                       color: const Color(0xff25435B),
                     ),),
                   ),
@@ -54,6 +55,7 @@ class CardWidget extends StatelessWidget {
                       '$title',
                       style: TextStyle(
                         fontSize: 14.sp,
+                        fontFamily: 'Inter',
                         fontWeight: FontWeight.w500,
                         color: const Color(0xff000000),
                       ),

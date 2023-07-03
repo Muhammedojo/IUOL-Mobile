@@ -50,6 +50,7 @@ class DocumentResourcesWidget extends StatelessWidget {
                       'Module One Test 1 (Part 1) ',
                       style: TextStyle(
                           fontSize: 14.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
                           color: const Color(0xff202325)),
                     ),
@@ -60,6 +61,7 @@ class DocumentResourcesWidget extends StatelessWidget {
                       'Introduction to Arabic Language',
                       style: TextStyle(
                           fontSize: 14.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
                           color: const Color(0xff202325)),
                     ),

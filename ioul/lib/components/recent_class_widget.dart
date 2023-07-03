@@ -35,6 +35,7 @@ class RecentClassWidget extends StatelessWidget {
                       '$code',
                       style: TextStyle(
                         fontSize: 16.sp,
+                        fontFamily: 'Inter',
                         fontWeight: FontWeight.w700,
                         color: const Color(0xff202325),
                       ),
@@ -50,6 +51,7 @@ class RecentClassWidget extends StatelessWidget {
                       '$title',
                       style: TextStyle(
                         fontSize: 16.sp,
+                        fontFamily: 'Inter',
                         fontWeight: FontWeight.w700,
                         color: const Color(0xff202325),
                       ),

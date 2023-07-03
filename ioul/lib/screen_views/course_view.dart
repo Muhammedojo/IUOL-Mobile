@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../router/router.dart';
@@ -39,7 +38,7 @@ class CourseView extends StatelessView<Course, CourseController> {
             height: 20.h,
           ),
            EnrolledCourseWidget(onTap:() => NavigatorHelper(context).pushNamedScreen(
-            RouteConstants.documentResources,
+            RouteConstants.assignmentPreview,
           )),
           SizedBox(height: 10.h,),
           const EnrolledCourseWidget(onTap: null),
@@ -49,17 +48,6 @@ class CourseView extends StatelessView<Course, CourseController> {
           const EnrolledCourseWidget(onTap: null),
           SizedBox(height: 10.h,),
           const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-
         ]),
       ),
     );

@@ -131,11 +131,17 @@ class AppRouter {
                   //   name: RouteConstants.courseDetailOverview,
                   //   builder: (context, state) => const CourseOverview(),
                   // ),
+
                   GoRoute(
-                    path: RouteConstants.documentResources,
-                    name: RouteConstants.documentResources,
-                    builder: (context, state) => const DocumentResources(),
+                    path: RouteConstants.assignmentPreview,
+                    name: RouteConstants.assignmentPreview,
+                    builder: (context, state) => const AssignmentPreview(),
                   ),
+                  // GoRoute(
+                  //   path: RouteConstants.documentResources,
+                  //   name: RouteConstants.documentResources,
+                  //   builder: (context, state) => const DocumentResources(),
+                  // ),
                 ],
               ),
             ],

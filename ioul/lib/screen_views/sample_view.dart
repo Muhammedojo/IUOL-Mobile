@@ -11,7 +11,7 @@ class BlankView extends StatelessView<Blank, BlankController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor:const Color(0xffffffff),
+        backgroundColor: AppColors.backgroundWhite,
         body: WidgetWrapper(child:_body())
     );
   }
