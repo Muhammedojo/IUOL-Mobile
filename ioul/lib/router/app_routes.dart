@@ -138,6 +138,11 @@ class AppRouter {
                     builder: (context, state) => const AssignmentPreview(),
                   ),
                   // GoRoute(
+                  //   path: RouteConstants.reportPreview,
+                  //   name: RouteConstants.reportPreview,
+                  //   builder: (context, state) => const ReportPreview(),
+                  // ),
+                  // GoRoute(
                   //   path: RouteConstants.documentResources,
                   //   name: RouteConstants.documentResources,
                   //   builder: (context, state) => const DocumentResources(),

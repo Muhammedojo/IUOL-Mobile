@@ -38,5 +38,4 @@ class TakeTestController extends State<TakeTest> {
   Future<void> secureScreen() async {
     await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   }
-
 }
