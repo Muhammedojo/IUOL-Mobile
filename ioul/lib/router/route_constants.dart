@@ -27,4 +27,5 @@ class RouteConstants {
   static const videoResources = "video_resources";
   static const assignmentPreview = "assignment_preview";
   static const reportPreview = "report_preview";
+  static const dashboard = "dashboard";
 }

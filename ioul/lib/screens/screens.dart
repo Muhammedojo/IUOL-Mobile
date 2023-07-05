@@ -25,3 +25,4 @@ export '../screens_controllers/document_resources_controller.dart';
 export '../screens_controllers/video_resources_controller.dart';
 export '../screens_controllers/take_test_controller.dart';
 export '../screens_controllers/report_preview_controller.dart';
+export '../screens_controllers/dashboard_controller.dart';

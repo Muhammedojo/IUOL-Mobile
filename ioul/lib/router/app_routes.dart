@@ -133,10 +133,15 @@ class AppRouter {
                   // ),
 
                   GoRoute(
-                    path: RouteConstants.assignmentPreview,
-                    name: RouteConstants.assignmentPreview,
-                    builder: (context, state) => const AssignmentPreview(),
+                    path: RouteConstants.dashboard,
+                    name: RouteConstants.dashboard,
+                    builder: (context, state) => const Dashboard(),
                   ),
+                  // GoRoute(
+                  //   path: RouteConstants.assignmentPreview,
+                  //   name: RouteConstants.assignmentPreview,
+                  //   builder: (context, state) => const AssignmentPreview(),
+                  // ),
                   // GoRoute(
                   //   path: RouteConstants.reportPreview,
                   //   name: RouteConstants.reportPreview,

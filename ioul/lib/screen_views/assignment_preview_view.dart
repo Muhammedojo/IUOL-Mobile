@@ -33,6 +33,7 @@ class AssignmentPreviewView
       mainAxisSize: MainAxisSize.min,
       children: [
         Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               color: const Color(0xff25435B),
