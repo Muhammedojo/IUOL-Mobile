@@ -44,7 +44,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Sulaiman",
               controller: state.firstNameController,
             ),
@@ -61,7 +61,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Idris",
               controller: state.firstNameController,
             ),
@@ -78,7 +78,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Ademola",
               controller: state.firstNameController,
             ),
@@ -95,7 +95,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "spythonian@gmail.com",
               controller: state.firstNameController,
             ),
@@ -275,7 +275,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Date of Birth",
               readOnly: true,
               controller: state.dateOfBirthController,
@@ -300,7 +300,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Native language",
               controller: state.nativeLanguageController,
             ),
@@ -346,7 +346,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "0000000000000",
               controller: state.identityNumberController,
             ),

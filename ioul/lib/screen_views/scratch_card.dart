@@ -1,18 +1,7 @@
-import 'package:animated_custom_dropdown/custom_dropdown.dart';
-import 'package:cool_dropdown/cool_dropdown.dart';
-import 'package:cool_dropdown/models/cool_dropdown_item.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ioul/components/elevated_button_widget.dart';
-import 'package:ioul/components/text_widget.dart';
-import 'package:ioul/components/textfield_widget.dart';
 import 'package:ioul/helpers/helper.dart';
-import 'package:ioul/helpers/widget_helper.dart';
 import 'package:ioul/packages/package.dart';
 import 'package:ioul/router/route_constants.dart';
-import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
-import '../screens_controllers/admission_payment.dart';
 import '../screens_controllers/scratch_card.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
@@ -64,7 +53,7 @@ class ScratchCardView
                     ],
                   ),
                   SizedBox(height: 12.h),
-                  TextfieldWidget(
+                  TextFieldWidget(
                     title: "000000000000",
                     controller: state.scratchCardController,
                   ),

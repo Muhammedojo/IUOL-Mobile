@@ -53,7 +53,7 @@ class CourseView extends StatelessView<Course, CourseController> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                   Text(
-                         'Enrolled Courses',style: TextStyle(fontSize: 18.sp,
+                         'Enrolled Courses',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
                          fontWeight: FontWeight.w700),),
 
               ],

@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/values/values.dart';
 
-import '../values/styles.dart';
 
-class TextfieldWidget extends StatelessWidget {
-  const TextfieldWidget({
+class TextFieldWidget extends StatelessWidget {
+  const TextFieldWidget({
     Key? key,
     this.title,
     this.passwordIcon,

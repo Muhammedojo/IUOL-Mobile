@@ -39,17 +39,17 @@ class CreateAccountView
                         //   style: Styles.x16dp_090A0A_400w(),
                         // ),
                         SizedBox(height: 26.h),
-                        TextfieldWidget(
+                        TextFieldWidget(
                           title: "First name",
                           controller: state.firstNameController,
                         ),
                         SizedBox(height: 20.h),
-                        TextfieldWidget(
+                        TextFieldWidget(
                           title: "Surname",
                           controller: state.surnameController,
                         ),
                         SizedBox(height: 20.h),
-                        TextfieldWidget(
+                        TextFieldWidget(
                           title: "Surname",
                           controller: state.middlenameController,
                         ),
@@ -96,27 +96,27 @@ class CreateAccountView
                         //   style: Styles.x16dp_090A0A_400w(),
                         // ),
                         SizedBox(height: 26.h),
-                        TextfieldWidget(
+                        TextFieldWidget(
                           title: "Email address",
                           controller: state.emailController,
                         ),
                         SizedBox(height: 20.h),
-                        TextfieldWidget(
+                        TextFieldWidget(
                           title: "Confirm email address",
                           controller: state.emailConfirmController,
                         ),
                         SizedBox(height: 20.h),
-                        TextfieldWidget(
+                        TextFieldWidget(
                           title: "Phone number",
                           controller: state.phoneController,
                         ),
                         SizedBox(height: 20.h),
-                        TextfieldWidget(
+                        TextFieldWidget(
                           title: "Password",
                           controller: state.passwordController,
                         ),
                         SizedBox(height: 20.h),
-                        TextfieldWidget(
+                        TextFieldWidget(
                           title: "Confirm password",
                           controller: state.passwordConfirmController,
                         ),

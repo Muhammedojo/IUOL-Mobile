@@ -36,12 +36,12 @@ class LoginView extends StatelessView<Login, LoginController> {
                     style: Styles.x16dp_090A0A_400w(),
                   ),
                   SizedBox(height: 26.h),
-                  TextfieldWidget(
+                  TextFieldWidget(
                     title: "Email",
                     controller: state.emailController,
                   ),
                   SizedBox(height: 20.h),
-                  TextfieldWidget(
+                  TextFieldWidget(
                     title: "Password",
                     controller: state.passwordController,
                     obscureText: state.visible,
