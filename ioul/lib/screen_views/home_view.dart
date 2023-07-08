@@ -53,7 +53,9 @@ class HomeView extends StatelessView<Home, HomeController> {
               width: MediaQuery.of(context).size.width / 2 - 34.w,
               padding: REdgeInsets.only(left: 25, right: 35),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   GestureDetector(
                     onTap: () => state.setCurrentIndex(0),

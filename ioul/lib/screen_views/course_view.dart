@@ -72,7 +72,7 @@ class CourseView extends StatelessView<Course, CourseController> {
                   height: 20.h,
                 ),
                 EnrolledCourseWidget(onTap:() => NavigatorHelper(context).pushNamedScreen(
-                  RouteConstants.dashboard,
+                  RouteConstants.ioulLibrary,
                 )),
                 SizedBox(height: 10.h,),
                 const EnrolledCourseWidget(onTap: null),

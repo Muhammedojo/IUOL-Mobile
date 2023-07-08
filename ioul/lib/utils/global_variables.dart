@@ -6,6 +6,8 @@ class GlobalVariables {
       GlobalKey<NavigatorState>(debugLabel: 'Course');
   final shellNavigatorAssignmentKey =
       GlobalKey<NavigatorState>(debugLabel: 'Assignment');
+  // final shellNavigatorDashboardKey =
+  // GlobalKey<NavigatorState>(debugLabel: 'Dashboard');
   final shellNavigatorReportKey =
       GlobalKey<NavigatorState>(debugLabel: 'Report');
   final shellNavigatorMoreKey = GlobalKey<NavigatorState>(debugLabel: 'More');

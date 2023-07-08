@@ -11,4 +11,6 @@ export 'elevated_button_widget.dart';
 export 'text_widget.dart';
 export 'textfield_widget.dart';
 export 'task_status_widget.dart';
+export 'department_widget.dart';
 export 'submit_button.dart';
+export 'payment_history_widget.dart';

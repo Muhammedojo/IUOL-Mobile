@@ -28,4 +28,8 @@ class RouteConstants {
   static const assignmentPreview = "assignment_preview";
   static const reportPreview = "report_preview";
   static const dashboard = "dashboard";
+  static const payment = "payment";
+  static const paymentHistory = "payment_history";
+  static const paymentHistoryInvoice = "payment_history_invoice";
+  static const ioulLibrary = "ioul_library";
 }
