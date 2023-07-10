@@ -23,7 +23,7 @@ class Programme extends StatefulWidget {
   ProgrammeController createState() => ProgrammeController();
 }
 
-class ProgrammeController extends State<Programme> {
+class ProgrammeController extends State<Programme> with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
@@ -36,6 +36,14 @@ class ProgrammeController extends State<Programme> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmController =
       TextEditingController();
+
+  String selectedValue = "";
+
+  setSelectedValue(String value) {
+    setState(() {
+      selectedValue = value;
+    });
+  }
 
   onNextPressed() {
     setState(() {
@@ -69,4 +77,7 @@ class ProgrammeController extends State<Programme> {
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

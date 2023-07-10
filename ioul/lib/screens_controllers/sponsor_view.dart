@@ -23,7 +23,7 @@ class Sponsor extends StatefulWidget {
   SponsorController createState() => SponsorController();
 }
 
-class SponsorController extends State<Sponsor> {
+class SponsorController extends State<Sponsor> with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
@@ -36,6 +36,15 @@ class SponsorController extends State<Sponsor> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmController =
       TextEditingController();
+
+
+  String selectedValue = "";
+
+  setSelectedValue(String value) {
+    setState(() {
+      selectedValue = value;
+    });
+  }
 
   onNextPressed() {
     setState(() {
@@ -69,4 +78,7 @@ class SponsorController extends State<Sponsor> {
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

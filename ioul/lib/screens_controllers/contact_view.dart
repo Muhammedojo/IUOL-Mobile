@@ -23,11 +23,11 @@ class Contact extends StatefulWidget {
   ContactController createState() => ContactController();
 }
 
-class ContactController extends State<Contact> {
+class ContactController extends State<Contact> with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
-  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController nokNameController = TextEditingController();
   final TextEditingController surnameController = TextEditingController();
   final TextEditingController middlenameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -36,6 +36,14 @@ class ContactController extends State<Contact> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmController =
       TextEditingController();
+
+  String selectedValue = "";
+
+  setSelectedValue(String value) {
+    setState(() {
+      selectedValue = value;
+    });
+  }
 
   onNextPressed() {
     setState(() {
@@ -69,4 +77,7 @@ class ContactController extends State<Contact> {
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

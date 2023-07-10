@@ -139,26 +139,63 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
               ],
             ),
             SizedBox(height: 10.w),
+            // IntlPhoneField(
+            //   initialCountryCode: 'NG',
+            //   disableAutoFillHints: true,
+            //   disableLengthCheck: true,
+            //   controller: state.phoneController,
+            //   style: Styles.x16dp_72777A_400w(),
+            //   dropdownIconPosition: IconPosition.trailing,
+            //   dropdownIcon: const Icon(Icons.arrow_drop_down),
+            //   flagsButtonMargin: const EdgeInsets.all(0),
+            //   flagsButtonPadding: const EdgeInsets.only(left: 16),
+            //   cursorHeight: 0,
+            //   cursorRadius: Radius.circular(0),
+            //   showCountryFlag: true,
+            //   decoration: InputDecoration(
+            //     contentPadding:
+            //         REdgeInsets.only(top: 16, right: 16, bottom: 16, left: 0),
+            //     hintStyle: Styles.x12dp_72777A_400w(),
+            //     fillColor: AppColors.backgroundWhite,
+            //     filled: true,
+            //     isDense: true,
+            //     isCollapsed: true,
+            //     hintText: 'Phone Number',
+            //     enabledBorder: OutlineInputBorder(
+            //       borderSide: const BorderSide(color: AppColors.inkLight),
+            //       borderRadius: BorderRadius.circular(8.r),
+            //     ),
+            //     focusedBorder: OutlineInputBorder(
+            //       borderSide: const BorderSide(color: AppColors.inkLighter),
+            //       borderRadius: BorderRadius.circular(8.r),
+            //     ),
+            //   ),
+            //   languageCode: "en",
+            //   onChanged: (phone) {
+            //     print(phone.completeNumber);
+            //   },
+            //   onCountryChanged: (country) {
+            //     print('Country changed to: ' + country.name);
+            //   },
+            // ),
             IntlPhoneField(
               initialCountryCode: 'NG',
-              disableAutoFillHints: true,
-              disableLengthCheck: true,
+              languageCode: 'en',
               controller: state.phoneController,
               style: Styles.x16dp_72777A_400w(),
-              dropdownIconPosition: IconPosition.trailing,
-              dropdownIcon: const Icon(Icons.arrow_drop_down),
-              flagsButtonMargin: const EdgeInsets.all(0),
-              flagsButtonPadding: const EdgeInsets.only(left: 16),
-              cursorHeight: 0,
-              cursorRadius: Radius.circular(0),
-              showCountryFlag: true,
+              disableLengthCheck: true,
+              cursorColor: AppColors.lightGrey,
+              dropdownDecoration: BoxDecoration(),
+              dropdownTextStyle: Styles.x16dp_72777A_400w(),
               decoration: InputDecoration(
+                helperStyle: Styles.x16dp_72777A_400w(),
+
                 contentPadding:
                     REdgeInsets.only(top: 16, right: 16, bottom: 16, left: 0),
                 hintStyle: Styles.x12dp_72777A_400w(),
                 fillColor: AppColors.backgroundWhite,
                 filled: true,
-                isDense: true,
+                // isDense: true,
                 isCollapsed: true,
                 hintText: 'Phone Number',
                 enabledBorder: OutlineInputBorder(
@@ -170,13 +207,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                   borderRadius: BorderRadius.circular(8.r),
                 ),
               ),
-              languageCode: "en",
-              onChanged: (phone) {
-                print(phone.completeNumber);
-              },
-              onCountryChanged: (country) {
-                print('Country changed to: ' + country.name);
-              },
+              onChanged: (value) => state.phoneController.text = value.number,
             ),
             SizedBox(height: 28.h),
             Row(

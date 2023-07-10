@@ -26,11 +26,12 @@ class Address extends StatefulWidget {
   AddressController createState() => AddressController();
 }
 
-class AddressController extends State<Address> {
+class AddressController extends State<Address>
+    with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
-  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController nationalityController = TextEditingController();
   final TextEditingController surnameController = TextEditingController();
   final TextEditingController middlenameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -39,6 +40,14 @@ class AddressController extends State<Address> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmController =
       TextEditingController();
+
+  String selectedValue = "";
+
+  setSelectedValue(String value) {
+    setState(() {
+      selectedValue = value;
+    });
+  }
 
   onNextPressed() {
     setState(() {
@@ -72,4 +81,7 @@ class AddressController extends State<Address> {
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
