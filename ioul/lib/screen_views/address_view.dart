@@ -1,16 +1,9 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:ioul/components/elevated_button_widget.dart';
-import 'package:ioul/helpers/widget_helper.dart';
-import 'package:ioul/values/styles.dart';
-import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
-import '../components/text_widget.dart';
-import '../components/textfield_widget.dart';
+import '../values/values.dart';
+import '../components/components.dart';
+import '../screens/screens.dart';
+import '../packages/package.dart';
 import '../screens_controllers/address_controller.dart';
-import '../screens_controllers/application_form_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 
@@ -23,7 +16,7 @@ class AddressView extends StatelessView<Address, AddressController> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.transparent,
-      body: _body(context),
+      body: WidgetWrapper(child: _body(context)),
     );
   }
 

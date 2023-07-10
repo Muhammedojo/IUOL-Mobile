@@ -6,7 +6,7 @@ class ResourcesWidget extends StatelessWidget {
   final String? number;
   final Color? color;
   final String? image;
-  final Function? onTap;
+  final Function()? onTap;
 
   const ResourcesWidget({
     Key? key,
@@ -20,7 +20,7 @@ class ResourcesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: color,
@@ -45,6 +45,7 @@ class ResourcesWidget extends StatelessWidget {
                 '$number',
                 style: TextStyle(
                     fontSize: 14.sp,
+                    fontFamily: 'Inter',
                     fontWeight: FontWeight.w700,
                     color: const Color(0xff000000)),
               ),
@@ -54,6 +55,7 @@ class ResourcesWidget extends StatelessWidget {
               Text('$type',
                   style: TextStyle(
                       fontSize: 12.sp,
+                      fontFamily: 'Inter',
                       fontWeight: FontWeight.w500,
                       color: const Color(0xff000000))),
             ],

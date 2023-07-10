@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
@@ -7,8 +6,7 @@ import '../values/values.dart';
 import 'stateless_view.dart';
 
 class ReportView extends StatelessView<Report, ReportController> {
-  const ReportView(ReportController state, {Key? key})
-      : super(state, key: key);
+  const ReportView(ReportController state, {Key? key}) : super(state, key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +15,36 @@ class ReportView extends StatelessView<Report, ReportController> {
         appBar: AppBar(
             backgroundColor: const Color(0xff25435B),
             centerTitle: true,
-            title: const Text(
-              'Enrolled Courses',
+            bottom: PreferredSize(
+                preferredSize: Size.fromHeight(40.0.h),
+                child: const SizedBox()),
+            title: Text(
+              '2023 Spring Semester Report',
+              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
             )),
-        body: const WidgetWrapper(
-            child: Center(
-          child: Text("Report"),
-        )));
+        body: _body(context));
+  }
+
+  Widget _body(context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: REdgeInsets.all(10.0),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          SizedBox(
+            height: 20.h,
+          ),
+          const EnrolledCourseWidget(onTap: null),
+          SizedBox(
+            height: 10.h,
+          ),
+          const EnrolledCourseWidget(onTap: null),
+          SizedBox(
+            height: 10.h,
+          ),
+          const EnrolledCourseWidget(onTap: null),
+
+        ]),
+      ),
+    );
   }
 }

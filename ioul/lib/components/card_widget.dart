@@ -5,7 +5,7 @@ import '../packages/package.dart';
 class CardWidget extends StatelessWidget {
   final String? title;
   final String? number;
-  final Function? onTap;
+  final Function()? onTap;
 
   const CardWidget({
     Key? key,
@@ -17,7 +17,7 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () => onTap,
+        onTap: onTap,
         child: Container(
           // height: 110.h,
           // width: 165.w,
@@ -41,6 +41,7 @@ class CardWidget extends StatelessWidget {
                     child: Text('$number',style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
+                      fontFamily: 'Inter',
                       color: const Color(0xff25435B),
                     ),),
                   ),
@@ -54,6 +55,7 @@ class CardWidget extends StatelessWidget {
                       '$title',
                       style: TextStyle(
                         fontSize: 14.sp,
+                        fontFamily: 'Inter',
                         fontWeight: FontWeight.w500,
                         color: const Color(0xff000000),
                       ),

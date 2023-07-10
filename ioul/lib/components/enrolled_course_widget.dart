@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
 class EnrolledCourseWidget extends StatelessWidget {
-  final Function? onTap;
-  const EnrolledCourseWidget({
-    Key? key,
-    required this.onTap
-  }) : super(key: key);
+  final Function()? onTap;
+  const EnrolledCourseWidget({Key? key, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:() => onTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -47,6 +44,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       'Introduction to Arabic Language',
                       style: TextStyle(
                           fontSize: 14.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     ),
@@ -57,6 +55,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       'ARB 111',
                       style: TextStyle(
                           fontSize: 13.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     ),
@@ -67,6 +66,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       'Unit: 4',
                       style: TextStyle(
                           fontSize: 12.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     )

@@ -3,7 +3,7 @@ import '../packages/package.dart';
 
 class DocumentResourcesWidget extends StatelessWidget {
   final String? image;
-  final Function? onTap;
+  final Function()? onTap;
 
   const DocumentResourcesWidget({
     Key? key,
@@ -14,7 +14,7 @@ class DocumentResourcesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -50,6 +50,7 @@ class DocumentResourcesWidget extends StatelessWidget {
                       'Module One Test 1 (Part 1) ',
                       style: TextStyle(
                           fontSize: 14.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
                           color: const Color(0xff202325)),
                     ),
@@ -60,6 +61,7 @@ class DocumentResourcesWidget extends StatelessWidget {
                       'Introduction to Arabic Language',
                       style: TextStyle(
                           fontSize: 14.sp,
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
                           color: const Color(0xff202325)),
                     ),

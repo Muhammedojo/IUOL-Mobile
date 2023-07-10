@@ -1,29 +1,14 @@
 import 'package:ioul/router/route_constants.dart';
 import 'package:ioul/screens/screens.dart';
-import 'package:ioul/screens_controllers/address_controller.dart';
-import 'package:ioul/screens_controllers/admission_payment.dart';
-import 'package:ioul/screens_controllers/application_confirmation.dart';
-import 'package:ioul/screens_controllers/application_form_controller.dart';
-import 'package:ioul/screens_controllers/assignment_controller.dart';
-import 'package:ioul/screens_controllers/certificate_view.dart';
-import 'package:ioul/screens_controllers/contact_view.dart';
-import 'package:ioul/screens_controllers/course_controller.dart';
-import 'package:ioul/screens_controllers/create_account.dart';
-import 'package:ioul/screens_controllers/forgot_password_controller.dart';
-import 'package:ioul/screens_controllers/home_controller.dart';
-import 'package:ioul/screens_controllers/login_controller.dart';
 import 'package:ioul/screens_controllers/more_controller.dart';
 import 'package:ioul/screens_controllers/programme_view.dart';
-import 'package:ioul/screens_controllers/report_controller.dart';
 import 'package:ioul/screens_controllers/reset_password.dart';
 import 'package:ioul/screens_controllers/scratch_card.dart';
 import 'package:ioul/screens_controllers/sponsor_view.dart';
 import 'package:ioul/screens_controllers/upload_view.dart';
-import 'package:ioul/screens_controllers/verify_email_controller.dart';
+
 
 import '../packages/package.dart';
-import '../screens_controllers/code_input_controller.dart';
-import '../screens_controllers/personal_controller.dart';
 import '../utils/global_variables.dart';
 
 class AppRouter {
@@ -140,12 +125,22 @@ class AppRouter {
                 pageBuilder: (context, state) => const NoTransitionPage(
                   child: Course(),
                 ),
-                routes: const [
-                  // child route
+                routes:  [
                   // GoRoute(
-                  //   path: RouteConstants.home,
-                  //   name: RouteConstants.home,
-                  //   builder: (context, state) => const Course(),
+                  //   path: RouteConstants.courseDetailOverview,
+                  //   name: RouteConstants.courseDetailOverview,
+                  //   builder: (context, state) => const CourseOverview(),
+                  // ),
+
+                  GoRoute(
+                    path: RouteConstants.assignmentPreview,
+                    name: RouteConstants.assignmentPreview,
+                    builder: (context, state) => const AssignmentPreview(),
+                  ),
+                  // GoRoute(
+                  //   path: RouteConstants.documentResources,
+                  //   name: RouteConstants.documentResources,
+                  //   builder: (context, state) => const DocumentResources(),
                   // ),
                 ],
               ),

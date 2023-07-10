@@ -5,7 +5,7 @@ import '../packages/package.dart';
 class RecentClassWidget extends StatelessWidget {
   final String? code;
   final String? title;
-  final Function? onTap;
+  final Function()? onTap;
 
   const RecentClassWidget({
     Key? key,
@@ -17,7 +17,7 @@ class RecentClassWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () => onTap,
+        onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.r),
@@ -35,6 +35,7 @@ class RecentClassWidget extends StatelessWidget {
                       '$code',
                       style: TextStyle(
                         fontSize: 16.sp,
+                        fontFamily: 'Inter',
                         fontWeight: FontWeight.w700,
                         color: const Color(0xff202325),
                       ),
@@ -50,6 +51,7 @@ class RecentClassWidget extends StatelessWidget {
                       '$title',
                       style: TextStyle(
                         fontSize: 16.sp,
+                        fontFamily: 'Inter',
                         fontWeight: FontWeight.w700,
                         color: const Color(0xff202325),
                       ),

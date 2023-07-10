@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
 class CourseInfoWidget extends StatelessWidget {
-  final Function? onTap;
+  final Function()? onTap;
   const CourseInfoWidget({Key? key, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -25,18 +25,19 @@ class CourseInfoWidget extends StatelessWidget {
         child: Padding(
           padding: REdgeInsets.symmetric(vertical: 24.0, horizontal: 10),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Text(
-                      'ARB 111 - Introduction to Arabic Language',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w800,
-                          color: const Color(0xff000000)),
-                    ),
+                  Text(
+                    'ARB 111 - Introduction to Arabic Language',
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w800,
+                        color: const Color(0xff000000)),
                   )
                 ],
               ),
@@ -68,11 +69,13 @@ class CourseInfoWidget extends StatelessWidget {
                             '1st Semester',
                             style: TextStyle(
                                 fontSize: 15.sp,
+                                fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )
                         ],
                       ),
+                      SizedBox(height: 10.h,),
                       Row(
                         children: [
                           SvgPicture.asset(
@@ -85,6 +88,7 @@ class CourseInfoWidget extends StatelessWidget {
                             '4 Resources',
                             style: TextStyle(
                                 fontSize: 15.sp,
+                                fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )
@@ -108,11 +112,13 @@ class CourseInfoWidget extends StatelessWidget {
                             '2 Assignments',
                             style: TextStyle(
                                 fontSize: 15.sp,
+                                fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )
                         ],
                       ),
+                      SizedBox(height: 10.h,),
                       Row(
                         children: [
                           SvgPicture.asset(
@@ -125,6 +131,7 @@ class CourseInfoWidget extends StatelessWidget {
                             '2 Reports',
                             style: TextStyle(
                                 fontSize: 15.sp,
+                                fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )

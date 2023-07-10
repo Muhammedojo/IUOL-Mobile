@@ -11,7 +11,7 @@ import '../components/elevated_button_widget.dart';
 import '../components/text_widget.dart';
 import '../components/textfield_widget.dart';
 import '../screens_controllers/application_form_controller.dart';
-import '../screens_controllers/contact_view.dart';
+import '../screens_controllers/contact_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 
