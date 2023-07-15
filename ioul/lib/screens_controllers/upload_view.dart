@@ -12,7 +12,8 @@ class Upload extends StatefulWidget {
   UploadController createState() => UploadController();
 }
 
-class UploadController extends State<Upload> {
+class UploadController extends State<Upload>
+    with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
@@ -51,4 +52,7 @@ class UploadController extends State<Upload> {
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

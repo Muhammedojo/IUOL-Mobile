@@ -19,5 +19,5 @@ class AppColors {
   static const Color primaryLightest = Color(0xffE7F4FF);
   static const Color skyLighter = Color(0xffF2F4F5);
   static const Color inkBase = Color(0xff404446);
-  // static const Color inkBase = Color(0xff404446);
+  static const Color skyDark = Color(0xff979C9E);
 }

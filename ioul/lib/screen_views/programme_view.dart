@@ -1,10 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:ioul/helpers/widget_helper.dart';
 import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
+import '../components/custom_dropdown_widget.dart';
 import '../components/elevated_button_widget.dart';
+import '../components/text_widget.dart';
 import '../screens_controllers/application_form_controller.dart';
 import '../screens_controllers/programme_view.dart';
 import '../values/values.dart';
@@ -27,36 +30,139 @@ class ProgrammeView extends StatelessView<Programme, ProgrammeController> {
     return SingleChildScrollView(
       child: SizedBox(
         // padding: MediaQuery.of(context).viewInsets,
-        child: Padding(
-          padding: REdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Center(
-                child: Text(
-                  "Programme Screen",
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SizedBox(height: 16.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextWidget(
+                  text: "Programme Applied for",
                   style: Styles.x16dp_202325_400w(),
                 ),
+                SizedBox(width: 10.w),
+                SvgPicture.asset("assets/images/red_star.svg"),
+              ],
+            ),
+            SizedBox(height: 10.w),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: CustomDropdownWidget(
+                  dropdownList: const [
+                    'Islam',
+                    'Christianity',
+                    'Traditionalist',
+                  ],
+                  controller: state.firstNameController,
+                  onChange: (value) => state.setSelectedValue(value),
+                ),
               ),
-              SizedBox(height: 24.h),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: ElevatedButtonWidget(
-                        onTap: () => state.onReversePressed(), title: "Back"),
-                  ),
-                  SizedBox(width: 132.w),
-                  Expanded(
-                    flex: 1,
-                    child: ElevatedButtonWidget(
-                        onTap: () => state.onNextPressed(), title: "Next"),
-                  )
-                ],
+            ),
+            SizedBox(height: 28.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextWidget(
+                  text: "Highest qualification obtained",
+                  style: Styles.x16dp_202325_400w(),
+                ),
+                SizedBox(width: 10.w),
+                SvgPicture.asset("assets/images/red_star.svg"),
+              ],
+            ),
+            SizedBox(height: 10.w),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: CustomDropdownWidget(
+                  dropdownList: const [
+                    'Islam',
+                    'Christianity',
+                    'Traditionalist',
+                  ],
+                  controller: state.firstNameController,
+                  onChange: (value) => state.setSelectedValue(value),
+                ),
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 28.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextWidget(
+                  text: "Qualification Applying with",
+                  style: Styles.x16dp_202325_400w(),
+                ),
+                SizedBox(width: 10.w),
+                SvgPicture.asset("assets/images/red_star.svg"),
+              ],
+            ),
+            SizedBox(height: 10.w),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: CustomDropdownWidget(
+                  dropdownList: const [
+                    'Islam',
+                    'Christianity',
+                    'Traditionalist',
+                  ],
+                  controller: state.firstNameController,
+                  onChange: (value) => state.setSelectedValue(value),
+                ),
+              ),
+            ),
+            SizedBox(height: 28.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextWidget(
+                  text: "Level applying for",
+                  style: Styles.x16dp_202325_400w(),
+                ),
+                SizedBox(width: 10.w),
+                SvgPicture.asset("assets/images/red_star.svg"),
+              ],
+            ),
+            SizedBox(height: 10.w),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: CustomDropdownWidget(
+                  dropdownList: const [
+                    'Islam',
+                    'Christianity',
+                    'Traditionalist',
+                  ],
+                  controller: state.firstNameController,
+                  onChange: (value) => state.setSelectedValue(value),
+                ),
+              ),
+            ),
+            SizedBox(height: 230.h),
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButtonWidget(
+                      onTap: () => state.onReversePressed(), title: "Back"),
+                ),
+                SizedBox(width: 132.w),
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButtonWidget(
+                      onTap: () => state.onNextPressed(), title: "Next"),
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );

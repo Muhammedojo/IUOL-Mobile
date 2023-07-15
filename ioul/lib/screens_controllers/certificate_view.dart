@@ -23,7 +23,7 @@ class Certificate extends StatefulWidget {
   CertificateController createState() => CertificateController();
 }
 
-class CertificateController extends State<Certificate> {
+class CertificateController extends State<Certificate> with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
@@ -36,6 +36,14 @@ class CertificateController extends State<Certificate> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmController =
       TextEditingController();
+
+  String selectedValue = "";
+
+  setSelectedValue(String value) {
+    setState(() {
+      selectedValue = value;
+    });
+  }
 
   onNextPressed() {
     setState(() {
@@ -69,4 +77,7 @@ class CertificateController extends State<Certificate> {
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
+
+  @override 
+  bool get wantKeepAlive => true;
 }

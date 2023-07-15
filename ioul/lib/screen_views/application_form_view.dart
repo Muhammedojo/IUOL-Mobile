@@ -58,7 +58,7 @@ class ApplicationFormView
                     isScrollable: true,
 
                     controller: state.tabController,
-                    dragStartBehavior: DragStartBehavior.down,
+                    dragStartBehavior: DragStartBehavior.start,
                     indicatorSize: TabBarIndicatorSize.label,
                     // padding: REdgeInsets.only(right: 24, left: 24),
                     enableFeedback: true,
@@ -134,6 +134,7 @@ class ApplicationFormView
               Flexible(
                 flex: 1,
                 child: TabBarView(
+                  physics: const NeverScrollableScrollPhysics(),
                   controller: state.tabController,
                   children: [
                     Personal(
@@ -171,7 +172,7 @@ class ApplicationFormView
                       initialProgress: () => state.setInitialProgress(7),
                       decreaseProgress: () => state.setInitialProgress(5),
                     ),
-                    Upload(),
+                    const Upload(),
                   ],
                 ),
               ),
