@@ -16,6 +16,8 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
     );
   }
   Widget _body() {
-    return const SizedBox();
+    return InkWell(onTap:(){
+      state.makePayment();
+    }, child: const SizedBox(child: Text('Click me na '),));
   }
 }

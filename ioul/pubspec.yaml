@@ -41,6 +41,9 @@ dependencies:
   chips_choice: ^3.0.0
   video_player: ^2.7.0
   flutter_windowmanager: ^0.2.0
+  flutter_dotenv: ^5.1.0
+  flutterwave_standard: ^1.0.7
+
 
 
 
@@ -69,6 +72,8 @@ flutter:
     - assets/
     - assets/fonts/
     - assets/images/
+    - assets/.env
+
 
 
 
