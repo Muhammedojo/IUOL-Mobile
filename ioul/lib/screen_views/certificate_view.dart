@@ -6,8 +6,6 @@ import 'package:ioul/helpers/widget_helper.dart';
 import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
-import '../components/elevated_button_widget.dart';
-import '../components/text_widget.dart';
 import '../components/textfield_widget.dart';
 import '../screens_controllers/application_form_controller.dart';
 import '../screens_controllers/certificate_view.dart';
@@ -77,7 +75,7 @@ class CertificateView
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Center name",
               controller: state.surnameController,
             ),
@@ -94,7 +92,7 @@ class CertificateView
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Center number",
               controller: state.surnameController,
             ),
@@ -111,7 +109,7 @@ class CertificateView
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Exam number",
               controller: state.surnameController,
             ),
