@@ -21,6 +21,79 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
         bottom: false,
         child: Scaffold(
             backgroundColor: AppColors.backgroundWhite,
+            appBar: AppBar(
+              // backgroundColor: const Color(0xff25435B),
+              centerTitle: true,
+              bottom: PreferredSize(
+                  preferredSize: Size.fromHeight(100.0.h),
+                  child: const SizedBox()),
+              flexibleSpace: Container(
+                //color: Color(0xff2799F7),
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
+                ),
+                child: Padding(
+                  padding: REdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap: () {},
+                            child: CircleAvatar(
+                              radius: 25.r,
+                              child: ClipOval(
+                                child: Image.network(
+                                  '',
+                                  fit: BoxFit.cover,
+                                  height: 35.w,
+                                  width: 35.w,
+                                  errorBuilder: (BuildContext context,
+                                      Object exception,
+                                      StackTrace? stackTrace) {
+                                    return Image.asset(
+                                      'assets/images/iconic_logo.png',
+                                      width: 32.w,
+                                      height: 32.w,
+                                      fit: BoxFit.cover,
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                          SvgPicture.asset('assets/images/bell.svg',
+                              fit: BoxFit.scaleDown)
+                        ],
+                      ),
+                      SizedBox(height: 16.h),
+                      Text(
+                        'Hi, Sulaimon Adili',
+                        style: TextStyle(
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Inter',
+                            color: const Color(0xffffffff)),
+                      ),
+                      Text(
+                        '200 level, Department of Electrical Engineering',
+                        style: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Inter',
+                            color: const Color(0xffffffff)),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
             body: WidgetWrapper(child: _body())),
       ),
     );
@@ -30,71 +103,6 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              color: const Color(0xff25435B),
-              height: 160.h,
-              alignment: Alignment.centerLeft,
-              padding: REdgeInsets.symmetric(horizontal: 16),
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: CircleAvatar(
-                          radius: 25.r,
-                          child: ClipOval(
-                            child: Image.network(
-                              '',
-                              fit: BoxFit.cover,
-                              height: 35.w,
-                              width: 35.w,
-                              errorBuilder: (BuildContext context,
-                                  Object exception, StackTrace? stackTrace) {
-                                return Image.asset(
-                                  'assets/images/iconic_logo.png',
-                                  width: 32.w,
-                                  height: 32.w,
-                                  fit: BoxFit.cover,
-                                );
-                              },
-                            ),
-                          ),
-                        ),
-                      ),
-                      SvgPicture.asset('assets/images/bell.svg',
-                          fit: BoxFit.scaleDown)
-                    ],
-                  ),
-                  SizedBox(height: 16.h),
-                  Text(
-                    'Hi, Sulaimon Adili',
-                    style: TextStyle(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Inter',
-                        color: const Color(0xffffffff)),
-                  ),
-                  Text(
-                    '200 level, Department of Electrical Engineering',
-                    style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Inter',
-                        color: const Color(0xffffffff)),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
         Expanded(
           child: SingleChildScrollView(
             child: Padding(

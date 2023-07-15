@@ -13,29 +13,31 @@ class CourseView extends StatelessView<Course, CourseController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50.h,
-      color: const Color(0xff25435B),
-      child: SafeArea(
-        right: false,
-        left: false,
-        bottom: false,
-        child: Scaffold(
-             backgroundColor: AppColors.backgroundWhite,
-            // appBar: AppBar(
-            //     backgroundColor: const Color(0xff25435B),
-            //     centerTitle: true,
-            //     bottom: PreferredSize(
-            //         preferredSize:Size.fromHeight(40.0.h),
-            //     child: const SizedBox()
-            //     ),
-            //     title:  Text(
-            //       'Enrolled Courses',style: TextStyle(fontSize: 18.sp,
-            //       fontWeight: FontWeight.w700),
-            //     )),
-            body: WidgetWrapper(child: _body(context))),
-      ),
-    );
+    return Scaffold(
+         backgroundColor: Colors.transparent,
+         //AppColors.backgroundWhite,
+        appBar: AppBar(
+          // backgroundColor: const Color(0xff25435B),
+          centerTitle: true,
+          bottom: PreferredSize(
+              preferredSize:Size.fromHeight(40.0.h),
+              child: const SizedBox()
+          ),
+          title:  Text(
+            'Enrolled Courses',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
+              fontWeight: FontWeight.w700),
+          ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
+            ),
+
+          ),
+        ),
+        body: WidgetWrapper(child: _body(context)));
   }
 
    Widget _body(context) {
@@ -43,22 +45,22 @@ class CourseView extends StatelessView<Course, CourseController> {
       Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            color: const Color(0xff25435B),
-            height: 80.h,
-            alignment: Alignment.centerLeft,
-            padding: REdgeInsets.only(left: 24),
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                  Text(
-                         'Enrolled Courses',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
-                         fontWeight: FontWeight.w700),),
-
-              ],
-            ),
-          ),
+          // Container(
+          //   color: const Color(0xff25435B),
+          //   height: 80.h,
+          //   alignment: Alignment.centerLeft,
+          //   padding: REdgeInsets.only(left: 24),
+          //   width: double.infinity,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: [
+          //         Text(
+          //                'Enrolled Courses',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
+          //                fontWeight: FontWeight.w700),),
+          //
+          //     ],
+          //   ),
+          // ),
         ],
       ),
       Expanded(
@@ -72,7 +74,7 @@ class CourseView extends StatelessView<Course, CourseController> {
                   height: 20.h,
                 ),
                 EnrolledCourseWidget(onTap:() => NavigatorHelper(context).pushNamedScreen(
-                  RouteConstants.ioulLibrary,
+                  RouteConstants.courseDetailOverview,
                 )),
                 SizedBox(height: 10.h,),
                 const EnrolledCourseWidget(onTap: null),

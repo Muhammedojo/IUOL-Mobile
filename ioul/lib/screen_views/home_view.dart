@@ -16,7 +16,12 @@ class HomeView extends StatelessView<Home, HomeController> {
       floatingActionButton: InkWell(
         radius: 100.r,
         splashColor: Colors.transparent,
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Dashboard()),
+          );
+        },
         child: Container(
           width: 68.w,
           height: 68.h,
@@ -31,9 +36,10 @@ class HomeView extends StatelessView<Home, HomeController> {
             ],
           ),
           child: SvgPicture.asset(
-            "assets/images/course.svg",
+            "assets/images/home.svg",
             fit: BoxFit.none,
-            width: 32.w,
+            width: 20.w,
+            height: 20.w,
           ),
         ),
       ),
@@ -69,18 +75,25 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ? 0.7
                                   : 1,
                           child: SvgPicture.asset(
-                            // state.widget.navigationShell.currentIndex == 0
-                            //     ? "assets/svgs/home_active.svg"
-                            "assets/images/course.svg",
-                            fit: BoxFit.cover,
+                            state.widget.navigationShell.currentIndex == 0
+                                ? "assets/images/course2.svg"
+                                : "assets/images/course.svg",
+                            fit: BoxFit.scaleDown,
                             width: 20.w,
+                            height: 20.w,
                           ),
                         ),
                         SizedBox(height: 8.h),
                         Text(
                           "Course",
                           style: TextStyle(
-                              fontSize: 8.sp, color: AppColors.primaryBlue),
+                              fontSize: 10.sp,
+                              color:
+                                  state.widget.navigationShell.currentIndex == 0
+                                      ? const Color(0xff25435B)
+                                      : const Color(0xff979C9E),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Inter'),
                         ),
                       ],
                     ),
@@ -97,18 +110,24 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ? 0.7
                                   : 1,
                           child: SvgPicture.asset(
-                            // state.widget.navigationShell.currentIndex == 1
-                            //     ? "assets/svgs/winner_active.svg"
-                            "assets/images/assignment.svg",
-                            fit: BoxFit.cover,
+                            state.widget.navigationShell.currentIndex == 1
+                                ? "assets/images/assignment2.svg"
+                                : "assets/images/assignment.svg",
+                            fit: BoxFit.scaleDown,
                             width: 20.w,
+                            height: 20.w,
                           ),
                         ),
                         SizedBox(height: 8.h),
                         Text(
                           "Assignment",
                           style: TextStyle(
-                              fontSize: 8.sp, color: AppColors.primaryBlue),
+                              fontSize: 10.sp,
+                              color:state.widget.navigationShell.currentIndex == 1
+                                  ? const Color(0xff25435B)
+                                  : const Color(0xff979C9E),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Inter'),
                         ),
                       ],
                     ),
@@ -138,25 +157,31 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ? 0.7
                                   : 1,
                           child: SvgPicture.asset(
-                            // state.widget.navigationShell.currentIndex == 2
-                            //     ? "assets/svgs/wallet_active.svg"
-                            "assets/images/report.svg",
-                            fit: BoxFit.cover,
+                            state.widget.navigationShell.currentIndex == 2
+                                ? "assets/images/report2.svg"
+                                : "assets/images/report.svg",
+                            fit: BoxFit.scaleDown,
                             width: 20.w,
+                            height: 20.w,
                           ),
                         ),
                         SizedBox(height: 8.h),
                         Text(
                           "Report",
                           style: TextStyle(
-                              fontSize: 8.sp, color: AppColors.primaryBlue),
+                              fontSize: 10.sp,
+                              color: state.widget.navigationShell.currentIndex == 2
+                                  ? const Color(0xff25435B)
+                                  : const Color(0xff979C9E),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Inter'),
                         ),
                       ],
                     ),
                   ),
                   GestureDetector(
                     onTap: () => moreActions(context),
-                        //state.setCurrentIndex(3),
+                    //state.setCurrentIndex(3),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
@@ -170,15 +195,19 @@ class HomeView extends StatelessView<Home, HomeController> {
                             // state.widget.navigationShell.currentIndex == 3
                             //     ? "assets/svgs/profile_active.svg"
                             "assets/images/more_active.svg",
-                            fit: BoxFit.cover,
+                            fit: BoxFit.scaleDown,
                             width: 20.w,
+                            height: 20.w,
                           ),
                         ),
                         SizedBox(height: 8.h),
                         Text(
                           "More",
                           style: TextStyle(
-                              fontSize: 8.sp, color: AppColors.primaryBlue),
+                              fontSize: 10.sp,
+                              color: AppColors.primaryBlue,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Inter'),
                         ),
                       ],
                     ),
@@ -192,6 +221,7 @@ class HomeView extends StatelessView<Home, HomeController> {
       body: state.widget.navigationShell,
     );
   }
+
   moreActions(context) {
     showModalBottomSheet(
         context: context,
@@ -199,7 +229,7 @@ class HomeView extends StatelessView<Home, HomeController> {
         builder: (context) {
           return Container(
             decoration: BoxDecoration(
-              // border: Border.all(color: Color(0xffD1D5DB)),
+                // border: Border.all(color: Color(0xffD1D5DB)),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16.r),
                     topRight: Radius.circular(16.r)),
@@ -209,7 +239,7 @@ class HomeView extends StatelessView<Home, HomeController> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  // border: Border.all(color: Color(0xffD1D5DB)),
+                    // border: Border.all(color: Color(0xffD1D5DB)),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(16.r),
                         topRight: Radius.circular(16.r)),
@@ -253,11 +283,12 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                 ],
                               ),
-                              const Divider(color: Color(0xff0f0f0f),),
+                              const Divider(
+                                color: Color(0xff0f0f0f),
+                              ),
                               SizedBox(
                                 height: 16.h,
                               ),
-
                               Row(
                                 children: [
                                   SvgPicture.asset(
@@ -296,7 +327,9 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                 ],
                               ),
-                              const Divider(color: Color(0xff0f0f0f),),
+                              const Divider(
+                                color: Color(0xff0f0f0f),
+                              ),
                               SizedBox(
                                 height: 16.h,
                               ),
@@ -336,7 +369,10 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     color: Colors.red,
                                   ),
                                 ],
-                              ),const Divider(color: Color(0xff0f0f0f),),
+                              ),
+                              const Divider(
+                                color: Color(0xff0f0f0f),
+                              ),
                               SizedBox(
                                 height: 16.h,
                               ),
@@ -363,7 +399,8 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       'assets/images/test_rest.svg',
                                       fit: BoxFit.scaleDown)
                                 ],
-                              ),SizedBox(
+                              ),
+                              SizedBox(
                                 height: 35.h,
                               ),
                               Row(
@@ -383,7 +420,9 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                 ],
                               ),
-                              const Divider(color: Color(0xff0f0f0f),),
+                              const Divider(
+                                color: Color(0xff0f0f0f),
+                              ),
                               SizedBox(
                                 height: 16.h,
                               ),
@@ -425,7 +464,9 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                 ],
                               ),
-                              const Divider(color: Color(0xff0f0f0f),),
+                              const Divider(
+                                color: Color(0xff0f0f0f),
+                              ),
                               SizedBox(
                                 height: 16.h,
                               ),

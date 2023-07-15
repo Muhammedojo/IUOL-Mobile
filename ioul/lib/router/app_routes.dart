@@ -126,16 +126,17 @@ class AppRouter {
                   child: Course(),
                 ),
                 routes:  [
-                  // GoRoute(
-                  //   path: RouteConstants.courseDetailOverview,
-                  //   name: RouteConstants.courseDetailOverview,
-                  //   builder: (context, state) => const CourseOverview(),
-                  // ),
                   GoRoute(
-                    path: RouteConstants.ioulLibrary,
-                    name: RouteConstants.ioulLibrary,
-                    builder: (context, state) => const IOULLibrary(),
+                    path: RouteConstants.courseDetailOverview,
+                    name: RouteConstants.courseDetailOverview,
+                    builder: (context, state) => const CourseOverview(),
                   ),
+                  // GoRoute(
+                  //   path: RouteConstants.ioulLibrary,
+                  //   name: RouteConstants.ioulLibrary,
+                  //   builder: (context, state) => const IOULLibrary(),
+                  // ),
+
                   // GoRoute(
                   //   path: RouteConstants.paymentHistoryInvoice,
                   //   name: RouteConstants.paymentHistoryInvoice,
