@@ -28,7 +28,7 @@ class CourseOverviewController extends State<CourseOverview> {
   Widget build(BuildContext context) => CourseOverviewView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed() {
+   onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 
