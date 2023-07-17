@@ -15,14 +15,6 @@ class CourseOverviewView
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
-        appBar: AppBar(
-            backgroundColor: const Color(0xff25435B),
-            centerTitle: true,
-            //leading: ,
-            bottom: PreferredSize(
-                preferredSize: Size.fromHeight(40.0.h),
-                child: const SizedBox()),
-            title: const Text('')),
         body: _body(context));
   }
 
