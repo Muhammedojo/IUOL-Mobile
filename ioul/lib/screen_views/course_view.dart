@@ -42,7 +42,7 @@ class CourseView extends StatelessView<Course, CourseController> {
 
    Widget _body(context) {
     return Column(mainAxisSize: MainAxisSize.min, children: [
-      Column(
+      const Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           // Container(
@@ -74,7 +74,7 @@ class CourseView extends StatelessView<Course, CourseController> {
                   height: 20.h,
                 ),
                 EnrolledCourseWidget(onTap:() => NavigatorHelper(context).pushNamedScreen(
-                  RouteConstants.courseDetailOverview,
+                  RouteConstants.testReset,
                 )),
                 SizedBox(height: 10.h,),
                 const EnrolledCourseWidget(onTap: null),

@@ -127,10 +127,15 @@ class AppRouter {
                 ),
                 routes:  [
                   GoRoute(
-                    path: RouteConstants.courseDetailOverview,
-                    name: RouteConstants.courseDetailOverview,
-                    builder: (context, state) => const CourseOverview(),
+                    path: RouteConstants.testReset,
+                    name: RouteConstants.testReset,
+                    builder: (context, state) => const TestReset(),
                   ),
+                  // GoRoute(
+                  //   path: RouteConstants.courseDetailOverview,
+                  //   name: RouteConstants.courseDetailOverview,
+                  //   builder: (context, state) => const CourseOverview(),
+                  // ),
                   // GoRoute(
                   //   path: RouteConstants.ioulLibrary,
                   //   name: RouteConstants.ioulLibrary,

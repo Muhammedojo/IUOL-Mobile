@@ -32,4 +32,6 @@ class RouteConstants {
   static const paymentHistory = "payment_history";
   static const paymentHistoryInvoice = "payment_history_invoice";
   static const ioulLibrary = "ioul_library";
+  static const examinationSchedule = "examination_schedule";
+  static const testReset = "test_reset";
 }
