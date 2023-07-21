@@ -34,4 +34,5 @@ class RouteConstants {
   static const ioulLibrary = "ioul_library";
   static const examinationSchedule = "examination_schedule";
   static const testReset = "test_reset";
+  static const examinationExtension = "examination_extension";
 }

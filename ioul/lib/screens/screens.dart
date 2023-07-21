@@ -33,3 +33,4 @@ export '../screens_controllers/payment_history_invoice_controller.dart';
 export '../screens_controllers/ioul_library_controller.dart';
 export '../screens_controllers/examination_schedule_controller.dart';
 export '../screens_controllers/test_reset_controller.dart';
+export '../screens_controllers/examination_extension_controller.dart';
