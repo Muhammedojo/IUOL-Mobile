@@ -125,8 +125,12 @@ class AppRouter {
                 pageBuilder: (context, state) => const NoTransitionPage(
                   child: Dashboard(),
                 ),
-                routes:const [
-
+                routes: [
+                  GoRoute(
+                    path: RouteConstants.notification,
+                    name: RouteConstants.notification,
+                    builder: (context, state) => const Notifications(),
+                  ),
                 ],
               ),
             ],

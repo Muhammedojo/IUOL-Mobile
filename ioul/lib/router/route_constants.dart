@@ -39,4 +39,5 @@ class RouteConstants {
   static const about = "about";
   static const settings = "settings";
   static const helpDesk = "help_desk";
+  static const notification = "notification";
 }

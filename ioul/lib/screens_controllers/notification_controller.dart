@@ -3,15 +3,15 @@ import '../screen_views/notification_view.dart';
 import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
-class Notification extends StatefulWidget {
+class Notifications extends StatefulWidget {
 
-  const Notification({Key? key}) : super(key: key);
+  const Notifications({Key? key}) : super(key: key);
 
   @override
   NotificationController createState() => NotificationController();
 }
 
-class NotificationController extends State<Notification> {
+class NotificationController extends State<Notifications> {
   //... //Initialization code, state vars etc, all go here
 
   @override

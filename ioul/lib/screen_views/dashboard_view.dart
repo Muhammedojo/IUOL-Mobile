@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:ioul/packages/package.dart';
+import '../helpers/helper.dart';
+import '../packages/package.dart';
 import '../components/components.dart';
+import '../router/router.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/dashboard_controller.dart';
 import '../values/values.dart';
@@ -68,8 +69,15 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                               ),
                             ),
                           ),
-                          SvgPicture.asset('assets/images/bell.svg',
-                              fit: BoxFit.scaleDown)
+                          InkWell(
+                            onTap: (){
+                              NavigatorHelper(context).pushNamedScreen(
+                                RouteConstants.notification,
+                              );
+                            },
+                            child: SvgPicture.asset('assets/images/bell.svg',
+                                fit: BoxFit.scaleDown),
+                          )
                         ],
                       ),
                       SizedBox(height: 16.h),
@@ -94,12 +102,12 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                 ),
               ),
             ),
-            body: WidgetWrapper(child: _body())),
+            body: WidgetWrapper(child: _body(context))),
       ),
     );
   }
 
-  Widget _body() {
+  Widget _body(context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -111,37 +119,42 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(14.r),
-                            bottomRight: Radius.circular(14.r)),
-                        color: const Color(0xff90CDFF)),
-                    child: Padding(
-                      padding: REdgeInsets.all(7.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SvgPicture.asset(
-                            'assets/images/camp.svg',
-                            height: 16.w,
-                            width: 16.w,
-                            fit: BoxFit.scaleDown,
-                          ),
-                          Text(
-                              'Iconic University of Open Learning is now Accredited',
-                              style: TextStyle(
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: 'Inter',
-                                  color: const Color(0xff000026))),
-                          Text('1/6',
-                              style: TextStyle(
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: 'Inter',
-                                  color: const Color(0xff000026)))
-                        ],
+                  InkWell(
+                    onTap: () => NavigatorHelper(context).pushNamedScreen(
+                      RouteConstants.notification,
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(14.r),
+                              bottomRight: Radius.circular(14.r)),
+                          color: const Color(0xff90CDFF)),
+                      child: Padding(
+                        padding: REdgeInsets.all(7.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SvgPicture.asset(
+                              'assets/images/camp.svg',
+                              height: 16.w,
+                              width: 16.w,
+                              fit: BoxFit.scaleDown,
+                            ),
+                            Text(
+                                'Iconic University of Open Learning is now Accredited',
+                                style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Inter',
+                                    color: const Color(0xff000026))),
+                            Text('1/6',
+                                style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Inter',
+                                    color: const Color(0xff000026)))
+                          ],
+                        ),
                       ),
                     ),
                   ),

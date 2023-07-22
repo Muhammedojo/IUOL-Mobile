@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../packages/package.dart';
 import '../screens/screens.dart';
@@ -339,7 +340,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     onTap:(){
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(
+                                        CupertinoPageRoute(
                                           builder: (context) => const ExaminationSchedule(),
                                         ),
                                       );
@@ -392,7 +393,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     onTap:(){
                                       Navigator.push(
                                          context,
-                                        MaterialPageRoute(
+                                        CupertinoPageRoute(
                                           builder: (context) => const ExaminationExtension(),
                                         ),
                                       );
@@ -419,7 +420,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     onTap:(){
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(
+                                        CupertinoPageRoute(
                                           builder: (context) => const TestReset(),
                                         ),
                                       );
