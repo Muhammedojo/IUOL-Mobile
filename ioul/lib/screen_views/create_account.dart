@@ -155,7 +155,7 @@ class CreateAccountView
                         ElevatedButtonWidget(
                           title: "Submit",
                           onTap: () => NavigatorHelper(context)
-                              .goNamedScreen(RouteConstants.courses),
+                              .goNamedScreen(RouteConstants.dashboard),
                         ),
                         SizedBox(height: 20.h),
                         Align(

@@ -120,6 +120,22 @@ class AppRouter {
             routes: [
               // top route inside branch
               GoRoute(
+                path: '/${RouteConstants.dashboard}',
+                name: RouteConstants.dashboard,
+                pageBuilder: (context, state) => const NoTransitionPage(
+                  child: Dashboard(),
+                ),
+                routes:const [
+
+                ],
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: GlobalVariables().shellNavigatorCourseKey,
+            routes: [
+              // top route inside branch
+              GoRoute(
                 path: '/${RouteConstants.courses}',
                 name: RouteConstants.courses,
                 pageBuilder: (context, state) => const NoTransitionPage(
@@ -162,7 +178,6 @@ class AppRouter {
                   //   name: RouteConstants.paymentHistoryInvoice,
                   //   builder: (context, state) => const PaymentHistoryInvoice(),
                   // ),
-
                   GoRoute(
                     path: RouteConstants.audioResources,
                     name: RouteConstants.audioResources,

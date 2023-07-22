@@ -17,10 +17,11 @@ class HomeView extends StatelessView<Home, HomeController> {
         radius: 100.r,
         splashColor: Colors.transparent,
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const Dashboard()),
-          );
+          state.setCurrentIndex(0);
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const Dashboard()),
+          // );
         },
         child: Container(
           width: 68.w,
@@ -47,6 +48,7 @@ class HomeView extends StatelessView<Home, HomeController> {
       bottomNavigationBar: BottomAppBar(
         padding: EdgeInsets.zero,
         shape: const CircularNotchedRectangle(),
+        elevation: 1.0,
         notchMargin: 8,
         height: 80.h,
         color: Colors.white,
@@ -64,18 +66,18 @@ class HomeView extends StatelessView<Home, HomeController> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   GestureDetector(
-                    onTap: () => state.setCurrentIndex(0),
+                    onTap: () => state.setCurrentIndex(1),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Opacity(
                           opacity:
-                              state.widget.navigationShell.currentIndex != 0
+                              state.widget.navigationShell.currentIndex != 1
                                   ? 0.7
                                   : 1,
                           child: SvgPicture.asset(
-                            state.widget.navigationShell.currentIndex == 0
+                            state.widget.navigationShell.currentIndex == 1
                                 ? "assets/images/course2.svg"
                                 : "assets/images/course.svg",
                             fit: BoxFit.scaleDown,
@@ -89,7 +91,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                           style: TextStyle(
                               fontSize: 10.sp,
                               color:
-                                  state.widget.navigationShell.currentIndex == 0
+                                  state.widget.navigationShell.currentIndex == 1
                                       ? const Color(0xff25435B)
                                       : const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
@@ -99,18 +101,18 @@ class HomeView extends StatelessView<Home, HomeController> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => state.setCurrentIndex(1),
+                    onTap: () => state.setCurrentIndex(2),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Opacity(
                           opacity:
-                              state.widget.navigationShell.currentIndex != 1
+                              state.widget.navigationShell.currentIndex != 2
                                   ? 0.7
                                   : 1,
                           child: SvgPicture.asset(
-                            state.widget.navigationShell.currentIndex == 1
+                            state.widget.navigationShell.currentIndex == 2
                                 ? "assets/images/assignment2.svg"
                                 : "assets/images/assignment.svg",
                             fit: BoxFit.scaleDown,
@@ -123,7 +125,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                           "Assignment",
                           style: TextStyle(
                               fontSize: 10.sp,
-                              color:state.widget.navigationShell.currentIndex == 1
+                              color:state.widget.navigationShell.currentIndex == 2
                                   ? const Color(0xff25435B)
                                   : const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
@@ -138,26 +140,24 @@ class HomeView extends StatelessView<Home, HomeController> {
             Container(
               width: MediaQuery.of(context).size.width / 2 - 34.w,
               padding: REdgeInsets.only(right: 25, left: 35),
-              // color: Colors.amber,
-              // height: 120,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   GestureDetector(
-                    onTap: () => state.setCurrentIndex(2),
+                    onTap: () => state.setCurrentIndex(3),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Opacity(
                           opacity:
-                              state.widget.navigationShell.currentIndex != 2
+                              state.widget.navigationShell.currentIndex != 3
                                   ? 0.7
                                   : 1,
                           child: SvgPicture.asset(
-                            state.widget.navigationShell.currentIndex == 2
+                            state.widget.navigationShell.currentIndex == 3
                                 ? "assets/images/report2.svg"
                                 : "assets/images/report.svg",
                             fit: BoxFit.scaleDown,
@@ -170,7 +170,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                           "Report",
                           style: TextStyle(
                               fontSize: 10.sp,
-                              color: state.widget.navigationShell.currentIndex == 2
+                              color: state.widget.navigationShell.currentIndex == 3
                                   ? const Color(0xff25435B)
                                   : const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
