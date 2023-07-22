@@ -335,9 +335,19 @@ class HomeView extends StatelessView<Home, HomeController> {
                               ),
                               Row(
                                 children: [
-                                  SvgPicture.asset(
-                                    'assets/images/exa.svg',
-                                    fit: BoxFit.scaleDown,
+                                  InkWell(
+                                    onTap:(){
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => const ExaminationSchedule(),
+                                        ),
+                                      );
+                                    },
+                                    child: SvgPicture.asset(
+                                      'assets/images/exa.svg',
+                                      fit: BoxFit.scaleDown,
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 30.w,
@@ -378,9 +388,19 @@ class HomeView extends StatelessView<Home, HomeController> {
                               ),
                               Row(
                                 children: [
-                                  SvgPicture.asset(
-                                    'assets/images/ass_ext.svg',
-                                    fit: BoxFit.scaleDown,
+                                  InkWell(
+                                    onTap:(){
+                                      Navigator.push(
+                                         context,
+                                        MaterialPageRoute(
+                                          builder: (context) => const ExaminationExtension(),
+                                        ),
+                                      );
+                                    },
+                                    child: SvgPicture.asset(
+                                      'assets/images/ass_ext.svg',
+                                      fit: BoxFit.scaleDown,
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 20.w,
@@ -395,9 +415,19 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   SizedBox(
                                     width: 20.w,
                                   ),
-                                  SvgPicture.asset(
-                                      'assets/images/test_rest.svg',
-                                      fit: BoxFit.scaleDown)
+                                  InkWell(
+                                    onTap:(){
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => const TestReset(),
+                                        ),
+                                      );
+                                    },
+                                    child: SvgPicture.asset(
+                                        'assets/images/test_rest.svg',
+                                        fit: BoxFit.scaleDown),
+                                  )
                                 ],
                               ),
                               SizedBox(
@@ -409,7 +439,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     color: Colors.red,
                                   ),
                                   Text(
-                                    'Course',
+                                    'Payment',
                                     style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.w400,
@@ -437,11 +467,6 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                   SvgPicture.asset('assets/images/add.svg',
                                       fit: BoxFit.scaleDown),
-                                  SizedBox(
-                                    width: 30.w,
-                                  ),
-                                  SvgPicture.asset('assets/images/res.svg',
-                                      fit: BoxFit.scaleDown)
                                 ],
                               ),
                               SizedBox(

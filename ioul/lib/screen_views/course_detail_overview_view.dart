@@ -1,4 +1,6 @@
+import '../helpers/helper.dart';
 import '../packages/package.dart';
+import '../router/router.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/course_detail_overview_controller.dart';
@@ -354,28 +356,34 @@ class CourseOverviewView
                                 )
                               ],
                             )
-                          : const Column(
+                          :  Column(
                               children: [
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     ResourcesWidget(
-                                      onTap: null,
+                                      onTap: () => NavigatorHelper(context).pushNamedScreen(
+                                        RouteConstants.documentResources,
+                                      ),
                                       type: 'Document',
                                       number: '12',
                                       color: Color(0xffFFD188),
                                       image: 'assets/images/documents.svg',
                                     ),
                                     ResourcesWidget(
-                                      onTap: null,
+                                      onTap: ()=> NavigatorHelper(context).pushNamedScreen(
+                                        RouteConstants.videoResources,
+                                      ),
                                       type: 'Videos',
                                       number: '12',
                                       color: Color(0xffC4E4FF),
                                       image: 'assets/images/videos.svg',
                                     ),
                                     ResourcesWidget(
-                                      onTap: null,
+                                      onTap: ()=> NavigatorHelper(context).pushNamedScreen(
+                                        RouteConstants.audioResources,
+                                      ),
                                       type: 'Audios',
                                       number: '12',
                                       color: Color(0xff7DDE86),

@@ -126,11 +126,11 @@ class AppRouter {
                   child: Course(),
                 ),
                 routes:  [
-                  GoRoute(
-                    path: RouteConstants.helpDesk,
-                    name: RouteConstants.helpDesk,
-                    builder: (context, state) => const HelpDesk(),
-                  ),
+                  // GoRoute(
+                  //   path: RouteConstants.helpDesk,
+                  //   name: RouteConstants.helpDesk,
+                  //   builder: (context, state) => const HelpDesk(),
+                  // ),
                   // GoRoute(
                   //   path: RouteConstants.settings,
                   //   name: RouteConstants.settings,
@@ -146,11 +146,11 @@ class AppRouter {
                   //   name: RouteConstants.testReset,
                   //   builder: (context, state) => const TestReset(),
                   // ),
-                  // GoRoute(
-                  //   path: RouteConstants.courseDetailOverview,
-                  //   name: RouteConstants.courseDetailOverview,
-                  //   builder: (context, state) => const CourseOverview(),
-                  // ),
+                  GoRoute(
+                    path: RouteConstants.courseDetailOverview,
+                    name: RouteConstants.courseDetailOverview,
+                    builder: (context, state) => const CourseOverview(),
+                  ),
                   // GoRoute(
                   //   path: RouteConstants.ioulLibrary,
                   //   name: RouteConstants.ioulLibrary,
@@ -162,21 +162,22 @@ class AppRouter {
                   //   name: RouteConstants.paymentHistoryInvoice,
                   //   builder: (context, state) => const PaymentHistoryInvoice(),
                   // ),
-                  // GoRoute(
-                  //   path: RouteConstants.assignmentPreview,
-                  //   name: RouteConstants.assignmentPreview,
-                  //   builder: (context, state) => const AssignmentPreview(),
-                  // ),
-                  // GoRoute(
-                  //   path: RouteConstants.reportPreview,
-                  //   name: RouteConstants.reportPreview,
-                  //   builder: (context, state) => const ReportPreview(),
-                  // ),
-                  // GoRoute(
-                  //   path: RouteConstants.documentResources,
-                  //   name: RouteConstants.documentResources,
-                  //   builder: (context, state) => const DocumentResources(),
-                  // ),
+
+                  GoRoute(
+                    path: RouteConstants.audioResources,
+                    name: RouteConstants.audioResources,
+                    builder: (context, state) => const AudioResources(),
+                  ),
+                  GoRoute(
+                    path: RouteConstants.videoResources,
+                    name: RouteConstants.videoResources,
+                    builder: (context, state) => const VideoResources(),
+                  ),
+                  GoRoute(
+                    path: RouteConstants.documentResources,
+                    name: RouteConstants.documentResources,
+                    builder: (context, state) => const DocumentResources(),
+                  ),
                 ],
               ),
             ],
@@ -192,7 +193,17 @@ class AppRouter {
                 pageBuilder: (context, state) => const NoTransitionPage(
                   child: Assignment(),
                 ),
-                routes: const [
+                routes:  [
+                  GoRoute(
+                    path: RouteConstants.assignmentPreview,
+                    name: RouteConstants.assignmentPreview,
+                    builder: (context, state) => const AssignmentPreview(),
+                  ),
+                  GoRoute(
+                    path: RouteConstants.reportPreview,
+                    name: RouteConstants.reportPreview,
+                    builder: (context, state) => const ReportPreview(),
+                  ),
                   // child route
                   // GoRoute(
                   //   path: 'details',

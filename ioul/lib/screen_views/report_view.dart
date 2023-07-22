@@ -1,4 +1,6 @@
+import '../helpers/helper.dart';
 import '../packages/package.dart';
+import '../router/router.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/report_controller.dart';
@@ -44,7 +46,9 @@ class ReportView extends StatelessView<Report, ReportController> {
           SizedBox(
             height: 20.h,
           ),
-          const EnrolledCourseWidget(onTap: null),
+           EnrolledCourseWidget(onTap: () =>  NavigatorHelper(context).pushNamedScreen(
+            RouteConstants.reportPreview,
+          )),
           SizedBox(
             height: 10.h,
           ),

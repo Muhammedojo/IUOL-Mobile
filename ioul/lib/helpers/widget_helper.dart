@@ -75,6 +75,7 @@ class WidgetHelper {
       {required String title, required Widget bottomWidget}) {
     return AppBar(
       backgroundColor: const Color(0xff25435B),
+
       iconTheme: const IconThemeData(color: Colors.black),
       elevation: 0,
       leadingWidth: 45.w,

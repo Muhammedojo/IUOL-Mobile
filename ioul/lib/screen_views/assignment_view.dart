@@ -1,4 +1,6 @@
+import '../helpers/helper.dart';
 import '../packages/package.dart';
+import '../router/router.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/assignment_controller.dart';
@@ -43,7 +45,9 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
           SizedBox(
             height: 20.h,
           ),
-          const EnrolledCourseWidget(onTap: null),
+           EnrolledCourseWidget(onTap: () => NavigatorHelper(context).pushNamedScreen(
+             RouteConstants.assignmentPreview,
+           )),
           SizedBox(height: 10.h,),
           const EnrolledCourseWidget(onTap: null),
           SizedBox(height: 10.h,),

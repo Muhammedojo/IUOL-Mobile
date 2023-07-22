@@ -254,23 +254,19 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  const EnrolledCourseWidget(onTap: null),
+                   const UpcomingTaskWidget(onTap:null, course: 'CMP 111 - Introduction to Computer Science', date: '2/08/2023',),
                   SizedBox(
                     height: 10.h,
                   ),
-                  const EnrolledCourseWidget(onTap: null),
+                  const UpcomingTaskWidget(onTap:null, course: 'CHM 101 - Introduction to Chemistry II', date: '4/08/2023',),
                   SizedBox(
                     height: 10.h,
                   ),
-                  const EnrolledCourseWidget(onTap: null),
+                  const UpcomingTaskWidget(onTap:null, course: 'SOS 111 - Introduction to Social Science', date: '5/08/2023',),
                   SizedBox(
                     height: 10.h,
                   ),
-                  const EnrolledCourseWidget(onTap: null),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  const EnrolledCourseWidget(onTap: null),
+                  const UpcomingTaskWidget(onTap:null, course: 'CMP 111 - Introduction to Computer Science', date: '6/08/2023',),
                   SizedBox(
                     height: 10.h,
                   ),
