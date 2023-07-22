@@ -35,4 +35,8 @@ class RouteConstants {
   static const examinationSchedule = "examination_schedule";
   static const testReset = "test_reset";
   static const examinationExtension = "examination_extension";
+  static const courseRegistration = "course_registration";
+  static const about = "about";
+  static const settings = "settings";
+  static const helpDesk = "help_desk";
 }

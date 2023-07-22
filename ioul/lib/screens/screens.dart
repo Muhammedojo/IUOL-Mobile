@@ -34,3 +34,7 @@ export '../screens_controllers/ioul_library_controller.dart';
 export '../screens_controllers/examination_schedule_controller.dart';
 export '../screens_controllers/test_reset_controller.dart';
 export '../screens_controllers/examination_extension_controller.dart';
+export '../screens_controllers/course_registration_controller.dart';
+export '../screens_controllers/about_controller.dart';
+export '../screens_controllers/settings_controller.dart';
+export '../screens_controllers/help_desk_controller.dart';

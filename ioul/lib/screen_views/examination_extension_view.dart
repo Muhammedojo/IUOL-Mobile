@@ -62,8 +62,12 @@ class ExaminationExtensionView extends StatelessView<ExaminationExtension,
               fontWeight: FontWeight.w700,
               color: const Color(0xff090A0A),
               fontSize: 16.sp),),
+          SizedBox(height:25.h),
+          const ExamExtensionWidget(course: '', unit: '',),
+          const ExamExtensionWidget(course: '', unit: '',),
+          const ExamExtensionWidget(course: '', unit: '',),
+          const ExamExtensionWidget(course: '', unit: '',),
           SizedBox(height:40.h),
-
           ElevatedButtonWidget(onTap: (){}, title: 'Proceed to Payment')
         ],
       ),

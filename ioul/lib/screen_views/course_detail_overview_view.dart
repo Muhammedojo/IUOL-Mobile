@@ -354,12 +354,12 @@ class CourseOverviewView
                                 )
                               ],
                             )
-                          : Column(
+                          : const Column(
                               children: [
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     ResourcesWidget(
                                       onTap: null,
                                       type: 'Document',

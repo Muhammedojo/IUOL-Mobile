@@ -127,10 +127,20 @@ class AppRouter {
                 ),
                 routes:  [
                   GoRoute(
-                    path: RouteConstants.examinationExtension,
-                    name: RouteConstants.examinationExtension,
-                    builder: (context, state) => const ExaminationExtension(),
+                    path: RouteConstants.helpDesk,
+                    name: RouteConstants.helpDesk,
+                    builder: (context, state) => const HelpDesk(),
                   ),
+                  // GoRoute(
+                  //   path: RouteConstants.settings,
+                  //   name: RouteConstants.settings,
+                  //   builder: (context, state) => const Settings(),
+                  // ),
+                  // GoRoute(
+                  //   path: RouteConstants.about,
+                  //   name: RouteConstants.about,
+                  //   builder: (context, state) => const About(),
+                  // ),
                   // GoRoute(
                   //   path: RouteConstants.testReset,
                   //   name: RouteConstants.testReset,
