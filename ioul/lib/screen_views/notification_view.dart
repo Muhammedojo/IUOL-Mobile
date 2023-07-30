@@ -21,7 +21,7 @@ class NotificationView extends StatelessView<Notifications, NotificationControll
   Widget _body() {
     return Padding(
       padding:  REdgeInsets.symmetric(horizontal: 16.0,vertical: 24),
-      child: const SingleChildScrollView(
+      child:  SingleChildScrollView(
         child: Column(mainAxisSize: MainAxisSize.min,children: [
           NotificationWidget(),
           NotificationWidget(),
