@@ -14,43 +14,95 @@ class CourseView extends StatelessView<Course, CourseController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.backgroundWhite,
+         backgroundColor: Colors.transparent,
+         //AppColors.backgroundWhite,
         appBar: AppBar(
-            backgroundColor: const Color(0xff25435B),
-            centerTitle: true,
-            bottom: PreferredSize(
-                preferredSize:Size.fromHeight(40.0.h),
-            child: const SizedBox()
-            ),
-            title:  Text(
-              'Enrolled Courses',style: TextStyle(fontSize: 18.sp,
+          // backgroundColor: const Color(0xff25435B),
+          centerTitle: true,
+          bottom: PreferredSize(
+              preferredSize:Size.fromHeight(40.0.h),
+              child: const SizedBox()
+          ),
+          title:  Text(
+            'Enrolled Courses',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
               fontWeight: FontWeight.w700),
-            )),
+          ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
+            ),
+
+          ),
+        ),
         body: WidgetWrapper(child: _body(context)));
   }
 
    Widget _body(context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: REdgeInsets.all(10.0),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          SizedBox(
-            height: 20.h,
-          ),
-           EnrolledCourseWidget(onTap:() => NavigatorHelper(context).pushNamedScreen(
-            RouteConstants.assignmentPreview,
-          )),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(height: 10.h,),
-          const EnrolledCourseWidget(onTap: null),
-        ]),
+    return Column(mainAxisSize: MainAxisSize.min, children: [
+      const Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Container(
+          //   color: const Color(0xff25435B),
+          //   height: 80.h,
+          //   alignment: Alignment.centerLeft,
+          //   padding: REdgeInsets.only(left: 24),
+          //   width: double.infinity,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: [
+          //         Text(
+          //                'Enrolled Courses',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
+          //                fontWeight: FontWeight.w700),),
+          //
+          //     ],
+          //   ),
+          // ),
+        ],
       ),
-    );
+      Expanded(
+        child: SingleChildScrollView( 
+          child: Padding(
+            padding: REdgeInsets.symmetric(horizontal: 10.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 20.h,
+                ),
+                EnrolledCourseWidget(onTap:() => NavigatorHelper(context).pushNamedScreen(
+                  RouteConstants.courseDetailOverview,
+                )),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+                SizedBox(height: 10.h,),
+                const EnrolledCourseWidget(onTap: null),
+              ],
+            ),
+          ),
+        ),
+      ),
+
+    ]);
   }
 
 

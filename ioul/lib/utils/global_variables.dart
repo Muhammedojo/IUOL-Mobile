@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class GlobalVariables {
   static final rootNavigatorKey = GlobalKey<NavigatorState>();
+  final shellNavigatorDashboardKey =
+  GlobalKey<NavigatorState>(debugLabel: 'Dashboard');
   final shellNavigatorCourseKey =
       GlobalKey<NavigatorState>(debugLabel: 'Course');
   final shellNavigatorAssignmentKey =

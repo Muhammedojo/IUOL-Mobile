@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ioul/values/colors.dart';
+import '../values/values.dart';
 import '../packages/package.dart';
 
 class RecentClassWidget extends StatelessWidget {

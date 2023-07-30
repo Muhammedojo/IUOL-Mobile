@@ -120,6 +120,26 @@ class AppRouter {
             routes: [
               // top route inside branch
               GoRoute(
+                path: '/${RouteConstants.dashboard}',
+                name: RouteConstants.dashboard,
+                pageBuilder: (context, state) => const NoTransitionPage(
+                  child: Dashboard(),
+                ),
+                routes: [
+                  GoRoute(
+                    path: RouteConstants.notification,
+                    name: RouteConstants.notification,
+                    builder: (context, state) => const Notifications(),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: GlobalVariables().shellNavigatorCourseKey,
+            routes: [
+              // top route inside branch
+              GoRoute(
                 path: '/${RouteConstants.courses}',
                 name: RouteConstants.courses,
                 pageBuilder: (context, state) => const NoTransitionPage(
@@ -127,21 +147,56 @@ class AppRouter {
                 ),
                 routes:  [
                   // GoRoute(
-                  //   path: RouteConstants.courseDetailOverview,
-                  //   name: RouteConstants.courseDetailOverview,
-                  //   builder: (context, state) => const CourseOverview(),
+                  //   path: RouteConstants.helpDesk,
+                  //   name: RouteConstants.helpDesk,
+                  //   builder: (context, state) => const HelpDesk(),
                   // ),
-
+                  // GoRoute(
+                  //   path: RouteConstants.settings,
+                  //   name: RouteConstants.settings,
+                  //   builder: (context, state) => const Settings(),
+                  // ),
+                  // GoRoute(
+                  //   path: RouteConstants.about,
+                  //   name: RouteConstants.about,
+                  //   builder: (context, state) => const About(),
+                  // ),
+                  // GoRoute(
+                  //   path: RouteConstants.testReset,
+                  //   name: RouteConstants.testReset,
+                  //   builder: (context, state) => const TestReset(),
+                  // ),
                   GoRoute(
-                    path: RouteConstants.assignmentPreview,
-                    name: RouteConstants.assignmentPreview,
-                    builder: (context, state) => const AssignmentPreview(),
+                    path: RouteConstants.courseDetailOverview,
+                    name: RouteConstants.courseDetailOverview,
+                    builder: (context, state) => const CourseOverview(),
                   ),
                   // GoRoute(
-                  //   path: RouteConstants.documentResources,
-                  //   name: RouteConstants.documentResources,
-                  //   builder: (context, state) => const DocumentResources(),
+                  //   path: RouteConstants.ioulLibrary,
+                  //   name: RouteConstants.ioulLibrary,
+                  //   builder: (context, state) => const IOULLibrary(),
                   // ),
+
+                  // GoRoute(
+                  //   path: RouteConstants.paymentHistoryInvoice,
+                  //   name: RouteConstants.paymentHistoryInvoice,
+                  //   builder: (context, state) => const PaymentHistoryInvoice(),
+                  // ),
+                  GoRoute(
+                    path: RouteConstants.audioResources,
+                    name: RouteConstants.audioResources,
+                    builder: (context, state) => const AudioResources(),
+                  ),
+                  GoRoute(
+                    path: RouteConstants.videoResources,
+                    name: RouteConstants.videoResources,
+                    builder: (context, state) => const VideoResources(),
+                  ),
+                  GoRoute(
+                    path: RouteConstants.documentResources,
+                    name: RouteConstants.documentResources,
+                    builder: (context, state) => const DocumentResources(),
+                  ),
                 ],
               ),
             ],
@@ -157,7 +212,17 @@ class AppRouter {
                 pageBuilder: (context, state) => const NoTransitionPage(
                   child: Assignment(),
                 ),
-                routes: const [
+                routes:  [
+                  GoRoute(
+                    path: RouteConstants.assignmentPreview,
+                    name: RouteConstants.assignmentPreview,
+                    builder: (context, state) => const AssignmentPreview(),
+                  ),
+                  GoRoute(
+                    path: RouteConstants.reportPreview,
+                    name: RouteConstants.reportPreview,
+                    builder: (context, state) => const ReportPreview(),
+                  ),
                   // child route
                   // GoRoute(
                   //   path: 'details',

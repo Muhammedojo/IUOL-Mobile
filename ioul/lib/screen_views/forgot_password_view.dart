@@ -45,7 +45,7 @@ class ForgotPasswordView
                     style: Styles.x16dp_090A0A_400w(),
                   ),
                   SizedBox(height: 26.h),
-                  TextfieldWidget(
+                  TextFieldWidget(
                     title: "Email",
                     controller: state.emailController,
                   ),

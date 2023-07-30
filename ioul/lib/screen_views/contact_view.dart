@@ -4,12 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ioul/helpers/widget_helper.dart';
-import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
-import '../components/custom_dropdown_widget.dart';
-import '../components/elevated_button_widget.dart';
-import '../components/text_widget.dart';
-import '../components/textfield_widget.dart';
 import '../screens_controllers/application_form_controller.dart';
 import '../screens_controllers/contact_controller.dart';
 import '../values/values.dart';
@@ -49,7 +44,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Full name",
               controller: state.nokNameController,
             ),
@@ -66,7 +61,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "example@example.com",
               controller: state.nokNameController,
             ),
@@ -127,7 +122,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Address",
               controller: state.nokNameController,
             ),
@@ -153,7 +148,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "full name",
               controller: state.nokNameController,
             ),
@@ -170,7 +165,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "example@example.com",
               controller: state.nokNameController,
             ),
@@ -231,7 +226,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "address",
               controller: state.nokNameController,
             ),

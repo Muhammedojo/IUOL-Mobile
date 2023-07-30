@@ -26,4 +26,18 @@ class RouteConstants {
   static const audioResources = "audio_resources";
   static const videoResources = "video_resources";
   static const assignmentPreview = "assignment_preview";
+  static const reportPreview = "report_preview";
+  static const dashboard = "dashboard";
+  static const payment = "payment";
+  static const paymentHistory = "payment_history";
+  static const paymentHistoryInvoice = "payment_history_invoice";
+  static const ioulLibrary = "ioul_library";
+  static const examinationSchedule = "examination_schedule";
+  static const testReset = "test_reset";
+  static const examinationExtension = "examination_extension";
+  static const courseRegistration = "course_registration";
+  static const about = "about";
+  static const settings = "settings";
+  static const helpDesk = "help_desk";
+  static const notification = "notification";
 }

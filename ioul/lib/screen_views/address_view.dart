@@ -152,7 +152,7 @@ class AddressView extends StatelessView<Address, AddressController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "LGA",
               controller: state.surnameController,
             ),
@@ -169,7 +169,7 @@ class AddressView extends StatelessView<Address, AddressController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "LGA",
               controller: state.surnameController,
             ),
@@ -186,7 +186,7 @@ class AddressView extends StatelessView<Address, AddressController> {
               ],
             ),
             SizedBox(height: 10.w),
-            TextfieldWidget(
+            TextFieldWidget(
               hint: "Country",
               controller: state.surnameController,
             ),

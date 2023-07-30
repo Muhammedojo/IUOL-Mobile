@@ -6,8 +6,6 @@ import 'package:ioul/helpers/widget_helper.dart';
 import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
-import '../components/elevated_button_widget.dart';
-import '../components/text_widget.dart';
 import '../screens_controllers/application_form_controller.dart';
 import '../screens_controllers/programme_view.dart';
 import '../values/values.dart';

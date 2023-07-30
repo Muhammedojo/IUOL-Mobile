@@ -5,6 +5,7 @@ import 'package:ioul/components/text_widget.dart';
 import 'package:ioul/helpers/helper.dart';
 import 'package:ioul/values/styles.dart';
 
+import '../components/components.dart';
 import '../values/colors.dart';
 
 class WidgetHelper {
@@ -57,10 +58,24 @@ class WidgetHelper {
     );
   }
 
+  static showSuccessToast(BuildContext context, String message,
+      {Function()? onTap}) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) => ResponseConfirmationWidget(
+          title: "success",
+          message: message,
+          image: "",
+          onTap:() => onTap));
+  }
+
+
+
   AppBar appBackArrowWithTitleAndTabBar(BuildContext context,
       {required String title, required Widget bottomWidget}) {
     return AppBar(
       backgroundColor: const Color(0xff25435B),
+
       iconTheme: const IconThemeData(color: Colors.black),
       elevation: 0,
       leadingWidth: 45.w,
