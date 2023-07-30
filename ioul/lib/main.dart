@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+
 import 'package:ioul/router/router.dart';
-import 'package:ioul/screens/screens.dart';
 import 'packages/package.dart';
 
 void main() {
