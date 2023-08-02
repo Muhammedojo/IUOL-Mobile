@@ -163,7 +163,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                 : "assets/images/report.svg",
                             fit: BoxFit.scaleDown,
                             width: 20.w,
-                            height: 20.w,
+                            height: 24.w,
                           ),
                         ),
                         SizedBox(height: 8.h),

@@ -42,6 +42,7 @@ class AssignmentPreviewView
               padding: REdgeInsets.only(left: 24),
               width: double.infinity,
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(children: [
                     GestureDetector(

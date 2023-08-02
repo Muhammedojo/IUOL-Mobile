@@ -28,6 +28,7 @@ export '../screens_controllers/report_preview_controller.dart';
 export '../screens_controllers/dashboard_controller.dart';
 export '../screens_controllers/test_reset_reason_controller.dart';
 export '../screens_controllers/payment_controller.dart';
+export '../screens_controllers/user_profile_controller.dart';
 export '../screens_controllers/payment_history_controller.dart';
 export '../screens_controllers/payment_history_invoice_controller.dart';
 export '../screens_controllers/ioul_library_controller.dart';

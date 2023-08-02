@@ -57,7 +57,8 @@ class SettingsView extends StatelessView<Settings, SettingsController> {
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff191C1C)),),
-                    CupertinoSwitch(value: state.onNotification, onChanged: (value) {
+                    CupertinoSwitch(value: state.onNotification,
+                      onChanged: (value) {
                       state.onSwitch(value);
                     },activeColor:AppColors.primaryBase,)
                   ],),

@@ -46,7 +46,11 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              NavigatorHelper(context).pushNamedScreen(
+                                RouteConstants.userProfile,
+                              );
+                            },
                             child: CircleAvatar(
                               radius: 25.r,
                               child: ClipOval(
