@@ -136,6 +136,11 @@ class AppRouter {
                     name: RouteConstants.notification,
                     builder: (context, state) => const Notifications(),
                   ),
+                  GoRoute(
+                    path: RouteConstants.userProfile,
+                    name: RouteConstants.userProfile,
+                    builder: (context, state) => const UserProfile(),
+                  ),
                 ],
               ),
             ],
