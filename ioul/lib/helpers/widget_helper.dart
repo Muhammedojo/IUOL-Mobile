@@ -63,18 +63,13 @@ class WidgetHelper {
     showDialog(
         context: context,
         builder: (BuildContext context) => ResponseConfirmationWidget(
-          title: "success",
-          message: message,
-          image: "",
-          onTap:() => onTap));
+            title: "success", message: message, image: "", onTap: () => onTap));
   }
-
-
 
   AppBar appBackArrowWithTitleAndTabBar(BuildContext context,
       {required String title, required Widget bottomWidget}) {
     return AppBar(
-      backgroundColor: const Color(0xff25435B),
+      backgroundColor: Colors.white,
 
       iconTheme: const IconThemeData(color: Colors.black),
       elevation: 0,

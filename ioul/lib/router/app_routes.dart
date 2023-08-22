@@ -1,12 +1,12 @@
 import 'package:ioul/router/route_constants.dart';
 import 'package:ioul/screens/screens.dart';
 import 'package:ioul/screens_controllers/more_controller.dart';
+import 'package:ioul/screens_controllers/profile.dart';
 import 'package:ioul/screens_controllers/programme_view.dart';
 import 'package:ioul/screens_controllers/reset_password.dart';
 import 'package:ioul/screens_controllers/scratch_card.dart';
 import 'package:ioul/screens_controllers/sponsor_view.dart';
 import 'package:ioul/screens_controllers/upload_view.dart';
-
 
 import '../packages/package.dart';
 import '../utils/global_variables.dart';
@@ -65,6 +65,11 @@ class AppRouter {
         path: '/${RouteConstants.applicationConfirmation}',
         name: RouteConstants.applicationConfirmation,
         builder: (context, state) => const ApplicationConfirmation(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.profile}',
+        name: RouteConstants.profile,
+        builder: (context, state) => const Profile(),
       ),
       GoRoute(
         path: '/${RouteConstants.applicationForm}',
@@ -145,7 +150,7 @@ class AppRouter {
                 pageBuilder: (context, state) => const NoTransitionPage(
                   child: Course(),
                 ),
-                routes:  [
+                routes: [
                   // GoRoute(
                   //   path: RouteConstants.helpDesk,
                   //   name: RouteConstants.helpDesk,
@@ -212,7 +217,7 @@ class AppRouter {
                 pageBuilder: (context, state) => const NoTransitionPage(
                   child: Assignment(),
                 ),
-                routes:  [
+                routes: [
                   GoRoute(
                     path: RouteConstants.assignmentPreview,
                     name: RouteConstants.assignmentPreview,

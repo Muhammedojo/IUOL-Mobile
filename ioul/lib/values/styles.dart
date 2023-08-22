@@ -11,10 +11,10 @@ class Styles {
         fontWeight: FontWeight.w700,
         fontFamily: "Inter",
       );
-  static x24dp_090A0A_700w() => TextStyle(
+  static x24dp_090A0A_700w({FontWeight? weight}) => TextStyle(
         fontSize: 24.sp,
         color: AppColors.inkDarkest,
-        fontWeight: FontWeight.w700,
+        fontWeight: weight ?? FontWeight.w700,
         fontFamily: "Inter",
       );
 
@@ -24,9 +24,9 @@ class Styles {
         fontWeight: FontWeight.w400,
         fontFamily: "Inter",
       );
-  static x12dp_090A0A_400w() => TextStyle(
+  static x12dp_090A0A_400w({Color? color}) => TextStyle(
         fontSize: 12.sp,
-        color: AppColors.inkDarkest,
+        color: color ?? AppColors.inkDarkest,
         fontWeight: FontWeight.w400,
         fontFamily: "Inter",
       );
@@ -68,11 +68,11 @@ class Styles {
         fontFamily: "Inter",
       );
   static x18dp_202325_500g() => TextStyle(
-    fontSize: 18.sp,
-    color: AppColors.backgroundWhite,
-    fontWeight: FontWeight.w500,
-    fontFamily: "Inter",
-  );
+        fontSize: 18.sp,
+        color: AppColors.backgroundWhite,
+        fontWeight: FontWeight.w500,
+        fontFamily: "Inter",
+      );
   static x16dp_202325_400w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.inkDarker,
@@ -91,9 +91,9 @@ class Styles {
         fontWeight: FontWeight.w400,
         fontFamily: "Inter",
       );
-  static x16dp_404446_400w() => TextStyle(
+  static x16dp_404446_400w({Color? color}) => TextStyle(
         fontSize: 16.sp,
-        color: AppColors.inkBase,
+        color: color ?? AppColors.inkBase,
         fontWeight: FontWeight.w400,
         fontFamily: "Inter",
       );
