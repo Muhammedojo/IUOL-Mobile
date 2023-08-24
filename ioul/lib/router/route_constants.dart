@@ -18,11 +18,14 @@ class RouteConstants {
   static const address = "address";
   static const contacts = "contacts";
   static const sponsor = "sponsor";
+  static const testSplash = "test_splash";
   static const programme = "programme";
   static const certificates = "certificate";
   static const uploads = "uploads";
   static const courseDetailOverview = "course_detail_overview";
   static const documentResources = "document_resources";
+  static const testOverview = "test_overview";
+  static const takeTest = "take_test";
   static const audioResources = "audio_resources";
   static const videoResources = "video_resources";
   static const assignmentPreview = "assignment_preview";

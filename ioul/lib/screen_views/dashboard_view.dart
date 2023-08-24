@@ -21,7 +21,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
         left: false,
         bottom: false,
         child: Scaffold(
-            backgroundColor: AppColors.backgroundWhite,
+            backgroundColor: AppColors.skyLightest,
             appBar: AppBar(
               // backgroundColor: const Color(0xff25435B),
               centerTitle: true,
@@ -51,25 +51,22 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                                 RouteConstants.userProfile,
                               );
                             },
-                            child: CircleAvatar(
-                              radius: 25.r,
-                              child: ClipOval(
-                                child: Image.network(
-                                  '',
-                                  fit: BoxFit.cover,
-                                  height: 35.w,
-                                  width: 35.w,
-                                  errorBuilder: (BuildContext context,
-                                      Object exception,
-                                      StackTrace? stackTrace) {
-                                    return Image.asset(
-                                      'assets/images/iconic_logo.png',
-                                      width: 32.w,
-                                      height: 32.w,
-                                      fit: BoxFit.cover,
-                                    );
-                                  },
-                                ),
+                            child: ClipOval(
+                              child: Image.network(
+                                'https://www.essence.com/wp-content/uploads/2020/12/GettyImages-957598612-scaled.jpg',
+                                fit: BoxFit.cover,
+                                height: 54.w,
+                                width:54.w,
+                                errorBuilder: (BuildContext context,
+                                    Object exception,
+                                    StackTrace? stackTrace) {
+                                  return Image.asset(
+                                    'assets/images/iconic_logo.png',
+                                    width: 54.w,
+                                    height: 54.w,
+                                    fit: BoxFit.cover,
+                                  );
+                                },
                               ),
                             ),
                           ),

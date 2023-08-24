@@ -39,3 +39,5 @@ export '../screens_controllers/course_registration_controller.dart';
 export '../screens_controllers/about_controller.dart';
 export '../screens_controllers/settings_controller.dart';
 export '../screens_controllers/help_desk_controller.dart';
+export '../screens_controllers/test_splash_screen_controller.dart';
+export '../screens_controllers/test_overview_controller.dart';

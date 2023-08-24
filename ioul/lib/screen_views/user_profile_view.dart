@@ -52,24 +52,21 @@ class UserProfileView
                     children: [
                       Row(
                         children: [
-                          CircleAvatar(
-                            radius: 25,
-                            child: ClipOval(
-                              child: Image.network(
-                                'https://www.essence.com/wp-content/uploads/2020/12/GettyImages-957598612-scaled.jpg',
-                                fit: BoxFit.cover,
-                                height: 45.w,
-                                width: 45.w,
-                                errorBuilder: (BuildContext context, Object exception,
-                                    StackTrace? stackTrace) {
-                                  return Image.asset(
-                                    'assets/images/iconic_logo.png',
-                                    width: 45.w,
-                                    height: 45.w,
-                                    fit: BoxFit.cover,
-                                  );
-                                },
-                              ),
+                          ClipOval(
+                            child: Image.network(
+                              'https://www.essence.com/wp-content/uploads/2020/12/GettyImages-957598612-scaled.jpg',
+                              fit: BoxFit.cover,
+                              height: 64.w,
+                              width: 64.w,
+                              errorBuilder: (BuildContext context, Object exception,
+                                  StackTrace? stackTrace) {
+                                return Image.asset(
+                                  'assets/images/iconic_logo.png',
+                                  width: 64.w,
+                                  height: 64.w,
+                                  fit: BoxFit.cover,
+                                );
+                              },
                             ),
                           ),
                           SizedBox(

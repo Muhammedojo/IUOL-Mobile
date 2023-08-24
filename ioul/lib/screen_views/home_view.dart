@@ -49,10 +49,10 @@ class HomeView extends StatelessView<Home, HomeController> {
       bottomNavigationBar: BottomAppBar(
         padding: EdgeInsets.zero,
         shape: const CircularNotchedRectangle(),
-        elevation: 1.0,
+        elevation: 1.6,
         notchMargin: 8,
         height: 80.h,
-        color: Colors.white,
+        color: AppColors.backgroundWhite,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -353,8 +353,17 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   SizedBox(
                                     width: 30.w,
                                   ),
-                                  SvgPicture.asset('assets/images/test.svg',
-                                      fit: BoxFit.scaleDown),
+                                  InkWell(onTap: (){
+                                    Navigator.pushReplacement(
+                                      context,
+                                      CupertinoPageRoute(
+                                        builder: (context) => const TestSplashScreen(),
+                                      ),
+                                    );
+                                  },
+                                    child: SvgPicture.asset('assets/images/test.svg',
+                                        fit: BoxFit.scaleDown),
+                                  ),
                                 ],
                               ),
                               SizedBox(
@@ -473,13 +482,14 @@ class HomeView extends StatelessView<Home, HomeController> {
                               SizedBox(
                                 height: 35.h,
                               ),
+
                               Row(
                                 children: [
                                   const Divider(
                                     color: Colors.red,
                                   ),
                                   Text(
-                                    'Course',
+                                    'Resources',
                                     style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.w400,
@@ -507,11 +517,55 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                   SvgPicture.asset('assets/images/add.svg',
                                       fit: BoxFit.scaleDown),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 35.h,
+                              ),
+
+                              Row(
+                                children: [
+                                  const Divider(
+                                    color: Colors.red,
+                                  ),
+                                  Text(
+                                    'Others',
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: const Color(0xff202325)),
+                                  ),
+                                  const Divider(
+                                    color: Colors.red,
+                                  ),
+                                ],
+                              ),
+                              const Divider(
+                                color: Color(0xff0f0f0f),
+                              ),
+                              SizedBox(
+                                height: 16.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  SvgPicture.asset('assets/images/test.svg',
+                                      fit: BoxFit.scaleDown),
                                   SizedBox(
                                     width: 30.w,
                                   ),
-                                  SvgPicture.asset('assets/images/res.svg',
-                                      fit: BoxFit.scaleDown)
+                                  SvgPicture.asset('assets/images/test.svg',
+                                      fit: BoxFit.scaleDown),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
+                                  SvgPicture.asset('assets/images/test.svg',
+                                      fit: BoxFit.scaleDown),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
+                                  SvgPicture.asset('assets/images/test.svg',
+                                      fit: BoxFit.scaleDown),
                                 ],
                               ),
                               SizedBox(

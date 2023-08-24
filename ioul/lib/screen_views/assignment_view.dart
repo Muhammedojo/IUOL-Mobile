@@ -13,7 +13,7 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.backgroundWhite,
+        backgroundColor: AppColors.skyLightest,
         appBar: AppBar(
            // backgroundColor: const Color(0xff25435B),
             centerTitle: true,
