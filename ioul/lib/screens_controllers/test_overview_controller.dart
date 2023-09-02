@@ -1,6 +1,7 @@
 import '../screen_views/test_overview_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
+import '../screens/screens.dart';
 import '../values/values.dart';
 
 class TestOverview extends StatefulWidget {
@@ -33,5 +34,11 @@ class TestOverviewController extends State<TestOverview> {
   void onBackPressed(){
     NavigatorHelper(context).closeScreen();
   }
+
+  goToTest()=>
+  Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => const TestList()),
+  );
 
 }
