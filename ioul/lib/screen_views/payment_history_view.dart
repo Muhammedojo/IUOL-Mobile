@@ -34,7 +34,12 @@ class PaymentHistoryView
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              color: const Color(0xff25435B),
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
+              ),
               height: 120.h,
               alignment: Alignment.centerLeft,
               padding: REdgeInsets.only(left: 24),

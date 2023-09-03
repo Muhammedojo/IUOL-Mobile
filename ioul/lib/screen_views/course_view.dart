@@ -24,8 +24,9 @@ class CourseView extends StatelessView<Course, CourseController> {
               child: const SizedBox()
           ),
           title:  Text(
-            'Enrolled Courses',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
-              fontWeight: FontWeight.w700),
+            'Enrolled Courses',
+            style:
+            Styles.x18dp_202326_700w(),
           ),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -45,22 +46,6 @@ class CourseView extends StatelessView<Course, CourseController> {
       const Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Container(
-          //   color: const Color(0xff25435B),
-          //   height: 80.h,
-          //   alignment: Alignment.centerLeft,
-          //   padding: REdgeInsets.only(left: 24),
-          //   width: double.infinity,
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //         Text(
-          //                'Enrolled Courses',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
-          //                fontWeight: FontWeight.w700),),
-          //
-          //     ],
-          //   ),
-          // ),
         ],
       ),
       Expanded(

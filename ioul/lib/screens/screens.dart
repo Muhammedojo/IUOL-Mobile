@@ -43,3 +43,4 @@ export '../screens_controllers/test_splash_screen_controller.dart';
 export '../screens_controllers/test_overview_controller.dart';
 export '../screens_controllers/test_list_controller.dart';
 export '../screens_controllers/test_brief_controller.dart';
+export '../screens_controllers/result_history_controller.dart';

@@ -22,8 +22,9 @@ class ReportView extends StatelessView<Report, ReportController> {
               child: const SizedBox()
           ),
           title:  Text(
-            '2023 Spring Semester Report',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
-              fontWeight: FontWeight.w700),
+            '2023 Spring Semester Report',
+            style:
+            Styles.x18dp_202326_700w(),
           ),
           flexibleSpace: Container(
             decoration: const BoxDecoration(

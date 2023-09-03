@@ -45,4 +45,5 @@ class RouteConstants {
   static const notification = "notification";
   static const userProfile = "user_profile";
   static const testList = "test_list";
+  static const resultHistory = "result_history";
 }
