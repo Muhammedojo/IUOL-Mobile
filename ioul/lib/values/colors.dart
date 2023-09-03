@@ -9,6 +9,8 @@ class AppColors {
   static const Color secondaryLightBlue = Color.fromRGBO(196, 228, 255, 1);
   static const Color greylight = Color.fromRGBO(25, 28, 28, 0.70);
   static const Color primary = Color(0xFF25435B);
+  static const Color brownBlack = Color.fromRGBO(51, 51, 51, 1);
+  static const Color lightBlack = Color.fromRGBO(153, 153, 153, 1);
   static const Color lightGrey = Color.fromRGBO(227, 229, 229, 1);
   static const Color textLight = Color(0xff303437);
   static const Color skyLightest = Color(0xFFF7F9FA);

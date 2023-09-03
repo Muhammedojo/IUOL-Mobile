@@ -4,8 +4,7 @@ import '../screens/screens.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 
-class TestListView
-    extends StatelessView<TestListView, TestListController> {
+class TestListView extends StatelessView<TestListView, TestListController> {
   const TestListView(TestListController state, {Key? key})
       : super(state, key: key);
 
@@ -34,12 +33,22 @@ class TestListView
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('Test',
-                      style: TextStyle(
-                          fontSize: 18.sp,
-                          fontFamily: 'Inter',
-                          color: const Color(0xffF7F9FA),
-                          fontWeight: FontWeight.w500)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                          onTap: () => state.onBackPressed(),
+                          child: const Icon(Icons.arrow_back_ios,
+                              color: Color(0xffffffff))),
+                      Text('Test',
+                          style: TextStyle(
+                              fontSize: 18.sp,
+                              fontFamily: 'Inter',
+                              color: const Color(0xffF7F9FA),
+                              fontWeight: FontWeight.w500)),
+                      const SizedBox()
+                    ],
+                  ),
                   SizedBox(
                     height: 30.h,
                   ),
@@ -73,23 +82,34 @@ class TestListView
                 )),
             child: SingleChildScrollView(
               child: Padding(
-                padding:REdgeInsets.symmetric(horizontal: 18.0),
+                padding: REdgeInsets.symmetric(horizontal: 18.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(
                       height: 20.h,
                     ),
-                    TestWidget(onTap: () {  },),
+                    TestWidget(
+                      onTap: () {
+                        state.goToTestBrief();
+                      },
+                    ),
                     SizedBox(
                       height: 12.h,
                     ),
-                    TestWidget(onTap: () {  },),
+                    TestWidget(
+                      onTap: () {
+                        state.goToTestBrief();
+                      },
+                    ),
                     SizedBox(
                       height: 12.h,
                     ),
-                    TestWidget(onTap: () {  },)
-
+                    TestWidget(
+                      onTap: () {
+                        state.goToTestBrief();
+                      },
+                    )
                   ],
                 ),
               ),
@@ -99,5 +119,4 @@ class TestListView
       ],
     );
   }
-
 }

@@ -42,3 +42,4 @@ export '../screens_controllers/help_desk_controller.dart';
 export '../screens_controllers/test_splash_screen_controller.dart';
 export '../screens_controllers/test_overview_controller.dart';
 export '../screens_controllers/test_list_controller.dart';
+export '../screens_controllers/test_brief_controller.dart';

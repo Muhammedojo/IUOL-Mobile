@@ -14,16 +14,15 @@ class TestOverview extends StatefulWidget {
 }
 
 class TestOverviewController extends State<TestOverview> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -31,14 +30,12 @@ class TestOverviewController extends State<TestOverview> {
   Widget build(BuildContext context) => TestOverviewView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 
-  goToTest()=>
-  Navigator.push(
-  context,
-  MaterialPageRoute(builder: (context) => const TestList()),
-  );
-
+  goToTest() => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const TestList()),
+      );
 }

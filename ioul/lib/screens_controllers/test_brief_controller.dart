@@ -1,19 +1,18 @@
-import '../screen_views/test_list_view.dart';
+import '../screen_views/test_brief_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
-import '../screens/screens.dart';
 
 
-class TestList extends StatefulWidget {
+class TestBrief extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
 
-  const TestList({Key? key}) : super(key: key);
+  const TestBrief({Key? key}) : super(key: key);
 
   @override
-  TestListController createState() => TestListController();
+  TestBriefController createState() => TestBriefController();
 }
 
-class TestListController extends State<TestList> {
+class TestBriefController extends State<TestBrief> {
 
   //... //Initialization code, state vars etc, all go here
 
@@ -28,16 +27,11 @@ class TestListController extends State<TestList> {
   }
 
   @override
-  Widget build(BuildContext context) => TestListView(this);
+  Widget build(BuildContext context) => TestBriefView(this);
 
   //Control logic grouped together, at top of file
   void onBackPressed(){
     NavigatorHelper(context).closeScreen();
   }
-
-  goToTestBrief() => Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const TestBrief()),
-  );
 
 }
