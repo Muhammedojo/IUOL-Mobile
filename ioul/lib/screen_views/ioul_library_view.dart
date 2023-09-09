@@ -45,6 +45,7 @@ class IOULLibraryView
                             borderRadius: BorderRadius.circular(8.r),
                             color: const Color(0xffD1D5DB).withOpacity(0.2)),
                         child: TextFormField(
+                          style: TextStyle(color: const Color(0xff000000), fontFamily: 'Inter', fontSize: 12.sp),
                           controller: state.searchController,
                           onChanged: (_) {},
                           autofocus: false,

@@ -15,7 +15,6 @@ class CourseView extends StatelessView<Course, CourseController> {
   Widget build(BuildContext context) {
     return Scaffold(
          backgroundColor: Colors.transparent,
-         //AppColors.backgroundWhite,
         appBar: AppBar(
           // backgroundColor: const Color(0xff25435B),
           centerTitle: true,
@@ -38,7 +37,8 @@ class CourseView extends StatelessView<Course, CourseController> {
 
           ),
         ),
-        body: WidgetWrapper(child: _body(context)));
+        body: WidgetWrapper(child: _body(context))
+    );
   }
 
    Widget _body(context) {

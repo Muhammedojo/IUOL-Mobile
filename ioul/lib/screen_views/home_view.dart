@@ -502,7 +502,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   InkWell(
                                     onTap: () {},
                                     child: SvgPicture.asset(
-                                      'assets/images/reg.svg',
+                                      'assets/images/payment.svg',
                                       fit: BoxFit.scaleDown,
                                     ),
                                   ),
@@ -520,7 +520,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       );
                                     },
                                     child: SvgPicture.asset(
-                                        'assets/images/add.svg',
+                                        'assets/images/pay_history.svg',
                                         fit: BoxFit.scaleDown),
                                   ),
                                 ],
@@ -564,15 +564,26 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       );
                                     },
                                     child: SvgPicture.asset(
-                                      'assets/images/reg.svg',
+                                      'assets/images/ioul_lib.svg',
                                       fit: BoxFit.scaleDown,
                                     ),
                                   ),
                                   SizedBox(
                                     width: 30.w,
                                   ),
-                                  SvgPicture.asset('assets/images/add.svg',
-                                      fit: BoxFit.scaleDown),
+                                  InkWell(
+                                    onTap: (){
+                                      Navigator.push(
+                                        context,
+                                        CupertinoPageRoute(
+                                          builder: (context) =>
+                                          const EResources(),
+                                        ),
+                                      );
+                                    },
+                                    child: SvgPicture.asset('assets/images/giginya.svg',
+                                        fit: BoxFit.scaleDown),
+                                  ),
                                 ],
                               ),
                               SizedBox(
@@ -605,23 +616,67 @@ class HomeView extends StatelessView<Home, HomeController> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  SvgPicture.asset('assets/images/test.svg',
-                                      fit: BoxFit.scaleDown),
+                                  InkWell(
+                                    onTap:(){
+                                      Navigator.push(
+                                        context,
+                                        CupertinoPageRoute(
+                                          builder: (context) =>
+                                          const Settings(),
+                                        ),
+                                      );
+                                    },
+                                    child: SvgPicture.asset('assets/images/setting.svg',
+                                        fit: BoxFit.scaleDown),
+                                  ),
                                   SizedBox(
                                     width: 30.w,
                                   ),
-                                  SvgPicture.asset('assets/images/test.svg',
-                                      fit: BoxFit.scaleDown),
+                                  InkWell(
+                                    onTap:(){
+                                      Navigator.push(
+                                        context,
+                                        CupertinoPageRoute(
+                                          builder: (context) =>
+                                          const About(),
+                                        ),
+                                      );
+                                    },
+                                    child: SvgPicture.asset('assets/images/about.svg',
+                                        fit: BoxFit.scaleDown),
+                                  ),
                                   SizedBox(
                                     width: 30.w,
                                   ),
-                                  SvgPicture.asset('assets/images/test.svg',
-                                      fit: BoxFit.scaleDown),
+                                  InkWell(
+                                    onTap:(){
+                                      Navigator.push(
+                                        context,
+                                        CupertinoPageRoute(
+                                          builder: (context) =>
+                                          const HelpDesk(),
+                                        ),
+                                      );
+                                    },
+                                    child: SvgPicture.asset('assets/images/help.svg',
+                                        fit: BoxFit.scaleDown),
+                                  ),
                                   SizedBox(
                                     width: 30.w,
                                   ),
-                                  SvgPicture.asset('assets/images/test.svg',
-                                      fit: BoxFit.scaleDown),
+                                  InkWell(
+                                    onTap:(){
+                                      Navigator.push(
+                                        context,
+                                        CupertinoPageRoute(
+                                          builder: (context) =>
+                                          const ExaminationExtension(),
+                                        ),
+                                      );
+                                    },
+                                    child: SvgPicture.asset('assets/images/log_out.svg',
+                                        fit: BoxFit.scaleDown),
+                                  ),
                                 ],
                               ),
                               SizedBox(
