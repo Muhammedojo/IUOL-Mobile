@@ -30,6 +30,12 @@ class Styles {
         fontWeight: FontWeight.w400,
         fontFamily: "Inter",
       );
+  static x14dp_090A0A_400w() => TextStyle(
+    fontSize: 14.sp,
+    color: AppColors.skyLightest,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Inter",
+  );
   static x15dp_303437_400w() => TextStyle(
         fontSize: 15.sp,
         color: AppColors.textLight,

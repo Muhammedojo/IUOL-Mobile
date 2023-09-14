@@ -292,7 +292,14 @@ class HomeView extends StatelessView<Home, HomeController> {
                               Row(
                                 children: [
                                   InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          CupertinoPageRoute(
+                                            builder: (context) =>
+                                            const CourseRegistration(),
+                                          ));
+                                    },
                                     child: SvgPicture.asset(
                                       'assets/images/reg.svg',
                                       fit: BoxFit.scaleDown,
