@@ -1,18 +1,18 @@
-import '../screen_views/course_registration_view.dart';
+import '../screen_views/add_drop_course_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
 import '../values/values.dart';
 
-class CourseRegistration extends StatefulWidget {
+class AddDropCourse extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
 
-  const CourseRegistration({Key? key}) : super(key: key);
+  const AddDropCourse({Key? key}) : super(key: key);
 
   @override
-  CourseRegistrationController createState() => CourseRegistrationController();
+  AddDropCourseController createState() => AddDropCourseController();
 }
 
-class CourseRegistrationController extends State<CourseRegistration> {
+class AddDropCourseController extends State<AddDropCourse> {
 
   //... //Initialization code, state vars etc, all go here
 
@@ -28,7 +28,7 @@ class CourseRegistrationController extends State<CourseRegistration> {
   }
 
   @override
-  Widget build(BuildContext context) => CourseRegistrationView(this);
+  Widget build(BuildContext context) => AddDropCourseView(this);
 
   //Control logic grouped together, at top of file
   void onBackPressed(){

@@ -1,13 +1,13 @@
 import '../packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
-import '../screens_controllers/course_registration_controller.dart';
+import '../screens_controllers/add_drop_course_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 
-class CourseRegistrationView
-    extends StatelessView<CourseRegistration, CourseRegistrationController> {
-  const CourseRegistrationView(CourseRegistrationController state, {Key? key})
+class AddDropCourseView
+    extends StatelessView<AddDropCourse, AddDropCourseController> {
+  const AddDropCourseView(AddDropCourseController state, {Key? key})
       : super(state, key: key);
 
   @override
@@ -35,9 +35,10 @@ class CourseRegistrationView
               child: Padding(
                 padding: REdgeInsets.symmetric(horizontal: 18.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '2023 Spring Semester Course Registration',
+                      'Add/Drop Course',
                       style: Styles.x18dp_202326_700w(),
                     ),
                   ],
@@ -84,9 +85,9 @@ class CourseRegistrationView
                         SizedBox(
                           height: 30.h,
                         ),
-                        SubmitButtonWidget(label: 'Submit', onPressed: () {})
+                        SubmitButtonWidget(label: 'Preview', onPressed: () {})
                       ],
-                      )),
+                    )),
               ),
             )
           ])),
