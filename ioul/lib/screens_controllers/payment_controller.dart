@@ -19,6 +19,15 @@ class PaymentController extends State<Payment> {
   final String amount = "1000";
   final String txRef = "unique_transaction_ref_${Random().nextInt(100000)}";
 
+  String selectedValue = "";
+  final TextEditingController dropdownController = TextEditingController();
+
+  setSelectedValue(String value) {
+    setState(() {
+      selectedValue = value;
+    });
+  }
+
 
   @override
   void initState(){

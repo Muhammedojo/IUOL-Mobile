@@ -88,7 +88,9 @@ class ResultHistoryView
                 SizedBox(height: 20.h),
                 Center(
                     child: Text(
-                  '${state.selectedValue} Result',
+                  state.selectedValue.isEmpty
+                      ? ''
+                      : '${state.selectedValue} Result',
                   style: Styles.x16dp_202325_400w(),
                 )),
                 SizedBox(height: 20.h),

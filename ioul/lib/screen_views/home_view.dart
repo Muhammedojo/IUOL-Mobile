@@ -514,7 +514,14 @@ class HomeView extends StatelessView<Home, HomeController> {
                               Row(
                                 children: [
                                   InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          CupertinoPageRoute(
+                                            builder: (context) =>
+                                            const Payment(),
+                                          ));
+                                    },
                                     child: SvgPicture.asset(
                                       'assets/images/payment.svg',
                                       fit: BoxFit.scaleDown,
@@ -573,7 +580,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                         context,
                                         CupertinoPageRoute(
                                           builder: (context) =>
-                                              const IOULLibrary(),
+                                              const Library(),
                                         ),
                                       );
                                     },
