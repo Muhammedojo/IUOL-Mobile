@@ -46,4 +46,9 @@ class RouteConstants {
   static const userProfile = "user_profile";
   static const testList = "test_list";
   static const resultHistory = "result_history";
+  static const audio = "audio";
+  static const library = "library";
+  static const addDropCourse = "add_drop_course";
+  static const eResourcesJournal = "e_resources_journal";
+
 }

@@ -1,5 +1,7 @@
 import '../components/components.dart';
+import '../helpers/helper.dart';
 import '../packages/package.dart';
+import '../router/route_constants.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/audio_resources_controller.dart';
 import '../values/values.dart';
@@ -24,10 +26,10 @@ class AudioResourcesView
               'ARB 111 - Audio Resources',
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
             )),
-        body: WidgetWrapper(child: _body()));
+        body: WidgetWrapper(child: _body(context)));
   }
 
-  Widget _body() {
+  Widget _body(context) {
     return Padding(
       padding: REdgeInsets.symmetric(horizontal: 18.0),
       child: Column(
@@ -61,12 +63,10 @@ class AudioResourcesView
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   state.selectedPeriod == 0
-                      ? WidgetWrapper(child: _firstPeriod())
+                      ? WidgetWrapper(child: _firstPeriod(context))
                       : (state.selectedPeriod == 1
-                      ? WidgetWrapper(
-                      child: _secondPeriod())
-                      : WidgetWrapper(
-                      child: _thirdPeriod()))
+                          ? WidgetWrapper(child: _secondPeriod())
+                          : WidgetWrapper(child: _thirdPeriod()))
                 ],
               ),
             ),
@@ -76,23 +76,46 @@ class AudioResourcesView
     );
   }
 
-  Widget _firstPeriod() {
+  Widget _firstPeriod(context) {
     return Column(
-      children:  [
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
+      children: [
+        DocumentResourcesWidget(
+            onTap: () {
+              NavigatorHelper(context).pushNamedScreen(
+                RouteConstants.audio,
+              );
+            },
+            image: 'assets/images/audio_doc.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
+        DocumentResourcesWidget(
+            onTap: () {
+              NavigatorHelper(context).pushNamedScreen(
+                RouteConstants.audio,
+              );
+            },
+            image: 'assets/images/audio_doc.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
+        DocumentResourcesWidget(
+            onTap: () {
+              NavigatorHelper(context).pushNamedScreen(
+                RouteConstants.audio,
+              );
+            },
+            image: 'assets/images/audio_doc.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-
+        DocumentResourcesWidget(
+            onTap: () {
+              NavigatorHelper(context).pushNamedScreen(
+                RouteConstants.audio,
+              );
+            },
+            image: 'assets/images/audio_doc.svg'),
       ],
     );
   }
@@ -101,12 +124,13 @@ class AudioResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
+        DocumentResourcesWidget(
+            onTap: () {}, image: 'assets/images/audio_doc.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-
+        DocumentResourcesWidget(
+            onTap: () {}, image: 'assets/images/audio_doc.svg'),
       ],
     );
   }
@@ -115,20 +139,23 @@ class AudioResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
+        DocumentResourcesWidget(
+            onTap: () {}, image: 'assets/images/audio_doc.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
+        DocumentResourcesWidget(
+            onTap: () {}, image: 'assets/images/audio_doc.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
+        DocumentResourcesWidget(
+            onTap: () {}, image: 'assets/images/audio_doc.svg'),
         SizedBox(
           height: 10.h,
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-
+        DocumentResourcesWidget(
+            onTap: () {}, image: 'assets/images/audio_doc.svg'),
       ],
     );
   }
