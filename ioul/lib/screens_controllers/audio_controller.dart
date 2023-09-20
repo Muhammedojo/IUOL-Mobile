@@ -19,6 +19,8 @@ class AudioController extends State<Audio> {
   bool isPlaying = false;
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
+  final PlayerState _playerState = PlayerState.stopped;
+  bool get isPlayingNow => _playerState == PlayerState.playing;
 
   String url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3";
 

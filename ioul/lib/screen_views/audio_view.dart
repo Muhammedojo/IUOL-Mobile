@@ -30,7 +30,7 @@ class AudioView extends StatelessView<Audio, AudioController> {
         children: [
           Image.asset('assets/images/logos.png'),
           Slider(
-              min: 0,
+              min: 0.0,
               max: state.duration.inSeconds.toDouble(),
               value: state.position.inSeconds.toDouble(),
               onChanged: (value) async {
@@ -51,14 +51,14 @@ class AudioView extends StatelessView<Audio, AudioController> {
           ),
           IconButton(
             onPressed: () async {
-              state.isPlaying
+              state.isPlayingNow
                   ? await state.player.pause()
                   : await state.player.play(UrlSource(state.url));
             },
             icon: Icon(
-              state.isPlaying
-                  ? Icons.play_arrow_outlined
-                  : Icons.pause_circle_outline,
+              state.isPlayingNow
+                  ? Icons.pause_circle_outline
+                  : Icons.play_arrow_outlined,
               size: 80,
               color: AppColors.primaryLightest,
             ),
@@ -68,4 +68,3 @@ class AudioView extends StatelessView<Audio, AudioController> {
     );
   }
 }
-
