@@ -56,6 +56,7 @@ class CourseView extends StatelessView<Course, CourseController> {
                     height: 10.h,
                   ),
                   itemCount: 10,
+                  shrinkWrap: true,
                   itemBuilder: (context, index) => EnrolledCourseWidget(
                       onTap: () => NavigatorHelper(context).pushNamedScreen(
                             RouteConstants.courseDetailOverview,

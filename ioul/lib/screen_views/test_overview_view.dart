@@ -200,6 +200,7 @@ class TestOverviewView
             color: Color(0xff72777A),
           ),
           itemCount: 4,
+          shrinkWrap: true,
           itemBuilder: (context, index) => TestStatusWidget(
               title: 'CSE 111 - Computer Science',
               unit: '2 units',
@@ -222,6 +223,7 @@ class TestOverviewView
             color: Color(0xff72777A),
           ),
           itemCount: 2,
+          shrinkWrap: true,
           itemBuilder: (context, index) => TestStatusWidget(
               title: 'CSE 111 - Computer Science',
               unit: '2 units',
@@ -244,6 +246,7 @@ class TestOverviewView
             color: Color(0xff72777A),
           ),
           itemCount: 2,
+          shrinkWrap: true,
           itemBuilder: (context, index) => TestStatusWidget(
               title: 'CSE 111 - Computer Science',
               unit: '2 units',
@@ -266,6 +269,7 @@ class TestOverviewView
             color: Color(0xff72777A),
           ),
           itemCount: 3,
+          shrinkWrap: true,
           itemBuilder: (context, index) => TestStatusWidget(
               title: 'CSE 111 - Computer Science',
               unit: '2 units',

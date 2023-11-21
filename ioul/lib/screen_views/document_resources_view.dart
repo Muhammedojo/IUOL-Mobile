@@ -140,6 +140,7 @@ class DocumentResourcesView
             height: 10.h,
           ),
           itemCount: 5,
+          shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {}, image: 'assets/images/pdf.svg'),
         ),
@@ -156,6 +157,7 @@ class DocumentResourcesView
             height: 10.h,
           ),
           itemCount: 2,
+          shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {}, image: 'assets/images/pdf.svg'),
         ),
@@ -172,6 +174,7 @@ class DocumentResourcesView
             height: 10.h,
           ),
           itemCount: 8,
+          shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {}, image: 'assets/images/pdf.svg'),
         ),

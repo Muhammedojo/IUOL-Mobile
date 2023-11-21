@@ -85,6 +85,7 @@ class AudioResourcesView
             height: 10.h,
           ),
           itemCount: 4,
+          shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {
                 NavigatorHelper(context).pushNamedScreen(
@@ -106,6 +107,7 @@ class AudioResourcesView
             height: 10.h,
           ),
           itemCount: 2,
+          shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),
@@ -122,6 +124,7 @@ class AudioResourcesView
             height: 10.h,
           ),
           itemCount: 4,
+          shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),

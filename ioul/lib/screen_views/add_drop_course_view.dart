@@ -60,6 +60,7 @@ class AddDropCourseView
                             color: Colors.grey,
                           ),
                           itemCount: 7,
+                          shrinkWrap: true,
                           itemBuilder: (context, index) =>
                               const CourseRegWidget(
                             course: 'ARA 111 - Introduction to Arabic Language',

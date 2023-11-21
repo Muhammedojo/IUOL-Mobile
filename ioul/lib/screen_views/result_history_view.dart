@@ -108,6 +108,7 @@ class ResultHistoryView
                     color: Color(0xff72777A),
                   ),
                   itemCount: 5,
+                  shrinkWrap: true,
                   itemBuilder: (context, index) => TestStatusWidget(
                       title: 'GST 111 - Communication in English',
                       unit: '2 Unit',

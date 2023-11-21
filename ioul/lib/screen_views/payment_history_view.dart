@@ -104,6 +104,7 @@ class PaymentHistoryView
                   color: Color(0xff000000),
                 ),
                 itemCount: 3,
+                shrinkWrap: true,
                 itemBuilder: (context, index) => PaymentHistoryWidget(
                   title: 'Tuition Fee for Spring Semester 2021/2023',
                   amount: 'N50,000',

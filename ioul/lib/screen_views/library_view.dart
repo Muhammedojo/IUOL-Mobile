@@ -118,6 +118,7 @@ class LibraryView extends StatelessView<Library, LibraryController> {
                       width: 10.w,
                     ),
                 itemCount: 5,
+                shrinkWrap: true,
                 itemBuilder: (context, index) => DeptWidget(
                       icon: 'assets/images/computer-science 1.png',
                       label: 'Computer & IT',
@@ -143,6 +144,7 @@ class LibraryView extends StatelessView<Library, LibraryController> {
               height: 1.h,
             ),
             itemCount: 5,
+            shrinkWrap: true,
             itemBuilder: (context, index) => EResourceWidget(
               onTap: () {},
               tittle: 'College Open Text Books',

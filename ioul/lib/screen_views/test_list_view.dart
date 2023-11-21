@@ -94,6 +94,7 @@ class TestListView extends StatelessView<TestListView, TestListController> {
                         height: 12.h,
                       ),
                       itemCount: 4,
+                      shrinkWrap: true,
                       itemBuilder: (context, index) => TestWidget(
                         onTap: () {
                           state.goToTestBrief();

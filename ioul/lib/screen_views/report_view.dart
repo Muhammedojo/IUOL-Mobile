@@ -48,6 +48,7 @@ class ReportView extends StatelessView<Report, ReportController> {
               height: 10.h,
             ),
             itemCount: 3,
+            shrinkWrap: true,
             itemBuilder: (context, index) => EnrolledCourseWidget(
                 onTap: () => NavigatorHelper(context).pushNamedScreen(
                       RouteConstants.reportPreview,

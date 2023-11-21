@@ -30,6 +30,7 @@ class NotificationView
             ListView.separated(
               separatorBuilder: (context, index) => const Divider(),
               itemCount: 5,
+              shrinkWrap: true,
               itemBuilder: (context, index) => const NotificationWidget(),
             ),
           ],

@@ -71,6 +71,7 @@ class ExaminationExtensionView extends StatelessView<ExaminationExtension,
               color: Colors.grey,
             ),
             itemCount: 5,
+            shrinkWrap: true,
             itemBuilder: (context, index) => const ExamExtensionWidget(
               course: '',
               unit: '',

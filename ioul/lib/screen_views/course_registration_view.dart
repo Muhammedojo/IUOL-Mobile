@@ -59,6 +59,7 @@ class CourseRegistrationView
                             color: Colors.grey,
                           ),
                           itemCount: 8,
+                          shrinkWrap: true,
                           itemBuilder: (context, index) =>
                               const CourseRegWidget(
                             course: 'ARA 111 - Introduction to Arabic Language',

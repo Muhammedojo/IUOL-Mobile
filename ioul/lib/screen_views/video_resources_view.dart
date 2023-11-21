@@ -83,6 +83,7 @@ class VideoResourcesView
             height: 10.h,
           ),
           itemCount: 5,
+          shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),
@@ -99,6 +100,7 @@ class VideoResourcesView
             height: 10.h,
           ),
           itemCount: 2,
+          shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),
@@ -115,6 +117,7 @@ class VideoResourcesView
             height: 10.h,
           ),
           itemCount: 4,
+          shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),

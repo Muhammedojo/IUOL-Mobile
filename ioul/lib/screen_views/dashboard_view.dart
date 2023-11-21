@@ -226,6 +226,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                         width: 15.w,
                       ),
                       itemCount: 4,
+                      shrinkWrap: true,
                       itemBuilder: (context, index) => const RecentClassWidget(
                         title: 'Introduction to Arabic Language I',
                         code: 'ARB 111',
@@ -250,6 +251,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                       height: 10.h,
                     ),
                     itemCount: 5,
+                    shrinkWrap: true,
                     itemBuilder: (context, index) => const UpcomingTaskWidget(
                       onTap: null,
                       course: 'CMP 111 - Introduction to Computer Science',

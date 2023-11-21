@@ -51,6 +51,7 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
                           RouteConstants.assignmentPreview,
                         )),
             itemCount: 5,
+            shrinkWrap: true,
           ),
         ]),
       ),

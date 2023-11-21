@@ -91,6 +91,7 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
                 height: 12.h,
               ),
               itemCount: 5,
+              shrinkWrap: true,
               itemBuilder: (context, index) =>
                   EResourceWidget(onTap: () {}, tittle: 'EBSCO'),
             ),

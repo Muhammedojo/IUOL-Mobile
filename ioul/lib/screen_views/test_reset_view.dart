@@ -48,6 +48,7 @@ class TestResetView extends StatelessView<TestReset, TestResetController> {
               color: Colors.grey,
             ),
             itemCount: 4,
+            shrinkWrap: true,
             itemBuilder: (context, index) => const TestResetWidget(
                 course: 'CMP 111 - Introduction to Computer Science',
                 unit: '2 unit'),
