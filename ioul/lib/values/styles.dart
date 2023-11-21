@@ -30,11 +30,11 @@ class Styles {
         fontFamily: "Inter",
       );
   static x14dp_090A0A_400w() => TextStyle(
-    fontSize: 14.sp,
-    color: AppColors.skyLightest,
-    fontWeight: FontWeight.w400,
-    fontFamily: "Inter",
-  );
+        fontSize: 14.sp,
+        color: AppColors.skyLightest,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Inter",
+      );
   static x15dp_303437_400w() => TextStyle(
         fontSize: 15.sp,
         color: AppColors.textLight,
@@ -73,23 +73,23 @@ class Styles {
         fontFamily: "Inter",
       );
   static x18dp_202325_700w() => TextStyle(
-    fontSize: 18.sp,
-    color: AppColors.inkDarker,
-    fontWeight: FontWeight.w700,
-    fontFamily: "Inter",
-  );
+        fontSize: 18.sp,
+        color: AppColors.inkDarker,
+        fontWeight: FontWeight.w700,
+        fontFamily: "Inter",
+      );
   static x18dp_202326_700w() => TextStyle(
-    fontSize: 18.sp,
-    color: AppColors.skyLightest,
-    fontWeight: FontWeight.w700,
-    fontFamily: "Inter",
-  );
+        fontSize: 18.sp,
+        color: AppColors.skyLightest,
+        fontWeight: FontWeight.w700,
+        fontFamily: "Inter",
+      );
   static x18dp_202325_500g() => TextStyle(
-    fontSize: 18.sp,
-    color: AppColors.backgroundWhite,
-    fontWeight: FontWeight.w500,
-    fontFamily: "Inter",
-  );
+        fontSize: 18.sp,
+        color: AppColors.backgroundWhite,
+        fontWeight: FontWeight.w500,
+        fontFamily: "Inter",
+      );
   static x16dp_202325_400w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.inkDarker,
