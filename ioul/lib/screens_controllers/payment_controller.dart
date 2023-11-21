@@ -2,7 +2,6 @@ import 'dart:math';
 import '../packages/package.dart';
 import '../screen_views/payment_view.dart';
 import '../helpers/helper.dart';
-import '../values/values.dart';
 
 class Payment extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

@@ -22,47 +22,38 @@ class _CourseRegWidgetState extends State<CourseRegWidget> {
       });
     }
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'GST 111 - Communication in English',
-                  style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xff090A0A),
-                      fontSize: 16.sp),
-                ),
-                Text(
-                  '2 Unit',
-                  style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xff72777A),
-                      fontSize: 14.sp),
-                ),
-              ],
+            Text(
+              'GST 111 - Communication in English',
+              style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w400,
+                  color: const Color(0xff090A0A),
+                  fontSize: 16.sp),
             ),
-            Checkbox(
-              activeColor: AppColors.blueBase,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-              ),
-              value: checked,
-              onChanged: (e) => toggleCheck(),
+            Text(
+              '2 Unit',
+              style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w400,
+                  color: const Color(0xff72777A),
+                  fontSize: 14.sp),
             ),
           ],
         ),
-        const Divider(
-          color: Colors.grey,
+        Checkbox(
+          activeColor: AppColors.blueBase,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4),
+          ),
+          value: checked,
+          onChanged: (e) => toggleCheck(),
         ),
       ],
     );

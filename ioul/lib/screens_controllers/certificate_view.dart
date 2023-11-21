@@ -1,6 +1,5 @@
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/application_form_view.dart';
 import '../screen_views/certificate_view.dart';
 
 class Certificate extends StatefulWidget {
@@ -60,10 +59,6 @@ class CertificateController extends State<Certificate> with AutomaticKeepAliveCl
     // }
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void dispose() {

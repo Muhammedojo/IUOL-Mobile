@@ -53,34 +53,18 @@ class AddDropCourseView
                 child: Padding(
                     padding: REdgeInsets.symmetric(horizontal: 16.0),
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        const CourseRegWidget(
-                          course: 'ARA 111 - Introduction to Arabic Language',
-                          unit: '2 Units',
-                        ),
-                        const CourseRegWidget(
-                          course: 'ARA 111 - Introduction to Arabic Language',
-                          unit: '2 Units',
-                        ),
-                        const CourseRegWidget(
-                          course: 'ARA 111 - Introduction to Arabic Language',
-                          unit: '2 Units',
-                        ),
-                        const CourseRegWidget(
-                          course: 'ARA 111 - Introduction to Arabic Language',
-                          unit: '2 Units',
-                        ),
-                        const CourseRegWidget(
-                          course: 'ARA 111 - Introduction to Arabic Language',
-                          unit: '2 Units',
-                        ),
-                        const CourseRegWidget(
-                          course: 'ARA 111 - Introduction to Arabic Language',
-                          unit: '2 Units',
-                        ),
-                        const CourseRegWidget(
-                          course: 'ARA 111 - Introduction to Arabic Language',
-                          unit: '2 Units',
+                        ListView.separated(
+                          separatorBuilder: (context, index) => const Divider(
+                            color: Colors.grey,
+                          ),
+                          itemCount: 7,
+                          itemBuilder: (context, index) =>
+                              const CourseRegWidget(
+                            course: 'ARA 111 - Introduction to Arabic Language',
+                            unit: '2 Units',
+                          ),
                         ),
                         SizedBox(
                           height: 30.h,

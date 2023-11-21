@@ -1,7 +1,6 @@
 import '../screen_views/examination_schedule_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
-import '../values/values.dart';
 
 class ExaminationSchedule extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

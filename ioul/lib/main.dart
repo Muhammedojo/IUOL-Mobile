@@ -1,5 +1,4 @@
 import '../router/router.dart';
-import 'package:ioul/screens/screens.dart';
 import 'packages/package.dart';
 
 void main() {

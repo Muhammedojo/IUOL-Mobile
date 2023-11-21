@@ -16,7 +16,6 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
     return Scaffold(
         backgroundColor: AppColors.skyLightest,
         appBar: AppBar(
-          // backgroundColor: const Color(0xff25435B),
           centerTitle: true,
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
@@ -42,26 +41,17 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
           SizedBox(
             height: 20.h,
           ),
-          EnrolledCourseWidget(
-              onTap: () => NavigatorHelper(context).pushNamedScreen(
-                    RouteConstants.assignmentPreview,
-                  )),
-          SizedBox(
-            height: 10.h,
+          ListView.separated(
+            separatorBuilder: (context, index) => SizedBox(
+              height: 10.h,
+            ),
+            itemBuilder: (BuildContext context, int index) =>
+                EnrolledCourseWidget(
+                    onTap: () => NavigatorHelper(context).pushNamedScreen(
+                          RouteConstants.assignmentPreview,
+                        )),
+            itemCount: 5,
           ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
         ]),
       ),
     );

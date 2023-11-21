@@ -4,9 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:ioul/screens/screens.dart';
 
 import '../screen_views/test_splash_screen_view.dart';
-import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
-import '../values/values.dart';
 
 class TestSplashScreen extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

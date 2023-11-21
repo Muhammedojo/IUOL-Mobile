@@ -1,13 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ioul/components/elevated_button_widget.dart';
-import 'package:ioul/components/text_widget.dart';
-import 'package:ioul/components/textfield_widget.dart';
 import 'package:ioul/helpers/helper.dart';
 import 'package:ioul/helpers/widget_helper.dart';
-import 'package:ioul/router/route_constants.dart';
-import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
 import '../screens_controllers/verify_email_controller.dart';
 import '../values/values.dart';

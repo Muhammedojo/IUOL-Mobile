@@ -96,7 +96,7 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                   onPressed: () {},
                   color: state.selectedValue.isEmpty
                       ? Colors.grey
-                      : Color(0xff25435B),
+                      : const Color(0xff25435B),
                 )
               ],
             ),

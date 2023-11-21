@@ -51,50 +51,16 @@ class CourseView extends StatelessView<Course, CourseController> {
                 SizedBox(
                   height: 20.h,
                 ),
-                EnrolledCourseWidget(
-                    onTap: () => NavigatorHelper(context).pushNamedScreen(
-                          RouteConstants.courseDetailOverview,
-                        )),
-                SizedBox(
-                  height: 10.h,
+                ListView.separated(
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 10.h,
+                  ),
+                  itemCount: 10,
+                  itemBuilder: (context, index) => EnrolledCourseWidget(
+                      onTap: () => NavigatorHelper(context).pushNamedScreen(
+                            RouteConstants.courseDetailOverview,
+                          )),
                 ),
-                const EnrolledCourseWidget(onTap: null),
-                SizedBox(
-                  height: 10.h,
-                ),
-                const EnrolledCourseWidget(onTap: null),
-                SizedBox(
-                  height: 10.h,
-                ),
-                const EnrolledCourseWidget(onTap: null),
-                SizedBox(
-                  height: 10.h,
-                ),
-                const EnrolledCourseWidget(onTap: null),
-                SizedBox(
-                  height: 10.h,
-                ),
-                const EnrolledCourseWidget(onTap: null),
-                SizedBox(
-                  height: 10.h,
-                ),
-                const EnrolledCourseWidget(onTap: null),
-                SizedBox(
-                  height: 10.h,
-                ),
-                const EnrolledCourseWidget(onTap: null),
-                SizedBox(
-                  height: 10.h,
-                ),
-                const EnrolledCourseWidget(onTap: null),
-                SizedBox(
-                  height: 10.h,
-                ),
-                const EnrolledCourseWidget(onTap: null),
-                SizedBox(
-                  height: 10.h,
-                ),
-                const EnrolledCourseWidget(onTap: null),
               ],
             ),
           ),

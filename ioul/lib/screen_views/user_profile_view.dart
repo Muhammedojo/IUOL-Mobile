@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:ioul/packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/user_profile_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class UserProfileView

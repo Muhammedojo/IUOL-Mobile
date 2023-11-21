@@ -1,7 +1,6 @@
 import '../screen_views/e_resources_journal_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
-import '../values/values.dart';
 
 class EResources extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

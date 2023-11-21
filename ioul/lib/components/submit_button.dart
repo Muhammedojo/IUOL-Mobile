@@ -1,5 +1,4 @@
 import '../packages/package.dart';
-import '../values/values.dart';
 
 class SubmitButtonWidget extends StatelessWidget {
   final String label;

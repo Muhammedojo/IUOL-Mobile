@@ -56,10 +56,9 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                                 'https://www.essence.com/wp-content/uploads/2020/12/GettyImages-957598612-scaled.jpg',
                                 fit: BoxFit.cover,
                                 height: 54.w,
-                                width:54.w,
+                                width: 54.w,
                                 errorBuilder: (BuildContext context,
-                                    Object exception,
-                                    StackTrace? stackTrace) {
+                                    Object exception, StackTrace? stackTrace) {
                                   return Image.asset(
                                     'assets/images/iconic_logo.png',
                                     width: 54.w,
@@ -71,7 +70,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                             ),
                           ),
                           InkWell(
-                            onTap: (){
+                            onTap: () {
                               NavigatorHelper(context).pushNamedScreen(
                                 RouteConstants.notification,
                               );
@@ -221,39 +220,17 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   ),
                   SizedBox(
                     height: 80.h,
-                    child: ListView(
+                    child: ListView.separated(
                       scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        const RecentClassWidget(
-                          title: 'Introduction to Arabic Language I',
-                          code: 'ARB 111',
-                          onTap: null,
-                        ),
-                        SizedBox(
-                          width: 15.w,
-                        ),
-                        const RecentClassWidget(
-                          title: 'Introduction to Chemistry',
-                          code: 'CHM 141',
-                          onTap: null,
-                        ),
-                        SizedBox(
-                          width: 15.w,
-                        ),
-                        const RecentClassWidget(
-                          title: 'General Studies',
-                          code: 'GNS 101',
-                          onTap: null,
-                        ),
-                        SizedBox(
-                          width: 15.w,
-                        ),
-                        const RecentClassWidget(
-                          title: 'MAthematics',
-                          code: 'MTH 111',
-                          onTap: null,
-                        ),
-                      ],
+                      separatorBuilder: (context, index) => SizedBox(
+                        width: 15.w,
+                      ),
+                      itemCount: 4,
+                      itemBuilder: (context, index) => const RecentClassWidget(
+                        title: 'Introduction to Arabic Language I',
+                        code: 'ARB 111',
+                        onTap: null,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -268,21 +245,16 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   SizedBox(
                     height: 20.h,
                   ),
-                   const UpcomingTaskWidget(onTap:null, course: 'CMP 111 - Introduction to Computer Science', date: '2/08/2023',),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  const UpcomingTaskWidget(onTap:null, course: 'CHM 101 - Introduction to Chemistry II', date: '4/08/2023',),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  const UpcomingTaskWidget(onTap:null, course: 'SOS 111 - Introduction to Social Science', date: '5/08/2023',),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  const UpcomingTaskWidget(onTap:null, course: 'CMP 111 - Introduction to Computer Science', date: '6/08/2023',),
-                  SizedBox(
-                    height: 10.h,
+                  ListView.separated(
+                    separatorBuilder: (context, index) => SizedBox(
+                      height: 10.h,
+                    ),
+                    itemCount: 5,
+                    itemBuilder: (context, index) => const UpcomingTaskWidget(
+                      onTap: null,
+                      course: 'CMP 111 - Introduction to Computer Science',
+                      date: '2/08/2023',
+                    ),
                   ),
                 ],
               ),

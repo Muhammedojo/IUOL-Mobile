@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:ioul/packages/package.dart';
 import 'package:ioul/values/values.dart';
 
-import '../values/styles.dart';
 
 class OutlinedButtonWidget extends StatelessWidget {
   OutlinedButtonWidget({

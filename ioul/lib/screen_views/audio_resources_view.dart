@@ -78,44 +78,21 @@ class AudioResourcesView
 
   Widget _firstPeriod(context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget(
-            onTap: () {
-              NavigatorHelper(context).pushNamedScreen(
-                RouteConstants.audio,
-              );
-            },
-            image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
+        ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10.h,
+          ),
+          itemCount: 4,
+          itemBuilder: (context, index) => DocumentResourcesWidget(
+              onTap: () {
+                NavigatorHelper(context).pushNamedScreen(
+                  RouteConstants.audio,
+                );
+              },
+              image: 'assets/images/audio_doc.svg'),
         ),
-        DocumentResourcesWidget(
-            onTap: () {
-              NavigatorHelper(context).pushNamedScreen(
-                RouteConstants.audio,
-              );
-            },
-            image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(
-            onTap: () {
-              NavigatorHelper(context).pushNamedScreen(
-                RouteConstants.audio,
-              );
-            },
-            image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(
-            onTap: () {
-              NavigatorHelper(context).pushNamedScreen(
-                RouteConstants.audio,
-              );
-            },
-            image: 'assets/images/audio_doc.svg'),
       ],
     );
   }
@@ -124,13 +101,14 @@ class AudioResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget(
-            onTap: () {}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
+        ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10.h,
+          ),
+          itemCount: 2,
+          itemBuilder: (context, index) => DocumentResourcesWidget(
+              onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),
-        DocumentResourcesWidget(
-            onTap: () {}, image: 'assets/images/audio_doc.svg'),
       ],
     );
   }
@@ -139,23 +117,14 @@ class AudioResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget(
-            onTap: () {}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
+        ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10.h,
+          ),
+          itemCount: 4,
+          itemBuilder: (context, index) => DocumentResourcesWidget(
+              onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),
-        DocumentResourcesWidget(
-            onTap: () {}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(
-            onTap: () {}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(
-            onTap: () {}, image: 'assets/images/audio_doc.svg'),
       ],
     );
   }

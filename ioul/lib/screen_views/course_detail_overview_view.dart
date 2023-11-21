@@ -368,7 +368,7 @@ class CourseOverviewView
                                       ),
                                       type: 'Document',
                                       number: '12',
-                                      color: Color(0xffFFD188),
+                                      color: const Color(0xffFFD188),
                                       image: 'assets/images/documents.svg',
                                     ),
                                     ResourcesWidget(
@@ -377,7 +377,7 @@ class CourseOverviewView
                                       ),
                                       type: 'Videos',
                                       number: '12',
-                                      color: Color(0xffC4E4FF),
+                                      color: const Color(0xffC4E4FF),
                                       image: 'assets/images/videos.svg',
                                     ),
                                     ResourcesWidget(
@@ -386,7 +386,7 @@ class CourseOverviewView
                                       ),
                                       type: 'Audios',
                                       number: '12',
-                                      color: Color(0xff7DDE86),
+                                      color: const Color(0xff7DDE86),
                                       image: 'assets/images/audios.svg',
                                     ),
                                   ],

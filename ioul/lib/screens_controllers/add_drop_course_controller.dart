@@ -1,7 +1,6 @@
 import '../screen_views/add_drop_course_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
-import '../values/values.dart';
 
 class AddDropCourse extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

@@ -1,6 +1,5 @@
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/application_form_view.dart';
 import '../screen_views/contact_view.dart';
 
 class Contact extends StatefulWidget {
@@ -60,10 +59,6 @@ class ContactController extends State<Contact> with AutomaticKeepAliveClientMixi
     // }
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void dispose() {

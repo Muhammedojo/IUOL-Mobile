@@ -1,11 +1,8 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:ioul/helpers/widget_helper.dart';
 import '../components/components.dart';
-import '../screens_controllers/application_form_controller.dart';
 import '../screens_controllers/contact_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
@@ -85,7 +82,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               style: Styles.x16dp_72777A_400w(),
               disableLengthCheck: true,
               cursorColor: AppColors.lightGrey,
-              dropdownDecoration: BoxDecoration(),
+              dropdownDecoration: const BoxDecoration(),
               dropdownTextStyle: Styles.x16dp_72777A_400w(),
               decoration: InputDecoration(
                 helperStyle: Styles.x16dp_72777A_400w(),
@@ -132,7 +129,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               style: Styles.x16dp_202325_700w(),
             ),
             SizedBox(height: 6.h),
-            Divider(
+            const Divider(
               color: AppColors.inkBase,
             ),
             SizedBox(height: 12.h),
@@ -189,7 +186,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               style: Styles.x16dp_72777A_400w(),
               disableLengthCheck: true,
               cursorColor: AppColors.lightGrey,
-              dropdownDecoration: BoxDecoration(),
+              dropdownDecoration: const BoxDecoration(),
               dropdownTextStyle: Styles.x16dp_72777A_400w(),
               decoration: InputDecoration(
                 helperStyle: Styles.x16dp_72777A_400w(),

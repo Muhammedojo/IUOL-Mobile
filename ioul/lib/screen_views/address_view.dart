@@ -4,7 +4,6 @@ import '../components/components.dart';
 import '../screens/screens.dart';
 import '../packages/package.dart';
 import '../screens_controllers/address_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class AddressView extends StatelessView<Address, AddressController> {

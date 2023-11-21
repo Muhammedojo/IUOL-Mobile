@@ -1,6 +1,5 @@
 import '../helpers/helper.dart';
 import '../screen_views/home_view.dart';
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
 class Home extends StatefulWidget {

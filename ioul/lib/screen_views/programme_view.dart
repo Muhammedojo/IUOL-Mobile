@@ -1,12 +1,9 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ioul/helpers/widget_helper.dart';
 import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
-import '../screens_controllers/application_form_controller.dart';
 import '../screens_controllers/programme_view.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
