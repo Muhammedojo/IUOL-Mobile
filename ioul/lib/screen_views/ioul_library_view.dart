@@ -44,7 +44,10 @@ class IOULLibraryView
                             borderRadius: BorderRadius.circular(8.r),
                             color: const Color(0xffD1D5DB).withOpacity(0.2)),
                         child: TextFormField(
-                          style: TextStyle(color: const Color(0xff000000), fontFamily: 'Inter', fontSize: 12.sp),
+                          style: TextStyle(
+                              color: const Color(0xff000000),
+                              fontFamily: 'Inter',
+                              fontSize: 12.sp),
                           controller: state.searchController,
                           onChanged: (_) {},
                           autofocus: false,
@@ -90,78 +93,49 @@ class IOULLibraryView
                 crossAxisSpacing: 12,
                 shrinkWrap: true,
                 children: [
-                  InkWell(
-                      onTap: () {
-                       // state.onBackPressed();
-                      },
-                      child: const DeptWidget(
-                        icon: 'assets/images/pine 1.png',
-                        label: 'Agriculture & Forestry',
-                      )),
-                  InkWell(
-                    onTap: () {
-                     // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/microscope (1) 1.png',
-                      label: 'Applied Sciences & Professions',
-                    ),
+                  DeptWidget(
+                    icon: 'assets/images/pine 1.png',
+                    label: 'Agriculture & Forestry',
+                    onTap: () {},
                   ),
-                  InkWell(
-                    onTap: () {
-                     // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/web-design 1.png',
-                      label: 'Arts, Design & Architecture',
-                    ),
+                  DeptWidget(
+                    onTap: () {},
+                    icon: 'assets/images/microscope (1) 1.png',
+                    label: 'Applied Sciences & Professions',
                   ),
-                  InkWell(
-                    onTap: () {
-                     // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/briefcase 1.png',
-                      label: 'Business & Management',
-                    ),
+                  DeptWidget(
+                    onTap: () {},
+                    icon: 'assets/images/web-design 1.png',
+                    label: 'Arts, Design & Architecture',
                   ),
-                  InkWell(
-                    onTap: () {
-                     // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/computer-science 1.png',
-                      label: 'Computer Science & IT',
-                    ),
+                  DeptWidget(
+                    onTap: () {},
+                    icon: 'assets/images/briefcase 1.png',
+                    label: 'Business & Management',
                   ),
-                  InkWell(
-                    onTap: () {
-                    //  state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/book 1.png',
-                      label: 'Education & Training',
-                    ),
+                  DeptWidget(
+                    onTap: () {},
+                    icon: 'assets/images/computer-science 1.png',
+                    label: 'Computer Science & IT',
                   ),
-                  InkWell(
-                    onTap: () {
-                     // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/engineering 1.png',
-                      label: 'Engineering',
-                    ),
+                  DeptWidget(
+                    onTap: () {},
+                    icon: 'assets/images/book 1.png',
+                    label: 'Education & Training',
                   ),
-                  InkWell(
-                    onTap: () {
-                     // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/environmental 1.png',
-                      label: 'Earth & Environmental',
-                    ),
+                  DeptWidget(
+                    onTap: () {},
+                    icon: 'assets/images/engineering 1.png',
+                    label: 'Engineering',
                   ),
-                  SizedBox(height: 5.h,)
+                  DeptWidget(
+                    onTap: () {},
+                    icon: 'assets/images/environmental 1.png',
+                    label: 'Earth & Environmental',
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  )
                 ],
               ),
             ],

@@ -18,13 +18,10 @@ class ReportView extends StatelessView<Report, ReportController> {
           // backgroundColor: const Color(0xff25435B),
           centerTitle: true,
           bottom: PreferredSize(
-              preferredSize:Size.fromHeight(40.0.h),
-              child: const SizedBox()
-          ),
-          title:  Text(
+              preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
+          title: Text(
             '2023 Spring Semester Report',
-            style:
-            Styles.x18dp_202326_700w(),
+            style: Styles.x18dp_202326_700w(),
           ),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -33,7 +30,6 @@ class ReportView extends StatelessView<Report, ReportController> {
                   end: Alignment.bottomCenter,
                   colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
             ),
-
           ),
         ),
         body: _body(context));
@@ -47,18 +43,16 @@ class ReportView extends StatelessView<Report, ReportController> {
           SizedBox(
             height: 20.h,
           ),
-           EnrolledCourseWidget(onTap: () =>  NavigatorHelper(context).pushNamedScreen(
-            RouteConstants.reportPreview,
-          )),
-          SizedBox(
-            height: 10.h,
+          ListView.separated(
+            separatorBuilder: (context, index) => SizedBox(
+              height: 10.h,
+            ),
+            itemCount: 3,
+            itemBuilder: (context, index) => EnrolledCourseWidget(
+                onTap: () => NavigatorHelper(context).pushNamedScreen(
+                      RouteConstants.reportPreview,
+                    )),
           ),
-          const EnrolledCourseWidget(onTap: null),
-          SizedBox(
-            height: 10.h,
-          ),
-          const EnrolledCourseWidget(onTap: null),
-
         ]),
       ),
     );

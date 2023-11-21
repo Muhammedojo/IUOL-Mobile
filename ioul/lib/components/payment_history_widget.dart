@@ -27,93 +27,84 @@ class PaymentHistoryWidget extends StatelessWidget {
               //AppColors.lightBlue,
               ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Column(
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-
-                      SvgPicture.asset(
-                      //  'assets/images/pending_payment.svg',
-                        status == 'Completed'
-                            ?  'assets/images/success_pay.svg'
-                            : (status == 'Pending'
+                  SvgPicture.asset(
+                    //  'assets/images/pending_payment.svg',
+                    status == 'Completed'
+                        ? 'assets/images/success_pay.svg'
+                        : (status == 'Pending'
                             ? 'assets/images/pending_payment.svg'
                             : 'assets/images/cancel_pay.svg'),
-                        fit: BoxFit.scaleDown,
-                        height: 24.w,
-                        width: 24.w,
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      Expanded(
-                        child: Text(
-                          '$title',
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xff090A0A),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20.w,
-                      ),
-                      Text(
-                        '$amount',
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xff202325),
-                        ),
-                      ),
-                    ],
+                    fit: BoxFit.scaleDown,
+                    height: 24.w,
+                    width: 24.w,
                   ),
                   SizedBox(
-                    height: 6.h,
+                    width: 10.w,
                   ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 34.w,
+                  Expanded(
+                    child: Text(
+                      '$title',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xff090A0A),
                       ),
-                      Expanded(
-                        child: Text(
-                          '$time',
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xff72777A),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        '$status',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
-                            color: status == 'Completed'
-                                ? const Color(0xff23C16B)
-                                : (status == 'Pending'
-                                    ? const Color(0xffFFB323)
-                                    : const Color(0xffFF5247))
-                            ),
-                      ),
-                    ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  Text(
+                    '$amount',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff202325),
+                    ),
                   ),
                 ],
               ),
-              const Divider(
-                color: Color(0xff000000),
-              )
+              SizedBox(
+                height: 6.h,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 34.w,
+                  ),
+                  Expanded(
+                    child: Text(
+                      '$time',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xff72777A),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '$status',
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                        color: status == 'Completed'
+                            ? const Color(0xff23C16B)
+                            : (status == 'Pending'
+                                ? const Color(0xffFFB323)
+                                : const Color(0xffFF5247))),
+                  ),
+                ],
+              ),
             ],
           ),
         ));

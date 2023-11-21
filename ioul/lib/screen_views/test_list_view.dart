@@ -89,27 +89,17 @@ class TestListView extends StatelessView<TestListView, TestListController> {
                     SizedBox(
                       height: 20.h,
                     ),
-                    TestWidget(
-                      onTap: () {
-                        state.goToTestBrief();
-                      },
+                    ListView.separated(
+                      separatorBuilder: (context, index) => SizedBox(
+                        height: 12.h,
+                      ),
+                      itemCount: 4,
+                      itemBuilder: (context, index) => TestWidget(
+                        onTap: () {
+                          state.goToTestBrief();
+                        },
+                      ),
                     ),
-                    SizedBox(
-                      height: 12.h,
-                    ),
-                    TestWidget(
-                      onTap: () {
-                        state.goToTestBrief();
-                      },
-                    ),
-                    SizedBox(
-                      height: 12.h,
-                    ),
-                    TestWidget(
-                      onTap: () {
-                        state.goToTestBrief();
-                      },
-                    )
                   ],
                 ),
               ),

@@ -40,21 +40,18 @@ class TestResetView extends StatelessView<TestReset, TestResetController> {
   Widget _body() {
     return Padding(
       padding: REdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
-      child:  Column(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const TestResetWidget(
-              course: 'CMP 111 - Introduction to Computer Science',
-              unit: '2 unit'),
-          const TestResetWidget(
-              course: 'CMP 111 - Introduction to Computer',
-              unit: '2 unit'),
-          const TestResetWidget(
-              course: 'MTH 111 - Introduction to Mathematics',
-              unit: '2 unit'),
-          const TestResetWidget(
-              course: 'SCI 111 - Introduction to Science',
-              unit: '2 unit'),
+          ListView.separated(
+            separatorBuilder: (context, index) => const Divider(
+              color: Colors.grey,
+            ),
+            itemCount: 4,
+            itemBuilder: (context, index) => const TestResetWidget(
+                course: 'CMP 111 - Introduction to Computer Science',
+                unit: '2 unit'),
+          ),
           SizedBox(
             height: 50.h,
           ),

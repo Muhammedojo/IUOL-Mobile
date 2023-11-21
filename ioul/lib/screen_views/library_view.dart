@@ -112,53 +112,17 @@ class LibraryView extends StatelessView<Library, LibraryController> {
           ),
           SizedBox(
             height: 192.h,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                InkWell(
-                    onTap: () {
-                      // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/engineering 1.png',
-                      label: 'Engineering',
-                    )),
-                SizedBox(
-                  width: 10.w,
-                ),
-                InkWell(
-                    onTap: () {
-                      // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
+            child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                separatorBuilder: (context, index) => SizedBox(
+                      width: 10.w,
+                    ),
+                itemCount: 5,
+                itemBuilder: (context, index) => DeptWidget(
                       icon: 'assets/images/computer-science 1.png',
                       label: 'Computer & IT',
+                      onTap: () {},
                     )),
-
-                SizedBox(
-                  width: 10.w,
-                ),
-                InkWell(
-                    onTap: () {
-                      // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/pine 1.png',
-                      label: 'Agriculture & Forestry',
-                    )),
-                SizedBox(
-                  width: 10.w,
-                ),
-                InkWell(
-                    onTap: () {
-                      // state.onBackPressed();
-                    },
-                    child: const DeptWidget(
-                      icon: 'assets/images/pine 1.png',
-                      label: 'Agriculture & Forestry',
-                    )),
-              ],
-            ),
           ),
           SizedBox(
             height: 12.h,
@@ -174,11 +138,16 @@ class LibraryView extends StatelessView<Library, LibraryController> {
           SizedBox(
             height: 12.h,
           ),
-          EResourceWidget(onTap: () {  },tittle: 'College Open Text Books',),
-          EResourceWidget(onTap: () {  },tittle: 'FreeTechBooks',),
-          EResourceWidget(onTap: () {  },tittle: 'Computer Science, Engineering and programming',),
-          EResourceWidget(onTap: () {  },tittle: 'College Open Text Books',),
-          EResourceWidget(onTap: () {  },tittle: 'College Open Text Books',),
+          ListView.separated(
+            separatorBuilder: (context, index) => SizedBox(
+              height: 1.h,
+            ),
+            itemCount: 5,
+            itemBuilder: (context, index) => EResourceWidget(
+              onTap: () {},
+              tittle: 'College Open Text Books',
+            ),
+          ),
         ],
       )),
     );

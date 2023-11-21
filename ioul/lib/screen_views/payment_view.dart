@@ -41,10 +41,6 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
 
   Widget _body(context) {
     return Column(mainAxisSize: MainAxisSize.min, children: [
-      // const Column(
-      //   mainAxisSize: MainAxisSize.min,
-      //   children: [],
-      // ),
       Expanded(
         child: SingleChildScrollView(
           child: Padding(
@@ -86,8 +82,10 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                 ),
                 SizedBox(height: 20.h),
                 Center(
-                    child: Text(state.selectedValue.isEmpty ? '' :
-                  '${state.selectedValue} Payment',
+                    child: Text(
+                  state.selectedValue.isEmpty
+                      ? ''
+                      : '${state.selectedValue} Payment',
                   style: Styles.x16dp_202325_400w(),
                 )),
                 SizedBox(height: 60.h),

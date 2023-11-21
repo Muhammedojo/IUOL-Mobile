@@ -1,4 +1,3 @@
-
 import '../components/components.dart';
 import '../packages/package.dart';
 import '../screens/screens.dart';
@@ -26,8 +25,10 @@ class DocumentResourcesView
 
   Widget _body() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               color: const Color(0xff25435B),
@@ -36,34 +37,43 @@ class DocumentResourcesView
               padding: REdgeInsets.only(left: 24),
               width: double.infinity,
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Row(children: [
-                    GestureDetector(
-                      onTap: () => state.onBackPressed(),
-                      child: Container(
-                        width: 36.w,
-                        height: 36.h,
-                        constraints: BoxConstraints(maxHeight: 36.h, maxWidth: 36.w),
-                        margin: REdgeInsets.only(top: 8),
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.black54,
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => state.onBackPressed(),
+                        child: Container(
+                          width: 36.w,
+                          height: 36.h,
+                          constraints:
+                              BoxConstraints(maxHeight: 36.h, maxWidth: 36.w),
+                          margin: REdgeInsets.only(top: 8),
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.arrow_back,
+                            color: Colors.black54,
+                          ),
                         ),
                       ),
-                    ),
-                  ],),
-                  SizedBox(height: 15.h,),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '2023 Spring Semester Report',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
-                          fontWeight: FontWeight.w700),),
-
+                        '2023 Spring Semester Report',
+                        style: TextStyle(
+                            fontSize: 18.sp,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w700),
+                      ),
                     ],
                   ),
                 ],
@@ -72,7 +82,7 @@ class DocumentResourcesView
           ],
         ),
         Expanded(
-          child: SingleChildScrollView( 
+          child: SingleChildScrollView(
             child: Padding(
               padding: REdgeInsets.symmetric(horizontal: 10.0),
               child: Column(
@@ -123,20 +133,16 @@ class DocumentResourcesView
 
   Widget _firstPeriod() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        //AudioResourcesWidget( onTap: (){}),
-        SizedBox(
-          height: 10.h,
+        ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10.h,
+          ),
+          itemCount: 5,
+          itemBuilder: (context, index) => DocumentResourcesWidget(
+              onTap: () {}, image: 'assets/images/pdf.svg'),
         ),
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
       ],
     );
   }
@@ -145,16 +151,13 @@ class DocumentResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget(
-          onTap: () {},
-          image: 'assets/images/pdf.svg',
-        ),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
-        SizedBox(
-          height: 10.h,
+        ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10.h,
+          ),
+          itemCount: 2,
+          itemBuilder: (context, index) => DocumentResourcesWidget(
+              onTap: () {}, image: 'assets/images/pdf.svg'),
         ),
       ],
     );
@@ -164,27 +167,14 @@ class DocumentResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
-        SizedBox(
-          height: 10.h,
+        ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10.h,
+          ),
+          itemCount: 8,
+          itemBuilder: (context, index) => DocumentResourcesWidget(
+              onTap: () {}, image: 'assets/images/pdf.svg'),
         ),
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget(onTap: () {}, image: 'assets/images/pdf.svg'),
       ],
     );
   }

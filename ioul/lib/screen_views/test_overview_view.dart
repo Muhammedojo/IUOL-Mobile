@@ -193,90 +193,88 @@ class TestOverviewView
 
   Widget allTest() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        TestStatusWidget(
-            title: 'CSE 111 - Computer Science',
-            unit: '2 units',
-            index: '1.',
-            status: 'Done',
-            onTap: () {state.goToTest();}),
-        TestStatusWidget(
-            title: 'CES 111 - Communication in English',
-            unit: '1 units',
-            index: '2.',
-            status: 'New',
-            onTap: () {}),
-        TestStatusWidget(
-            title: 'GST 111 - Use of English',
-            unit: '3 units',
-            index: '3.',
-            status: 'Unavailable',
-            onTap: () {}),
+        ListView.separated(
+          separatorBuilder: (context, index) => const Divider(
+            color: Color(0xff72777A),
+          ),
+          itemCount: 4,
+          itemBuilder: (context, index) => TestStatusWidget(
+              title: 'CSE 111 - Computer Science',
+              unit: '2 units',
+              index: '1.',
+              status: 'Done',
+              onTap: () {
+                state.goToTest();
+              }),
+        ),
       ],
     );
   }
 
   Widget doneTest() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        TestStatusWidget(
-            title: 'GST 111 - Communication in English',
-            unit: '2 units',
-            index: '1.',
-            status: 'Done',
-            onTap: () {}),
-        TestStatusWidget(
-            title: 'GST 111 - Use Of English',
-            unit: '2 units',
-            index: '1.',
-            status: 'Done',
-            onTap: () {}),
+        ListView.separated(
+          separatorBuilder: (context, index) => const Divider(
+            color: Color(0xff72777A),
+          ),
+          itemCount: 2,
+          itemBuilder: (context, index) => TestStatusWidget(
+              title: 'CSE 111 - Computer Science',
+              unit: '2 units',
+              index: '1.',
+              status: 'Done',
+              onTap: () {
+                state.goToTest();
+              }),
+        ),
       ],
     );
   }
 
   Widget newTest() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        TestStatusWidget(
-            title: 'CES 111 - Communication in English',
-            unit: '1 units',
-            index: '2.',
-            status: 'New',
-            onTap: () {}),
-        TestStatusWidget(
-            title: 'CES 111 - Communication in English',
-            unit: '1 units',
-            index: '2.',
-            status: 'New',
-            onTap: () {}),
+        ListView.separated(
+          separatorBuilder: (context, index) => const Divider(
+            color: Color(0xff72777A),
+          ),
+          itemCount: 2,
+          itemBuilder: (context, index) => TestStatusWidget(
+              title: 'CSE 111 - Computer Science',
+              unit: '2 units',
+              index: '1.',
+              status: 'Done',
+              onTap: () {
+                state.goToTest();
+              }),
+        ),
       ],
     );
   }
 
   Widget unavailableTest() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        TestStatusWidget(
-            title: 'GST 111 - Use of English',
-            unit: '3 units',
-            index: '3.',
-            status: 'Unavailable',
-            onTap: () {
-
-            }),
-        TestStatusWidget(
-            title: 'GST 111 - Use of English',
-            unit: '3 units',
-            index: '3.',
-            status: 'Unavailable',
-            onTap: () {}),
-        TestStatusWidget(
-            title: 'GST 111 - Use of English',
-            unit: '3 units',
-            index: '3.',
-            status: 'Unavailable',
-            onTap: () {}),
+        ListView.separated(
+          separatorBuilder: (context, index) => const Divider(
+            color: Color(0xff72777A),
+          ),
+          itemCount: 3,
+          itemBuilder: (context, index) => TestStatusWidget(
+              title: 'CSE 111 - Computer Science',
+              unit: '2 units',
+              index: '1.',
+              status: 'Done',
+              onTap: () {
+                state.goToTest();
+              }),
+        ),
       ],
     );
   }

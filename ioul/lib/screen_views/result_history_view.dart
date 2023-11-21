@@ -103,36 +103,18 @@ class ResultHistoryView
                   ],
                 ),
                 SizedBox(height: 10.h),
-                TestStatusWidget(
-                    title: 'GST 111 - Communication in English',
-                    unit: '2 Unit',
-                    index: '1.',
-                    status: 'A',
-                    onTap: () {}),
-                TestStatusWidget(
-                    title: 'GST 112 - Use of Library',
-                    unit: '2 Unit',
-                    index: '2.',
-                    status: 'A',
-                    onTap: () {}),
-                TestStatusWidget(
-                    title: 'FRE 111 - Communication in French',
-                    unit: '2 Unit',
-                    index: '3.',
-                    status: 'D',
-                    onTap: () {}),
-                TestStatusWidget(
-                    title: 'CMP 111 - Introduction to Computer',
-                    unit: '2 Unit',
-                    index: '4.',
-                    status: 'B',
-                    onTap: () {}),
-                TestStatusWidget(
-                    title: 'GST 111 - Communication in English',
-                    unit: '2 Unit',
-                    index: '5.',
-                    status: 'C',
-                    onTap: () {}),
+                ListView.separated(
+                  separatorBuilder: (context, index) => const Divider(
+                    color: Color(0xff72777A),
+                  ),
+                  itemCount: 5,
+                  itemBuilder: (context, index) => TestStatusWidget(
+                      title: 'GST 111 - Communication in English',
+                      unit: '2 Unit',
+                      index: '1.',
+                      status: 'A',
+                      onTap: () {}),
+                ),
               ],
             ),
           ),

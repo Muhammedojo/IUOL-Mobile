@@ -47,33 +47,41 @@ class PaymentHistoryView
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Row(children: [
-                    GestureDetector(
-                      onTap: () => state.onBackPressed(),
-                      child: Container(
-                        width: 36.w,
-                        height: 36.h,
-                        constraints: BoxConstraints(maxHeight: 36.h, maxWidth: 36.w),
-                        margin: REdgeInsets.only(top: 8),
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.black54,
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => state.onBackPressed(),
+                        child: Container(
+                          width: 36.w,
+                          height: 36.h,
+                          constraints:
+                              BoxConstraints(maxHeight: 36.h, maxWidth: 36.w),
+                          margin: REdgeInsets.only(top: 8),
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.arrow_back,
+                            color: Colors.black54,
+                          ),
                         ),
                       ),
-                    ),
-                  ],),
-                  SizedBox(height: 15.h,),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Payment History',style: TextStyle(fontSize: 18.sp,fontFamily: 'Inter',
-                          fontWeight: FontWeight.w700),),
-
+                        'Payment History',
+                        style: TextStyle(
+                            fontSize: 18.sp,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w700),
+                      ),
                     ],
                   ),
                 ],
@@ -91,26 +99,18 @@ class PaymentHistoryView
               SizedBox(
                 height: 20.h,
               ),
-              PaymentHistoryWidget(
-                title: 'Tuition Fee for Spring Semester 2021/2023',
-                amount: 'N50,000',
-                onTap: () {},
-                time: 'May 21, 2023, 3:30pm',
-                status: 'Completed',
-              ),
-              PaymentHistoryWidget(
-                title: 'Tuition Fee for Rain Semester 2021/2023',
-                amount: 'N50,000',
-                onTap: () {},
-                time: 'May 21, 2023, 3:30pm',
-                status: 'Pending',
-              ),
-              PaymentHistoryWidget(
-                title: 'Transcript',
-                amount: 'N50,000',
-                onTap: () {},
-                time: 'May 21, 2023, 3:30pm',
-                status: 'Declined',
+              ListView.separated(
+                separatorBuilder: (context, index) => const Divider(
+                  color: Color(0xff000000),
+                ),
+                itemCount: 3,
+                itemBuilder: (context, index) => PaymentHistoryWidget(
+                  title: 'Tuition Fee for Spring Semester 2021/2023',
+                  amount: 'N50,000',
+                  onTap: () {},
+                  time: 'May 21, 2023, 3:30pm',
+                  status: 'Completed',
+                ),
               ),
             ],
           ),
