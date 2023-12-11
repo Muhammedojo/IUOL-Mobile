@@ -40,9 +40,6 @@ class RouteConstants {
   static const settings = "settings";
   static const helpDesk = "help_desk";
   static const notification = "notification";
-<<<<<<< HEAD
   static const profile = "profile";
-=======
   static const userProfile = "user_profile";
->>>>>>> d1070ada5cbcfcf7f4ebb82656e6ffe32fb8d9fb
 }
