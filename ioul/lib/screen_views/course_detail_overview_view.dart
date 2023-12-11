@@ -55,7 +55,7 @@ class CourseOverviewView
               ),
             ),
             SizedBox(
-              height: 130.h,
+              height: 145.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -356,14 +356,15 @@ class CourseOverviewView
                                 )
                               ],
                             )
-                          :  Column(
+                          : Column(
                               children: [
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     ResourcesWidget(
-                                      onTap: () => NavigatorHelper(context).pushNamedScreen(
+                                      onTap: () => NavigatorHelper(context)
+                                          .pushNamedScreen(
                                         RouteConstants.documentResources,
                                       ),
                                       type: 'Document',
@@ -372,7 +373,8 @@ class CourseOverviewView
                                       image: 'assets/images/documents.svg',
                                     ),
                                     ResourcesWidget(
-                                      onTap: ()=> NavigatorHelper(context).pushNamedScreen(
+                                      onTap: () => NavigatorHelper(context)
+                                          .pushNamedScreen(
                                         RouteConstants.videoResources,
                                       ),
                                       type: 'Videos',
@@ -381,7 +383,8 @@ class CourseOverviewView
                                       image: 'assets/images/videos.svg',
                                     ),
                                     ResourcesWidget(
-                                      onTap: ()=> NavigatorHelper(context).pushNamedScreen(
+                                      onTap: () => NavigatorHelper(context)
+                                          .pushNamedScreen(
                                         RouteConstants.audioResources,
                                       ),
                                       type: 'Audios',

@@ -24,10 +24,10 @@ class DeptWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
             boxShadow: const [
               BoxShadow(
-                color: Colors.grey,
-                blurRadius: 2.0,
-                //spreadRadius: 0.0,
-                //offset: Offset(1.0, 1.0), // shadow direction: bottom right
+                color: Colors.black,
+                // blurRadius: 2.0,
+                spreadRadius: 0.1,
+                offset: Offset(0.1, 0.2), // shadow direction: bottom right
               ),
             ]),
         child: Padding(

@@ -18,15 +18,16 @@ class EResourceWidget extends StatelessWidget {
           boxShadow: const [
             BoxShadow(
               color: Colors.grey,
-              blurRadius: 3.0,
+              blurRadius: 1.0,
               spreadRadius: 0.0,
-              offset: Offset(1.0, 1.0), // shadow direction: bottom right
+              offset: Offset(0.5, 0.5), // shadow direction: bottom right
             ),
           ],
         ),
         child: Padding(
           padding: REdgeInsets.all(16.0),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(

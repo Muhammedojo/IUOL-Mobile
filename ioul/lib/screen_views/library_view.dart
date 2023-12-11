@@ -141,7 +141,7 @@ class LibraryView extends StatelessView<Library, LibraryController> {
           ),
           ListView.separated(
             separatorBuilder: (context, index) => SizedBox(
-              height: 1.h,
+              height: 10.h,
             ),
             itemCount: 5,
             shrinkWrap: true,
