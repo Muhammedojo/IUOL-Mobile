@@ -1,6 +1,5 @@
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/application_form_view.dart';
 import '../screen_views/sponsor_view.dart';
 
 class Sponsor extends StatefulWidget {
@@ -61,10 +60,6 @@ class SponsorController extends State<Sponsor> with AutomaticKeepAliveClientMixi
     // }
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void dispose() {

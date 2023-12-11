@@ -198,6 +198,11 @@ class AppRouter {
                     builder: (context, state) => const AudioResources(),
                   ),
                   GoRoute(
+                    path: RouteConstants.audio,
+                    name: RouteConstants.audio,
+                    builder: (context, state) => const Audio(),
+                  ),
+                  GoRoute(
                     path: RouteConstants.videoResources,
                     name: RouteConstants.videoResources,
                     builder: (context, state) => const VideoResources(),

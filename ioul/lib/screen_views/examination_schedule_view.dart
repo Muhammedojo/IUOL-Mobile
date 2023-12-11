@@ -15,7 +15,6 @@ class ExaminationScheduleView
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
         appBar: AppBar(
-          // backgroundColor: const Color(0xff25435B),
           centerTitle: true,
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
@@ -88,7 +87,10 @@ class ExaminationScheduleView
           SizedBox(
             height: 60.h,
           ),
-          ElevatedButtonWidget(title: 'Download Exam Timetable', onTap: (){}, )
+          ElevatedButtonWidget(
+            title: 'Download Exam Timetable',
+            onTap: () {},
+          )
         ],
       ),
     );

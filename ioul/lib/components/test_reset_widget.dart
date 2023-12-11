@@ -22,47 +22,38 @@ class _TestResetWidgetState extends State<TestResetWidget> {
       });
     }
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
+    return Row(
       children: [
-        Row(
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(widget.course,
-                    style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xff090A0A))),
-                SizedBox(
-                  height: 8.h,
-                ),
-                Text(widget.unit,
-                    style: TextStyle(
-                        fontSize: 14.sp,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xff72777A)))
-              ],
+            Text(widget.course,
+                style: TextStyle(
+                    fontSize: 16.sp,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xff090A0A))),
+            SizedBox(
+              height: 8.h,
             ),
-            const Spacer(),
-            Checkbox(
-              activeColor: AppColors.blueBase,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-              ),
-              value: checked,
-              onChanged: (e) => toggleCheck(),
-            ),
+            Text(widget.unit,
+                style: TextStyle(
+                    fontSize: 14.sp,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xff72777A)))
           ],
         ),
-        const Divider(
-          color: Colors.grey,
+        const Spacer(),
+        Checkbox(
+          activeColor: AppColors.blueBase,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4),
+          ),
+          value: checked,
+          onChanged: (e) => toggleCheck(),
         ),
-
       ],
     );
   }

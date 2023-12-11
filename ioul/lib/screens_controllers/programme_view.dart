@@ -1,6 +1,5 @@
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/application_form_view.dart';
 import '../screen_views/programme_view.dart';
 
 class Programme extends StatefulWidget {
@@ -60,10 +59,6 @@ class ProgrammeController extends State<Programme> with AutomaticKeepAliveClient
     // }
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void dispose() {

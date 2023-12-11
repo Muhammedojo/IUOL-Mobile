@@ -1,8 +1,6 @@
-import 'package:cool_dropdown/controllers/dropdown_controller.dart';
 
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/admission_payment.dart';
 import '../screen_views/application_confirmation.dart';
 
 class ApplicationConfirmation extends StatefulWidget {

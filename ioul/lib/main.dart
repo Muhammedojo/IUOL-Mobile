@@ -1,4 +1,4 @@
-import 'package:ioul/router/router.dart';
+import '../router/router.dart';
 import 'packages/package.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         designSize: const Size(428, 926),
         minTextAdapt: true,
-        splitScreenMode: true,
+        splitScreenMode: false,
         builder: (context, child) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,

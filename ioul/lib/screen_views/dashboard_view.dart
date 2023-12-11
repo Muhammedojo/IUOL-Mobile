@@ -24,7 +24,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
         left: false,
         bottom: false,
         child: Scaffold(
-            backgroundColor: AppColors.backgroundWhite,
+            backgroundColor: AppColors.skyLightest,
             appBar: AppBar(
               // backgroundColor: const Color(0xff25435B),
               centerTitle: true,
@@ -54,25 +54,21 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                                 RouteConstants.userProfile,
                               );
                             },
-                            child: CircleAvatar(
-                              radius: 25.r,
-                              child: ClipOval(
-                                child: Image.network(
-                                  '',
-                                  fit: BoxFit.cover,
-                                  height: 35.w,
-                                  width: 35.w,
-                                  errorBuilder: (BuildContext context,
-                                      Object exception,
-                                      StackTrace? stackTrace) {
-                                    return Image.asset(
-                                      'assets/images/iconic_logo.png',
-                                      width: 32.w,
-                                      height: 32.w,
-                                      fit: BoxFit.cover,
-                                    );
-                                  },
-                                ),
+                            child: ClipOval(
+                              child: Image.network(
+                                'https://www.essence.com/wp-content/uploads/2020/12/GettyImages-957598612-scaled.jpg',
+                                fit: BoxFit.cover,
+                                height: 54.w,
+                                width: 54.w,
+                                errorBuilder: (BuildContext context,
+                                    Object exception, StackTrace? stackTrace) {
+                                  return Image.asset(
+                                    'assets/images/iconic_logo.png',
+                                    width: 54.w,
+                                    height: 54.w,
+                                    fit: BoxFit.cover,
+                                  );
+                                },
                               ),
                             ),
                           ),
@@ -227,39 +223,18 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   ),
                   SizedBox(
                     height: 80.h,
-                    child: ListView(
+                    child: ListView.separated(
                       scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        const RecentClassWidget(
-                          title: 'Introduction to Arabic Language I',
-                          code: 'ARB 111',
-                          onTap: null,
-                        ),
-                        SizedBox(
-                          width: 15.w,
-                        ),
-                        const RecentClassWidget(
-                          title: 'Introduction to Chemistry',
-                          code: 'CHM 141',
-                          onTap: null,
-                        ),
-                        SizedBox(
-                          width: 15.w,
-                        ),
-                        const RecentClassWidget(
-                          title: 'General Studies',
-                          code: 'GNS 101',
-                          onTap: null,
-                        ),
-                        SizedBox(
-                          width: 15.w,
-                        ),
-                        const RecentClassWidget(
-                          title: 'MAthematics',
-                          code: 'MTH 111',
-                          onTap: null,
-                        ),
-                      ],
+                      separatorBuilder: (context, index) => SizedBox(
+                        width: 15.w,
+                      ),
+                      itemCount: 4,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => const RecentClassWidget(
+                        title: 'Introduction to Arabic Language I',
+                        code: 'ARB 111',
+                        onTap: null,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -305,7 +280,20 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   ),
                   SizedBox(
                     height: 10.h,
-                  ),
+                    // ListView.separated(
+                    //   separatorBuilder: (context, index) => SizedBox(
+                    //     height: 10.h,
+                    //   ),
+                    //   itemCount: 5,
+                    //   shrinkWrap: true,
+                    //   itemBuilder: (context, index) =>Text("data")
+                    //   // const UpcomingTaskWidget(
+                    //   //   onTap: null,
+                    //   //   course: 'CMP 111 - Introduction to Computer Science',
+                    //   //   date: '2/08/2023',
+                    //   // ),
+                    // ),
+                  )
                 ],
               ),
             ),

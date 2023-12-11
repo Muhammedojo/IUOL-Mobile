@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../components/components.dart';
-import '../screens/screens.dart';
 import '../screens_controllers/sample_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';

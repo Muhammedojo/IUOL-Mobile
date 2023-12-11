@@ -1,6 +1,5 @@
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/application_form_view.dart';
 import '../screen_views/upload_view.dart';
 
 class Upload extends StatefulWidget {
@@ -35,10 +34,6 @@ class UploadController extends State<Upload>
     });
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void dispose() {

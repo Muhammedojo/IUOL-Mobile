@@ -1,13 +1,9 @@
-import 'dart:developer';
 
-import 'package:flutter/rendering.dart';
 import 'package:ioul/values/values.dart';
 
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/application_form_view.dart';
 import '../screen_views/personal_view.dart';
-import '../utils/global_variables.dart';
 
 class Personal extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -92,10 +88,6 @@ class PersonalController extends State<Personal>
     }
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void dispose() {

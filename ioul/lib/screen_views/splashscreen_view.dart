@@ -1,14 +1,7 @@
-import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:ioul/components/text_widget.dart';
 import 'package:ioul/packages/package.dart';
-import 'package:ioul/values/styles.dart';
 import 'package:ioul/values/values.dart';
-import '../router/route_constants.dart';
 import '../screens/screens.dart';
 import 'stateless_view.dart';
 

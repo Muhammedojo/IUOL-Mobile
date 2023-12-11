@@ -30,7 +30,6 @@ class ScratchCardView
                   SizedBox(height: 60.h),
                   Image.asset(
                     "assets/images/iconic_logo.png",
-                    // fit: BoxFit.contain,
                     height: 120.h,
                     width: 174.w,
                   ),

@@ -55,7 +55,7 @@ class CourseOverviewView
               ),
             ),
             SizedBox(
-              height: 130.h,
+              height: 145.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -356,37 +356,40 @@ class CourseOverviewView
                                 )
                               ],
                             )
-                          :  Column(
+                          : Column(
                               children: [
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     ResourcesWidget(
-                                      onTap: () => NavigatorHelper(context).pushNamedScreen(
+                                      onTap: () => NavigatorHelper(context)
+                                          .pushNamedScreen(
                                         RouteConstants.documentResources,
                                       ),
                                       type: 'Document',
                                       number: '12',
-                                      color: Color(0xffFFD188),
+                                      color: const Color(0xffFFD188),
                                       image: 'assets/images/documents.svg',
                                     ),
                                     ResourcesWidget(
-                                      onTap: ()=> NavigatorHelper(context).pushNamedScreen(
+                                      onTap: () => NavigatorHelper(context)
+                                          .pushNamedScreen(
                                         RouteConstants.videoResources,
                                       ),
                                       type: 'Videos',
                                       number: '12',
-                                      color: Color(0xffC4E4FF),
+                                      color: const Color(0xffC4E4FF),
                                       image: 'assets/images/videos.svg',
                                     ),
                                     ResourcesWidget(
-                                      onTap: ()=> NavigatorHelper(context).pushNamedScreen(
+                                      onTap: () => NavigatorHelper(context)
+                                          .pushNamedScreen(
                                         RouteConstants.audioResources,
                                       ),
                                       type: 'Audios',
                                       number: '12',
-                                      color: Color(0xff7DDE86),
+                                      color: const Color(0xff7DDE86),
                                       image: 'assets/images/audios.svg',
                                     ),
                                   ],
