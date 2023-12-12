@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ioul/packages/package.dart';
 
 class NavigatorHelper {
   BuildContext context;
@@ -16,5 +17,9 @@ class NavigatorHelper {
 
   goNamedScreen(String path) {
     return GoRouter.of(context).goNamed(path);
+  }
+
+  normalNavigation(Widget destination) {
+    return Navigator.push(context, MaterialPageRoute(builder: (context) => destination));
   }
 }

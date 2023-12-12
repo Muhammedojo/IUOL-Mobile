@@ -1,4 +1,4 @@
-import '../router/router.dart';
+import 'package:ioul/router/router.dart';
 import 'packages/package.dart';
 
 void main() {
