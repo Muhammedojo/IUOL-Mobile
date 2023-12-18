@@ -23,7 +23,7 @@ class RecentClassWidget extends StatelessWidget {
             color: AppColors.lightBlue,
           ),
           child: Padding(
-            padding: REdgeInsets.symmetric(vertical: 18.0,horizontal: 19),
+            padding: REdgeInsets.symmetric(vertical: 18.0, horizontal: 19),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -44,18 +44,20 @@ class RecentClassWidget extends StatelessWidget {
                 SizedBox(
                   height: 6.h,
                 ),
-                Row(
-                  children: [
-                    Text(
-                      '$title',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xff202325),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Text(
+                        '$title',
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w700,
+                          color: const Color(0xff202325),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),

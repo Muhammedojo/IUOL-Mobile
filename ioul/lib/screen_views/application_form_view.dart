@@ -63,12 +63,11 @@ class ApplicationFormView
                     // padding: REdgeInsets.only(right: 24, left: 24),
                     enableFeedback: true,
                     labelPadding: EdgeInsets.zero,
-                    // labelPadding:
-                    //     REdgeInsets.only(right: 16, top: 16, bottom: 16),
                     unselectedLabelColor: AppColors.inkLighter,
                     unselectedLabelStyle: Styles.x16dp_72777A_400w(),
                     labelStyle: Styles.x16dp_25435B_400w(),
-                    labelColor: AppColors.primary,
+                    labelColor: AppColors.lightGrey,
+
                     indicatorPadding: REdgeInsets.only(right: 16),
                     indicatorColor: AppColors.primary,
                     tabs: [

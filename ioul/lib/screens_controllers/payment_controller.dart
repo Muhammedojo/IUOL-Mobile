@@ -2,7 +2,6 @@ import 'dart:math';
 import '../packages/package.dart';
 import '../screen_views/payment_view.dart';
 import '../helpers/helper.dart';
-import '../values/values.dart';
 
 class Payment extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -18,6 +17,15 @@ class PaymentController extends State<Payment> {
   //... //Initialization code, state vars etc, all go here
   final String amount = "1000";
   final String txRef = "unique_transaction_ref_${Random().nextInt(100000)}";
+
+  String selectedValue = "";
+  final TextEditingController dropdownController = TextEditingController();
+
+  setSelectedValue(String value) {
+    setState(() {
+      selectedValue = value;
+    });
+  }
 
 
   @override

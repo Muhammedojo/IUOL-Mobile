@@ -63,10 +63,8 @@ class VideoResourcesView
                   state.selectedPeriod == 0
                       ? WidgetWrapper(child: _firstPeriod())
                       : (state.selectedPeriod == 1
-                      ? WidgetWrapper(
-                      child: _secondPeriod())
-                      : WidgetWrapper(
-                      child: _thirdPeriod()))
+                          ? WidgetWrapper(child: _secondPeriod())
+                          : WidgetWrapper(child: _thirdPeriod()))
                 ],
               ),
             ),
@@ -78,21 +76,17 @@ class VideoResourcesView
 
   Widget _firstPeriod() {
     return Column(
-      children:  [
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10.h,
+          ),
+          itemCount: 5,
+          shrinkWrap: true,
+          itemBuilder: (context, index) => DocumentResourcesWidget(
+              onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-
       ],
     );
   }
@@ -101,12 +95,15 @@ class VideoResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
+        ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10.h,
+          ),
+          itemCount: 2,
+          shrinkWrap: true,
+          itemBuilder: (context, index) => DocumentResourcesWidget(
+              onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-
       ],
     );
   }
@@ -115,20 +112,15 @@ class VideoResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
+        ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10.h,
+          ),
+          itemCount: 4,
+          shrinkWrap: true,
+          itemBuilder: (context, index) => DocumentResourcesWidget(
+              onTap: () {}, image: 'assets/images/audio_doc.svg'),
         ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-        SizedBox(
-          height: 10.h,
-        ),
-        DocumentResourcesWidget( onTap: (){}, image: 'assets/images/audio_doc.svg'),
-
       ],
     );
   }

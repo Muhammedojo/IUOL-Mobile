@@ -1,10 +1,7 @@
-import 'dart:developer';
 
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../screen_views/address_view.dart';
-import '../screen_views/application_form_view.dart';
-import '../utils/global_variables.dart';
 
 class Address extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -64,10 +61,6 @@ class AddressController extends State<Address>
     // }
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void dispose() {

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,6 +26,12 @@ class Styles {
   static x12dp_090A0A_400w({Color? color}) => TextStyle(
         fontSize: 12.sp,
         color: color ?? AppColors.inkDarkest,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Inter",
+      );
+  static x14dp_090A0A_400w() => TextStyle(
+        fontSize: 14.sp,
+        color: AppColors.skyLightest,
         fontWeight: FontWeight.w400,
         fontFamily: "Inter",
       );
@@ -65,6 +70,18 @@ class Styles {
         fontSize: 18.sp,
         color: AppColors.inkDarker,
         fontWeight: FontWeight.w500,
+        fontFamily: "Inter",
+      );
+  static x18dp_202325_700w() => TextStyle(
+        fontSize: 18.sp,
+        color: AppColors.inkDarker,
+        fontWeight: FontWeight.w700,
+        fontFamily: "Inter",
+      );
+  static x18dp_202326_700w() => TextStyle(
+        fontSize: 18.sp,
+        color: AppColors.skyLightest,
+        fontWeight: FontWeight.w700,
         fontFamily: "Inter",
       );
   static x18dp_202325_500g() => TextStyle(

@@ -1,7 +1,6 @@
 import '../screen_views/take_test_view.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
-import '../values/values.dart';
 
 class TakeTest extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

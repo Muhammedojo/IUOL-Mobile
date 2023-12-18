@@ -18,11 +18,14 @@ class RouteConstants {
   static const address = "address";
   static const contacts = "contacts";
   static const sponsor = "sponsor";
+  static const testSplash = "test_splash";
   static const programme = "programme";
   static const certificates = "certificate";
   static const uploads = "uploads";
   static const courseDetailOverview = "course_detail_overview";
   static const documentResources = "document_resources";
+  static const testOverview = "test_overview";
+  static const takeTest = "take_test";
   static const audioResources = "audio_resources";
   static const videoResources = "video_resources";
   static const assignmentPreview = "assignment_preview";
@@ -42,4 +45,11 @@ class RouteConstants {
   static const notification = "notification";
   static const profile = "profile";
   static const userProfile = "user_profile";
+  static const testList = "test_list";
+  static const resultHistory = "result_history";
+  static const audio = "audio";
+  static const library = "library";
+  static const addDropCourse = "add_drop_course";
+  static const eResourcesJournal = "e_resources_journal";
+
 }

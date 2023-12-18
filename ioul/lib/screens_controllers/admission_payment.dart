@@ -1,4 +1,3 @@
-import 'package:cool_dropdown/controllers/dropdown_controller.dart';
 
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';

@@ -21,7 +21,6 @@ class ResetPasswordView
       body: WidgetWrapper(
         child: SingleChildScrollView(
           child: SizedBox(
-            // padding: MediaQuery.of(context).viewInsets,
             child: Padding(
               padding: REdgeInsets.symmetric(horizontal: 24),
               child: Column(

@@ -1,7 +1,6 @@
 import '../screen_views/sample_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
-import '../values/values.dart';
 
 class Blank extends StatefulWidget {
  // static const routeName = Strings.SCREEN_BLANK;

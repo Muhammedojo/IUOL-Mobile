@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:ioul/packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
@@ -17,7 +16,6 @@ class ExaminationExtensionView extends StatelessView<ExaminationExtension,
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
         appBar: AppBar(
-          // backgroundColor: const Color(0xff25435B),
           centerTitle: true,
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
@@ -42,7 +40,7 @@ class ExaminationExtensionView extends StatelessView<ExaminationExtension,
 
   Widget _body() {
     return Padding(
-      padding:REdgeInsets.symmetric(horizontal: 16.0,vertical: 20),
+      padding: REdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -56,19 +54,31 @@ class ExaminationExtensionView extends StatelessView<ExaminationExtension,
                 color: const Color(0xff090A0A),
                 fontSize: 16.sp),
           ),
-          SizedBox(height: 20.h,),
-          Text('#1000 per course',style: TextStyle(
-              fontFamily: 'Inter',
-              fontWeight: FontWeight.w700,
-              color: const Color(0xff090A0A),
-              fontSize: 16.sp),),
-          SizedBox(height:25.h),
-          const ExamExtensionWidget(course: '', unit: '',),
-          const ExamExtensionWidget(course: '', unit: '',),
-          const ExamExtensionWidget(course: '', unit: '',),
-          const ExamExtensionWidget(course: '', unit: '',),
-          SizedBox(height:40.h),
-          ElevatedButtonWidget(onTap: (){}, title: 'Proceed to Payment')
+          SizedBox(
+            height: 20.h,
+          ),
+          Text(
+            '#1000 per course',
+            style: TextStyle(
+                fontFamily: 'Inter',
+                fontWeight: FontWeight.w700,
+                color: const Color(0xff090A0A),
+                fontSize: 16.sp),
+          ),
+          SizedBox(height: 25.h),
+          ListView.separated(
+            separatorBuilder: (context, index) => const Divider(
+              color: Colors.grey,
+            ),
+            itemCount: 5,
+            shrinkWrap: true,
+            itemBuilder: (context, index) => const ExamExtensionWidget(
+              course: '',
+              unit: '',
+            ),
+          ),
+          SizedBox(height: 30.h),
+          ElevatedButtonWidget(onTap: () {}, title: 'Proceed to Payment')
         ],
       ),
     );
