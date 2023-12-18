@@ -22,6 +22,17 @@ class NotificationView
 
   Widget _body() {
     return Padding(
+<<<<<<< HEAD
+      padding:  REdgeInsets.symmetric(horizontal: 16.0,vertical: 24),
+      child:  SingleChildScrollView(
+        child: Column(mainAxisSize: MainAxisSize.min,children: [
+          NotificationWidget(),
+          NotificationWidget(),
+          NotificationWidget(),
+          NotificationWidget(),
+          NotificationWidget(),
+        ],),
+=======
       padding: REdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
       child: SingleChildScrollView(
         child: Column(
@@ -35,6 +46,7 @@ class NotificationView
             ),
           ],
         ),
+>>>>>>> 4abf735e06d6b5923b4ff19c31e82f31fdbe59fd
       ),
     );
   }

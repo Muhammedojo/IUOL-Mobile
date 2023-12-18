@@ -11,12 +11,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+<<<<<<< HEAD
 
+=======
   cached_network_image: ^3.2.3
   audio_video_progress_bar: ^2.0.0
   audioplayers: ^5.1.0
   just_audio_background: ^0.0.1-beta.10
   rxdart: ^0.27.7
+>>>>>>> 4abf735e06d6b5923b4ff19c31e82f31fdbe59fd
   cupertino_icons: ^1.0.2
   archive: ^3.3.9
   flutter_screenutil: ^5.7.0
@@ -37,9 +40,15 @@ dependencies:
   video_player: ^2.7.0
   flutter_windowmanager: ^0.2.0
   flutter_dotenv: ^5.1.0
+<<<<<<< HEAD
+=======
   url_launcher: ^6.1.14
 
-  # flutterwave_standard: ^1.0.7
+>>>>>>> 4abf735e06d6b5923b4ff19c31e82f31fdbe59fd
+ # flutterwave_standard: ^1.0.7
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +65,7 @@ flutter:
     - assets/audio/
     - assets/.env
     - assets/translation/
+
 
   fonts:
     - family: Inter
