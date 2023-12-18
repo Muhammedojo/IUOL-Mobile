@@ -9,7 +9,7 @@ class GenericResponse {
 
   String? message;
   bool? success;
-  List<String>? data;
+  final Object? data;
   String? error;
 
   String? detail;
