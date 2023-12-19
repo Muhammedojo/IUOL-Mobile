@@ -1,11 +1,30 @@
-const LIVE_MODE = false;
-const BASE_URL = LIVE_MODE
-    ? "http://pfinigeria.com"
-    : "https://test-portal.iconicuniversity.edu.ng/";
-const BASE_API = "$BASE_URL/api/students/v1/";
+import 'dart:core';
 
-const ENDPOINT_LOGIN = "auth/login";
-const ENDPOINT_REGISTER = "auth/register";
-const ENDPOINT_VERIFY_EMAIL = "auth/verify-email";
-const ENDPOINT_FORGOT_PASSWORD = "auth/forgot-password";
-const ENDPOINT_GET_COUNTRIES = "application/countries";
+//EndPoints
+const bool liveServer = false;
+const baseUrl = liveServer
+    ? "https://iconicuniversity.edu.ng"
+    : "https://test-portal.iconicuniversity.edu.ng/";
+const String baseApi = "$baseUrl/api/students/v1/";
+const String paymentHistoryEndpoint = 'payment-history';
+const String login = "auth/login";
+const String registerEndpoint = "auth/register";
+const String verifyEmail = "auth/verify-email";
+const String forgotPassword = "auth/forgot-password";
+const String countries = "application/countries";
+const String resendEmailVerification = "auth/resend-email-verification";
+const String verifyResetPasswordPin = "verify-reset-password-pin";
+const String resetPassword = "auth/reset-password";
+const String logout = "auth/logout";
+const String startApplication = "application/start";
+const String verifyScratchCardPin = "application/pin/verify";
+const String state = "application/states/233";
+const String submitApplication = "application/submit";
+const String semesterFormData = "registration/semester";
+const String submitSemesterRegistration = "registration/semester";
+const String registerCourse = "registration/course";
+const String paymentTypes = "payment";
+const String makeSemesterPayment = "payment/semester/semester-fee";
+const String lateCourseRegistrationPayment =
+    "payment/semester/late-course-registration";
+const String getPaymentHistory = "payment/history";
