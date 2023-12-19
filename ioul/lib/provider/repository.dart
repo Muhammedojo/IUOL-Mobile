@@ -1,4 +1,4 @@
-import 'package:ioul/model/register_student.dart';
+import 'package:ioul/model/model.dart';
 import 'package:ioul/provider/api_provider.dart';
 import 'package:ioul/response/response.dart';
 

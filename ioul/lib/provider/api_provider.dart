@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import "package:dio/dio.dart";
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../model/register_student.dart';
+import '../packages/package.dart';
 import '../response/response.dart';
 import 'endpoints.dart';
 
