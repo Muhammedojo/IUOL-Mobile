@@ -25,8 +25,11 @@ class CreateAccountController extends State<CreateAccount> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmController =
       TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool nextForms = false;
+  String email = "";
+  String confirmEmail = "";
   bool checked = false;
 
   toggleVisibility() {
@@ -63,5 +66,12 @@ class CreateAccountController extends State<CreateAccount> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  void validateConfirmEmail() {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+      // Perform actions with the validated email and confirmEmail
+    }
   }
 }

@@ -16,10 +16,15 @@ const String resendEmailVerification = "auth/resend-email-verification";
 const String verifyResetPasswordPin = "verify-reset-password-pin";
 const String resetPassword = "auth/reset-password";
 const String logout = "auth/logout";
+//Endpoint to fetch programs list
 const String startApplication = "application/start";
+
+const String applicationFormData = "application/form-data";
+
 const String verifyScratchCardPin = "application/pin/verify";
 const String state = "application/states/233";
 const String submitApplication = "application/submit";
+//Endpoint to get prefilled semester data
 const String semesterFormData = "registration/semester";
 const String submitSemesterRegistration = "registration/semester";
 const String registerCourse = "registration/course";
