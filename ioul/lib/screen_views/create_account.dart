@@ -154,21 +154,6 @@ class CreateAccountView
                               ),
                             ),
                             keyboardType: TextInputType.emailAddress,
-                            // validator: (value) {
-                            //   if (value == null || value.isEmpty) {
-                            //     return 'Please confirm your email';
-                            //   } else if (value != state.email) {
-                            //     return 'Emails do not match';
-                            //   }
-                            //   return null;
-                            // },
-                            // onSaved: (value) {
-                            //   state.confirmEmail = value!;
-                            // },
-                            // onFieldSubmitted: (_) {
-                            //   // Validate when the focus is removed from confirm email field
-                            //   state.validateConfirmEmail();
-                            // },
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
@@ -179,11 +164,33 @@ class CreateAccountView
                           TextFieldWidget(
                             title: "Password",
                             controller: state.passwordController,
+                            obscureText: state.visible,
+                            passwordIcon: InkWell(
+                              onTap: () => state.toggleVisibility(),
+                              child: Icon(
+                                state.visible
+                                    ? Icons.visibility_off_outlined
+                                    : Icons.visibility_outlined,
+                                size: 22.w.h,
+                                color: AppColors.inkDarkest,
+                              ),
+                            ),
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
-                            title: "Confirm password",
+                            title: "Password",
                             controller: state.passwordConfirmController,
+                            obscureText: state.visible,
+                            passwordIcon: InkWell(
+                              onTap: () => state.toggleVisibility(),
+                              child: Icon(
+                                state.visible
+                                    ? Icons.visibility_off_outlined
+                                    : Icons.visibility_outlined,
+                                size: 22.w.h,
+                                color: AppColors.inkDarkest,
+                              ),
+                            ),
                           ),
                           SizedBox(height: 176.h),
                           Row(
@@ -201,7 +208,7 @@ class CreateAccountView
                               RichText(
                                 text: TextSpan(
                                   text: "I agree with the ",
-                                  style: Styles.x12dp_090A0A_400w(),
+                                  style: Styles.x14dp_090A0A_500w(),
                                   children: [
                                     TextSpan(
                                       recognizer: TapGestureRecognizer()
@@ -220,9 +227,9 @@ class CreateAccountView
                           ElevatedButtonWidget(
                               title: "Submit",
                               onTap: () {
-                                state.validateConfirmEmail();
-                                // NavigatorHelper(context)
-                                //     .goNamedScreen(RouteConstants.dashboard);
+                                // state.validateConfirmEmail();
+                                NavigatorHelper(context)
+                                    .goNamedScreen(RouteConstants.dashboard);
                               }),
                           SizedBox(height: 20.h),
                           Align(

@@ -18,10 +18,10 @@ class LoginController extends State<Login> {
   //... //Initialization code, state vars etc, all go here
 
   final repository = AppRepository();
-  bool visible = false;
   String deviceToken = "";
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool visible = false;
 
   toggleVisibility() {
     setState(() {

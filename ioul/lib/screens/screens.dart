@@ -48,3 +48,5 @@ export '../screens_controllers/e_resources_journal_controller.dart';
 export '../screens_controllers/add_drop_course_controller.dart';
 export '../screens_controllers/library_controller.dart';
 export '../screens_controllers/audio_controller.dart';
+export '../screens_controllers/terms_and_services_controller.dart';
+export '../screens_controllers/privacy_policy_controller.dart';
