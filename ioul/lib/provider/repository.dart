@@ -5,6 +5,10 @@ import 'package:ioul/response/response.dart';
 class AppRepository {
   final ApiProvider _apiProvider = ApiProvider();
 
+  Future<Login> login(
+          String username, String password, String deviceToken) async =>
+      _apiProvider.login(username, password, deviceToken);
+
   Future<GenericResponse> loadCountries() async =>
       _apiProvider.getCountryList();
 

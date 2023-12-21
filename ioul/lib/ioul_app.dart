@@ -1,3 +1,5 @@
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+
 import 'packages/package.dart';
 import 'router/router.dart';
 
@@ -12,6 +14,7 @@ class IOULApp extends StatelessWidget {
         splitScreenMode: false,
         builder: (context, child) {
           return MaterialApp.router(
+            builder: EasyLoading.init(),
             debugShowCheckedModeBanner: false,
             routerConfig: AppRouter.router,
             title: '',

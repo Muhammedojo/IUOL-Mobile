@@ -20,6 +20,7 @@ class NavigatorHelper {
   }
 
   normalNavigation(Widget destination) {
-    return Navigator.push(context, MaterialPageRoute(builder: (context) => destination));
+    return Navigator.push(
+        context, MaterialPageRoute(builder: (context) => destination));
   }
 }

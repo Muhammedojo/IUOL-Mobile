@@ -7,7 +7,7 @@ const baseUrl = liveServer
     : "https://test-portal.iconicuniversity.edu.ng/";
 const String baseApi = "$baseUrl/api/students/v1/";
 const String paymentHistoryEndpoint = 'payment-history';
-const String login = "auth/login";
+const String loginEndpoint = "auth/login";
 const String registerEndpoint = "auth/register";
 const String verifyEmail = "auth/verify-email";
 const String forgotPassword = "auth/forgot-password";

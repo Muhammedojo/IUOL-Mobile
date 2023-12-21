@@ -1,12 +1,49 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import '../model/model.dart';
 import '../model/register_student.dart';
 import '../packages/package.dart';
 import '../response/response.dart';
 import 'endpoints.dart';
 
 class ApiProvider {
+  Future<Login> login(
+      String username, String password, String deviceToken) async {
+    int? statusCode;
+    try {
+      var body = <String, String>{};
+      body["email"] = username;
+      body["password"] = password;
+      body["deviceToken"] = deviceToken;
+
+      Response response = await doPostRequestAuth(loginEndpoint, body);
+      statusCode = response.statusCode;
+
+      // print(response.toString());
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+        var requestResponse = Login.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = Login();
+        requestResponse.statusCode = statusCode!;
+        // requestResponse.statusMessage = response.toString();
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      // print("Status error: ${e.response!.statusCode}");
+      // print("Response error: ${e.response!.data}");
+      // print("Message error: ${e.message}");
+      var requestResponse = Login();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      // requestResponse.statusMessage = _handleDioError(e);
+      requestResponse.message = _handleDioError(e);
+      return requestResponse;
+    }
+  }
+
   Future<GenericResponse> pushRegisterStudent(Register register) async {
     int? statusCode;
     try {
@@ -66,6 +103,38 @@ class ApiProvider {
   }
 }
 
+/// Get header for normal GET-POST requests.
+Future<Map<String, String>> _getNormalHeaderAuth() async {
+  var header = <String, String>{};
+  header["Content-Type"] = "application/json";
+  header["Connection"] = "close";
+  header["Accept"] = "application/json";
+  header["User-Agent"] = "insomnia/8.2.0";
+
+  return header;
+}
+
+Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
+  var header = await _getNormalHeaderAuth();
+  // print("headers: $header");
+
+  var dio = Dio();
+  dio.options.baseUrl = baseApi;
+  dio.interceptors.add(PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseBody: true,
+      responseHeader: false,
+      error: true,
+      compact: true,
+      maxWidth: 90));
+  dio.options.connectTimeout = const Duration(minutes: 1); //30s
+  dio.options.receiveTimeout = const Duration(minutes: 1); // 2 min
+
+  return dio.post(endPoint,
+      data: jsonEncode(body), options: Options(headers: header));
+}
+
 Future<Response> doGetRequest(String endPoint) async {
   endPoint = endPoint.replaceAll("*", "");
   var dio = Dio();
@@ -85,6 +154,7 @@ Future<Response> doGetRequest(String endPoint) async {
 
 Future<Response> doPostRequest(endPoint, dynamic body) async {
   endPoint = endPoint.replaceAll("*", "");
+  var header = await _getNormalHeaderAuth();
   var dio = Dio();
   dio.options.baseUrl = baseApi;
   dio.interceptors.add(PrettyDioLogger(
@@ -104,7 +174,8 @@ Future<Response> doPostRequest(endPoint, dynamic body) async {
   Response response =
       Response(requestOptions: RequestOptions(method: "post", path: endPoint));
   try {
-    response = await dio.post(endPoint, data: jsonEncode(body));
+    response = await dio.post(endPoint,
+        data: jsonEncode(body), options: Options(headers: header));
   } on DioException catch (e) {
     response.statusMessage =
         (e.response?.statusCode ?? 500).toString().startsWith("5")

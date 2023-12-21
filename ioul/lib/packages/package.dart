@@ -11,4 +11,5 @@ export "package:dio/dio.dart";
 export 'package:pretty_dio_logger/pretty_dio_logger.dart';
 export 'package:flutter_dotenv/flutter_dotenv.dart';
 export 'package:chips_choice/chips_choice.dart';
+export 'package:shared_preferences/shared_preferences.dart';
 export 'package:flutter_windowmanager/flutter_windowmanager.dart';
