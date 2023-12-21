@@ -77,7 +77,7 @@ class LoginView extends StatelessView<Login, LoginController> {
                           style: Styles.x12dp_4EAFFF_400w(),
                         ),
                         TextSpan(
-                          text: "and ",
+                          text: "& ",
                           style: Styles.x12dp_090A0A_400w(),
                         ),
                         TextSpan(

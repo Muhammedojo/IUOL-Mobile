@@ -46,19 +46,27 @@ class CreateAccountView
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
-                            title: "Middle name",
+                            title: "Surname",
                             controller: state.surnameController,
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
-                            title: "Surname",
+                            title: "Middle name",
                             controller: state.middlenameController,
                           ),
                           SizedBox(height: 108.h),
                           ElevatedButtonWidget(
-                            title: "Continue",
-                            onTap: () => state.toggleNextForms(),
-                          ),
+                              title: "Continue",
+                              onTap: () {
+                                if (state.firstNameController.text.isEmpty ||
+                                    state.surnameController.text.isEmpty) {
+                                  WidgetHelper.showToastError(context,
+                                      "Kindly fill the form before you proceed");
+                                  return;
+                                }
+
+                                state.toggleNextForms();
+                              }),
                           SizedBox(height: 20.h),
                           Align(
                             alignment: Alignment.center,
@@ -120,15 +128,6 @@ class CreateAccountView
                               // ),
                             ),
                             keyboardType: TextInputType.emailAddress,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your email';
-                              }
-                              return null;
-                            },
-                            onSaved: (value) {
-                              state.email = value!;
-                            },
                           ),
                           SizedBox(height: 20.h),
                           TextFormField(
@@ -155,21 +154,21 @@ class CreateAccountView
                               ),
                             ),
                             keyboardType: TextInputType.emailAddress,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please confirm your email';
-                              } else if (value != state.email) {
-                                return 'Emails do not match';
-                              }
-                              return null;
-                            },
-                            onSaved: (value) {
-                              state.confirmEmail = value!;
-                            },
-                            onFieldSubmitted: (_) {
-                              // Validate when the focus is removed from confirm email field
-                              state.validateConfirmEmail();
-                            },
+                            // validator: (value) {
+                            //   if (value == null || value.isEmpty) {
+                            //     return 'Please confirm your email';
+                            //   } else if (value != state.email) {
+                            //     return 'Emails do not match';
+                            //   }
+                            //   return null;
+                            // },
+                            // onSaved: (value) {
+                            //   state.confirmEmail = value!;
+                            // },
+                            // onFieldSubmitted: (_) {
+                            //   // Validate when the focus is removed from confirm email field
+                            //   state.validateConfirmEmail();
+                            // },
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(

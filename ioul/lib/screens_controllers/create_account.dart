@@ -68,10 +68,64 @@ class CreateAccountController extends State<CreateAccount> {
     NavigatorHelper(context).closeScreen();
   }
 
+  bool isValidEmail(String email) {
+    // Regular expression for a valid email address
+    final emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
+    return emailRegex.hasMatch(email);
+  }
+
   void validateConfirmEmail() {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
       // Perform actions with the validated email and confirmEmail
+      String email = emailController.text.trim();
+      String firstName = firstNameController.text.trim();
+      String middleName = middlenameController.text.trim();
+      String lastName = surnameController.text.trim();
+      String checkEmail = emailConfirmController.text.trim();
+      String phone = phoneController.text.trim();
+      String password = passwordController.text.trim();
+      String confirmPassword = passwordConfirmController.text.trim();
+
+      if (firstName.isEmpty) {
+        WidgetHelper.showToastError(context, "First name is required.");
+        return;
+      }
+      if (lastName.isEmpty) {
+        WidgetHelper.showToastError(context, "Surname name is required.");
+        return;
+      }
+      if (email.isEmpty) {
+        WidgetHelper.showToastError(context, "Email is required.");
+        return;
+      } else if (!isValidEmail(email)) {
+        WidgetHelper.showToastError(context, "Invalid email address.");
+        return;
+      }
+
+      if (checkEmail.isEmpty) {
+        WidgetHelper.showToastError(context, "Confirm email is required.");
+        return;
+      } else if (checkEmail != email) {
+        WidgetHelper.showToastError(context, "Email do not matched.");
+        return;
+      } else if (!isValidEmail(checkEmail)) {
+        WidgetHelper.showToastError(context, "Invalid email address.");
+        return;
+      }
+
+      if (phone.isEmpty) {
+        WidgetHelper.showToastError(context, "Phone number is required.");
+        return;
+      }
+      if (password.isEmpty) {
+        WidgetHelper.showToastError(context, "Password is required.");
+        return;
+      }
+      if (confirmPassword.isEmpty) {
+        WidgetHelper.showToastError(context, "Confirm password is required.");
+        return;
+      }
     }
   }
 }

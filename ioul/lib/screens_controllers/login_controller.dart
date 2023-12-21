@@ -65,7 +65,7 @@ class LoginController extends State<Login> {
     String password = passwordController.text.trim();
 
     if (email.isEmpty) {
-      WidgetHelper.showToastError(context, "Username is required");
+      WidgetHelper.showToastError(context, "Email is required");
       return;
     } else if (!isValidEmail(email)) {
       WidgetHelper.showToastError(context, "Invalid email address");
