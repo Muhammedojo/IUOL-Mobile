@@ -9,6 +9,9 @@ class AppRepository {
           String username, String password, String deviceToken) async =>
       _apiProvider.login(username, password, deviceToken);
 
+  Future<GenericResponse> forgotPassword(String email) async =>
+      _apiProvider.forgotPassword(email);
+
   Future<GenericResponse> loadCountries() async =>
       _apiProvider.getCountryList();
 

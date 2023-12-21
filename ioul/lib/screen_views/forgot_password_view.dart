@@ -46,10 +46,11 @@ class ForgotPasswordView
                   ),
                   SizedBox(height: 259.h),
                   ElevatedButtonWidget(
-                    title: "Continue",
-                    onTap: () => NavigatorHelper(context)
-                        .pushNamedScreen(RouteConstants.codeInput),
-                  ),
+                      title: "Continue",
+                      onTap: () => state.onTapPasswordResetButton()
+                      //NavigatorHelper(context)
+                      //  .pushNamedScreen(RouteConstants.codeInput),
+                      ),
                 ],
               ),
             ),
