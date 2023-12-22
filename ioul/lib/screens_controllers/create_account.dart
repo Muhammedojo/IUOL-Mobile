@@ -1,3 +1,5 @@
+import 'package:ioul/model/register_student.dart';
+
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../packages/package.dart';
@@ -57,6 +59,14 @@ class CreateAccountController extends State<CreateAccount> {
 
   @override
   void dispose() {
+    emailConfirmController.dispose();
+    firstNameController.dispose();
+    surnameController.dispose();
+    middlenameController.dispose();
+    phoneController.dispose();
+    emailConfirmController.dispose();
+    passwordConfirmController.dispose();
+    passwordController.dispose();
     super.dispose();
   }
 
@@ -80,7 +90,6 @@ class CreateAccountController extends State<CreateAccount> {
       // Perform actions with the validated email and confirmEmail
       String email = emailController.text.trim();
       String firstName = firstNameController.text.trim();
-      String middleName = middlenameController.text.trim();
       String lastName = surnameController.text.trim();
       String checkEmail = emailConfirmController.text.trim();
       String phone = phoneController.text.trim();
@@ -126,6 +135,26 @@ class CreateAccountController extends State<CreateAccount> {
         WidgetHelper.showToastError(context, "Confirm password is required.");
         return;
       }
+    }
+    registerStudent();
+  }
+
+  void registerStudent() async {
+    try {
+      WidgetHelper.showProgress(text: 'Processing');
+      var register = Register();
+      register.firstName = firstNameController.text.trim();
+      register.email = emailConfirmController.text.trim();
+      register.lastName = surnameController.text.trim();
+      register.middleName = middlenameController.text.trim();
+      register.password = passwordController.text.trim();
+      register.passwordConfirmation = passwordConfirmController.text.trim();
+      register.phone = phoneController.text.trim();
+      var response = "";
+      WidgetHelper.hideProgress();
+      //if (response.isConnectionSuccessful()) {}
+    } catch (e) {
+      WidgetHelper.hideProgress;
     }
   }
 }

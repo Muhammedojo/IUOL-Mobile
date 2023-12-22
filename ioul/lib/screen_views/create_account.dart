@@ -227,9 +227,9 @@ class CreateAccountView
                           ElevatedButtonWidget(
                               title: "Submit",
                               onTap: () {
-                                // state.validateConfirmEmail();
-                                NavigatorHelper(context)
-                                    .goNamedScreen(RouteConstants.dashboard);
+                                state.validateConfirmEmail();
+                                // NavigatorHelper(context)
+                                //     .goNamedScreen(RouteConstants.dashboard);
                               }),
                           SizedBox(height: 20.h),
                           Align(

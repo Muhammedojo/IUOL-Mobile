@@ -35,6 +35,7 @@ class ForgotPasswordController extends State<ForgotPassword> {
 
   @override
   void dispose() {
+    emailController.dispose();
     super.dispose();
   }
 
