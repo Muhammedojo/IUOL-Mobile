@@ -70,21 +70,23 @@ class ResetPasswordView
                     ),
                   ),
                   SizedBox(height: 16.h),
-                  InkWell(
-                    onTap: () => NavigatorHelper(context).pushNamedScreen(
-                      RouteConstants.login,
-                    ),
-                    child: TextWidget(
-                      text: "Return to log in",
-                      style: Styles.x16dp_4EAFFF_500w(
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
+                  // InkWell(
+                  //   onTap: () => NavigatorHelper(context).pushNamedScreen(
+                  //     RouteConstants.login,
+                  //   ),
+                  //   child: TextWidget(
+                  //     text: "Return to log in",
+                  //     style: Styles.x16dp_4EAFFF_500w(
+                  //       decoration: TextDecoration.underline,
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(height: 167.h),
                   ElevatedButtonWidget(
-                    title: "Log in",
-                    onTap: () {},
+                    title: "Reset",
+                    onTap: () {
+                      state.resetPassword();
+                    },
                   ),
                 ],
               ),

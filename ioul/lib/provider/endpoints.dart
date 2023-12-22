@@ -13,8 +13,8 @@ const String verifyEmail = "auth/verify-email";
 const String forgotPasswordEndpoint = "auth/forgot-password";
 const String countries = "application/countries";
 const String resendEmailVerification = "auth/resend-email-verification";
-const String verifyResetPasswordPin = "verify-reset-password-pin";
-const String resetPassword = "auth/reset-password";
+const String verifyResetPasswordPin = "auth/verify-reset-password-pin";
+const String resetPasswordEndpoint = "auth/reset-password";
 const String logout = "auth/logout";
 //Endpoint to fetch programs list
 const String startApplication = "application/start";

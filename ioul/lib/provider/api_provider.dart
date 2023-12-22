@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import '../model/model.dart';
-import '../model/register_student.dart';
 import '../packages/package.dart';
 import '../response/response.dart';
 import 'endpoints.dart';
@@ -29,7 +28,7 @@ class ApiProvider {
       } else {
         var requestResponse = Login();
         requestResponse.statusCode = statusCode!;
-        // requestResponse.statusMessage = response.toString();
+        requestResponse.message = response.toString();
         return requestResponse;
       }
     } on DioException catch (e) {
@@ -50,6 +49,81 @@ class ApiProvider {
       var body = <String, String>{};
       body["email"] = email;
       Response response = await doPostRequestAuth(forgotPasswordEndpoint, body);
+
+      statusCode = response.statusCode!;
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode;
+
+        requestResponse.message = response.statusMessage;
+        // print('status code ... ${requestResponse.message}');
+        return requestResponse;
+        //return _createDefaultGenericResponse(statusCode);
+      }
+    } on DioException catch (e) {
+      // print("forgot password error: ${e.error}");
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode;
+      requestResponse.message = _handleDioError(e); //e.message;
+
+      return requestResponse;
+      //return _createDefaultGenericResponse(statusCode);
+    }
+  }
+
+  Future<GenericResponse> newPassword(
+      String password, String confirmPassword, String pin, String email) async {
+    int statusCode;
+    try {
+      var body = <String, String>{};
+      body["password"] = password;
+      body["password_confirmation"] = confirmPassword;
+      body["email"] = email;
+      body["pin"] = pin;
+      Response response = await doPostRequestAuth(resetPasswordEndpoint, body);
+
+      statusCode = response.statusCode!;
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode;
+
+        requestResponse.message = response.statusMessage;
+        // print('status code ... ${requestResponse.message}');
+        return requestResponse;
+        //return _createDefaultGenericResponse(statusCode);
+      }
+    } on DioException catch (e) {
+      // print("forgot password error: ${e.error}");
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode;
+      requestResponse.message = _handleDioError(e); //e.message;
+
+      return requestResponse;
+      //return _createDefaultGenericResponse(statusCode);
+    }
+  }
+
+  Future<GenericResponse> resetPassword(String pin, String email) async {
+    int statusCode;
+    try {
+      var body = <String, String>{};
+      body["email"] = email;
+      body["pin"] = pin;
+      Response response = await doPostRequestAuth(verifyResetPasswordPin, body);
 
       statusCode = response.statusCode!;
 
@@ -144,7 +218,6 @@ Future<Map<String, String>> _getNormalHeaderAuth() async {
   header["Content-Type"] = "application/json";
   header["Connection"] = "close";
   header["Accept"] = "application/json";
-  header["User-Agent"] = "insomnia/8.2.0";
 
   return header;
 }

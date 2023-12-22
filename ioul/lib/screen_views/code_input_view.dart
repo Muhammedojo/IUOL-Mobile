@@ -36,13 +36,14 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                   SizedBox(height: 8.h),
                   TextWidget(
                     text:
-                        "Last step! To secure your account, enter the code we just sent to spythonian@gmail.com.",
+                        "Last step! To secure your account, enter the code we just sent to your mail",
                     style: Styles.x16dp_090A0A_400w(),
                   ),
                   SizedBox(height: 40.h),
                   Align(
                     alignment: Alignment.center,
                     child: Pinput(
+                      controller: state.pinputController,
                       defaultPinTheme: PinTheme(
                         textStyle: Styles.x36dp_25435B_500w(),
                         width: 61.w,
@@ -88,9 +89,10 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                   SizedBox(height: 147.h),
                   ElevatedButtonWidget(
                     title: "Continue",
-                    onTap: () => NavigatorHelper(context).pushNamedScreen(
-                      RouteConstants.resetPassword,
-                    ),
+                    onTap: () => state.verifyPin(),
+                    //NavigatorHelper(context).pushNamedScreen(
+                    // RouteConstants.resetPassword,
+                    // ),
                   ),
                 ],
               ),

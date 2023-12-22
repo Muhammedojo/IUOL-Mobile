@@ -12,6 +12,13 @@ class AppRepository {
   Future<GenericResponse> forgotPassword(String email) async =>
       _apiProvider.forgotPassword(email);
 
+  Future<GenericResponse> newPassword(String password, String confirmPassword,
+          String email, String pin) async =>
+      _apiProvider.newPassword(password, confirmPassword, pin, email);
+
+  Future<GenericResponse> resetPassword(String pin, String email) async =>
+      _apiProvider.resetPassword(pin, email);
+
   Future<GenericResponse> loadCountries() async =>
       _apiProvider.getCountryList();
 

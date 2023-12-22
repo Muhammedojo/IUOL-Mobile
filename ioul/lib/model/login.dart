@@ -21,6 +21,7 @@ Login _$LoginFromJson(Map<String, dynamic> json) {
   obj.email = json["email"];
   obj.password = json["password"];
   obj.token = json["token"];
+  obj.message = json["message"];
 
   return obj;
 }

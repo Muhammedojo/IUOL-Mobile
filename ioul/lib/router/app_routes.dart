@@ -12,6 +12,7 @@ import '../packages/package.dart';
 import '../utils/global_variables.dart';
 
 class AppRouter {
+  var email;
   static final GoRouter router = GoRouter(
     initialLocation: '/',
     navigatorKey: GlobalVariables.rootNavigatorKey,
@@ -34,13 +35,15 @@ class AppRouter {
       GoRoute(
         path: '/${RouteConstants.codeInput}',
         name: RouteConstants.codeInput,
-        builder: (context, state) => const CodeInput(),
+        builder: (context, state) => const CodeInput(
+          email: '',
+        ),
       ),
-      GoRoute(
-        path: '/${RouteConstants.resetPassword}',
-        name: RouteConstants.resetPassword,
-        builder: (context, state) => const ResetPassword(),
-      ),
+      // GoRoute(
+      //   path: '/${RouteConstants.resetPassword}',
+      //   name: RouteConstants.resetPassword,
+      //   builder: (context, state) => const ResetPassword(),
+      // ),
       GoRoute(
         path: '/${RouteConstants.createAccount}',
         name: RouteConstants.createAccount,

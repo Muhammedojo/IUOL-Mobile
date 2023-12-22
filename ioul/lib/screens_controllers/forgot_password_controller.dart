@@ -1,6 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:ioul/screens_controllers/code_input_controller.dart';
 import '../helpers/helper.dart';
-import 'package:flutter/material.dart';
-import '../packages/package.dart';
 import '../provider/provider.dart';
 import '../router/router.dart';
 import '../screen_views/forgot_password_view.dart';
@@ -72,8 +72,21 @@ class ForgotPasswordController extends State<ForgotPassword> {
       var response = await repository.forgotPassword(email);
       WidgetHelper.hideProgress();
       if (response.isConnectionSuccessful()) {
-        NavigatorHelper(context).pushNamedScreen(RouteConstants.codeInput);
+        // ignore: use_build_context_synchronously
+        // NavigatorHelper(context).pushNamedScreen(RouteConstants.codeInput);
+
+        Navigator.push(
+          context,
+          CupertinoPageRoute(
+            builder: (context) => CodeInput(
+              email: emailController.text.trim(),
+            ),
+          ),
+        );
+
+        // ignore: use_build_context_synchronously
       } else {
+        // ignore: use_build_context_synchronously
         WidgetHelper.showToastError(context, ('${response.message}'));
         return;
       }
