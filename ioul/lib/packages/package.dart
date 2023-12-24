@@ -13,3 +13,5 @@ export 'package:flutter_dotenv/flutter_dotenv.dart';
 export 'package:chips_choice/chips_choice.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:flutter_windowmanager/flutter_windowmanager.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
+export 'package:equatable/equatable.dart';

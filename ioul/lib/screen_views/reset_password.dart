@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/helper.dart';
-import 'package:ioul/router/route_constants.dart';
 import '../components/components.dart';
 import '../screens_controllers/reset_password.dart';
 import '../values/values.dart';
