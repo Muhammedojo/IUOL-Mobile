@@ -19,17 +19,16 @@ class RegisterLoading extends RegisterState {
 }
 
 class RegisterLoaded extends RegisterState {
-  const RegisterLoaded(this.register);
-
-  final List<Register> register;
+  final Register registerStudent;
+  const RegisterLoaded(this.registerStudent);
 
   @override
-  List<Object> get props => [register];
+  List<Object> get props => [registerStudent];
 }
 
 class RegisterFailure extends RegisterState {
   final String message;
-  RegisterFailure({required this.message});
+  const RegisterFailure({required this.message});
   @override
   List<Object> get props => [message];
 }

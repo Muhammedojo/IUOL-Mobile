@@ -1,5 +1,4 @@
 import 'package:ioul/utils/global_states.dart';
-
 import '../../model/model.dart';
 import '../../packages/package.dart';
 import 'register_state.dart';
@@ -12,7 +11,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     try {
       final response = await repository.registerStudent(register);
       if (response.isRequestSuccessful()) {
-        emit(RegisterLoaded(register: response.data));
+        emit(RegisterLoaded(register));
       } else {
         emit(RegisterFailure(message: response.responseMessage));
       }
