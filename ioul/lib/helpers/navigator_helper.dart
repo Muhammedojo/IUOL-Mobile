@@ -23,4 +23,9 @@ class NavigatorHelper {
     return Navigator.push(
         context, CupertinoPageRoute(builder: (context) => destination));
   }
+
+  pushReplaceNavigation(Widget destination) {
+    return Navigator.pushReplacement(
+        context, CupertinoPageRoute(builder: (context) => destination));
+  }
 }

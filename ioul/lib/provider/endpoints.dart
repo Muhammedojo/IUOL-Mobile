@@ -32,4 +32,4 @@ const String paymentTypes = "payment";
 const String makeSemesterPayment = "payment/semester/semester-fee";
 const String lateCourseRegistrationPayment =
     "payment/semester/late-course-registration";
-const String getPaymentHistory = "payment/history";
+const String getPaymentHistoryEndpoint = "payment/history";

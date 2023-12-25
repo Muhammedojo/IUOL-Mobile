@@ -4,6 +4,7 @@ import '../router/router.dart';
 import '../screen_views/Login_view.dart';
 import 'package:flutter/material.dart';
 import '../packages/package.dart';
+import 'admission_payment.dart';
 
 class Login extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -91,7 +92,7 @@ class LoginController extends State<Login> {
       WidgetHelper.hideProgress();
       if (loginResponse.isRequestSuccessful()) {
         NavigatorHelper(context)
-            .pushNamedScreen(RouteConstants.admissionPayment);
+            .pushReplaceNavigation(const AdmissionPayment());
       } else {
         WidgetHelper.showToastError(context, ('${loginResponse.message}'));
         return;
