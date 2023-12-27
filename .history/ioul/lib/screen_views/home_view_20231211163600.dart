@@ -22,8 +22,8 @@ class HomeView extends StatelessView<Home, HomeController> {
           // );
         },
         child: Container(
-          width: 68.sp,
-          height: 68.sp,
+          width: 68.w,
+          height: 68.h,
           decoration: BoxDecoration(
             color: AppColors.primary,
             shape: BoxShape.circle,
@@ -297,7 +297,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                           context,
                                           CupertinoPageRoute(
                                             builder: (context) =>
-                                                const CourseRegistration(),
+                                            const CourseRegistration(),
                                           ));
                                     },
                                     child: SvgPicture.asset(
@@ -314,7 +314,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                           context,
                                           CupertinoPageRoute(
                                             builder: (context) =>
-                                                const AddDropCourse(),
+                                            const AddDropCourse(),
                                           ));
                                     },
                                     child: SvgPicture.asset(
@@ -519,7 +519,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                           context,
                                           CupertinoPageRoute(
                                             builder: (context) =>
-                                                const Payment(),
+                                            const Payment(),
                                           ));
                                     },
                                     child: SvgPicture.asset(
@@ -579,7 +579,8 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       Navigator.push(
                                         context,
                                         CupertinoPageRoute(
-                                          builder: (context) => const Library(),
+                                          builder: (context) =>
+                                              const Library(),
                                         ),
                                       );
                                     },
@@ -592,17 +593,16 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     width: 30.w,
                                   ),
                                   InkWell(
-                                    onTap: () {
+                                    onTap: (){
                                       Navigator.push(
                                         context,
                                         CupertinoPageRoute(
                                           builder: (context) =>
-                                              const EResources(),
+                                          const EResources(),
                                         ),
                                       );
                                     },
-                                    child: SvgPicture.asset(
-                                        'assets/images/giginya.svg',
+                                    child: SvgPicture.asset('assets/images/giginya.svg',
                                         fit: BoxFit.scaleDown),
                                   ),
                                 ],
@@ -638,67 +638,64 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   InkWell(
-                                    onTap: () {
+                                    onTap:(){
                                       Navigator.push(
                                         context,
                                         CupertinoPageRoute(
                                           builder: (context) =>
-                                              const Settings(),
+                                          const Settings(),
                                         ),
                                       );
                                     },
-                                    child: SvgPicture.asset(
-                                        'assets/images/setting.svg',
+                                    child: SvgPicture.asset('assets/images/setting.svg',
                                         fit: BoxFit.scaleDown),
                                   ),
                                   SizedBox(
                                     width: 30.w,
                                   ),
                                   InkWell(
-                                    onTap: () {
+                                    onTap:(){
                                       Navigator.push(
                                         context,
                                         CupertinoPageRoute(
-                                          builder: (context) => const About(),
+                                          builder: (context) =>
+                                          const About(),
                                         ),
                                       );
                                     },
-                                    child: SvgPicture.asset(
-                                        'assets/images/about.svg',
+                                    child: SvgPicture.asset('assets/images/about.svg',
                                         fit: BoxFit.scaleDown),
                                   ),
                                   SizedBox(
                                     width: 30.w,
                                   ),
                                   InkWell(
-                                    onTap: () {
+                                    onTap:(){
                                       Navigator.push(
                                         context,
                                         CupertinoPageRoute(
                                           builder: (context) =>
-                                              const HelpDesk(),
+                                          const HelpDesk(),
                                         ),
                                       );
                                     },
-                                    child: SvgPicture.asset(
-                                        'assets/images/help.svg',
+                                    child: SvgPicture.asset('assets/images/help.svg',
                                         fit: BoxFit.scaleDown),
                                   ),
                                   SizedBox(
                                     width: 30.w,
                                   ),
                                   InkWell(
-                                    onTap: () {
+                                    onTap:(){
                                       Navigator.push(
                                         context,
                                         CupertinoPageRoute(
                                           builder: (context) =>
-                                              const ExaminationExtension(),
+                                          const ExaminationExtension(),
                                         ),
                                       );
                                     },
-                                    child: SvgPicture.asset(
-                                        'assets/images/log_out.svg',
+                                    child: SvgPicture.asset('assets/images/log_out.svg',
                                         fit: BoxFit.scaleDown),
                                   ),
                                 ],
