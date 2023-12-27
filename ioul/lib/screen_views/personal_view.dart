@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ioul/components/elevated_button_widget.dart';
 import 'package:ioul/components/text_widget.dart';
@@ -184,12 +185,17 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
               controller: state.phoneController,
               style: Styles.x16dp_72777A_400w(),
               disableLengthCheck: false,
-              cursorColor: Colors.black,
-              //AppColors.lightGrey,
+              pickerDialogStyle: PickerDialogStyle(
+                  backgroundColor: AppColors.primary,
+                  searchFieldInputDecoration: InputDecoration(),
+                  countryNameStyle: const TextStyle(
+                    color: AppColors.lightGrey,
+                  )),
               dropdownDecoration: const BoxDecoration(),
               dropdownTextStyle: Styles.x16dp_72777A_400w(),
               decoration: InputDecoration(
                 helperStyle: Styles.x16dp_72777A_400w(),
+                hintTextDirection: TextDirection.ltr,
 
                 contentPadding:
                     REdgeInsets.only(top: 16, right: 16, bottom: 16, left: 0),
@@ -199,6 +205,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                 // isDense: true,
                 isCollapsed: true,
                 hintText: 'Phone Number',
+
                 enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: AppColors.inkLight),
                   borderRadius: BorderRadius.circular(8.r),

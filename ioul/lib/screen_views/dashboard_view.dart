@@ -1,6 +1,3 @@
-import 'package:ioul/screens_controllers/profile.dart';
-import 'package:ioul/utils/utils.dart';
-
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../components/components.dart';
@@ -249,51 +246,18 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  const UpcomingTaskWidget(
-                    onTap: null,
-                    course: 'CMP 111 - Introduction to Computer Science',
-                    date: '2/08/2023',
+                  ListView.separated(
+                    separatorBuilder: (context, index) => SizedBox(
+                      height: 10.h,
+                    ),
+                    itemCount: 5,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) => const UpcomingTaskWidget(
+                      onTap: null,
+                      course: 'CMP 111 - Introduction to Computer Science',
+                      date: '2/08/2023',
+                    ),
                   ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  const UpcomingTaskWidget(
-                    onTap: null,
-                    course: 'CHM 101 - Introduction to Chemistry II',
-                    date: '4/08/2023',
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  const UpcomingTaskWidget(
-                    onTap: null,
-                    course: 'SOS 111 - Introduction to Social Science',
-                    date: '5/08/2023',
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  const UpcomingTaskWidget(
-                    onTap: null,
-                    course: 'CMP 111 - Introduction to Computer Science',
-                    date: '6/08/2023',
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                    // ListView.separated(
-                    //   separatorBuilder: (context, index) => SizedBox(
-                    //     height: 10.h,
-                    //   ),
-                    //   itemCount: 5,
-                    //   shrinkWrap: true,
-                    //   itemBuilder: (context, index) =>Text("data")
-                    //   // const UpcomingTaskWidget(
-                    //   //   onTap: null,
-                    //   //   course: 'CMP 111 - Introduction to Computer Science',
-                    //   //   date: '2/08/2023',
-                    //   // ),
-                    // ),
-                  )
                 ],
               ),
             ),

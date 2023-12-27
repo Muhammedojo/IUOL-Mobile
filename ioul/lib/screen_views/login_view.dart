@@ -1,3 +1,5 @@
+import 'package:ioul/screens/screens.dart';
+
 import '../packages/package.dart';
 import 'package:ioul/helpers/helper.dart';
 import '../router/router.dart';
@@ -73,25 +75,42 @@ class LoginView extends StatelessView<Login, LoginController> {
                       style: Styles.x12dp_090A0A_400w(),
                       children: [
                         TextSpan(
-                          text: "Terms of Service ",
-                          style: Styles.x12dp_4EAFFF_400w(),
-                        ),
+                            text: "Terms of Service ",
+                            style: Styles.x12dp_4EAFFF_400w(),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const TermsAndServices()),
+                                );
+                              }),
                         TextSpan(
-                          text: "and ",
+                          text: "& ",
                           style: Styles.x12dp_090A0A_400w(),
                         ),
                         TextSpan(
-                          text: "Privacy Policy",
-                          style: Styles.x12dp_4EAFFF_400w(),
-                        ),
+                            text: "Privacy Policy",
+                            style: Styles.x12dp_4EAFFF_400w(),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const PrivacyPolicy()),
+                                );
+                              }),
                       ],
                     ),
                   ),
                   SizedBox(height: 20.h),
                   ElevatedButtonWidget(
                     title: "Log in",
-                    onTap: () => NavigatorHelper(context)
-                        .pushNamedScreen(RouteConstants.admissionPayment),
+                    onTap: () => state.onPressLoginButton(),
+                    // NavigatorHelper(context)
+                    //     .pushNamedScreen(RouteConstants.admissionPayment),
                   ),
                   SizedBox(height: 20.h),
                   Align(

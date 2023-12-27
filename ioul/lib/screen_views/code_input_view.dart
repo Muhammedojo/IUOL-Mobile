@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ioul/bloc/verify_email.com/verify_email_cubit.dart';
 import '../helpers/helper.dart';
 import 'package:ioul/router/route_constants.dart';
 import 'package:pinput/pinput.dart';
 import '../components/components.dart';
+import '../packages/package.dart';
 import '../screens_controllers/code_input_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
@@ -36,13 +38,14 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                   SizedBox(height: 8.h),
                   TextWidget(
                     text:
-                        "Last step! To secure your account, enter the code we just sent to spythonian@gmail.com.",
+                        "Last step! To secure your account, enter the code we just sent to your mail",
                     style: Styles.x16dp_090A0A_400w(),
                   ),
                   SizedBox(height: 40.h),
                   Align(
                     alignment: Alignment.center,
                     child: Pinput(
+                      controller: state.pinputController,
                       defaultPinTheme: PinTheme(
                         textStyle: Styles.x36dp_25435B_500w(),
                         width: 61.w,
@@ -86,10 +89,27 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                     ),
                   ),
                   SizedBox(height: 147.h),
-                  ElevatedButtonWidget(
-                    title: "Continue",
-                    onTap: () => NavigatorHelper(context).pushNamedScreen(
-                      RouteConstants.resetPassword,
+                  BlocListener<VerifyEmailCubit, VerifyEmailState>(
+                    listener: (context, verifyState) {
+                      if (verifyState is VerifyEmailLoading) {
+                        WidgetHelper.showProgress(text: "Processing");
+                      }
+                      if (verifyState is VerifyEmailLoaded) {
+                        WidgetHelper.hideProgress();
+                        context.goNamed(RouteConstants.admissionPayment);
+                      }
+                      if (verifyState is VerifyEmailFailure) {
+                        WidgetHelper.hideProgress();
+                        WidgetHelper.showSuccessToast(
+                            context, verifyState.message);
+                      }
+                    },
+                    child: ElevatedButtonWidget(
+                      title: "Continue",
+                      onTap: () => state.verifyPin(),
+                      //NavigatorHelper(context).pushNamedScreen(
+                      // RouteConstants.resetPassword,
+                      // ),
                     ),
                   ),
                 ],

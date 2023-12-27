@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/helper.dart';
-import 'package:ioul/router/route_constants.dart';
 import '../components/components.dart';
 import '../screens_controllers/reset_password.dart';
 import '../values/values.dart';
@@ -70,21 +69,23 @@ class ResetPasswordView
                     ),
                   ),
                   SizedBox(height: 16.h),
-                  InkWell(
-                    onTap: () => NavigatorHelper(context).pushNamedScreen(
-                      RouteConstants.login,
-                    ),
-                    child: TextWidget(
-                      text: "Return to log in",
-                      style: Styles.x16dp_4EAFFF_500w(
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
+                  // InkWell(
+                  //   onTap: () => NavigatorHelper(context).pushNamedScreen(
+                  //     RouteConstants.login,
+                  //   ),
+                  //   child: TextWidget(
+                  //     text: "Return to log in",
+                  //     style: Styles.x16dp_4EAFFF_500w(
+                  //       decoration: TextDecoration.underline,
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(height: 167.h),
                   ElevatedButtonWidget(
-                    title: "Log in",
-                    onTap: () {},
+                    title: "Reset",
+                    onTap: () {
+                      state.resetPassword();
+                    },
                   ),
                 ],
               ),

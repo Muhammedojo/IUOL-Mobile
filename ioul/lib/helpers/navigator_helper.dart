@@ -20,6 +20,12 @@ class NavigatorHelper {
   }
 
   normalNavigation(Widget destination) {
-    return Navigator.push(context, MaterialPageRoute(builder: (context) => destination));
+    return Navigator.push(
+        context, CupertinoPageRoute(builder: (context) => destination));
+  }
+
+  pushReplaceNavigation(Widget destination) {
+    return Navigator.pushReplacement(
+        context, CupertinoPageRoute(builder: (context) => destination));
   }
 }
