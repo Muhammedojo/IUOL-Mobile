@@ -1,3 +1,4 @@
+import 'package:ioul/bloc/register/cubit.dart';
 import 'package:ioul/model/register_student.dart';
 
 import '../helpers/helper.dart';
@@ -150,9 +151,9 @@ class CreateAccountController extends State<CreateAccount> {
       register.password = passwordController.text.trim();
       register.passwordConfirmation = passwordConfirmController.text.trim();
       register.phone = phoneController.text.trim();
-      var response = "";
+
+      context.read<RegisterCubit>().pushRegisterationToServer(register);
       WidgetHelper.hideProgress();
-      //if (response.isConnectionSuccessful()) {}
     } catch (e) {
       WidgetHelper.hideProgress;
     }

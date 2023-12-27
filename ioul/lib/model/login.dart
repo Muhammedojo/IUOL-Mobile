@@ -12,6 +12,7 @@ class Login {
   bool isValidationError() => message == "Invalid Credentials";
   Login(
       {this.email, this.password, this.token, this.responseCode, this.message});
+
   factory Login.fromJson(Map<String, dynamic> json) => _$LoginFromJson(json);
   Map<String, dynamic> toJson() => _$LoginToJson(this);
 }
