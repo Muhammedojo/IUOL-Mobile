@@ -71,8 +71,11 @@ class GenericResponse {
 GenericResponse _$GenericResponseFromJson(Map<String, dynamic> json) {
   var obj = GenericResponse();
 
-  // if (json.containsKey(message)) {
-  //   obj.message = json[message];
+  if (json.containsKey("message")) {
+    obj.message = json["message"];
+  }
+  // if(json.containsKey("data")){
+  //   obj.data =
   // }
 
   return obj;

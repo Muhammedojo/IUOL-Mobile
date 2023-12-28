@@ -1,5 +1,6 @@
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:ioul/bloc/bloc.dart';
+import 'package:ioul/bloc/verify_email.com/verify_email_cubit.dart';
 
 import 'packages/package.dart';
 import 'router/router.dart';
@@ -13,6 +14,9 @@ class IOULApp extends StatelessWidget {
         providers: [
           BlocProvider<RegisterCubit>(
             create: (BuildContext context) => RegisterCubit(),
+          ),
+          BlocProvider<VerifyEmailCubit>(
+            create: (BuildContext context) => VerifyEmailCubit(),
           ),
         ],
         child: ScreenUtilInit(

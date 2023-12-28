@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ioul/bloc/verify_email.com/verify_email_cubit.dart';
 import '../helpers/helper.dart';
 import 'package:ioul/router/route_constants.dart';
 import 'package:pinput/pinput.dart';
 import '../components/components.dart';
+import '../packages/package.dart';
 import '../screens_controllers/code_input_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
@@ -87,12 +89,28 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                     ),
                   ),
                   SizedBox(height: 147.h),
-                  ElevatedButtonWidget(
-                    title: "Continue",
-                    onTap: () => state.verifyPin(),
-                    //NavigatorHelper(context).pushNamedScreen(
-                    // RouteConstants.resetPassword,
-                    // ),
+                  BlocListener<VerifyEmailCubit, VerifyEmailState>(
+                    listener: (context, verifyState) {
+                      if (verifyState is VerifyEmailLoading) {
+                        WidgetHelper.showProgress(text: "Processing");
+                      }
+                      if (verifyState is VerifyEmailLoaded) {
+                        WidgetHelper.hideProgress();
+                        context.goNamed(RouteConstants.admissionPayment);
+                      }
+                      if (verifyState is VerifyEmailFailure) {
+                        WidgetHelper.hideProgress();
+                        WidgetHelper.showSuccessToast(
+                            context, verifyState.message);
+                      }
+                    },
+                    child: ElevatedButtonWidget(
+                      title: "Continue",
+                      onTap: () => state.verifyPin(),
+                      //NavigatorHelper(context).pushNamedScreen(
+                      // RouteConstants.resetPassword,
+                      // ),
+                    ),
                   ),
                 ],
               ),

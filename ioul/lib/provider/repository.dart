@@ -1,5 +1,6 @@
 import 'package:ioul/model/model.dart';
 import 'package:ioul/provider/api_provider.dart';
+import 'package:ioul/response/register_response.dart';
 import 'package:ioul/response/response.dart';
 
 class AppRepository {
@@ -28,6 +29,9 @@ class AppRepository {
   Future<GenericResponse> getPaymentHistory() async =>
       _apiProvider.getPaymentHistory();
 
-  Future<GenericResponse> registerStudent(Register register) async =>
+  Future<RegisterResponse> registerStudent(Register register) async =>
       _apiProvider.pushRegisterStudent(register);
+
+  Future<GenericResponse> verifyEmail(String pin, String email) async =>
+      _apiProvider.verifyEmail(pin: pin, email: email);
 }

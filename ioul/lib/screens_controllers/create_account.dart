@@ -4,6 +4,7 @@ import 'package:ioul/model/register_student.dart';
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../packages/package.dart';
+import '../router/router.dart';
 import '../screen_views/create_account.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -18,7 +19,8 @@ class CreateAccount extends StatefulWidget {
 class CreateAccountController extends State<CreateAccount> {
   //... //Initialization code, state vars etc, all go here
 
-  bool visible = false;
+  bool visible = true;
+  bool confirmVisible = true;
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController surnameController = TextEditingController();
   final TextEditingController middlenameController = TextEditingController();
@@ -41,6 +43,12 @@ class CreateAccountController extends State<CreateAccount> {
     });
   }
 
+  toggleConfirmVisibility() {
+    setState(() {
+      confirmVisible = !confirmVisible;
+    });
+  }
+
   toggleCheck() {
     setState(() {
       checked = !checked;
@@ -56,19 +64,6 @@ class CreateAccountController extends State<CreateAccount> {
   @override
   void initState() {
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    emailConfirmController.dispose();
-    firstNameController.dispose();
-    surnameController.dispose();
-    middlenameController.dispose();
-    phoneController.dispose();
-    emailConfirmController.dispose();
-    passwordConfirmController.dispose();
-    passwordController.dispose();
-    super.dispose();
   }
 
   @override
@@ -141,21 +136,35 @@ class CreateAccountController extends State<CreateAccount> {
   }
 
   void registerStudent() async {
-    try {
-      WidgetHelper.showProgress(text: 'Processing');
-      var register = Register();
-      register.firstName = firstNameController.text.trim();
-      register.email = emailConfirmController.text.trim();
-      register.lastName = surnameController.text.trim();
-      register.middleName = middlenameController.text.trim();
-      register.password = passwordController.text.trim();
-      register.passwordConfirmation = passwordConfirmController.text.trim();
-      register.phone = phoneController.text.trim();
+    // try {
+    // WidgetHelper.showProgress(text: 'Processing');
+    var register = Register();
+    register.firstName = firstNameController.text.trim();
+    register.email = emailConfirmController.text.trim();
+    register.lastName = surnameController.text.trim();
+    register.middleName = middlenameController.text.trim();
+    register.password = passwordController.text.trim();
+    register.passwordConfirmation = passwordConfirmController.text.trim();
+    register.phone = phoneController.text.trim();
 
-      context.read<RegisterCubit>().pushRegisterationToServer(register);
-      WidgetHelper.hideProgress();
-    } catch (e) {
-      WidgetHelper.hideProgress;
-    }
+    context.read<RegisterCubit>().pushRegisterationToServer(register);
+    // WidgetHelper.hideProgress();
+    // context.pushNamed(RouteConstants.accountVerification);
+    // } catch (e) {
+    //   // WidgetHelper.hideProgress();
+    // }
+  }
+
+  @override
+  void dispose() {
+    emailConfirmController.dispose();
+    firstNameController.dispose();
+    surnameController.dispose();
+    middlenameController.dispose();
+    phoneController.dispose();
+    emailConfirmController.dispose();
+    passwordConfirmController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 }

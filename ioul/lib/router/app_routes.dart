@@ -35,8 +35,8 @@ class AppRouter {
       GoRoute(
         path: '/${RouteConstants.codeInput}',
         name: RouteConstants.codeInput,
-        builder: (context, state) => const CodeInput(
-          email: '',
+        builder: (context, state) => CodeInput(
+          email: state.extra as String,
         ),
       ),
       // GoRoute(

@@ -44,8 +44,7 @@ dependencies:
   flutter_dotenv: ^5.1.0
   url_launcher: ^6.1.14
 
- # flutterwave_standard: ^1.0.7
-
+  # flutterwave_standard: ^1.0.7
 
 dev_dependencies:
   flutter_test:
@@ -61,7 +60,6 @@ flutter:
     - assets/images/
     - assets/audio/
     - assets/.env
-    - assets/translation/
 
   fonts:
     - family: Inter

@@ -1,3 +1,5 @@
+import 'package:ioul/bloc/register/cubit.dart';
+
 import '../packages/package.dart';
 import '../helpers/helper.dart';
 import '../router/router.dart';
@@ -53,6 +55,7 @@ class CreateAccountView
                           TextFieldWidget(
                             title: "Middle name",
                             controller: state.middlenameController,
+                            textInputAction: TextInputAction.done,
                           ),
                           SizedBox(height: 108.h),
                           ElevatedButtonWidget(
@@ -178,13 +181,14 @@ class CreateAccountView
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
-                            title: "Password",
+                            title: "Confirm password",
                             controller: state.passwordConfirmController,
-                            obscureText: state.visible,
+                            obscureText: state.confirmVisible,
+                            textInputAction: TextInputAction.done,
                             passwordIcon: InkWell(
-                              onTap: () => state.toggleVisibility(),
+                              onTap: () => state.toggleConfirmVisibility(),
                               child: Icon(
-                                state.visible
+                                state.confirmVisible
                                     ? Icons.visibility_off_outlined
                                     : Icons.visibility_outlined,
                                 size: 22.w.h,
@@ -224,13 +228,34 @@ class CreateAccountView
                               ),
                             ],
                           ),
-                          ElevatedButtonWidget(
-                              title: "Submit",
-                              onTap: () {
-                                state.validateConfirmEmail();
-                                // NavigatorHelper(context)
-                                //     .goNamedScreen(RouteConstants.dashboard);
-                              }),
+                          BlocListener<RegisterCubit, RegisterState>(
+                            listener: (context, registerState) {
+                              if (registerState is RegisterLoading) {
+                                WidgetHelper.showProgress(text: 'Processing');
+                              }
+                              if (registerState is RegisterLoaded) {
+                                WidgetHelper.hideProgress();
+                                context.pushNamed(RouteConstants.codeInput,
+                                    extra: registerState
+                                            .registerStudent.data?.email ??
+                                        "");
+                              }
+                              if (registerState is RegisterFailure) {
+                                WidgetHelper.hideProgress();
+                                WidgetHelper.showToastError(
+                                  context,
+                                  registerState.message,
+                                );
+                              }
+                            },
+                            child: ElevatedButtonWidget(
+                                title: "Submit",
+                                onTap: () {
+                                  state.validateConfirmEmail();
+                                  // NavigatorHelper(context)
+                                  //     .goNamedScreen(RouteConstants.dashboard);
+                                }),
+                          ),
                           SizedBox(height: 20.h),
                           Align(
                             alignment: Alignment.center,

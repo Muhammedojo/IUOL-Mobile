@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
+import 'package:ioul/bloc/verify_email.com/verify_email_cubit.dart';
+import 'package:ioul/model/model.dart';
 import 'package:ioul/screens_controllers/reset_password.dart';
 
 import '../helpers/helper.dart';
@@ -26,6 +30,7 @@ class CodeInputController extends State<CodeInput> {
   @override
   void initState() {
     super.initState();
+    log("state email: ${widget.email}");
   }
 
   @override
@@ -56,30 +61,35 @@ class CodeInputController extends State<CodeInput> {
   }
 
   void sendPinToServer(String pin, String email) async {
-    try {
-      WidgetHelper.showProgress(text: 'Processing');
-      var response = await repository.resetPassword(pin, email);
-      WidgetHelper.hideProgress();
-      if (response.isConnectionSuccessful()) {
-        // ignore: use_build_context_synchronously
-        //  NavigatorHelper(context).pushNamedScreen(RouteConstants.resetPassword);
+    final VerifyEmail data = VerifyEmail();
+    data.email = email;
+    data.pin = pin;
+    context.read<VerifyEmailCubit>().pushPinToServer(data);
+      // var response = await repository.resetPassword(pin, email);
+    // try {
+    //   WidgetHelper.showProgress(text: 'Processing');
+    //   var response = await repository.resetPassword(pin, email);
+    //   WidgetHelper.hideProgress();
+    //   if (response.isConnectionSuccessful()) {
+    //     // ignore: use_build_context_synchronously
+    //     //  NavigatorHelper(context).pushNamedScreen(RouteConstants.resetPassword);
 
-        Navigator.push(
-          context,
-          CupertinoPageRoute(
-            builder: (context) => ResetPassword(
-              email: widget.email,
-              pin: pinputController.text,
-            ),
-          ),
-        );
-      } else {
-        // ignore: use_build_context_synchronously
-        WidgetHelper.showToastError(context, ('${response.message}'));
-        return;
-      }
-    } catch (e) {
-      WidgetHelper.hideProgress();
-    }
+    //     Navigator.push(
+    //       context,
+    //       CupertinoPageRoute(
+    //         builder: (context) => ResetPassword(
+    //           email: widget.email,
+    //           pin: pinputController.text,
+    //         ),
+    //       ),
+    //     );
+    //   } else {
+    //     // ignore: use_build_context_synchronously
+    //     WidgetHelper.showToastError(context, ('${response.message}'));
+    //     return;
+    //   }
+    // } catch (e) {
+    //   WidgetHelper.hideProgress();
+    // }
   }
 }

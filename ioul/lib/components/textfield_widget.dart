@@ -10,6 +10,7 @@ class TextFieldWidget extends StatelessWidget {
     this.obscureText,
     this.hint,
     this.readOnly,
+    this.textInputAction,
     required this.controller,
   }) : super(key: key);
   final String? title;
@@ -18,6 +19,7 @@ class TextFieldWidget extends StatelessWidget {
   final TextEditingController controller;
   final bool? obscureText;
   final String? hint;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class TextFieldWidget extends StatelessWidget {
       controller: controller,
       obscureText: obscureText ?? false,
       readOnly: readOnly ?? false,
+      textInputAction: textInputAction ?? TextInputAction.next,
       decoration: InputDecoration(
         isCollapsed: true,
         isDense: true,

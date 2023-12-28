@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:ioul/response/register_response.dart';
+
 import '../model/model.dart';
 import '../packages/package.dart';
 import '../response/response.dart';
@@ -153,22 +155,22 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> pushRegisterStudent(Register register) async {
+  Future<RegisterResponse> pushRegisterStudent(Register register) async {
     int? statusCode;
     try {
       //print("student registration request payload: $cashAdvanceRequest");
-      Response response = await doPostRequest(registerEndpoint, register);
+      Response response = await doPostRequestAuth(registerEndpoint, register);
       statusCode = response.statusCode;
 
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
 
-        var requestResponse = GenericResponse.fromJson(decodedBody);
+        var requestResponse = RegisterResponse.fromJson(decodedBody);
         requestResponse.statusCode = statusCode!;
 
         return requestResponse;
       } else {
-        var requestResponse = GenericResponse();
+        var requestResponse = RegisterResponse();
         requestResponse.statusCode = statusCode!;
         requestResponse.message = response.statusMessage;
 
@@ -176,7 +178,7 @@ class ApiProvider {
         //return _createDefaultGenericResponse(statusCode);
       }
     } on DioException catch (e) {
-      var requestResponse = GenericResponse();
+      var requestResponse = RegisterResponse();
       //requestResponse.statusCode = statusCode!;
       requestResponse.message = _handleDioError(e); //e.message;
 
@@ -242,6 +244,37 @@ class ApiProvider {
     int? statusCode;
     try {
       Response response = await doGetRequest(getPaymentHistoryEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> verifyEmail(
+      {String? endpoint, required String pin, required String email}) async {
+    int? statusCode;
+    Map<String, dynamic> body = {};
+    body['email'] = email;
+    body['pin'] = pin;
+    try {
+      Response response = await doPostRequest(verifyEmail, body);
       statusCode = response.statusCode;
       //print("state response: ${response.toString()}");
 
@@ -333,31 +366,37 @@ Future<Response> doPostRequest(endPoint, dynamic body) async {
   // return dio.post(endPoint,
   //     data: jsonEncode(body), options: Options(headers: header));
 
-  Response response =
-      Response(requestOptions: RequestOptions(method: "post", path: endPoint));
-  try {
-    response = await dio.post(endPoint,
-        data: jsonEncode(body), options: Options(headers: header));
-  } on DioException catch (e) {
-    response.statusMessage =
-        (e.response?.statusCode ?? 500).toString().startsWith("5")
-            ? "something_went_wrong_and_your_request_could_not_be_completed"
-            : e.response.toString();
-    response.statusCode = e.response?.statusCode ?? 500;
-  }
+  // Response response =
+  //     Response(requestOptions: RequestOptions(method: "post", path: endPoint));
+  // try {
+  //   response = await dio.post(endPoint,
+  //       data: jsonEncode(body), options: Options(headers: header));
+  // } on DioException catch (e) {
+  //   response.statusMessage =
+  //       (e.response?.statusCode ?? 500).toString().startsWith("5")
+  //           ? "something_went_wrong_and_your_request_could_not_be_completed"
+  //           : e.response?.data['message'];
+  //   response.statusCode = e.response?.statusCode ?? 500;
+  // }
 
-  return response;
+  // return response;
+  return dio.post(endPoint,
+      data: jsonEncode(body), options: Options(headers: header));
 }
 
 bool _isConnectionSuccessful(int? statusCode) =>
     statusCode == 200 || statusCode == 201;
 
 _handleDioError(DioException error) {
+  String errorDescription = "";
+  if (error.response?.statusCode == 422) {
+    return errorDescription =
+        error.response?.data['message'] ?? "Bad response from the server";
+  }
   if (error.error != null && error.error is SocketException) {
     return "connection_to_server_failed_due_to_internet_connection";
   }
 
-  String errorDescription = "";
   switch (error.type) {
     case DioExceptionType.cancel:
       errorDescription = "request_to_server_was_cancelled";

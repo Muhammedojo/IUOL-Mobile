@@ -1,3 +1,4 @@
+import 'package:ioul/response/register_response.dart';
 import 'package:ioul/response/response.dart';
 
 import '../../model/model.dart';
@@ -10,7 +11,7 @@ abstract class RegisterState extends Equatable {
   List<Object> get props => [];
 }
 
-class InitialState extends RegisterState {
+class RegisterInitialState extends RegisterState {
   @override
   List<Object> get props => [];
 }
@@ -21,7 +22,7 @@ class RegisterLoading extends RegisterState {
 }
 
 class RegisterLoaded extends RegisterState {
-  final GenericResponse registerStudent;
+  final RegisterResponse registerStudent;
   const RegisterLoaded(this.registerStudent);
 
   @override
