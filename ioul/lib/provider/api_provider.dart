@@ -391,38 +391,38 @@ _handleDioError(DioException error) {
   String errorDescription = "";
   if (error.response?.statusCode == 422) {
     return errorDescription =
-        error.response?.data['message'] ?? "Bad response from the server";
+        error.response?.data['message'] ?? "Bad response from the server.";
   }
   if (error.error != null && error.error is SocketException) {
-    return "connection_to_server_failed_due_to_internet_connection";
+    return "Connection to server failed due to internet connection.";
   }
 
   switch (error.type) {
     case DioExceptionType.cancel:
-      errorDescription = "request_to_server_was_cancelled";
+      errorDescription = "Request to server was cancelled.";
       break;
     case DioExceptionType.connectionTimeout:
-      errorDescription = "connection_timeout_with_server";
+      errorDescription = "Connection timeout with server.";
       break;
     case DioExceptionType.connectionError:
       errorDescription =
-          "connection_to_server_failed_due_to_internet_connection";
+          "Connection to server failed due to internet connection.";
       break;
     case DioExceptionType.badCertificate:
-      errorDescription = "Bad Certificate";
+      errorDescription = "Bad Certificate.";
       break;
     case DioExceptionType.badResponse:
-      errorDescription = "Bad response from the server";
+      errorDescription = "Bad response from the server.";
       break;
     case DioExceptionType.receiveTimeout:
-      errorDescription = "receive_timeout_in_connection_with_server";
+      errorDescription = "Receive timeout in connection with server.";
       break;
     case DioExceptionType.sendTimeout:
-      errorDescription = "send_timeout_in_connection_with_server";
+      errorDescription = "Send timeout in connection with server.";
       break;
     case DioErrorType.unknown:
       errorDescription =
-          "something_went_wrong_and_your_request_could_not_be_completed";
+          "Something went wrong and your request could not be completed.";
       break;
   }
   return errorDescription;
