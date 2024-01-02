@@ -34,4 +34,7 @@ class AppRepository {
 
   Future<GenericResponse> verifyEmail(String pin, String email) async =>
       _apiProvider.verifyEmail(pin: pin, email: email);
+
+  Future<GenericResponse> resendEmailVerification(String email) async =>
+      _apiProvider.resendEmailVerification(email: email);
 }

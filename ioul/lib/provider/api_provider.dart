@@ -297,6 +297,37 @@ class ApiProvider {
       return requestResponse;
     }
   }
+
+  Future<GenericResponse> resendEmailVerification(
+      {String? endpoint, required String email}) async {
+    int? statusCode;
+    Map<String, dynamic> body = {};
+    body['email'] = email;
+    try {
+      Response response =
+          await doPostRequest(resendEmailVerificationEndpoint, body);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
 }
 
 /// Get header for normal GET-POST requests.

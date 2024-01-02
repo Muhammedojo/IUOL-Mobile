@@ -1,4 +1,5 @@
-part of 'verify_email_cubit.dart';
+import '../../packages/package.dart';
+import '../../response/response.dart';
 
 abstract class VerifyEmailState extends Equatable {
   const VerifyEmailState();

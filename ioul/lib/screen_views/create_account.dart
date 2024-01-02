@@ -235,7 +235,8 @@ class CreateAccountView
                               }
                               if (registerState is RegisterLoaded) {
                                 WidgetHelper.hideProgress();
-                                context.pushNamed(RouteConstants.codeInput,
+                                context.pushNamed(
+                                    RouteConstants.accountVerification,
                                     extra: registerState
                                             .registerStudent.data?.email ??
                                         "");

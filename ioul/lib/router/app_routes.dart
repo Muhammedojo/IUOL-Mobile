@@ -42,7 +42,7 @@ class AppRouter {
       // GoRoute(
       //   path: '/${RouteConstants.resetPassword}',
       //   name: RouteConstants.resetPassword,
-      //   builder: (context, state) => const ResetPassword(),
+      //   builder: (context, state) =>  ResetPassword(),
       // ),
       GoRoute(
         path: '/${RouteConstants.createAccount}',
@@ -52,8 +52,11 @@ class AppRouter {
       GoRoute(
         path: '/${RouteConstants.accountVerification}',
         name: RouteConstants.accountVerification,
-        builder: (context, state) => const VerifyEmail(),
+        builder: (context, state) => VerifyEmail(
+          email: state.extra as String,
+        ),
       ),
+
       GoRoute(
         path: '/${RouteConstants.admissionPayment}',
         name: RouteConstants.admissionPayment,
