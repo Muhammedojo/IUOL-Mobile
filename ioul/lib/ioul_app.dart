@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:ioul/bloc/bloc.dart';
 import 'package:ioul/bloc/verify_email.com/verify_email_cubit.dart';
@@ -10,6 +11,8 @@ class IOULApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return MultiBlocProvider(
         providers: [
           BlocProvider<RegisterCubit>(
