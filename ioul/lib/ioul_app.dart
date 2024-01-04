@@ -4,6 +4,7 @@ import 'package:ioul/bloc/bloc.dart';
 
 import 'packages/package.dart';
 import 'router/router.dart';
+import 'utils/theme.dart';
 
 class IOULApp extends StatelessWidget {
   const IOULApp({super.key});
@@ -33,13 +34,17 @@ class IOULApp extends StatelessWidget {
                 builder: EasyLoading.init(),
                 debugShowCheckedModeBanner: false,
                 routerConfig: AppRouter.router,
-                title: '',
-                theme: ThemeData(
-                  fontFamily: 'Inter',
-                  primarySwatch: Colors.blue,
-                  textTheme:
-                      Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-                ),
+                title: 'IOUL',
+                theme:
+                    // ThemeData(
+                    //   fontFamily: 'Inter',
+                    //   primarySwatch: Colors.blue,
+                    //   textTheme:
+                    //       Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+                    // ),
+                    CustomTheme.lightThemeData(context),
+                darkTheme: CustomTheme.darkThemeData(),
+                themeMode: ThemeMode.system,
               );
             }));
   }

@@ -21,7 +21,7 @@ class ApiProvider {
       Response response = await doPostRequestAuth(loginEndpoint, body);
       statusCode = response.statusCode;
 
-      // print(response.toString());
+      print(response.toString());
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
         var requestResponse = Login.fromJson(decodedBody);
@@ -35,7 +35,7 @@ class ApiProvider {
       }
     } on DioException catch (e) {
       // print("Status error: ${e.response!.statusCode}");
-      // print("Response error: ${e.response!.data}");
+      print("Response error: ${e.response!.data}");
       // print("Message error: ${e.message}");
       var requestResponse = Login();
       //requestResponse.statusCode = statusCode ?? e.response.statusCode;
@@ -271,14 +271,18 @@ class ApiProvider {
       {String? endpoint, required String pin, required String email}) async {
     int? statusCode;
     Map<String, dynamic> body = {};
-    body['email'] = email;
-    body['pin'] = pin;
+    body["pin"] = pin;
+    body["email"] = email;
+
     try {
-      Response response = await doPostRequest(verifyEmail, body);
+      // print("Hello ");
+      Response response = await doPostRequest(verifyEmailEndpoint, body);
+      // print("Hello 1");
       statusCode = response.statusCode;
-      //print("state response: ${response.toString()}");
+      // print("state response: ${response.toString()}");
 
       if (_isConnectionSuccessful(statusCode)) {
+        //print("Hello ");
         var decodedBody = jsonDecode(response.toString());
 
         var requestResponse = GenericResponse.fromJson(decodedBody);
@@ -307,7 +311,7 @@ class ApiProvider {
       Response response =
           await doPostRequest(resendEmailVerificationEndpoint, body);
       statusCode = response.statusCode;
-      //print("state response: ${response.toString()}");
+      print("state response: ${response.toString()}");
 
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());

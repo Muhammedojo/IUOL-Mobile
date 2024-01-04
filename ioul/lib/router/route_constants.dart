@@ -51,5 +51,4 @@ class RouteConstants {
   static const library = "library";
   static const addDropCourse = "add_drop_course";
   static const eResourcesJournal = "e_resources_journal";
-
 }

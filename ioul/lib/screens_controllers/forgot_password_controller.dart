@@ -74,8 +74,6 @@ class ForgotPasswordController extends State<ForgotPassword> {
       WidgetHelper.hideProgress();
       if (response.isConnectionSuccessful()) {
         // ignore: use_build_context_synchronously
-        // NavigatorHelper(context).pushNamedScreen(RouteConstants.codeInput);
-
         Navigator.push(
           context,
           CupertinoPageRoute(
@@ -84,8 +82,6 @@ class ForgotPasswordController extends State<ForgotPassword> {
             ),
           ),
         );
-
-        // ignore: use_build_context_synchronously
       } else {
         // ignore: use_build_context_synchronously
         WidgetHelper.showToastError(context, ('${response.message}'));

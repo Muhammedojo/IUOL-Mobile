@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:ioul/screens_controllers/reset_password.dart';
+
 import '../bloc/bloc.dart';
 import '../bloc/resend_email_verification/cubit.dart';
 import '../helpers/helper.dart';
@@ -124,14 +127,18 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                     listener: (context, verifyState) {
                       if (verifyState is VerifyEmailLoading) {
                         WidgetHelper.showProgress(text: "Processing");
-                      }
-                      if (verifyState is VerifyEmailLoaded) {
+                      } else if (verifyState is VerifyEmailLoaded) {
                         WidgetHelper.hideProgress();
-                        NavigatorHelper(context).pushNamedScreen(
-                          RouteConstants.resetPassword,
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => ResetPassword(
+                              email: widget.email,
+                              pin: state.pinputController.text,
+                            ),
+                          ),
                         );
-                      }
-                      if (verifyState is VerifyEmailFailure) {
+                      } else if (verifyState is VerifyEmailFailure) {
                         WidgetHelper.hideProgress();
                         WidgetHelper.showSuccessToast(
                             context, verifyState.message);

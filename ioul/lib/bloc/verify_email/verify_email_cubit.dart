@@ -11,7 +11,7 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
     try {
       emit(VerifyEmailLoading());
       final response =
-          await repository.resetPassword(data.pin ?? "", data.email ?? "");
+          await repository.verifyEmail(data.pin ?? "", data.email ?? "");
       log("response body first: ${response.data}");
       if (response.isConnectionSuccessful()) {
         emit(VerifyEmailLoaded(response));

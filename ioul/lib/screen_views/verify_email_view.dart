@@ -1,5 +1,4 @@
 import 'package:ioul/helpers/helper.dart';
-import 'package:ioul/helpers/widget_helper.dart';
 import 'package:pinput/pinput.dart';
 import '../bloc/bloc.dart';
 import '../bloc/resend_email_verification/cubit.dart';
@@ -126,12 +125,12 @@ class VerifyEmailView
                     listener: (context, verifyState) {
                       if (verifyState is VerifyEmailLoading) {
                         WidgetHelper.showProgress(text: "Processing");
-                      }
-                      if (verifyState is VerifyEmailLoaded) {
+                      } else if (verifyState is VerifyEmailLoaded) {
                         WidgetHelper.hideProgress();
-                        context.goNamed(RouteConstants.resetPassword);
-                      }
-                      if (verifyState is VerifyEmailFailure) {
+                        WidgetHelper.showSuccessToast(
+                            context, 'Registration Successful');
+                        context.goNamed(RouteConstants.admissionPayment);
+                      } else if (verifyState is VerifyEmailFailure) {
                         WidgetHelper.hideProgress();
                         WidgetHelper.showSuccessToast(
                             context, verifyState.message);
@@ -141,9 +140,6 @@ class VerifyEmailView
                         title: "Continue",
                         onTap: () {
                           state.verifyPin();
-                          NavigatorHelper(context).pushNamedScreen(
-                            RouteConstants.resetPassword,
-                          );
                         }),
                   ),
                 ],

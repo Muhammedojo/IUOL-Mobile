@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:ioul/provider/provider.dart';
+import 'package:ioul/screens_controllers/dashboard_controller.dart';
 import '../helpers/helper.dart';
 import '../router/router.dart';
 import '../screen_views/Login_view.dart';
@@ -90,10 +92,11 @@ class LoginController extends State<Login> {
       var loginResponse =
           await repository.login(username, password, deviceToken);
       WidgetHelper.hideProgress();
-      if (loginResponse.isRequestSuccessful()) {
-        NavigatorHelper(context)
-            .pushReplaceNavigation(const AdmissionPayment());
+      if (loginResponse.isConnectionSuccessful()) {
+        // ignore: use_build_context_synchronously
+        NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
       } else {
+        // ignore: use_build_context_synchronously
         WidgetHelper.showToastError(context, ('${loginResponse.message}'));
         return;
       }

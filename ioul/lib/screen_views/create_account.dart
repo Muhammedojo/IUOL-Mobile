@@ -253,8 +253,6 @@ class CreateAccountView
                                 title: "Submit",
                                 onTap: () {
                                   state.validateConfirmEmail();
-                                  // NavigatorHelper(context)
-                                  //     .goNamedScreen(RouteConstants.dashboard);
                                 }),
                           ),
                           SizedBox(height: 20.h),
