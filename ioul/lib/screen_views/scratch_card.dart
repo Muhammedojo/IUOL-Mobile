@@ -53,15 +53,16 @@ class ScratchCardView
                   ),
                   SizedBox(height: 12.h),
                   TextFieldWidget(
-                    title: "000000000000",
+                    title: "00*********00",
                     controller: state.scratchCardController,
                   ),
                   SizedBox(height: 51.h),
                   ElevatedButtonWidget(
                     title: "Proceed",
-                    onTap: () => NavigatorHelper(context).pushNamedScreen(
-                      RouteConstants.applicationConfirmation,
-                    ),
+                    onTap: () => state.validateCard(),
+                    // NavigatorHelper(context).pushNamedScreen(
+                    //   RouteConstants.applicationConfirmation,
+                    // ),
                   ),
                 ],
               ),

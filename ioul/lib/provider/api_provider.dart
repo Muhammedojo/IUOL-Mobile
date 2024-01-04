@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:ioul/response/register_response.dart';
-
 import '../model/model.dart';
 import '../packages/package.dart';
 import '../response/response.dart';
@@ -302,6 +301,40 @@ class ApiProvider {
     }
   }
 
+  Future<GenericResponse> verifyScratchCard(
+      {String? endpoint, required String pin}) async {
+    int? statusCode;
+    Map<String, dynamic> body = {};
+    body["pin"] = pin;
+
+    try {
+      // print("Hello ");
+      Response response = await doPostRequest(verifyEmailEndpoint, body);
+      // print("Hello 1");
+      statusCode = response.statusCode;
+      // print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        //print("Hello ");
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
   Future<GenericResponse> resendEmailVerification(
       {String? endpoint, required String email}) async {
     int? statusCode;
@@ -311,7 +344,7 @@ class ApiProvider {
       Response response =
           await doPostRequest(resendEmailVerificationEndpoint, body);
       statusCode = response.statusCode;
-      print("state response: ${response.toString()}");
+      //log("state response: ${response.toString()}");
 
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());

@@ -3,7 +3,6 @@ import 'package:ioul/screens/screens.dart';
 import 'package:ioul/screens_controllers/more_controller.dart';
 import 'package:ioul/screens_controllers/profile.dart';
 import 'package:ioul/screens_controllers/programme_view.dart';
-import 'package:ioul/screens_controllers/reset_password.dart';
 import 'package:ioul/screens_controllers/scratch_card.dart';
 import 'package:ioul/screens_controllers/sponsor_view.dart';
 import 'package:ioul/screens_controllers/upload_view.dart';

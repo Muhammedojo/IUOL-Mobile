@@ -1,7 +1,4 @@
 import 'package:ioul/response/register_response.dart';
-import 'package:ioul/response/response.dart';
-
-import '../../model/model.dart';
 import '../../packages/package.dart';
 
 abstract class RegisterState extends Equatable {

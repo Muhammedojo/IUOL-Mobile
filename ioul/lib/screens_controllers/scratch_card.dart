@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
@@ -40,5 +41,23 @@ class ScratchCardController extends State<ScratchCard> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  void validateCard() {
+    var cardNumber = scratchCardController.text.trim();
+
+    if (cardNumber.isEmpty || cardNumber.length != 16) {
+      WidgetHelper.showToastError(context, "Incorrect Card Pin.");
+      return;
+    }
+    verifyPin(cardNumber);
+  }
+
+  void verifyPin(String cardNumber) async {
+    try {
+      WidgetHelper.showProgress(text: 'Checking Pin');
+      log("hfhf");
+      WidgetHelper.hideProgress();
+    } catch (e) {}
   }
 }

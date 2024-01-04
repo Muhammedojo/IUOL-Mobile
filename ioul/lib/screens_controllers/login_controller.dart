@@ -94,7 +94,8 @@ class LoginController extends State<Login> {
       WidgetHelper.hideProgress();
       if (loginResponse.isConnectionSuccessful()) {
         // ignore: use_build_context_synchronously
-        NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
+        NavigatorHelper(context).goNamedScreen(RouteConstants.admissionPayment);
+        // NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
       } else {
         // ignore: use_build_context_synchronously
         WidgetHelper.showToastError(context, ('${loginResponse.message}'));
