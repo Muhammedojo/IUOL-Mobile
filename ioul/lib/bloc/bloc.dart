@@ -7,3 +7,4 @@ export 'verify_email/cubit.dart';
 export 'semester_form_data/cubit.dart';
 export 'payment_type/payment_type_cubit.dart';
 export 'verify_scratch_pin/cubit.dart';
+export 'submit_application/cubit.dart';
