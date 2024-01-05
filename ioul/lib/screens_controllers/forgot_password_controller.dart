@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:ioul/screens_controllers/code_input_controller.dart';
 import '../helpers/helper.dart';
 import '../provider/provider.dart';
-import '../router/router.dart';
 import '../screen_views/forgot_password_view.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -72,8 +71,8 @@ class ForgotPasswordController extends State<ForgotPassword> {
       WidgetHelper.showProgress(text: 'Processing');
       var response = await repository.forgotPassword(email);
       WidgetHelper.hideProgress();
+      if (!mounted) return;
       if (response.isConnectionSuccessful()) {
-        // ignore: use_build_context_synchronously
         Navigator.push(
           context,
           CupertinoPageRoute(
@@ -83,7 +82,6 @@ class ForgotPasswordController extends State<ForgotPassword> {
           ),
         );
       } else {
-        // ignore: use_build_context_synchronously
         WidgetHelper.showToastError(context, ('${response.message}'));
         return;
       }

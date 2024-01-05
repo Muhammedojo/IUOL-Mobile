@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:ioul/response/register_response.dart';
 import '../model/model.dart';
 import '../packages/package.dart';
 import '../response/response.dart';
 import 'endpoints.dart';
+import 'shared_prefrence.dart';
 
 class ApiProvider {
   Future<Login> login(
@@ -17,7 +19,7 @@ class ApiProvider {
       body["password"] = password;
       body["deviceToken"] = deviceToken;
 
-      Response response = await doPostRequestAuth(loginEndpoint, body);
+      Response response = await doPostRequest(loginEndpoint, body);
       statusCode = response.statusCode;
 
       print(response.toString());
@@ -49,7 +51,7 @@ class ApiProvider {
     try {
       var body = <String, String>{};
       body["email"] = email;
-      Response response = await doPostRequestAuth(forgotPasswordEndpoint, body);
+      Response response = await doPostRequest(forgotPasswordEndpoint, body);
 
       statusCode = response.statusCode!;
 
@@ -88,7 +90,7 @@ class ApiProvider {
       body["password_confirmation"] = confirmPassword;
       body["email"] = email;
       body["pin"] = pin;
-      Response response = await doPostRequestAuth(resetPasswordEndpoint, body);
+      Response response = await doPostRequest(resetPasswordEndpoint, body);
 
       statusCode = response.statusCode!;
 
@@ -124,7 +126,7 @@ class ApiProvider {
       var body = <String, String>{};
       body["email"] = email;
       body["pin"] = pin;
-      Response response = await doPostRequestAuth(verifyResetPasswordPin, body);
+      Response response = await doPostRequest(verifyResetPasswordPin, body);
 
       statusCode = response.statusCode!;
 
@@ -158,7 +160,7 @@ class ApiProvider {
     int? statusCode;
     try {
       //print("student registration request payload: $cashAdvanceRequest");
-      Response response = await doPostRequestAuth(registerEndpoint, register);
+      Response response = await doPostRequest(registerEndpoint, register);
       statusCode = response.statusCode;
 
       if (_isConnectionSuccessful(statusCode)) {
@@ -308,14 +310,11 @@ class ApiProvider {
     body["pin"] = pin;
 
     try {
-      // print("Hello ");
-      Response response = await doPostRequest(verifyEmailEndpoint, body);
-      // print("Hello 1");
+      Response response =
+          await doPostRequestAuth(verifyScratchCardPinEndpoint, body);
       statusCode = response.statusCode;
-      // print("state response: ${response.toString()}");
 
       if (_isConnectionSuccessful(statusCode)) {
-        //print("Hello ");
         var decodedBody = jsonDecode(response.toString());
 
         var requestResponse = GenericResponse.fromJson(decodedBody);
@@ -367,8 +366,22 @@ class ApiProvider {
   }
 }
 
+/// Get token header for normal GET-POST requests.
+Future<Map<String, String>> _getTokenHeader() async {
+  var header = <String, String>{};
+  header["Content-Type"] = "application/json";
+  String? token = await getToken();
+  log("token value: $token");
+  if (token.isNotEmpty) {
+    header["Authorization"] = token;
+  }
+  header["Connection"] = "close";
+  header["Accept"] = "application/json";
+  return header;
+}
+
 /// Get header for normal GET-POST requests.
-Future<Map<String, String>> _getNormalHeaderAuth() async {
+Future<Map<String, String>> _getNormalHeader() async {
   var header = <String, String>{};
   header["Content-Type"] = "application/json";
   header["Connection"] = "close";
@@ -378,8 +391,8 @@ Future<Map<String, String>> _getNormalHeaderAuth() async {
 }
 
 Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
-  var header = await _getNormalHeaderAuth();
-  // print("headers: $header");
+  var header = await _getTokenHeader();
+  print("headers: $header");
 
   var dio = Dio();
   dio.options.baseUrl = baseApi;
@@ -417,7 +430,7 @@ Future<Response> doGetRequest(String endPoint) async {
 
 Future<Response> doPostRequest(endPoint, dynamic body) async {
   endPoint = endPoint.replaceAll("*", "");
-  var header = await _getNormalHeaderAuth();
+  var header = await _getNormalHeader();
   var dio = Dio();
   dio.options.baseUrl = baseApi;
   dio.interceptors.add(PrettyDioLogger(
@@ -454,6 +467,8 @@ Future<Response> doPostRequest(endPoint, dynamic body) async {
 
 bool _isConnectionSuccessful(int? statusCode) =>
     statusCode == 200 || statusCode == 201;
+
+Future<String> getToken() async => await AppPrefs().getToken();
 
 _handleDioError(DioException error) {
   String errorDescription = "";

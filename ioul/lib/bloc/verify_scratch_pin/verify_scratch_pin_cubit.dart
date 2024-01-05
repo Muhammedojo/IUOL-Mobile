@@ -4,10 +4,10 @@ import '../../packages/package.dart';
 import '../../utils/global_states.dart';
 import 'verify_scratch_pin_state.dart';
 
-class VerifyEmailCubit extends Cubit<VerifyScratchPinState> {
-  VerifyEmailCubit() : super(VerifyScratchPinInitialState());
+class VerifyScratchPinCubit extends Cubit<VerifyScratchPinState> {
+  VerifyScratchPinCubit() : super(VerifyScratchPinInitialState());
 
-  pushPinToServer(EmailVerification data) async {
+  pushPinToServer(VerifyScratchCardPin data) async {
     try {
       emit(VerifyScratchPinLoading());
       final response = await repository.verifyScratchCard(data.pin ?? "");

@@ -15,3 +15,4 @@ export 'verify_email.dart';
 export 'verify_reset_password_pin.dart';
 export 'verify_scratch_card_pin.dart';
 export 'forgot_password.dart';
+export 'user.dart';

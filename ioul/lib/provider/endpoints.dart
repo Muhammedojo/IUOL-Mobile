@@ -21,7 +21,7 @@ const String startApplication = "application/start";
 
 const String applicationFormData = "application/form-data";
 
-const String verifyScratchCardPin = "application/pin/verify";
+const String verifyScratchCardPinEndpoint = "application/pin/verify";
 const String state = "application/states/233";
 const String submitApplication = "application/submit";
 //Endpoint to get prefilled semester data

@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ioul/screens_controllers/reset_password.dart';
-
 import '../bloc/bloc.dart';
 import '../bloc/resend_email_verification/cubit.dart';
 import '../helpers/helper.dart';
-import 'package:ioul/router/route_constants.dart';
 import 'package:pinput/pinput.dart';
 import '../components/components.dart';
 import '../packages/package.dart';

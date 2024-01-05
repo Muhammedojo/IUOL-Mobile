@@ -23,6 +23,9 @@ class IOULApp extends StatelessWidget {
           ),
           BlocProvider<ResendEmailVerificationCubit>(
             create: (BuildContext context) => ResendEmailVerificationCubit(),
+          ),
+          BlocProvider<VerifyScratchPinCubit>(
+            create: (BuildContext context) => VerifyScratchPinCubit(),
           )
         ],
         child: ScreenUtilInit(

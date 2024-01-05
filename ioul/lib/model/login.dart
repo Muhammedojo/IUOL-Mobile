@@ -1,34 +1,45 @@
+import 'user.dart';
+
 class Login {
-  String? email;
-  String? password;
-  String? token;
-  String? message;
   bool? success;
+  String? message;
+  UserData? user;
+  String? token;
   String? responseCode = "-700";
   int statusCode = 400;
+  List<dynamic>? metadata;
 
   bool isConnectionSuccessful() => statusCode == 200;
   bool isRequestSuccessful() => responseCode == "100";
   bool isValidationError() => message == "Invalid Credentials";
+
   Login(
-      {this.email, this.password, this.token, this.responseCode, this.message});
+      {this.success,
+      this.message,
+      this.user,
+      this.token,
+      this.metadata,
+      this.responseCode});
 
-  factory Login.fromJson(Map<String, dynamic> json) => _$LoginFromJson(json);
-  Map<String, dynamic> toJson() => _$LoginToJson(this);
-}
+  factory Login.fromJson(Map<String, dynamic> json) {
+    return Login(
+      success: json["success"],
+      message: json["message"],
+      user: UserData.fromJson(json["data"]["user"]),
+      token: json["data"]["token"],
+      metadata: json["metadata"],
+    );
+  }
 
-Login _$LoginFromJson(Map<String, dynamic> json) {
-  var obj = Login();
-  obj.email = json["email"];
-  obj.password = json["password"];
-  obj.token = json["token"];
-  obj.message = json["message"];
-
-  return obj;
-}
-
-Map<String, dynamic> _$LoginToJson(Login obj) => <String, dynamic>{
-      "email": obj.email,
-      "password": obj.password,
-      "token": obj.token
+  Map<String, dynamic> toJson() {
+    return {
+      "success": success,
+      "message": message,
+      "data": {
+        "user": user?.toJson(),
+        "token": token,
+      },
+      "metadata": metadata,
     };
+  }
+}

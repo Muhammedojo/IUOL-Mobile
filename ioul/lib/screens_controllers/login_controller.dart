@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ioul/provider/provider.dart';
-import 'package:ioul/screens_controllers/dashboard_controller.dart';
+
 import '../helpers/helper.dart';
 import '../router/router.dart';
 import '../screen_views/Login_view.dart';
 import 'package:flutter/material.dart';
 import '../packages/package.dart';
-import 'admission_payment.dart';
 
 class Login extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -92,12 +91,11 @@ class LoginController extends State<Login> {
       var loginResponse =
           await repository.login(username, password, deviceToken);
       WidgetHelper.hideProgress();
+      if (!mounted) return;
       if (loginResponse.isConnectionSuccessful()) {
-        // ignore: use_build_context_synchronously
         NavigatorHelper(context).goNamedScreen(RouteConstants.admissionPayment);
         // NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
       } else {
-        // ignore: use_build_context_synchronously
         WidgetHelper.showToastError(context, ('${loginResponse.message}'));
         return;
       }
