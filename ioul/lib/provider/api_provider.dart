@@ -17,12 +17,12 @@ class ApiProvider {
       var body = <String, String>{};
       body["email"] = username;
       body["password"] = password;
-      body["deviceToken"] = deviceToken;
+      // body["deviceToken"] = deviceToken;
 
       Response response = await doPostRequest(loginEndpoint, body);
       statusCode = response.statusCode;
 
-      print(response.toString());
+      log("Login response : ${response.toString()}");
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
         var requestResponse = Login.fromJson(decodedBody);
@@ -36,7 +36,7 @@ class ApiProvider {
       }
     } on DioException catch (e) {
       // print("Status error: ${e.response!.statusCode}");
-      print("Response error: ${e.response!.data}");
+      log("Response error: ${e.response!.data}");
       // print("Message error: ${e.message}");
       var requestResponse = Login();
       //requestResponse.statusCode = statusCode ?? e.response.statusCode;
@@ -423,8 +423,8 @@ Future<Response> doGetRequest(String endPoint) async {
       compact: true,
       maxWidth: 90));
   dio.options.baseUrl = baseApi;
-  dio.options.connectTimeout = const Duration(minutes: 5); //30s
-  dio.options.receiveTimeout = const Duration(minutes: 5); // 2 min
+  dio.options.connectTimeout = const Duration(minutes: 1); //30s
+  dio.options.receiveTimeout = const Duration(minutes: 1); // 2 min
   return dio.get(endPoint);
 }
 
@@ -441,8 +441,8 @@ Future<Response> doPostRequest(endPoint, dynamic body) async {
       error: true,
       compact: true,
       maxWidth: 90));
-  dio.options.connectTimeout = const Duration(minutes: 3); //30s
-  dio.options.receiveTimeout = const Duration(minutes: 3); // 2 min
+  dio.options.connectTimeout = const Duration(minutes: 1); //30s
+  dio.options.receiveTimeout = const Duration(minutes: 1); // 2 min
 
   // return dio.post(endPoint,
   //     data: jsonEncode(body), options: Options(headers: header));

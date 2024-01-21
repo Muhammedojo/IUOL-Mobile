@@ -93,8 +93,9 @@ class LoginController extends State<Login> {
       WidgetHelper.hideProgress();
       if (!mounted) return;
       if (loginResponse.isConnectionSuccessful()) {
-        NavigatorHelper(context).goNamedScreen(RouteConstants.admissionPayment);
-        // NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
+        print("Token : ${loginResponse.token} ");
+        // NavigatorHelper(context).goNamedScreen(RouteConstants.admissionPayment);
+        NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
       } else {
         WidgetHelper.showToastError(context, ('${loginResponse.message}'));
         return;
