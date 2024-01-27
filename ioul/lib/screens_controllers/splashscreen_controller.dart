@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ioul/router/router.dart';
@@ -11,34 +10,31 @@ class SplashScreen extends StatefulWidget {
   SplashScreenController createState() => SplashScreenController();
 }
 
-class SplashScreenController extends State<SplashScreen> {
-  final PageController pageController = PageController();
+class SplashScreenController extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+
   int currentIndex = 1;
 
   @override
   void initState() {
     super.initState();
-    setCurrentIndex(1);
+    animationController = AnimationController(
+        vsync: this, animationBehavior: AnimationBehavior.preserve)
+      ..duration = const Duration(seconds: 1)
+      ..forward();
   }
 
-  changeOnboardView() async {
-    // log("currentIndex: $currentIndex");
-    setState(() {
-      pageController.animateToPage(currentIndex++,
-          duration: const Duration(milliseconds: 600),
-          curve: Curves.fastOutSlowIn);
-      setCurrentIndex(currentIndex++);
-    });
-
-    if (currentIndex == 4) {
-      context.pushNamed(RouteConstants.login);
+  changeOnboardView() {
+    if (currentIndex < 3) {
+      setState(() {
+        currentIndex++;
+      });
+      animationController.reset();
+      animationController.forward();
+    } else {
+      context.goNamed(RouteConstants.login);
     }
-  }
-
-  setCurrentIndex(int index) {
-    setState(() {
-      currentIndex = index;
-    });
   }
 
   @override

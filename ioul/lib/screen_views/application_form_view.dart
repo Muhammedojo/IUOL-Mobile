@@ -51,23 +51,23 @@ class ApplicationFormView
               ),
               SizedBox(height: 8.h),
               Padding(
-                padding: REdgeInsets.symmetric(horizontal: 24),
+                padding: REdgeInsets.symmetric(horizontal: 16),
                 child: IgnorePointer(
                   child: TabBar(
+                    tabAlignment: TabAlignment.start,
                     physics: const AlwaysScrollableScrollPhysics(),
                     isScrollable: true,
-
                     controller: state.tabController,
                     dragStartBehavior: DragStartBehavior.start,
                     indicatorSize: TabBarIndicatorSize.label,
                     // padding: REdgeInsets.only(right: 24, left: 24),
+                    padding: EdgeInsets.zero,
                     enableFeedback: true,
                     labelPadding: EdgeInsets.zero,
-                    unselectedLabelColor: AppColors.inkLighter,
+                    unselectedLabelColor: AppColors.inkDarker.withOpacity(0.6),
                     unselectedLabelStyle: Styles.x16dp_72777A_400w(),
                     labelStyle: Styles.x16dp_25435B_400w(),
-                    labelColor: AppColors.lightGrey,
-
+                    labelColor: AppColors.inkDarker,
                     indicatorPadding: REdgeInsets.only(right: 16),
                     indicatorColor: AppColors.primary,
                     tabs: [

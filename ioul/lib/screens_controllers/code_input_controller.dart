@@ -1,15 +1,10 @@
-import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
-import 'package:ioul/bloc/verify_email.com/verify_email_cubit.dart';
 import 'package:ioul/model/model.dart';
-import 'package:ioul/screens_controllers/reset_password.dart';
-
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
 import '../provider/provider.dart';
-import '../router/router.dart';
+
 import '../screen_views/code_input_view.dart';
 
 class CodeInput extends StatefulWidget {
@@ -30,7 +25,7 @@ class CodeInputController extends State<CodeInput> {
   @override
   void initState() {
     super.initState();
-    log("state email: ${widget.email}");
+    // log("state email: ${widget.email}");
   }
 
   @override
@@ -61,35 +56,15 @@ class CodeInputController extends State<CodeInput> {
   }
 
   void sendPinToServer(String pin, String email) async {
-    final VerifyEmail data = VerifyEmail();
+    final EmailVerification data = EmailVerification();
     data.email = email;
     data.pin = pin;
     context.read<VerifyEmailCubit>().pushPinToServer(data);
-      // var response = await repository.resetPassword(pin, email);
-    // try {
-    //   WidgetHelper.showProgress(text: 'Processing');
-    //   var response = await repository.resetPassword(pin, email);
-    //   WidgetHelper.hideProgress();
-    //   if (response.isConnectionSuccessful()) {
-    //     // ignore: use_build_context_synchronously
-    //     //  NavigatorHelper(context).pushNamedScreen(RouteConstants.resetPassword);
+  }
 
-    //     Navigator.push(
-    //       context,
-    //       CupertinoPageRoute(
-    //         builder: (context) => ResetPassword(
-    //           email: widget.email,
-    //           pin: pinputController.text,
-    //         ),
-    //       ),
-    //     );
-    //   } else {
-    //     // ignore: use_build_context_synchronously
-    //     WidgetHelper.showToastError(context, ('${response.message}'));
-    //     return;
-    //   }
-    // } catch (e) {
-    //   WidgetHelper.hideProgress();
-    // }
+  void resendEmailVerification(String email) async {
+    final ResendEmailVerification data = ResendEmailVerification();
+    data.email = widget.email;
+    context.read<ResendEmailVerificationCubit>().resendPin(data);
   }
 }

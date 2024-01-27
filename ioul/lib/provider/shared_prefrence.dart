@@ -8,6 +8,11 @@ class AppPrefs {
     return await SharedPreferences.getInstance();
   }
 
+  Future<String> getToken() async {
+    var user = await getUser();
+    return user.token ?? "";
+  }
+
   Future<String?> getString(String key) async {
     return await getPrefs().then((pref) {
       return pref.getString(key);

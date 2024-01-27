@@ -1,10 +1,8 @@
-class VerifyEmail {
+class EmailVerification {
   String? pin;
   String? email;
-  VerifyEmail({
+  EmailVerification({
     this.pin,
-     this.email,
+    this.email,
   });
-
-
 }

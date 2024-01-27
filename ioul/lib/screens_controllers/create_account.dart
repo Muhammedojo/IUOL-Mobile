@@ -162,7 +162,7 @@ class CreateAccountController extends State<CreateAccount> {
     surnameController.dispose();
     middlenameController.dispose();
     phoneController.dispose();
-    emailConfirmController.dispose();
+
     passwordConfirmController.dispose();
     passwordController.dispose();
     super.dispose();

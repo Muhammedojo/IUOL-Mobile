@@ -48,12 +48,13 @@ class Styles {
         fontFamily: "Inter",
       );
 
-  static x16dp_090A0A_400w() => TextStyle(
+  static x16dp_090A0A_400w({FontWeight? fontWeight}) => TextStyle(
         fontSize: 16.sp,
         color: AppColors.inkDarkest,
-        fontWeight: FontWeight.w400,
+        fontWeight: fontWeight ?? FontWeight.w400,
         fontFamily: "Inter",
       );
+
   static x16dp_72777A_400w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.inkLighter,
@@ -90,9 +91,9 @@ class Styles {
         fontWeight: FontWeight.w700,
         fontFamily: "Inter",
       );
-  static x18dp_202325_500g() => TextStyle(
+  static x18dp_202325_500g({Color? color}) => TextStyle(
         fontSize: 18.sp,
-        color: AppColors.backgroundWhite,
+        color: color ?? AppColors.backgroundWhite,
         fontWeight: FontWeight.w500,
         fontFamily: "Inter",
       );
@@ -134,6 +135,14 @@ class Styles {
         fontFamily: "Inter",
         decoration: decoration,
       );
+  static x16dp_4EAFFFF_400w({TextDecoration? decoration}) => TextStyle(
+        fontSize: 16.sp,
+        color: AppColors.primaryBase,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Inter",
+        decoration: decoration,
+      );
+
   static x16dp_0FFFFFF_500w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.backgroundWhite,

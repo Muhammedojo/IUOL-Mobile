@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ioul/bloc/verify_email.com/verify_email_cubit.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:ioul/screens_controllers/reset_password.dart';
+import '../bloc/bloc.dart';
+import '../bloc/resend_email_verification/cubit.dart';
 import '../helpers/helper.dart';
-import 'package:ioul/router/route_constants.dart';
 import 'package:pinput/pinput.dart';
 import '../components/components.dart';
 import '../packages/package.dart';
@@ -36,10 +36,22 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                     style: Styles.x24dp_090A0A_700w(),
                   ),
                   SizedBox(height: 8.h),
-                  TextWidget(
-                    text:
-                        "Last step! To secure your account, enter the code we just sent to your mail",
-                    style: Styles.x16dp_090A0A_400w(),
+                  RichText(
+                    text: TextSpan(
+                      text:
+                          "Last step! To secure your account, enter the code we just sent to ",
+                      style: Styles.x16dp_090A0A_400w(),
+                      children: [
+                        TextSpan(
+                          text: "${widget.email}.",
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () =>
+                                state.resendEmailVerification(widget.email),
+                          style: Styles.x16dp_090A0A_400w(
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 40.h),
                   Align(
@@ -74,18 +86,38 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                     ),
                   ),
                   SizedBox(height: 27.h),
-                  RichText(
-                    text: TextSpan(
-                      text: "Didn't get the code? ",
-                      style: Styles.x12dp_090A0A_400w(),
-                      children: [
-                        TextSpan(
-                          text: "Resend code ",
-                          style: Styles.x12dp_4EAFFF_400w(
-                            decoration: TextDecoration.underline,
+                  BlocListener<ResendEmailVerificationCubit,
+                      ResendEmailVerificationState>(
+                    listener: (context, state) {
+                      if (state is ResendEmailVerificationLoading) {
+                        WidgetHelper.showProgress(text: "Processing");
+                      }
+                      if (state is ResendEmailVerificationLoaded) {
+                        WidgetHelper.hideProgress();
+                        WidgetHelper.showToastError(context,
+                            "${state.resendEmailVerificationResponse.message}");
+                      }
+                      if (state is ResendEmailVerificationFailure) {
+                        WidgetHelper.hideProgress();
+                        WidgetHelper.showToastError(context, state.message);
+                      }
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Didn't get the code? ",
+                        style: Styles.x16dp_090A0A_400w(),
+                        children: [
+                          TextSpan(
+                            text: "Resend code ",
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () =>
+                                  state.resendEmailVerification(widget.email),
+                            style: Styles.x16dp_4EAFFFF_400w(
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(height: 147.h),
@@ -93,24 +125,28 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                     listener: (context, verifyState) {
                       if (verifyState is VerifyEmailLoading) {
                         WidgetHelper.showProgress(text: "Processing");
-                      }
-                      if (verifyState is VerifyEmailLoaded) {
+                      } else if (verifyState is VerifyEmailLoaded) {
                         WidgetHelper.hideProgress();
-                        context.goNamed(RouteConstants.admissionPayment);
-                      }
-                      if (verifyState is VerifyEmailFailure) {
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => ResetPassword(
+                              email: widget.email,
+                              pin: state.pinputController.text,
+                            ),
+                          ),
+                        );
+                      } else if (verifyState is VerifyEmailFailure) {
                         WidgetHelper.hideProgress();
                         WidgetHelper.showSuccessToast(
                             context, verifyState.message);
                       }
                     },
                     child: ElevatedButtonWidget(
-                      title: "Continue",
-                      onTap: () => state.verifyPin(),
-                      //NavigatorHelper(context).pushNamedScreen(
-                      // RouteConstants.resetPassword,
-                      // ),
-                    ),
+                        title: "Continue",
+                        onTap: () {
+                          state.verifyPin();
+                        }),
                   ),
                 ],
               ),

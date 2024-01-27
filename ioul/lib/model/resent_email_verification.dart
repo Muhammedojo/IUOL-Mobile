@@ -1,5 +1,6 @@
 class ResendEmailVerification {
+  String? email;
   ResendEmailVerification({
-    String? email,
+    this.email,
   });
 }

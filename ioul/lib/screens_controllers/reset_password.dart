@@ -85,6 +85,7 @@ class ResetPasswordController extends State<ResetPassword> {
       var loginResponse =
           await repository.newPassword(password, confirmPassword, email, pin);
       WidgetHelper.hideProgress();
+      if (!mounted) return;
       if (loginResponse.isConnectionSuccessful()) {
         NavigatorHelper(context).pushNamedScreen(RouteConstants.login);
       } else {

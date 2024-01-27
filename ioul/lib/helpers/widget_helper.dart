@@ -122,7 +122,7 @@ class WidgetHelper {
       leadingWidth: 45.w,
       title: TextWidget(
         text: title,
-        style: Styles.x18dp_202325_500g(),
+        style: Styles.x18dp_202325_500g(color: AppColors.inkDarkest),
       ),
       // centerTitle: false,
       leading: InkWell(

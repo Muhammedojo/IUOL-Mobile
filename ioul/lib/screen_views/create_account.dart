@@ -235,7 +235,8 @@ class CreateAccountView
                               }
                               if (registerState is RegisterLoaded) {
                                 WidgetHelper.hideProgress();
-                                context.pushNamed(RouteConstants.codeInput,
+                                context.pushNamed(
+                                    RouteConstants.accountVerification,
                                     extra: registerState
                                             .registerStudent.data?.email ??
                                         "");
@@ -252,8 +253,6 @@ class CreateAccountView
                                 title: "Submit",
                                 onTap: () {
                                   state.validateConfirmEmail();
-                                  // NavigatorHelper(context)
-                                  //     .goNamedScreen(RouteConstants.dashboard);
                                 }),
                           ),
                           SizedBox(height: 20.h),

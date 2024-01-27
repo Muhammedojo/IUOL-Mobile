@@ -34,6 +34,10 @@ class AdmissionPaymentController extends State<AdmissionPayment> {
     super.dispose();
   }
 
+  initializeFlutterWave(){
+    
+  }
+
   @override
   Widget build(BuildContext context) => AdmissionPaymentView(this);
 

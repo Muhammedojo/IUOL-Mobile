@@ -1,7 +1,7 @@
 import 'package:ioul/packages/package.dart';
 import 'package:ioul/values/values.dart';
 
-
+// ignore: must_be_immutable
 class OutlinedButtonWidget extends StatelessWidget {
   OutlinedButtonWidget({
     Key? key,

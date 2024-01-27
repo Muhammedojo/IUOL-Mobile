@@ -34,4 +34,10 @@ class AppRepository {
 
   Future<GenericResponse> verifyEmail(String pin, String email) async =>
       _apiProvider.verifyEmail(pin: pin, email: email);
+
+  Future<GenericResponse> verifyScratchCard(String pin) async =>
+      _apiProvider.verifyScratchCard(pin: pin);
+
+  Future<GenericResponse> resendEmailVerification(String email) async =>
+      _apiProvider.resendEmailVerification(email: email);
 }

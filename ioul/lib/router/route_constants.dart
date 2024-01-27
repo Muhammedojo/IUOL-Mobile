@@ -12,6 +12,7 @@ class RouteConstants {
   static const accountVerification = "account_verification";
   static const admissionPayment = "admission_payment";
   static const scratchCard = "scratch_card";
+  static const payment = "payment";
   static const applicationConfirmation = "application_confirmation";
   static const applicationForm = "application_form";
   static const personal = "personal";
@@ -31,7 +32,7 @@ class RouteConstants {
   static const assignmentPreview = "assignment_preview";
   static const reportPreview = "report_preview";
   static const dashboard = "dashboard";
-  static const payment = "payment";
+  static const payments = "payment";
   static const paymentHistory = "payment_history";
   static const paymentHistoryInvoice = "payment_history_invoice";
   static const ioulLibrary = "ioul_library";
@@ -51,5 +52,4 @@ class RouteConstants {
   static const library = "library";
   static const addDropCourse = "add_drop_course";
   static const eResourcesJournal = "e_resources_journal";
-
 }

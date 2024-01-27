@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:ioul/response/register_response.dart';
-
 import '../model/model.dart';
 import '../packages/package.dart';
 import '../response/response.dart';
 import 'endpoints.dart';
+import 'shared_prefrence.dart';
 
 class ApiProvider {
   Future<Login> login(
@@ -18,10 +19,10 @@ class ApiProvider {
       body["password"] = password;
       body["deviceToken"] = deviceToken;
 
-      Response response = await doPostRequestAuth(loginEndpoint, body);
+      Response response = await doPostRequest(loginEndpoint, body);
       statusCode = response.statusCode;
 
-      // print(response.toString());
+      print(response.toString());
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
         var requestResponse = Login.fromJson(decodedBody);
@@ -35,7 +36,7 @@ class ApiProvider {
       }
     } on DioException catch (e) {
       // print("Status error: ${e.response!.statusCode}");
-      // print("Response error: ${e.response!.data}");
+      print("Response error: ${e.response!.data}");
       // print("Message error: ${e.message}");
       var requestResponse = Login();
       //requestResponse.statusCode = statusCode ?? e.response.statusCode;
@@ -50,7 +51,7 @@ class ApiProvider {
     try {
       var body = <String, String>{};
       body["email"] = email;
-      Response response = await doPostRequestAuth(forgotPasswordEndpoint, body);
+      Response response = await doPostRequest(forgotPasswordEndpoint, body);
 
       statusCode = response.statusCode!;
 
@@ -89,7 +90,7 @@ class ApiProvider {
       body["password_confirmation"] = confirmPassword;
       body["email"] = email;
       body["pin"] = pin;
-      Response response = await doPostRequestAuth(resetPasswordEndpoint, body);
+      Response response = await doPostRequest(resetPasswordEndpoint, body);
 
       statusCode = response.statusCode!;
 
@@ -125,7 +126,7 @@ class ApiProvider {
       var body = <String, String>{};
       body["email"] = email;
       body["pin"] = pin;
-      Response response = await doPostRequestAuth(verifyResetPasswordPin, body);
+      Response response = await doPostRequest(verifyResetPasswordPin, body);
 
       statusCode = response.statusCode!;
 
@@ -159,7 +160,7 @@ class ApiProvider {
     int? statusCode;
     try {
       //print("student registration request payload: $cashAdvanceRequest");
-      Response response = await doPostRequestAuth(registerEndpoint, register);
+      Response response = await doPostRequest(registerEndpoint, register);
       statusCode = response.statusCode;
 
       if (_isConnectionSuccessful(statusCode)) {
@@ -271,12 +272,78 @@ class ApiProvider {
       {String? endpoint, required String pin, required String email}) async {
     int? statusCode;
     Map<String, dynamic> body = {};
-    body['email'] = email;
-    body['pin'] = pin;
+    body["pin"] = pin;
+    body["email"] = email;
+
     try {
-      Response response = await doPostRequest(verifyEmail, body);
+      // print("Hello ");
+      Response response = await doPostRequest(verifyEmailEndpoint, body);
+      // print("Hello 1");
       statusCode = response.statusCode;
-      //print("state response: ${response.toString()}");
+      // print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        //print("Hello ");
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> verifyScratchCard(
+      {String? endpoint, required String pin}) async {
+    int? statusCode;
+    Map<String, dynamic> body = {};
+    body["pin"] = pin;
+
+    try {
+      Response response =
+          await doPostRequestAuth(verifyScratchCardPinEndpoint, body);
+      statusCode = response.statusCode;
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> resendEmailVerification(
+      {String? endpoint, required String email}) async {
+    int? statusCode;
+    Map<String, dynamic> body = {};
+    body['email'] = email;
+    try {
+      Response response =
+          await doPostRequest(resendEmailVerificationEndpoint, body);
+      statusCode = response.statusCode;
+      //log("state response: ${response.toString()}");
 
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
@@ -299,8 +366,22 @@ class ApiProvider {
   }
 }
 
+/// Get token header for normal GET-POST requests.
+Future<Map<String, String>> _getTokenHeader() async {
+  var header = <String, String>{};
+  header["Content-Type"] = "application/json";
+  String? token = await getToken();
+  log("token value: $token");
+  if (token.isNotEmpty) {
+    header["Authorization"] = token;
+  }
+  header["Connection"] = "close";
+  header["Accept"] = "application/json";
+  return header;
+}
+
 /// Get header for normal GET-POST requests.
-Future<Map<String, String>> _getNormalHeaderAuth() async {
+Future<Map<String, String>> _getNormalHeader() async {
   var header = <String, String>{};
   header["Content-Type"] = "application/json";
   header["Connection"] = "close";
@@ -310,8 +391,8 @@ Future<Map<String, String>> _getNormalHeaderAuth() async {
 }
 
 Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
-  var header = await _getNormalHeaderAuth();
-  // print("headers: $header");
+  var header = await _getTokenHeader();
+  print("headers: $header");
 
   var dio = Dio();
   dio.options.baseUrl = baseApi;
@@ -349,7 +430,7 @@ Future<Response> doGetRequest(String endPoint) async {
 
 Future<Response> doPostRequest(endPoint, dynamic body) async {
   endPoint = endPoint.replaceAll("*", "");
-  var header = await _getNormalHeaderAuth();
+  var header = await _getNormalHeader();
   var dio = Dio();
   dio.options.baseUrl = baseApi;
   dio.interceptors.add(PrettyDioLogger(
@@ -387,42 +468,44 @@ Future<Response> doPostRequest(endPoint, dynamic body) async {
 bool _isConnectionSuccessful(int? statusCode) =>
     statusCode == 200 || statusCode == 201;
 
+Future<String> getToken() async => await AppPrefs().getToken();
+
 _handleDioError(DioException error) {
   String errorDescription = "";
   if (error.response?.statusCode == 422) {
     return errorDescription =
-        error.response?.data['message'] ?? "Bad response from the server";
+        error.response?.data['message'] ?? "Bad response from the server.";
   }
   if (error.error != null && error.error is SocketException) {
-    return "connection_to_server_failed_due_to_internet_connection";
+    return "Connection to server failed due to internet connection.";
   }
 
   switch (error.type) {
     case DioExceptionType.cancel:
-      errorDescription = "request_to_server_was_cancelled";
+      errorDescription = "Request to server was cancelled.";
       break;
     case DioExceptionType.connectionTimeout:
-      errorDescription = "connection_timeout_with_server";
+      errorDescription = "Connection timeout with server.";
       break;
     case DioExceptionType.connectionError:
       errorDescription =
-          "connection_to_server_failed_due_to_internet_connection";
+          "Connection to server failed due to internet connection.";
       break;
     case DioExceptionType.badCertificate:
-      errorDescription = "Bad Certificate";
+      errorDescription = "Bad Certificate.";
       break;
     case DioExceptionType.badResponse:
-      errorDescription = "Bad response from the server";
+      errorDescription = "Bad response from the server.";
       break;
     case DioExceptionType.receiveTimeout:
-      errorDescription = "receive_timeout_in_connection_with_server";
+      errorDescription = "Receive timeout in connection with server.";
       break;
     case DioExceptionType.sendTimeout:
-      errorDescription = "send_timeout_in_connection_with_server";
+      errorDescription = "Send timeout in connection with server.";
       break;
     case DioErrorType.unknown:
       errorDescription =
-          "something_went_wrong_and_your_request_could_not_be_completed";
+          "Something went wrong and your request could not be completed.";
       break;
   }
   return errorDescription;

@@ -1,9 +1,9 @@
 import 'package:ioul/router/route_constants.dart';
+import 'package:ioul/screen_views/payment.dart';
 import 'package:ioul/screens/screens.dart';
 import 'package:ioul/screens_controllers/more_controller.dart';
 import 'package:ioul/screens_controllers/profile.dart';
 import 'package:ioul/screens_controllers/programme_view.dart';
-import 'package:ioul/screens_controllers/reset_password.dart';
 import 'package:ioul/screens_controllers/scratch_card.dart';
 import 'package:ioul/screens_controllers/sponsor_view.dart';
 import 'package:ioul/screens_controllers/upload_view.dart';
@@ -12,7 +12,7 @@ import '../packages/package.dart';
 import '../utils/global_variables.dart';
 
 class AppRouter {
-  var email;
+  // var email;
   static final GoRouter router = GoRouter(
     initialLocation: '/',
     navigatorKey: GlobalVariables.rootNavigatorKey,
@@ -35,14 +35,12 @@ class AppRouter {
       GoRoute(
         path: '/${RouteConstants.codeInput}',
         name: RouteConstants.codeInput,
-        builder: (context, state) => CodeInput(
-          email: state.extra as String,
-        ),
+        builder: (context, state) => CodeInput(email: state.extra as String),
       ),
       // GoRoute(
       //   path: '/${RouteConstants.resetPassword}',
       //   name: RouteConstants.resetPassword,
-      //   builder: (context, state) => const ResetPassword(),
+      //   builder: (context, state) =>  ResetPassword(),
       // ),
       GoRoute(
         path: '/${RouteConstants.createAccount}',
@@ -52,8 +50,11 @@ class AppRouter {
       GoRoute(
         path: '/${RouteConstants.accountVerification}',
         name: RouteConstants.accountVerification,
-        builder: (context, state) => const VerifyEmail(),
+        builder: (context, state) => VerifyEmail(
+          email: state.extra as String,
+        ),
       ),
+
       GoRoute(
         path: '/${RouteConstants.admissionPayment}',
         name: RouteConstants.admissionPayment,
@@ -63,6 +64,11 @@ class AppRouter {
         path: '/${RouteConstants.scratchCard}',
         name: RouteConstants.scratchCard,
         builder: (context, state) => const ScratchCard(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.payments}',
+        name: RouteConstants.payments,
+        builder: (context, state) => const Payments(""),
       ),
       GoRoute(
         path: '/${RouteConstants.applicationConfirmation}',

@@ -1,6 +1,7 @@
 class VerifyScratchCardPin {
+  String? pin;
+
   VerifyScratchCardPin({
-    String? email,
-    String? password,
+    this.pin,
   });
 }
