@@ -4,6 +4,7 @@ import '../packages/package.dart';
 import '../helpers/helper.dart';
 import '../router/router.dart';
 import '../components/components.dart';
+import '../screens/screens.dart';
 import '../screens_controllers/create_account.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
@@ -216,9 +217,11 @@ class CreateAccountView
                                   children: [
                                     TextSpan(
                                       recognizer: TapGestureRecognizer()
-                                        ..onTap = () => NavigatorHelper(context)
-                                                .pushNamedScreen(
-                                              RouteConstants.login,
+                                        ..onTap = () => Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const TermsAndServices()),
                                             ),
                                       text: "Terms and Conditions ",
                                       style: Styles.x12dp_4EAFFF_400w(),

@@ -131,6 +131,11 @@ class CreateAccountController extends State<CreateAccount> {
         WidgetHelper.showToastError(context, "Confirm password is required.");
         return;
       }
+      if (checked == false) {
+        WidgetHelper.showToastError(
+            context, "Kindly agree with terms and conditions.");
+        return;
+      }
     }
     registerStudent();
   }

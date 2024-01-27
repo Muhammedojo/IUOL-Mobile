@@ -52,7 +52,9 @@ class ScratchCardController extends State<ScratchCard> {
   void validateCard() {
     var cardNumber = scratchCardController.text.trim();
 
-    if (cardNumber.isEmpty || cardNumber.length != 16) {
+    if (cardNumber.isEmpty
+        //|| cardNumber.length != 16
+        ) {
       WidgetHelper.showToastError(context, "Incorrect Card Pin.");
       return;
     }
