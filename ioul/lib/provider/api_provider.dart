@@ -17,7 +17,6 @@ class ApiProvider {
       var body = <String, String>{};
       body["email"] = username;
       body["password"] = password;
-      // body["deviceToken"] = deviceToken;
 
       Response response = await doPostRequest(loginEndpoint, body);
       statusCode = response.statusCode;
@@ -371,9 +370,10 @@ Future<Map<String, String>> _getTokenHeader() async {
   var header = <String, String>{};
   header["Content-Type"] = "application/json";
   String? token = await getToken();
-  log("token value: $token");
+  print("Token value here : $token");
+
   if (token.isNotEmpty) {
-    header["Authorization"] = token;
+    header["Authorization"] = "Bearer $token";
   }
   header["Connection"] = "close";
   header["Accept"] = "application/json";
@@ -392,7 +392,7 @@ Future<Map<String, String>> _getNormalHeader() async {
 
 Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
   var header = await _getTokenHeader();
-  print("headers: $header");
+  //print("headers: $header");
 
   var dio = Dio();
   dio.options.baseUrl = baseApi;

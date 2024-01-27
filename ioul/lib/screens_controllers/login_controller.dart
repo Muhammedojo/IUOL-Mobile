@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ioul/provider/provider.dart';
+import 'package:ioul/provider/shared_prefrence.dart';
 
 import '../helpers/helper.dart';
 import '../router/router.dart';
@@ -94,8 +95,11 @@ class LoginController extends State<Login> {
       if (!mounted) return;
       if (loginResponse.isConnectionSuccessful()) {
         print("Token : ${loginResponse.token} ");
-        // NavigatorHelper(context).goNamedScreen(RouteConstants.admissionPayment);
-        NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
+        AppPrefs().saveTokenToPrefs(loginResponse);
+        loginResponse.user!.hasApplication == false
+            ? NavigatorHelper(context)
+                .goNamedScreen(RouteConstants.admissionPayment)
+            : NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
       } else {
         WidgetHelper.showToastError(context, ('${loginResponse.message}'));
         return;

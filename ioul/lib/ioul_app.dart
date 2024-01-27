@@ -32,6 +32,9 @@ class IOULApp extends StatelessWidget {
             designSize: const Size(428, 926),
             minTextAdapt: true,
             splitScreenMode: false,
+            rebuildFactor: (old, data) {
+              return true;
+            },
             builder: (context, child) {
               return MaterialApp.router(
                 builder: EasyLoading.init(),
