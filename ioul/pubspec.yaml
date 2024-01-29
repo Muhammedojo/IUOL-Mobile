@@ -45,7 +45,7 @@ dependencies:
   url_launcher: ^6.1.14
   form_validator: ^2.1.1
   flutterwave_standard: ^1.0.8
-  uuid: ^4.3.3
+  #uuid: ^4.3.3
 
   # flutterwave_standard: ^1.0.7
 

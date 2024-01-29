@@ -54,7 +54,7 @@ class ApplicationFormView
                 padding: REdgeInsets.symmetric(horizontal: 16),
                 child: IgnorePointer(
                   child: TabBar(
-                    tabAlignment: TabAlignment.start,
+                    // tabAlignment: TabAlignment.start,
                     physics: const AlwaysScrollableScrollPhysics(),
                     isScrollable: true,
                     controller: state.tabController,
