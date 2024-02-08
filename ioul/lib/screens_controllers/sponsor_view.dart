@@ -1,5 +1,6 @@
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
+import '../model/model.dart';
 import '../screen_views/sponsor_view.dart';
 
 class Sponsor extends StatefulWidget {
@@ -22,20 +23,16 @@ class Sponsor extends StatefulWidget {
   SponsorController createState() => SponsorController();
 }
 
-class SponsorController extends State<Sponsor> with AutomaticKeepAliveClientMixin {
+class SponsorController extends State<Sponsor>
+    with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
-  final TextEditingController middlenameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController emailConfirmController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordConfirmController =
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController sponsorController = TextEditingController();
+  final TextEditingController sponsorNameController = TextEditingController();
+  final TextEditingController sponsorAddressController =
       TextEditingController();
-
 
   String selectedValue = "";
 
@@ -60,7 +57,6 @@ class SponsorController extends State<Sponsor> with AutomaticKeepAliveClientMixi
     // }
   }
 
-
   @override
   void dispose() {
     super.dispose();
@@ -72,6 +68,23 @@ class SponsorController extends State<Sponsor> with AutomaticKeepAliveClientMixi
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  validateSponsorInfo() async {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+      final application = SubmitApplication();
+
+      application.sponsorAddress = sponsorAddressController.text.trim();
+      application.sponsorName = sponsorNameController.text.trim();
+      application.sponsorType = sponsorController.text.trim();
+
+      onNextPressed();
+    } else {
+      WidgetHelper.showToastError(context, "Fill required field.");
+      return;
+    }
   }
 
   @override

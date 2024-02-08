@@ -76,27 +76,26 @@ class AddressController extends State<Address>
   }
 
   validateAddressInfo() async {
-    print('hello 1');
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
 
       final application = SubmitApplication();
-      print('hello 9');
+
       application.lga = lgaController.text.trim();
       application.permanentAddress = permanentAddressController.text.trim();
       application.workAddress = workAddressController.text.trim();
-      print('hello 8');
-      application.nationalityId = nationalityController.text.trim() as int;
 
-      application.stateId = stateController.text.trim() as int?;
+      application.nationalityId = 1;
+      //nationalityController.text.trim() as int;
 
-      print('hello 4');
-      application.residenceCountryId = countryController.text.trim() as int?;
-      application.residenceStateId =
-          stateOfResidenceController.text.trim() as int?;
-      print('hello 5');
+      application.stateId = 4;
+      //stateController.text.trim() as int?;
 
-      print('hello 2');
+      application.residenceCountryId = 232;
+      //countryController.text.trim() as int?;
+      application.residenceStateId = 231;
+      //stateOfResidenceController.text.trim() as int?;
+
       onNextPressed();
     } else {
       WidgetHelper.showToastError(context, "Fill required field.");

@@ -7,7 +7,7 @@ export '../screens_controllers/admission_payment.dart';
 export '../screens_controllers/application_confirmation.dart';
 export '../screens_controllers/application_form_controller.dart';
 export '../screens_controllers/assignment_controller.dart';
-export '../screens_controllers/certificate_view.dart';
+export '../screens_controllers/certificate_controller.dart';
 export '../screens_controllers/code_input_controller.dart';
 export '../screens_controllers/contact_controller.dart';
 export '../screens_controllers/course_controller.dart';

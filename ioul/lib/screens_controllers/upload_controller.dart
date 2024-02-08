@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../screen_views/upload_view.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Upload extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -16,15 +19,11 @@ class UploadController extends State<Upload>
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
-  final TextEditingController middlenameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController emailConfirmController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordConfirmController =
-      TextEditingController();
+  final picker = ImagePicker();
+  final TextEditingController passportImageController = TextEditingController();
+  final TextEditingController pdfDocumentController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  File? passportImage;
 
   double initialProgress = (100 / 7 / 100);
 
@@ -34,7 +33,6 @@ class UploadController extends State<Upload>
     });
   }
 
-
   @override
   void dispose() {
     super.dispose();
@@ -42,6 +40,16 @@ class UploadController extends State<Upload>
 
   @override
   Widget build(BuildContext context) => UploadView(this);
+
+  Future choosePassport(
+      ImageSource source, TextEditingController controller) async {
+    final pickedFile = await picker.pickImage(source: source);
+    if (pickedFile!.path.isNotEmpty) {
+      setState(() {
+        passportImage = File(pickedFile.path);
+      });
+    }
+  }
 
   //Control logic grouped together, at top of file
   void onBackPressed() {
