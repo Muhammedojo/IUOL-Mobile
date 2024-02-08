@@ -27,6 +27,7 @@ class ApplicationFormView
         bottomWidget: Padding(
           padding: EdgeInsets.zero,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),

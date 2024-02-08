@@ -79,6 +79,9 @@ class ScratchCardView
                             }
                             if (scratchPinState is VerifyScratchPinLoaded) {
                               WidgetHelper.hideProgress();
+                              NavigatorHelper(context).pushNamedScreen(
+                                RouteConstants.applicationConfirmation,
+                              );
                             }
                             if (scratchPinState is VerifyScratchPinFailure) {
                               WidgetHelper.hideProgress();

@@ -1,4 +1,4 @@
-
+import 'package:ioul/model/submit_application.dart';
 import 'package:ioul/values/values.dart';
 
 import '../helpers/helper.dart';
@@ -35,7 +35,7 @@ class PersonalController extends State<Personal>
   final TextEditingController emailConfirmController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
   final TextEditingController maritalStatusController = TextEditingController();
-  final TextEditingController religionControllr = TextEditingController();
+  final TextEditingController religionController = TextEditingController();
   final TextEditingController dateOfBirthController = TextEditingController();
   final TextEditingController employmentStatusController =
       TextEditingController();
@@ -49,6 +49,11 @@ class PersonalController extends State<Personal>
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmController =
       TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  String? selectedGender;
+  String? maritalStatus;
+  String? employmentStatus;
+  String? selectedIDType;
 
   onNextPressed() {
     // if (widget.selectedIndex! < 6) {
@@ -88,7 +93,6 @@ class PersonalController extends State<Personal>
     }
   }
 
-
   @override
   void dispose() {
     super.dispose();
@@ -100,6 +104,33 @@ class PersonalController extends State<Personal>
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  validatePersonalInfo() async {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+      final application = SubmitApplication();
+
+      application.firstName = firstNameController.text.trim();
+      application.email = emailController.text.trim();
+      application.gender = genderController.text.trim();
+      application.middleName = middlenameController.text.trim();
+      application.phone = phoneController.text.trim();
+      application.identificationNumber = identityNumberController.text.trim();
+      application.language = nativeLanguageController.text.trim();
+      application.religion = religionController.text.trim();
+      application.identificationType = nationalIdTypeController.text.trim();
+      application.dob = dateOfBirthController.text.trim();
+      application.maritalStatus = maritalStatusController.text.trim();
+      application.lastName = surnameController.text.trim();
+      application.occupation = employmentStatusController.text.trim();
+
+      onNextPressed();
+    } else {
+      WidgetHelper.showToastError(context, "Fill required field.");
+      return;
+    }
   }
 
   @override

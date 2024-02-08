@@ -1,6 +1,6 @@
-
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
+import '../model/model.dart';
 import '../screen_views/address_view.dart';
 
 class Address extends StatefulWidget {
@@ -29,14 +29,15 @@ class AddressController extends State<Address>
 
   bool visible = false;
   final TextEditingController nationalityController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
-  final TextEditingController middlenameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController emailConfirmController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordConfirmController =
+  final TextEditingController stateController = TextEditingController();
+  final TextEditingController lgaController = TextEditingController();
+  final TextEditingController countryController = TextEditingController();
+  final TextEditingController stateOfResidenceController =
       TextEditingController();
+  final TextEditingController permanentAddressController =
+      TextEditingController();
+  final TextEditingController workAddressController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   String selectedValue = "";
 
@@ -61,7 +62,6 @@ class AddressController extends State<Address>
     // }
   }
 
-
   @override
   void dispose() {
     super.dispose();
@@ -73,6 +73,35 @@ class AddressController extends State<Address>
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  validateAddressInfo() async {
+    print('hello 1');
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+      final application = SubmitApplication();
+      print('hello 9');
+      application.lga = lgaController.text.trim();
+      application.permanentAddress = permanentAddressController.text.trim();
+      application.workAddress = workAddressController.text.trim();
+      print('hello 8');
+      application.nationalityId = nationalityController.text.trim() as int;
+
+      application.stateId = stateController.text.trim() as int?;
+
+      print('hello 4');
+      application.residenceCountryId = countryController.text.trim() as int?;
+      application.residenceStateId =
+          stateOfResidenceController.text.trim() as int?;
+      print('hello 5');
+
+      print('hello 2');
+      onNextPressed();
+    } else {
+      WidgetHelper.showToastError(context, "Fill required field.");
+      return;
+    }
   }
 
   @override
