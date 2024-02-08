@@ -44,10 +44,10 @@ class UploadView extends StatelessView<Upload, UploadController> {
             ),
             SizedBox(height: 14.h),
             OutlinedButtonWidget(
-              onTap: () => state.choosePassport(
-                ImageSource.gallery,
-                state.passportImageController,
-              ),
+              onTap: () {
+                state.choosePassport(
+                    ImageSource.gallery, state.passportImageController);
+              },
               title: "Choose file",
               imagePath: "assets/images/upload.svg",
             ),
@@ -164,7 +164,11 @@ class UploadView extends StatelessView<Upload, UploadController> {
             SizedBox(height: 24.h),
             Row(
               children: [
-                Checkbox(value: false, onChanged: (e) {}),
+                Checkbox(
+                    value: false,
+                    onChanged: (e) {
+                      state.visible;
+                    }),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: RichText(

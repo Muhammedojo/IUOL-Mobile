@@ -43,7 +43,9 @@ class UploadController extends State<Upload>
 
   Future choosePassport(
       ImageSource source, TextEditingController controller) async {
+    print('it 1');
     final pickedFile = await picker.pickImage(source: source);
+    print('it 2');
     if (pickedFile!.path.isNotEmpty) {
       setState(() {
         passportImage = File(pickedFile.path);
