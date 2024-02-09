@@ -186,6 +186,39 @@ class ApiProvider {
     }
   }
 
+  Future<GenericResponse> pushSubmitApplication(
+      SubmitApplication application) async {
+    int? statusCode;
+    try {
+      log("application submission request payload: $application");
+      Response response =
+          await doPostRequestAuth(submitApplication, application);
+      statusCode = response.statusCode;
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        requestResponse.message = response.statusMessage;
+
+        return requestResponse;
+        //return _createDefaultGenericResponse(statusCode);
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode!;
+      requestResponse.message = _handleDioError(e); //e.message;
+
+      return requestResponse;
+    }
+  }
+
   Future<GenericResponse> getCountryList({String? endpoint}) async {
     int? statusCode;
     try {

@@ -120,6 +120,11 @@ class AppRouter {
             name: RouteConstants.uploads,
             builder: (context, state) => const Upload(),
           ),
+          GoRoute(
+            path: RouteConstants.reviewApplication,
+            name: RouteConstants.reviewApplication,
+            builder: (context, state) => const ReviewApplication(),
+          ),
         ],
       ),
       StatefulShellRoute.indexedStack(

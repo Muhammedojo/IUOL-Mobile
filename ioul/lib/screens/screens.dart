@@ -50,3 +50,4 @@ export '../screens_controllers/library_controller.dart';
 export '../screens_controllers/audio_controller.dart';
 export '../screens_controllers/terms_and_services_controller.dart';
 export '../screens_controllers/privacy_policy_controller.dart';
+export '../screens_controllers/review_application_controller.dart';

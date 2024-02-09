@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:ioul/bloc/submit_application/cubit.dart';
 import 'package:ioul/components/outlined_button.dart';
+import 'package:ioul/model/submit_application.dart';
 import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
+import '../helpers/helper.dart';
+import '../packages/package.dart';
+import '../router/router.dart';
 import '../screens_controllers/upload_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
@@ -152,7 +157,10 @@ class UploadView extends StatelessView<Upload, UploadController> {
             ),
             SizedBox(height: 14.h),
             OutlinedButtonWidget(
-              onTap: () {},
+              onTap: () {
+                state.choosePassport(
+                    ImageSource.gallery, state.pdfDocumentController);
+              },
               title: "Choose file",
               imagePath: "assets/images/upload.svg",
             ),
@@ -164,11 +172,19 @@ class UploadView extends StatelessView<Upload, UploadController> {
             SizedBox(height: 24.h),
             Row(
               children: [
+                // Checkbox(
+                //     value: false,
+                //     onChanged: (e) {
+                //       state.visible;
+                //     }),
                 Checkbox(
-                    value: false,
-                    onChanged: (e) {
-                      state.visible;
-                    }),
+                  activeColor: AppColors.primary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  value: state.checked,
+                  onChanged: (e) => state.toggleCheck(),
+                ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: RichText(
@@ -188,7 +204,29 @@ class UploadView extends StatelessView<Upload, UploadController> {
               ],
             ),
             SizedBox(height: 28.h),
-            ElevatedButtonWidget(onTap: () {}, title: "Review Application"),
+            BlocListener<SubmitApplicationCubit, SubmitApplicationState>(
+              listener: (context, applicationState) {
+                if (applicationState is SubmitApplicationLoading) {
+                  WidgetHelper.showProgress(text: 'Processing');
+                }
+                if (applicationState is SubmitApplicationLoaded) {
+                  WidgetHelper.hideProgress();
+                  context.goNamed(RouteConstants.reviewApplication);
+                }
+                if (applicationState is SubmitApplicationFailure) {
+                  WidgetHelper.hideProgress();
+                  WidgetHelper.showToastError(
+                    context,
+                    applicationState.message,
+                  );
+                }
+              },
+              child: ElevatedButtonWidget(
+                  onTap: () {
+                    state.validateUploads();
+                  },
+                  title: "Review Application"),
+            ),
           ],
         ),
       ),

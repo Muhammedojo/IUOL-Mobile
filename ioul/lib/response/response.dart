@@ -87,7 +87,7 @@ Map<String, dynamic> _$GenericResponseToJson(GenericResponse obj) =>
     };
 
 String _formatApiErrorMessage(dynamic response, String message) {
-  print("response: $response, message: $message");
+  //print("response: $response, message: $message");
   if (response != null && response.toString().trim().isNotEmpty) {
     return response
         .toString()

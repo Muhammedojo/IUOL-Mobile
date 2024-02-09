@@ -1,7 +1,11 @@
 import 'dart:io';
 
+import 'package:ioul/bloc/bloc.dart';
+import 'package:ioul/packages/package.dart';
+
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
+import '../model/model.dart';
 import '../screen_views/upload_view.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -19,6 +23,7 @@ class UploadController extends State<Upload>
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
+  bool checked = false;
   final picker = ImagePicker();
   final TextEditingController passportImageController = TextEditingController();
   final TextEditingController pdfDocumentController = TextEditingController();
@@ -43,9 +48,8 @@ class UploadController extends State<Upload>
 
   Future choosePassport(
       ImageSource source, TextEditingController controller) async {
-    print('it 1');
     final pickedFile = await picker.pickImage(source: source);
-    print('it 2');
+
     if (pickedFile!.path.isNotEmpty) {
       setState(() {
         passportImage = File(pickedFile.path);
@@ -56,6 +60,26 @@ class UploadController extends State<Upload>
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  toggleCheck() {
+    setState(() {
+      checked = !checked;
+    });
+  }
+
+  validateUploads() async {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+      final application = SubmitApplication();
+
+      application.photo = passportImageController.text;
+      application.document = pdfDocumentController.text;
+      context
+          .read<SubmitApplicationCubit>()
+          .pushApplicationToServer(application);
+    }
   }
 
   @override

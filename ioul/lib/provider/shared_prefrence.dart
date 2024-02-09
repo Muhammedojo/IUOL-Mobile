@@ -13,9 +13,7 @@ class AppPrefs {
   }
 
   Future<String> getToken() async {
-    print("Token value here 1");
     var user = await getUser();
-    print("Token value here 2 :${user.token}");
     return user.token ?? "";
   }
 
@@ -27,7 +25,6 @@ class AppPrefs {
 
   Future<Login> getUser() async {
     String? encodedUserString = await getString("token");
-    print("Encoded User: $encodedUserString");
 
     if (encodedUserString != null && encodedUserString.isNotEmpty) {
       Map<String, dynamic> userJson = jsonDecode(encodedUserString);

@@ -1,6 +1,4 @@
-// import 'package:ioul/response/response.dart';
 import 'dart:developer';
-
 import 'package:ioul/utils/global_states.dart';
 import '../../model/model.dart';
 import '../../packages/package.dart';
@@ -16,6 +14,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       final response = await repository.registerStudent(register);
       log("response body first: ${response.data}");
       if (response.isConnectionSuccessful()) {
+        // AppPrefs().saveTokenToPrefs();
         emit(RegisterLoaded(response));
       } else {
         log("response error body: ${response.responseMessage}");

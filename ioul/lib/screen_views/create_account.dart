@@ -1,3 +1,5 @@
+import 'package:intl_phone_field/country_picker_dialog.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ioul/bloc/register/cubit.dart';
 
 import '../packages/package.dart';
@@ -160,9 +162,50 @@ class CreateAccountView
                             keyboardType: TextInputType.emailAddress,
                           ),
                           SizedBox(height: 20.h),
-                          TextFieldWidget(
-                            title: "Phone number",
+                          // TextFieldWidget(
+                          //   title: "Phone number",
+                          //   controller: state.phoneController,
+                          // ),
+                          IntlPhoneField(
+                            initialCountryCode: 'NG',
+                            languageCode: 'en',
                             controller: state.phoneController,
+                            style: Styles.x16dp_72777A_400w(),
+                            disableLengthCheck: false,
+                            pickerDialogStyle: PickerDialogStyle(
+                                backgroundColor: AppColors.primary,
+                                searchFieldInputDecoration: InputDecoration(),
+                                countryNameStyle: const TextStyle(
+                                  color: AppColors.lightGrey,
+                                )),
+                            dropdownDecoration: const BoxDecoration(),
+                            dropdownTextStyle: Styles.x16dp_72777A_400w(),
+                            decoration: InputDecoration(
+                              helperStyle: Styles.x16dp_72777A_400w(),
+                              hintTextDirection: TextDirection.ltr,
+
+                              contentPadding: REdgeInsets.only(
+                                  top: 16, right: 16, bottom: 16, left: 0),
+                              hintStyle: Styles.x12dp_72777A_400w(),
+                              fillColor: AppColors.backgroundWhite,
+                              filled: false,
+                              // isDense: true,
+                              isCollapsed: true,
+                              hintText: 'Phone Number',
+
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: AppColors.inkLight),
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: AppColors.inkLighter),
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                            ),
+                            onChanged: (value) =>
+                                state.phoneController.text = value.number,
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(

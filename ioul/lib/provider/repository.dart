@@ -32,6 +32,10 @@ class AppRepository {
   Future<RegisterResponse> registerStudent(Register register) async =>
       _apiProvider.pushRegisterStudent(register);
 
+  Future<GenericResponse> submitApplication(
+          SubmitApplication application) async =>
+      _apiProvider.pushSubmitApplication(application);
+
   Future<GenericResponse> verifyEmail(String pin, String email) async =>
       _apiProvider.verifyEmail(pin: pin, email: email);
 
