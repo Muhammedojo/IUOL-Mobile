@@ -44,18 +44,26 @@ class LoginView extends StatelessView<Login, LoginController> {
                       controller: state.emailController,
                     ),
                     SizedBox(height: 20.h),
-                    TextFieldWidget(
-                      title: "Password",
-                      controller: state.passwordController,
-                      obscureText: state.visible,
-                      passwordIcon: InkWell(
-                        onTap: () => state.toggleVisibility(),
-                        child: Icon(
-                          state.visible
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
-                          size: 22.w.h,
-                          color: AppColors.inkDarkest,
+                    SizedBox(
+                      height: 60.h,
+                      child: TextFieldWidget(
+                        title: "Password",
+                        controller: state.passwordController,
+                        obscureText: state.visible,
+                        isDense: false,
+                        isCollapsed: false,
+                        padding:
+                            REdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                        passwordIcon: InkWell(
+                          radius: 0,
+                          onTap: () => state.toggleVisibility(),
+                          child: Icon(
+                            state.visible
+                                ? Icons.visibility_off_outlined
+                                : Icons.visibility_outlined,
+                            size: 22.w.h,
+                            color: AppColors.inkDarkest,
+                          ),
                         ),
                       ),
                     ),

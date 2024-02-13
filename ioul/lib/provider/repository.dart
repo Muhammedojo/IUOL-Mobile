@@ -32,7 +32,7 @@ class AppRepository {
   Future<RegisterResponse> registerStudent(Register register) async =>
       _apiProvider.pushRegisterStudent(register);
 
-  Future<GenericResponse> verifyEmail(String pin, String email) async =>
+  Future<EmailVerification> verifyEmail(String pin, String email) async =>
       _apiProvider.verifyEmail(pin: pin, email: email);
 
   Future<GenericResponse> verifyScratchCard(String pin) async =>

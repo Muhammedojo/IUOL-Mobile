@@ -1,3 +1,5 @@
+import 'package:ioul/model/model.dart';
+
 import '../../packages/package.dart';
 import '../../response/response.dart';
 
@@ -19,7 +21,7 @@ class VerifyEmailLoading extends VerifyEmailState {
 }
 
 class VerifyEmailLoaded extends VerifyEmailState {
-  final GenericResponse verifyEmailResponse;
+  final EmailVerification verifyEmailResponse;
   const VerifyEmailLoaded(this.verifyEmailResponse);
 
   @override

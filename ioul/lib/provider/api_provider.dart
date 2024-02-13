@@ -267,7 +267,7 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> verifyEmail(
+  Future<EmailVerification> verifyEmail(
       {String? endpoint, required String pin, required String email}) async {
     int? statusCode;
     Map<String, dynamic> body = {};
@@ -284,17 +284,19 @@ class ApiProvider {
       if (_isConnectionSuccessful(statusCode)) {
         //print("Hello ");
         var decodedBody = jsonDecode(response.toString());
+        
 
-        var requestResponse = GenericResponse.fromJson(decodedBody);
+        var requestResponse = EmailVerification.fromJson(decodedBody['data']);
+
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       } else {
-        var requestResponse = GenericResponse();
+        var requestResponse = EmailVerification();
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       }
     } on DioException catch (e) {
-      var requestResponse = GenericResponse();
+      var requestResponse = EmailVerification();
       //requestResponse.statusCode = statusCode ?? e.response.statusCode;
       requestResponse.message = _handleDioError(e);
 
@@ -503,7 +505,7 @@ _handleDioError(DioException error) {
     case DioExceptionType.sendTimeout:
       errorDescription = "Send timeout in connection with server.";
       break;
-    case DioErrorType.unknown:
+    case DioExceptionType.unknown:
       errorDescription =
           "Something went wrong and your request could not be completed.";
       break;
