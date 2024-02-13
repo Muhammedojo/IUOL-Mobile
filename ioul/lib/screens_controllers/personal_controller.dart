@@ -1,11 +1,15 @@
 import 'package:ioul/model/submit_application.dart';
+import 'package:ioul/utils/utils.dart';
 import 'package:ioul/values/values.dart';
 
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../screen_views/personal_view.dart';
 
+late SubmitApplication sub;
+
 class Personal extends StatefulWidget {
+  late SubmitApplication sub;
   // static const routeName = Strings.SCREEN_BLANK;
 
   Personal({
@@ -110,7 +114,8 @@ class PersonalController extends State<Personal>
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
 
-      final application = SubmitApplication();
+      var application = SubmitApplication();
+      // var newApplication = SubmitApplication();
 
       application.firstName = firstNameController.text.trim();
       application.email = emailController.text.trim();
@@ -126,6 +131,9 @@ class PersonalController extends State<Personal>
       application.lastName = surnameController.text.trim();
       application.occupation = employmentStatusController.text.trim();
 
+      GlobalVariables.applications.value = application;
+      //newApplication = GlobalVariables.applications.value;
+      //print('${newApplication.identificationNumber}');
       onNextPressed();
     } else {
       WidgetHelper.showToastError(context, "Fill required field.");

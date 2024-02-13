@@ -113,9 +113,9 @@ class LoginView extends StatelessView<Login, LoginController> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const ReviewApplication()),
+                                      const AdmissionPayment()),
                             )
-                        //state.onPressLoginButton(),
+                        //  state.onPressLoginButton(),
                         ),
                     SizedBox(height: 20.h),
                     Align(

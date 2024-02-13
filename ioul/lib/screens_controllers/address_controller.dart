@@ -1,6 +1,7 @@
+import 'package:ioul/utils/utils.dart';
+
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../model/model.dart';
 import '../screen_views/address_view.dart';
 
 class Address extends StatefulWidget {
@@ -79,7 +80,7 @@ class AddressController extends State<Address>
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
 
-      final application = SubmitApplication();
+      final application = GlobalVariables.applications.value;
 
       application.lga = lgaController.text.trim();
       application.permanentAddress = permanentAddressController.text.trim();
@@ -95,6 +96,9 @@ class AddressController extends State<Address>
       //countryController.text.trim() as int?;
       application.residenceStateId = 231;
       //stateOfResidenceController.text.trim() as int?;
+      GlobalVariables.applications.value = application;
+      print('${GlobalVariables.applications.value.identificationNumber}');
+      print('${GlobalVariables.applications.value.permanentAddress}');
 
       onNextPressed();
     } else {

@@ -2,6 +2,7 @@ import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../model/model.dart';
 import '../screen_views/programme_view.dart';
+import '../utils/utils.dart';
 
 class Programme extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -75,7 +76,7 @@ class ProgrammeController extends State<Programme>
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
 
-      final application = SubmitApplication();
+      final application = GlobalVariables.applications.value;
 
       application.highestQualificationObtained =
           highestQualificationController.text.trim();
@@ -83,6 +84,8 @@ class ProgrammeController extends State<Programme>
           qualificationController.text.trim();
       application.levelApplyingFor = levelController.text.trim();
       application.programmeApplyingFor = programController.text.trim();
+
+      GlobalVariables.applications.value = application;
 
       onNextPressed();
     } else {

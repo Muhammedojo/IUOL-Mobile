@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:ioul/bloc/bloc.dart';
 import 'package:ioul/packages/package.dart';
+import 'package:ioul/utils/utils.dart';
 
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
@@ -72,13 +73,18 @@ class UploadController extends State<Upload>
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
 
-      final application = SubmitApplication();
+      final application = GlobalVariables.applications.value;
 
       application.photo = passportImageController.text;
       application.document = pdfDocumentController.text;
+
+      GlobalVariables().application = application;
+
       context
           .read<SubmitApplicationCubit>()
           .pushApplicationToServer(application);
+
+      GlobalVariables.applications.value = SubmitApplication();
     }
   }
 

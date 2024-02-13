@@ -1,3 +1,5 @@
+import 'package:ioul/utils/utils.dart';
+
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../model/model.dart';
@@ -78,7 +80,7 @@ class ContactController extends State<Contact>
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
 
-      final application = SubmitApplication();
+      final application = GlobalVariables.applications.value;
 
       application.nokAddress = nokAddressController.text.trim();
       application.nokEmail = nokEmailController.text.trim();
@@ -89,6 +91,8 @@ class ContactController extends State<Contact>
       application.refereeEmail = refEmailController.text.trim();
       application.refereeName = refNameController.text.trim();
       application.refereePhone = refPhoneController.text.trim();
+
+      GlobalVariables.applications.value = application;
 
       onNextPressed();
     } else {

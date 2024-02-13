@@ -1,3 +1,5 @@
+import 'package:ioul/utils/utils.dart';
+
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../model/model.dart';
@@ -76,12 +78,14 @@ class CertificateController extends State<Certificate>
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
 
-      final application = SubmitApplication();
+      final application = GlobalVariables.applications.value;
 
       application.candidateExamNumber = examNumberController.text.trim();
       application.examCenterName = centerNameController.text.trim();
       application.examCenterNumber = centerNumberController.text.trim();
       application.examYear = examYearController.text.trim();
+
+      GlobalVariables.applications.value = application;
 
       onNextPressed();
     } else {

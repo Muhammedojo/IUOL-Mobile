@@ -31,6 +31,9 @@ class ReviewApplicationView
           Center(
             child: SvgPicture.asset(
               'assets/images/check.svg',
+              height: 132.w,
+              width: 132.w,
+              fit: BoxFit.cover,
             ),
           ),
           SizedBox(

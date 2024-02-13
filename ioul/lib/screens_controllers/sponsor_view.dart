@@ -1,3 +1,5 @@
+import 'package:ioul/utils/utils.dart';
+
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../model/model.dart';
@@ -74,11 +76,13 @@ class SponsorController extends State<Sponsor>
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
 
-      final application = SubmitApplication();
+      final application = GlobalVariables.applications.value;
 
       application.sponsorAddress = sponsorAddressController.text.trim();
       application.sponsorName = sponsorNameController.text.trim();
       application.sponsorType = sponsorController.text.trim();
+
+      GlobalVariables.applications.value = application;
 
       onNextPressed();
     } else {
