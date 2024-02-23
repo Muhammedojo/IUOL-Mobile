@@ -35,7 +35,19 @@ class IOULApp extends StatelessWidget {
           ),
           BlocProvider<SubmitApplicationCubit>(
             create: (BuildContext context) => SubmitApplicationCubit(),
-          )
+          ),
+          BlocProvider<CourseAudioResourcesCubit>(
+            create: (BuildContext context) => CourseAudioResourcesCubit(),
+          ),
+          BlocProvider<CourseVideoResourcesCubit>(
+            create: (BuildContext context) => CourseVideoResourcesCubit(),
+          ),
+          BlocProvider<CourseDocumentResourcesCubit>(
+            create: (BuildContext context) => CourseDocumentResourcesCubit(),
+          ),
+          BlocProvider<CourseDetailsResourcesCubit>(
+            create: (BuildContext context) => CourseDetailsResourcesCubit(),
+          ),
         ],
         child: ScreenUtilInit(
             designSize: const Size(428, 926),

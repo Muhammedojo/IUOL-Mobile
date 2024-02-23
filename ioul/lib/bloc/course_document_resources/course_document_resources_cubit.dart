@@ -4,7 +4,7 @@ import '../../utils/global_states.dart';
 import 'course_document_resources_state.dart';
 
 class CourseDocumentResourcesCubit extends Cubit<CourseDocumentResourcesState> {
-  CourseDocumentResourcesCubit() : super(InitialState());
+  CourseDocumentResourcesCubit() : super(CourseDocumentResourcesInitialState());
 
   loadCourseDocumentFromServer() async {
     try {

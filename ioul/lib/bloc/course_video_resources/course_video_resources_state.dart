@@ -7,7 +7,7 @@ abstract class CourseVideoResourcesState extends Equatable {
   List<Object> get props => [];
 }
 
-class InitialState extends CourseVideoResourcesState {
+class CourseVideoResourcesInitialState extends CourseVideoResourcesState {
   @override
   List<Object> get props => [];
 }

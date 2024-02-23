@@ -4,7 +4,7 @@ import '../../utils/global_states.dart';
 import 'course_video_resources_state.dart';
 
 class CourseVideoResourcesCubit extends Cubit<CourseVideoResourcesState> {
-  CourseVideoResourcesCubit() : super(InitialState());
+  CourseVideoResourcesCubit() : super(CourseVideoResourcesInitialState());
 
   loadCourseVideoFromServer() async {
     try {

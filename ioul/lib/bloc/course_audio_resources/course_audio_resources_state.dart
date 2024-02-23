@@ -7,7 +7,7 @@ abstract class CourseAudioResourcesState extends Equatable {
   List<Object> get props => [];
 }
 
-class InitialState extends CourseAudioResourcesState {
+class CourseAudioResourcesInitialState extends CourseAudioResourcesState {
   @override
   List<Object> get props => [];
 }

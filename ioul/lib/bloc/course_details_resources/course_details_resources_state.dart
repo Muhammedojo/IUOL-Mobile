@@ -7,7 +7,7 @@ abstract class CourseDetailsResourcesState extends Equatable {
   List<Object> get props => [];
 }
 
-class InitialState extends CourseDetailsResourcesState {
+class CourseDetailsResourcesInitialState extends CourseDetailsResourcesState {
   @override
   List<Object> get props => [];
 }

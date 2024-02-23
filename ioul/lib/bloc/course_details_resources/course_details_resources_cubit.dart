@@ -4,7 +4,7 @@ import '../../utils/global_states.dart';
 import 'course_details_resources_state.dart';
 
 class CourseDetailsResourcesCubit extends Cubit<CourseDetailsResourcesState> {
-  CourseDetailsResourcesCubit() : super(InitialState());
+  CourseDetailsResourcesCubit() : super(CourseDetailsResourcesInitialState());
 
   loadCourseDetailsFromServer() async {
     try {

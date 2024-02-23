@@ -4,7 +4,7 @@ import '../../utils/global_states.dart';
 import 'course_audio_resources_state.dart';
 
 class CourseAudioResourcesCubit extends Cubit<CourseAudioResourcesState> {
-  CourseAudioResourcesCubit() : super(InitialState());
+  CourseAudioResourcesCubit() : super(CourseAudioResourcesInitialState());
 
   loadCourseAudioFromServer() async {
     try {
