@@ -1,3 +1,6 @@
+import 'package:ioul/packages/package.dart';
+import 'package:path/path.dart';
+
 class SubmitApplication {
   String? dob;
   String? address;
@@ -56,7 +59,9 @@ class SubmitApplication {
 
   factory SubmitApplication.fromJson(Map<String, dynamic> json) =>
       _$SubmitApplicationFromJson(json);
+
   Map<String, dynamic> toJson() => _$SubmitApplicationToJson(this);
+  Future<FormData> toFormData() async => _$SubmitApplicationToFormData(this);
 }
 
 SubmitApplication _$SubmitApplicationFromJson(Map<String, dynamic> json) {
@@ -127,8 +132,6 @@ Map<String, dynamic> _$SubmitApplicationToJson(SubmitApplication obj) =>
       "email": obj.email,
       "phone": obj.phone,
       "address": obj.address,
-      "photo": obj.photo,
-      "document": obj.document,
       "level_applying_for": obj.levelApplyingFor,
       "qualification_applying_with": obj.qualificationApplyingWith,
       "programme_applying_for": obj.programmeApplyingFor,
@@ -174,3 +177,69 @@ Map<String, dynamic> _$SubmitApplicationToJson(SubmitApplication obj) =>
       "exam_center_number_1": obj.examCenterNumber,
       "exam_year_1": obj.examYear
     };
+
+Future<FormData> _$SubmitApplicationToFormData(SubmitApplication obj) async {
+  MultipartFile passportMultipartFile = await MultipartFile.fromFile(
+    obj.photo!,
+    filename: basename(obj.photo!),
+  );
+  MultipartFile documentMultipartFile = await MultipartFile.fromFile(
+    obj.document!,
+    filename: basename(obj.document!),
+  );
+  return FormData.fromMap({
+    "first_name": obj.firstName,
+    "surname": obj.lastName,
+    "middle_name": obj.middleName,
+    "dob": obj.dob,
+    "email": obj.email,
+    "phone": obj.phone,
+    "address": obj.address,
+    // "photo": obj.photo,
+    // "document": obj.document,
+    "level_applying_for": obj.levelApplyingFor,
+    "qualification_applying_with": obj.qualificationApplyingWith,
+    "programme_applying_for": obj.programmeApplyingFor,
+    "highest_qualification_obtained": obj.highestQualificationObtained,
+    "referral": obj.referral,
+    "referral_details": obj.referralDetails,
+    "gender": obj.gender,
+    "religion": obj.religion,
+    "language": obj.language,
+    "marital_status": obj.maritalStatus,
+    "occupation": obj.occupation,
+    "identification_type": obj.identificationType,
+    "identification_number": obj.identificationNumber,
+    "sponsor_type": obj.sponsorType,
+    "sponsor_name": obj.sponsorName,
+    "sponsor_address": obj.sponsorAddress,
+    "referee_name": obj.refereeName,
+    "referee_phone": obj.refereePhone,
+    "referee_email": obj.refereeEmail,
+    "referee_address": obj.refereeAddress,
+    "next_of_kin_name": obj.nokName,
+    "next_of_kin_phone": obj.nokPhone,
+    "next_of_kin_email": obj.nokEmail,
+    "next_of_kin_address": obj.nokAddress,
+    "spouse_name": obj.spouseName,
+    "spouse_phone": obj.spousePhone,
+    "spouse_email": obj.spouseEmail,
+    "spouse_address": obj.spouseAddress,
+    "residential_address": obj.residentialAddress,
+    "permanent_address": obj.permanentAddress,
+    "work_address": obj.workAddress,
+    "referral_type": obj.referralType,
+    "referral_description": obj.referralDescription,
+    "nationality_id": obj.nationalityId,
+    "state_id": obj.stateId,
+    "lga_id": obj.lgaId,
+    "local_government_area": obj.lga,
+    "residence_country_id": obj.residenceCountryId,
+    "residence_state_id": obj.residenceStateId,
+    "ssce_1": obj.ssceOne,
+    "candidate_exam_number_1": obj.candidateExamNumber,
+    "exam_center_name_1": obj.examCenterName,
+    "exam_center_number_1": obj.examCenterNumber,
+    "exam_year_1": obj.examYear
+  });
+}

@@ -1,5 +1,8 @@
+import 'package:ioul/utils/utils.dart';
+
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
+import '../model/model.dart';
 import '../screen_views/certificate_view.dart';
 
 class Certificate extends StatefulWidget {
@@ -22,19 +25,18 @@ class Certificate extends StatefulWidget {
   CertificateController createState() => CertificateController();
 }
 
-class CertificateController extends State<Certificate> with AutomaticKeepAliveClientMixin {
+class CertificateController extends State<Certificate>
+    with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
-  final TextEditingController middlenameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController emailConfirmController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordConfirmController =
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController certificateTypeController =
       TextEditingController();
+  final TextEditingController centerNameController = TextEditingController();
+  final TextEditingController centerNumberController = TextEditingController();
+  final TextEditingController examNumberController = TextEditingController();
+  final TextEditingController examYearController = TextEditingController();
 
   String selectedValue = "";
 
@@ -59,7 +61,6 @@ class CertificateController extends State<Certificate> with AutomaticKeepAliveCl
     // }
   }
 
-
   @override
   void dispose() {
     super.dispose();
@@ -73,6 +74,26 @@ class CertificateController extends State<Certificate> with AutomaticKeepAliveCl
     NavigatorHelper(context).closeScreen();
   }
 
-  @override 
+  validateCertificateInfo() async {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+      final application = GlobalVariables.applications.value;
+
+      application.candidateExamNumber = examNumberController.text.trim();
+      application.examCenterName = centerNameController.text.trim();
+      application.examCenterNumber = centerNumberController.text.trim();
+      application.examYear = examYearController.text.trim();
+
+      GlobalVariables.applications.value = application;
+
+      onNextPressed();
+    } else {
+      WidgetHelper.showToastError(context, "Fill required field.");
+      return;
+    }
+  }
+
+  @override
   bool get wantKeepAlive => true;
 }

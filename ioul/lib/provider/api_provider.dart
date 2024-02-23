@@ -2,7 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
+import 'package:ioul/response/country_response.dart';
+import 'package:ioul/response/programme_response.dart';
 import 'package:ioul/response/register_response.dart';
+import 'package:path/path.dart';
 import '../model/model.dart';
 import '../packages/package.dart';
 import '../response/response.dart';
@@ -186,10 +189,238 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> getCountryList({String? endpoint}) async {
+  Future<GenericResponse> pushSubmitApplication(
+      SubmitApplication application) async {
+    int? statusCode;
+    try {
+      var formData = FormData.fromMap(application.toJson());
+      List<MapEntry<String, MultipartFile>> images = [];
+
+      if (application.photo != null && application.photo!.isNotEmpty) {
+        images.add(
+          MapEntry(
+            'photo',
+            await MultipartFile.fromFile(application.photo!,
+                filename: basename(application.photo!)),
+          ),
+        );
+      }
+
+      if (application.document != null && application.document!.isNotEmpty) {
+        images.add(
+          MapEntry(
+            'document',
+            await MultipartFile.fromFile(application.document!,
+                filename: basename(application.document!)),
+          ),
+        );
+      }
+
+      log("normal cooperative payload: ${formData.fields}");
+
+      formData.files.addAll(images);
+      log("application submission request payload: $application");
+      Response response =
+          await doPostRequestAuth(submitApplication, application);
+      statusCode = response.statusCode;
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        requestResponse.message = response.statusMessage;
+
+        return requestResponse;
+        //return _createDefaultGenericResponse(statusCode);
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode!;
+      requestResponse.message = _handleDioError(e); //e.message;
+
+      return requestResponse;
+    }
+  }
+
+  Future<ProgrammeResponse> pushSubmitProgram(
+      ApplicationFormData formData) async {
+    int? statusCode;
+    try {
+      Map<String, dynamic> data = {
+        "programme": formData.programme,
+      };
+      Response response = await doPostRequestAuth(applicationFormData, data);
+      statusCode = response.statusCode;
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = ProgrammeResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+
+        return requestResponse;
+      } else {
+        var requestResponse = ProgrammeResponse();
+        requestResponse.statusCode = statusCode!;
+        requestResponse.message = response.statusMessage;
+
+        return requestResponse;
+        //return _createDefaultGenericResponse(statusCode);
+      }
+    } on DioException catch (e) {
+      var requestResponse = ProgrammeResponse();
+      //requestResponse.statusCode = statusCode!;
+      requestResponse.message = _handleDioError(e); //e.message;
+
+      return requestResponse;
+    }
+  }
+
+  Future<CountryResponse> getCountryList({String? endpoint}) async {
     int? statusCode;
     try {
       Response response = await doGetRequest(countries);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = CountryResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = CountryResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = CountryResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCourseDetails({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(coursesEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCourseVideo({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(courseVideoEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCourseDocument({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(courseDocumentEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCourseAudio({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(courseAudioEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCoursesList({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(coursesEndpoint);
       statusCode = response.statusCode;
       //print("state response: ${response.toString()}");
 
@@ -284,7 +515,6 @@ class ApiProvider {
       if (_isConnectionSuccessful(statusCode)) {
         //print("Hello ");
         var decodedBody = jsonDecode(response.toString());
-        
 
         var requestResponse = EmailVerification.fromJson(decodedBody['data']);
 

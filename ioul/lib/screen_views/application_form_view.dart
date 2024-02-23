@@ -2,9 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/widget_helper.dart';
-import 'package:ioul/screens_controllers/programme_view.dart';
-import 'package:ioul/screens_controllers/sponsor_view.dart';
-import 'package:ioul/screens_controllers/upload_view.dart';
+import 'package:ioul/screens_controllers/programme_controller.dart';
+import 'package:ioul/screens_controllers/sponsor_controller.dart';
+import 'package:ioul/screens_controllers/upload_controller.dart';
 import '../components/components.dart';
 import '../values/values.dart';
 import '../helpers/helper.dart';
@@ -27,6 +27,7 @@ class ApplicationFormView
         bottomWidget: Padding(
           padding: EdgeInsets.zero,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -54,7 +55,7 @@ class ApplicationFormView
                 padding: REdgeInsets.symmetric(horizontal: 16),
                 child: IgnorePointer(
                   child: TabBar(
-                    tabAlignment: TabAlignment.start,
+                    // tabAlignment: TabAlignment.start,
                     physics: const AlwaysScrollableScrollPhysics(),
                     isScrollable: true,
                     controller: state.tabController,

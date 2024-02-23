@@ -5,6 +5,7 @@ class RouteConstants {
   static const report = "report";
   static const more = "more";
   static const login = "login";
+  static const reviewApplication = "review_application";
   static const forgotPassword = "forgot_password";
   static const codeInput = "code_input";
   static const resetPassword = "reset_password";

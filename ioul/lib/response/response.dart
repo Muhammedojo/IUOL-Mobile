@@ -1,9 +1,5 @@
 class GenericResponse {
-  GenericResponse({
-    this.success,
-    this.message,
-    this.data,
-  });
+  GenericResponse({this.success, this.message, this.data});
 
   int? responseCode = -700;
 
@@ -74,9 +70,9 @@ GenericResponse _$GenericResponseFromJson(Map<String, dynamic> json) {
   if (json.containsKey("message")) {
     obj.message = json["message"];
   }
-  // if(json.containsKey("data")){
-  //   obj.data =
-  // }
+  if (json.containsKey("data")) {
+    // obj.data = json[''];
+  }
 
   return obj;
 }
@@ -87,7 +83,7 @@ Map<String, dynamic> _$GenericResponseToJson(GenericResponse obj) =>
     };
 
 String _formatApiErrorMessage(dynamic response, String message) {
-  print("response: $response, message: $message");
+  //print("response: $response, message: $message");
   if (response != null && response.toString().trim().isNotEmpty) {
     return response
         .toString()

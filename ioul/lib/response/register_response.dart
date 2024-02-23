@@ -12,9 +12,11 @@ class RegisterResponse extends GenericResponse {
       int? count,
       String? status,
       String? message,
+      // Object? data,
       String? token})
       : super(
           message: message,
+          // data: data,
         );
 
   factory RegisterResponse.fromJson(Map<String, dynamic> json) =>

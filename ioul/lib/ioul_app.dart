@@ -15,6 +15,12 @@ class IOULApp extends StatelessWidget {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return MultiBlocProvider(
         providers: [
+          BlocProvider<CountryCubit>(
+            create: (BuildContext context) => CountryCubit(),
+          ),
+          BlocProvider<ApplicationFormDataCubit>(
+            create: (BuildContext context) => ApplicationFormDataCubit(),
+          ),
           BlocProvider<RegisterCubit>(
             create: (BuildContext context) => RegisterCubit(),
           ),
@@ -26,7 +32,22 @@ class IOULApp extends StatelessWidget {
           ),
           BlocProvider<VerifyScratchPinCubit>(
             create: (BuildContext context) => VerifyScratchPinCubit(),
-          )
+          ),
+          BlocProvider<SubmitApplicationCubit>(
+            create: (BuildContext context) => SubmitApplicationCubit(),
+          ),
+          BlocProvider<CourseAudioResourcesCubit>(
+            create: (BuildContext context) => CourseAudioResourcesCubit(),
+          ),
+          BlocProvider<CourseVideoResourcesCubit>(
+            create: (BuildContext context) => CourseVideoResourcesCubit(),
+          ),
+          BlocProvider<CourseDocumentResourcesCubit>(
+            create: (BuildContext context) => CourseDocumentResourcesCubit(),
+          ),
+          BlocProvider<CourseDetailsResourcesCubit>(
+            create: (BuildContext context) => CourseDetailsResourcesCubit(),
+          ),
         ],
         child: ScreenUtilInit(
             designSize: const Size(428, 926),

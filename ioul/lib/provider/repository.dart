@@ -1,7 +1,10 @@
 import 'package:ioul/model/model.dart';
 import 'package:ioul/provider/api_provider.dart';
+import 'package:ioul/response/programme_response.dart';
 import 'package:ioul/response/register_response.dart';
 import 'package:ioul/response/response.dart';
+
+import '../response/country_response.dart';
 
 class AppRepository {
   final ApiProvider _apiProvider = ApiProvider();
@@ -20,8 +23,19 @@ class AppRepository {
   Future<GenericResponse> resetPassword(String pin, String email) async =>
       _apiProvider.resetPassword(pin, email);
 
-  Future<GenericResponse> loadCountries() async =>
+  Future<CountryResponse> loadCountries() async =>
       _apiProvider.getCountryList();
+
+  Future<GenericResponse> loadCourses() async => _apiProvider.getCoursesList();
+  Future<GenericResponse> loadCourseDetails() async =>
+      _apiProvider.getCourseDetails();
+
+  Future<GenericResponse> loadCourseAudio() async =>
+      _apiProvider.getCourseAudio();
+  Future<GenericResponse> loadCourseVideo() async =>
+      _apiProvider.getCourseVideo();
+  Future<GenericResponse> loadCourseDocument() async =>
+      _apiProvider.getCourseDocument();
 
   Future<GenericResponse> getPaymentType() async =>
       _apiProvider.getPaymentType();
@@ -32,6 +46,14 @@ class AppRepository {
   Future<RegisterResponse> registerStudent(Register register) async =>
       _apiProvider.pushRegisterStudent(register);
 
+  Future<GenericResponse> submitApplication(
+          SubmitApplication application) async =>
+      _apiProvider.pushSubmitApplication(application);
+
+  Future<ProgrammeResponse> submitProgram(ApplicationFormData formData) async =>
+      _apiProvider.pushSubmitProgram(formData);
+
+  //Future<GenericResponse> verifyEmail(String pin, String email) async =>
   Future<EmailVerification> verifyEmail(String pin, String email) async =>
       _apiProvider.verifyEmail(pin: pin, email: email);
 

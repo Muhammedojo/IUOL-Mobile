@@ -1,5 +1,8 @@
+import 'package:ioul/utils/utils.dart';
+
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
+import '../model/model.dart';
 import '../screen_views/contact_view.dart';
 
 class Contact extends StatefulWidget {
@@ -22,19 +25,20 @@ class Contact extends StatefulWidget {
   ContactController createState() => ContactController();
 }
 
-class ContactController extends State<Contact> with AutomaticKeepAliveClientMixin {
+class ContactController extends State<Contact>
+    with AutomaticKeepAliveClientMixin {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController nokNameController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
-  final TextEditingController middlenameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController emailConfirmController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordConfirmController =
-      TextEditingController();
+  final TextEditingController nokEmailController = TextEditingController();
+  final TextEditingController nokAddressController = TextEditingController();
+  final TextEditingController refEmailController = TextEditingController();
+  final TextEditingController nokPhoneController = TextEditingController();
+  final TextEditingController refNameController = TextEditingController();
+  final TextEditingController refPhoneController = TextEditingController();
+  final TextEditingController refAddressController = TextEditingController();
 
   String selectedValue = "";
 
@@ -59,7 +63,6 @@ class ContactController extends State<Contact> with AutomaticKeepAliveClientMixi
     // }
   }
 
-
   @override
   void dispose() {
     super.dispose();
@@ -71,6 +74,31 @@ class ContactController extends State<Contact> with AutomaticKeepAliveClientMixi
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  validateContactInfo() async {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+      final application = GlobalVariables.applications.value;
+
+      application.nokAddress = nokAddressController.text.trim();
+      application.nokEmail = nokEmailController.text.trim();
+      application.nokName = nokNameController.text.trim();
+      application.nokPhone = nokPhoneController.text.trim();
+      application.nokEmail = nokEmailController.text.trim();
+      application.refereeAddress = refAddressController.text.trim();
+      application.refereeEmail = refEmailController.text.trim();
+      application.refereeName = refNameController.text.trim();
+      application.refereePhone = refPhoneController.text.trim();
+
+      GlobalVariables.applications.value = application;
+
+      onNextPressed();
+    } else {
+      WidgetHelper.showToastError(context, "Fill required field.");
+      return;
+    }
   }
 
   @override

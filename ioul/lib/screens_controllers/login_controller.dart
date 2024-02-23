@@ -94,7 +94,6 @@ class LoginController extends State<Login> {
       WidgetHelper.hideProgress();
       if (!mounted) return;
       if (loginResponse.isConnectionSuccessful()) {
-        print("Token : ${loginResponse.token} ");
         AppPrefs().saveTokenToPrefs(loginResponse);
         loginResponse.user!.hasApplication == false
             ? NavigatorHelper(context)

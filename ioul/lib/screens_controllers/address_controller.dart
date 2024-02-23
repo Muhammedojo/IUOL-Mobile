@@ -1,3 +1,4 @@
+import 'package:ioul/utils/utils.dart';
 
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
@@ -29,14 +30,15 @@ class AddressController extends State<Address>
 
   bool visible = false;
   final TextEditingController nationalityController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
-  final TextEditingController middlenameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController emailConfirmController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordConfirmController =
+  final TextEditingController stateController = TextEditingController();
+  final TextEditingController lgaController = TextEditingController();
+  final TextEditingController countryController = TextEditingController();
+  final TextEditingController stateOfResidenceController =
       TextEditingController();
+  final TextEditingController permanentAddressController =
+      TextEditingController();
+  final TextEditingController workAddressController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   String selectedValue = "";
 
@@ -61,7 +63,6 @@ class AddressController extends State<Address>
     // }
   }
 
-
   @override
   void dispose() {
     super.dispose();
@@ -73,6 +74,37 @@ class AddressController extends State<Address>
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  validateAddressInfo() async {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+      final application = GlobalVariables.applications.value;
+
+      application.lga = lgaController.text.trim();
+      application.permanentAddress = permanentAddressController.text.trim();
+      application.workAddress = workAddressController.text.trim();
+
+      application.nationalityId = 1;
+      //nationalityController.text.trim() as int;
+
+      application.stateId = 4;
+      //stateController.text.trim() as int?;
+
+      application.residenceCountryId = 232;
+      //countryController.text.trim() as int?;
+      application.residenceStateId = 231;
+      //stateOfResidenceController.text.trim() as int?;
+      GlobalVariables.applications.value = application;
+      print('${GlobalVariables.applications.value.identificationNumber}');
+      print('${GlobalVariables.applications.value.permanentAddress}');
+
+      onNextPressed();
+    } else {
+      WidgetHelper.showToastError(context, "Fill required field.");
+      return;
+    }
   }
 
   @override

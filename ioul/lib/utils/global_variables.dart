@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../model/model.dart';
+
 class GlobalVariables {
   static final rootNavigatorKey = GlobalKey<NavigatorState>();
   final shellNavigatorDashboardKey =
-  GlobalKey<NavigatorState>(debugLabel: 'Dashboard');
+      GlobalKey<NavigatorState>(debugLabel: 'Dashboard');
   final shellNavigatorCourseKey =
       GlobalKey<NavigatorState>(debugLabel: 'Course');
   final shellNavigatorAssignmentKey =
@@ -12,14 +14,8 @@ class GlobalVariables {
       GlobalKey<NavigatorState>(debugLabel: 'Report');
   final shellNavigatorMoreKey = GlobalKey<NavigatorState>(debugLabel: 'More');
 
-  // double initialProgress = (100 / 7 / 100);
+  SubmitApplication application = SubmitApplication();
 
-  // double get getInitialProgress => initialProgress;
-
-  // set setInitialProgress(double value) {
-  //   // setState(() {
-  //   initialProgress = getInitialProgress * value;
-  //   // });
-  //   print(initialProgress);
-  // }
+  static ValueNotifier<SubmitApplication> applications =
+      ValueNotifier(SubmitApplication());
 }

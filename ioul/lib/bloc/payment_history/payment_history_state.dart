@@ -1,4 +1,3 @@
-import '../../model/model.dart';
 import '../../packages/package.dart';
 
 abstract class PaymentHistoryState extends Equatable {
@@ -19,11 +18,10 @@ class PaymentHistoryLoading extends PaymentHistoryState {
 }
 
 class PaymentHistoryLoaded extends PaymentHistoryState {
-  final Register registerStudent;
-  const PaymentHistoryLoaded(this.registerStudent);
+  const PaymentHistoryLoaded();
 
   @override
-  List<Object> get props => [registerStudent];
+  List<Object> get props => [];
 }
 
 class PaymentHistoryFailure extends PaymentHistoryState {
