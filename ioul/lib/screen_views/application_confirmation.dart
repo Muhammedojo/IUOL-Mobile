@@ -1,7 +1,10 @@
 import 'package:group_button/group_button.dart';
+import 'package:ioul/bloc/application_form_data/application_form_data_cubit.dart';
+import 'package:ioul/bloc/country/country_cubit.dart';
 import 'package:ioul/helpers/helper.dart';
 import 'package:ioul/packages/package.dart';
 import 'package:ioul/router/route_constants.dart';
+import '../bloc/application_form_data/application_form_data_state.dart';
 import '../components/components.dart';
 import '../screens_controllers/application_confirmation.dart';
 import '../values/values.dart';
@@ -45,6 +48,9 @@ class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,
                   ),
                   SizedBox(height: 42.h),
                   GroupButton(
+                    // onSelected: (value) {
+                    //   state.setSelectedValue(value);
+                    // },
                     buttons: const [
                       "Certification Program",
                       "Diploma Program",
@@ -54,6 +60,7 @@ class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,
                     options: GroupButtonOptions(
                       groupingType: GroupingType.column,
                       runSpacing: 16,
+
                       // spacing: 16,
                       borderRadius: BorderRadius.circular(24.r),
                       buttonHeight: 48.h,
@@ -62,17 +69,39 @@ class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,
                       unselectedTextStyle: Styles.x16dp_404446_400w(),
                       selectedColor: AppColors.primaryLightest,
                       unselectedColor: AppColors.inkLight,
-                      // elevation: 1,
+                      //elevation: 1,
                       // selectedShadow: ,
                     ),
                   ),
                   SizedBox(height: 95.h),
+                  // BlocListener<ApplicationFormDataCubit,
+                  //     ApplicationFormDataState>(
+                  //   listener: (context, formDataState) {
+                  //     if (formDataState is ApplicationFormDataLoading) {
+                  //       WidgetHelper.showProgress(text: 'Processing');
+                  //     }
+                  //     if (formDataState is ApplicationFormDataLoaded) {
+                  //       WidgetHelper.hideProgress();
+                  //       context.pushNamed(RouteConstants.applicationForm);
+                  //     }
+                  //     if (formDataState is ApplicationFormDataFailure) {
+                  //       WidgetHelper.hideProgress();
+                  //       WidgetHelper.showToastError(
+                  //         context,
+                  //         formDataState.message,
+                  //       );
+                  //     }
+                  //   },
+                  //   child:
                   ElevatedButtonWidget(
-                    title: "Proceed",
-                    // onTap: () {},
-                    onTap: () => NavigatorHelper(context)
-                        .pushNamedScreen(RouteConstants.applicationForm),
-                  ),
+                      title: "Proceed",
+                      onTap: () {
+                        context.read<CountryCubit>().loadCountiresFromServer();
+                        context.pushNamed(RouteConstants.applicationForm);
+                      }
+                      // state.getFormDataForSelectedProgram()
+                      ),
+                  // ),
                 ],
               ),
             ),

@@ -1,4 +1,7 @@
+import 'package:ioul/model/model.dart';
+import 'package:ioul/packages/package.dart';
 
+import '../bloc/application_form_data/application_form_data_cubit.dart';
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../screen_views/application_confirmation.dart';
@@ -9,13 +12,15 @@ class ApplicationConfirmation extends StatefulWidget {
   const ApplicationConfirmation({Key? key}) : super(key: key);
 
   @override
-  ApplicationConfirmationController createState() => ApplicationConfirmationController();
+  ApplicationConfirmationController createState() =>
+      ApplicationConfirmationController();
 }
 
 class ApplicationConfirmationController extends State<ApplicationConfirmation> {
   //... //Initialization code, state vars etc, all go here
 
   String selectedValue = "";
+
   final TextEditingController dropdownController = TextEditingController();
 
   setSelectedValue(String value) {
@@ -40,5 +45,14 @@ class ApplicationConfirmationController extends State<ApplicationConfirmation> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  void getFormDataForSelectedProgram() async {
+    var program = ApplicationFormData();
+
+    program.programme = "Diploma Program";
+    //selectedValue;
+
+    context.read<ApplicationFormDataCubit>().pushProgramToServer(program);
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/widget_helper.dart';
 import 'package:ioul/screens_controllers/programme_controller.dart';
-import 'package:ioul/screens_controllers/sponsor_view.dart';
+import 'package:ioul/screens_controllers/sponsor_controller.dart';
 import 'package:ioul/screens_controllers/upload_controller.dart';
 import '../components/components.dart';
 import '../values/values.dart';

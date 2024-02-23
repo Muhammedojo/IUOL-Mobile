@@ -5,7 +5,7 @@ import 'package:form_validator/form_validator.dart';
 import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
-import '../screens_controllers/sponsor_view.dart';
+import '../screens_controllers/sponsor_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 

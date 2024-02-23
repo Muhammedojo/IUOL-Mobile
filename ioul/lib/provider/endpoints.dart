@@ -12,6 +12,7 @@ const String registerEndpoint = "auth/register";
 const String verifyEmailEndpoint = "auth/verify-email";
 const String forgotPasswordEndpoint = "auth/forgot-password";
 const String countries = "application/countries";
+
 const String resendEmailVerificationEndpoint = "auth/resend-email-verification";
 const String verifyResetPasswordPin = "auth/verify-reset-password-pin";
 const String resetPasswordEndpoint = "auth/reset-password";
@@ -20,7 +21,11 @@ const String logout = "auth/logout";
 const String startApplication = "application/start";
 
 const String applicationFormData = "application/form-data";
-
+const String coursesEndpoint = "courses";
+const String courseVideoEndpoint = "courses/13/resources/video-resources";
+const String courseAudioEndpoint = "courses/13/resources/audio-resources";
+const String courseDocumentEndpoint = "courses/13/resources/document-resources";
+const String courseDetailsEndpoint = "courses/13";
 const String verifyScratchCardPinEndpoint = "application/pin/verify";
 const String state = "application/states/233";
 const String submitApplication = "application/submit";

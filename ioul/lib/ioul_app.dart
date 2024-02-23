@@ -15,6 +15,12 @@ class IOULApp extends StatelessWidget {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return MultiBlocProvider(
         providers: [
+          BlocProvider<CountryCubit>(
+            create: (BuildContext context) => CountryCubit(),
+          ),
+          BlocProvider<ApplicationFormDataCubit>(
+            create: (BuildContext context) => ApplicationFormDataCubit(),
+          ),
           BlocProvider<RegisterCubit>(
             create: (BuildContext context) => RegisterCubit(),
           ),

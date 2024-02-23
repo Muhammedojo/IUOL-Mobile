@@ -1,12 +1,6 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ioul/bloc/submit_application/cubit.dart';
 import 'package:ioul/components/outlined_button.dart';
-import 'package:ioul/model/submit_application.dart';
-import 'package:ioul/values/styles.dart';
 import '../components/components.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
@@ -48,14 +42,19 @@ class UploadView extends StatelessView<Upload, UploadController> {
               ],
             ),
             SizedBox(height: 14.h),
-            OutlinedButtonWidget(
-              onTap: () {
-                state.choosePassport(
-                    ImageSource.gallery, state.passportImageController);
-              },
-              title: "Choose file",
-              imagePath: "assets/images/upload.svg",
-            ),
+            state.passportImage != null
+                ? Text(
+                    '${state.passportImage?.path}',
+                    style: Styles.x14dp_090A0A_500w(),
+                  )
+                : OutlinedButtonWidget(
+                    onTap: () {
+                      state.choosePassport(
+                          ImageSource.gallery, state.passportImageController);
+                    },
+                    title: "Choose file",
+                    imagePath: "assets/images/upload.svg",
+                  ),
             SizedBox(height: 10.h),
             TextWidget(
               text:
@@ -156,14 +155,19 @@ class UploadView extends StatelessView<Upload, UploadController> {
               ],
             ),
             SizedBox(height: 14.h),
-            OutlinedButtonWidget(
-              onTap: () {
-                state.choosePassport(
-                    ImageSource.gallery, state.pdfDocumentController);
-              },
-              title: "Choose file",
-              imagePath: "assets/images/upload.svg",
-            ),
+            state.documentImage != null
+                ? Text(
+                    '${state.documentImage?.uri}',
+                    style: Styles.x14dp_090A0A_500w(),
+                  )
+                : OutlinedButtonWidget(
+                    onTap: () {
+                      state.chooseDocument(
+                          ImageSource.gallery, state.pdfDocumentController);
+                    },
+                    title: "Choose file",
+                    imagePath: "assets/images/upload.svg",
+                  ),
             SizedBox(height: 12.h),
             TextWidget(
               text: "Please note that you can only upload .pdf file",
@@ -204,28 +208,42 @@ class UploadView extends StatelessView<Upload, UploadController> {
               ],
             ),
             SizedBox(height: 28.h),
-            BlocListener<SubmitApplicationCubit, SubmitApplicationState>(
-              listener: (context, applicationState) {
-                if (applicationState is SubmitApplicationLoading) {
-                  WidgetHelper.showProgress(text: 'Processing');
-                }
-                if (applicationState is SubmitApplicationLoaded) {
-                  WidgetHelper.hideProgress();
-                  context.goNamed(RouteConstants.reviewApplication);
-                }
-                if (applicationState is SubmitApplicationFailure) {
-                  WidgetHelper.hideProgress();
-                  WidgetHelper.showToastError(
-                    context,
-                    applicationState.message,
-                  );
-                }
-              },
-              child: ElevatedButtonWidget(
-                  onTap: () {
-                    state.validateUploads();
-                  },
-                  title: "Review Application"),
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButtonWidget(
+                      onTap: () => state.onReversePressed(), title: "Back"),
+                ),
+                SizedBox(width: 132.w),
+                Expanded(
+                  flex: 1,
+                  child: BlocListener<SubmitApplicationCubit,
+                      SubmitApplicationState>(
+                    listener: (context, applicationState) {
+                      if (applicationState is SubmitApplicationLoading) {
+                        WidgetHelper.showProgress(text: 'Processing');
+                      }
+                      if (applicationState is SubmitApplicationLoaded) {
+                        WidgetHelper.hideProgress();
+                        context.goNamed(RouteConstants.reviewApplication);
+                      }
+                      if (applicationState is SubmitApplicationFailure) {
+                        WidgetHelper.hideProgress();
+                        WidgetHelper.showToastError(
+                          context,
+                          applicationState.message,
+                        );
+                      }
+                    },
+                    child: ElevatedButtonWidget(
+                        onTap: () {
+                          state.validateUploads();
+                        },
+                        title: "Review"),
+                  ),
+                )
+              ],
             ),
           ],
         ),

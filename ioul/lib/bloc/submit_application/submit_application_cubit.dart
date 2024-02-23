@@ -23,4 +23,19 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
       emit(SubmitApplicationFailure(message: e.toString()));
     }
   }
+
+  pushProgramToServer(ApplicationFormData formData) async {
+    try {
+      emit(SubmitApplicationLoading());
+      final response = await repository.submitProgram(formData);
+      if (response.isConnectionSuccessful()) {
+        emit(SubmitApplicationLoaded(response));
+      } else {
+        log("response error body: ${response.responseMessage}");
+        emit(SubmitApplicationFailure(message: response.responseMessage));
+      }
+    } catch (e) {
+      debugPrint("problem sending request: ${e.toString()}");
+    }
+  }
 }

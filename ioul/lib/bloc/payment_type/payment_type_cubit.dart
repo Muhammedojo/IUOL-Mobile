@@ -4,5 +4,5 @@ import 'cubit.dart';
 
 class PaymentTypeCubit extends Cubit<PaymentTypeState> {
   PaymentTypeCubit() : super(PaymentTypeLoading());
-  var register = Register();
+  var paymenttype = Register();
 }

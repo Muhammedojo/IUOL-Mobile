@@ -83,7 +83,8 @@ class ProgrammeController extends State<Programme>
       application.qualificationApplyingWith =
           qualificationController.text.trim();
       application.levelApplyingFor = levelController.text.trim();
-      application.programmeApplyingFor = programController.text.trim();
+      application.programmeApplyingFor = '15';
+      //programController.text.trim();
 
       GlobalVariables.applications.value = application;
 

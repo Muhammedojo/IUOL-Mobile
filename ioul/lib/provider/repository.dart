@@ -23,6 +23,17 @@ class AppRepository {
   Future<GenericResponse> loadCountries() async =>
       _apiProvider.getCountryList();
 
+  Future<GenericResponse> loadCourses() async => _apiProvider.getCoursesList();
+  Future<GenericResponse> loadCourseDetails() async =>
+      _apiProvider.getCourseDetails();
+
+  Future<GenericResponse> loadCourseAudio() async =>
+      _apiProvider.getCourseAudio();
+  Future<GenericResponse> loadCourseVideo() async =>
+      _apiProvider.getCourseVideo();
+  Future<GenericResponse> loadCourseDocument() async =>
+      _apiProvider.getCourseDocument();
+
   Future<GenericResponse> getPaymentType() async =>
       _apiProvider.getPaymentType();
 
@@ -36,7 +47,11 @@ class AppRepository {
           SubmitApplication application) async =>
       _apiProvider.pushSubmitApplication(application);
 
-  Future<GenericResponse> verifyEmail(String pin, String email) async =>
+  Future<GenericResponse> submitProgram(ApplicationFormData formData) async =>
+      _apiProvider.pushSubmitProgram(formData);
+
+  //Future<GenericResponse> verifyEmail(String pin, String email) async =>
+  Future<EmailVerification> verifyEmail(String pin, String email) async =>
       _apiProvider.verifyEmail(pin: pin, email: email);
 
   Future<GenericResponse> verifyScratchCard(String pin) async =>

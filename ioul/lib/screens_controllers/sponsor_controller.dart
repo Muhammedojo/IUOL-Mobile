@@ -1,8 +1,6 @@
 import 'package:ioul/utils/utils.dart';
-
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../model/model.dart';
 import '../screen_views/sponsor_view.dart';
 
 class Sponsor extends StatefulWidget {

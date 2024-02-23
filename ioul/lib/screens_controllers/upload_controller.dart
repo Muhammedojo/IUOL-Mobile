@@ -1,19 +1,26 @@
 import 'dart:io';
-
 import 'package:ioul/bloc/bloc.dart';
 import 'package:ioul/packages/package.dart';
 import 'package:ioul/utils/utils.dart';
-
 import '../helpers/helper.dart';
-import 'package:flutter/material.dart';
 import '../model/model.dart';
 import '../screen_views/upload_view.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Upload extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
+  final int? selectedIndex;
+  final TabController? controller;
+  final Function? initialProgress;
+  final Function? decreaseProgress;
 
-  const Upload({Key? key}) : super(key: key);
+  const Upload(
+      {Key? key,
+      this.selectedIndex,
+      this.controller,
+      this.initialProgress,
+      this.decreaseProgress})
+      : super(key: key);
 
   @override
   UploadController createState() => UploadController();
@@ -30,6 +37,7 @@ class UploadController extends State<Upload>
   final TextEditingController pdfDocumentController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   File? passportImage;
+  File? documentImage;
 
   double initialProgress = (100 / 7 / 100);
 
@@ -37,6 +45,21 @@ class UploadController extends State<Upload>
     setState(() {
       initialProgress = (100 / 7 * value / 100);
     });
+  }
+
+  onNextPressed() {
+    setState(() {
+      widget.controller?.animateTo(6);
+      widget.initialProgress!();
+    });
+  }
+
+  onReversePressed() {
+    setState(() {
+      widget.controller!.animateTo(4);
+      widget.decreaseProgress!();
+    });
+    // }
   }
 
   @override
@@ -58,6 +81,17 @@ class UploadController extends State<Upload>
     }
   }
 
+  Future chooseDocument(
+      ImageSource source, TextEditingController controller) async {
+    final pickedFile = await picker.pickImage(source: source);
+
+    if (pickedFile!.path.isNotEmpty) {
+      setState(() {
+        documentImage = File(pickedFile.path);
+      });
+    }
+  }
+
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
@@ -75,8 +109,9 @@ class UploadController extends State<Upload>
 
       final application = GlobalVariables.applications.value;
 
-      application.photo = passportImageController.text;
-      application.document = pdfDocumentController.text;
+      application.photo = passportImage?.path;
+      //passportImageController.text;
+      application.document = documentImage?.path;
 
       GlobalVariables().application = application;
 

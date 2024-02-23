@@ -6,6 +6,7 @@ class Register {
   String? password;
   String? passwordConfirmation;
   String? phone;
+  String? token;
   Register();
 
   factory Register.fromJson(Map<String, dynamic> json) =>
@@ -22,6 +23,8 @@ Register _$RegisterFromJson(Map<String, dynamic> json) {
   obj.lastName = json["last_name"];
   obj.middleName = json["middle_name"];
   obj.password = json["password"];
+  
+
 
   return obj;
 }

@@ -1,3 +1,6 @@
+import 'package:ioul/screen_views/payment.dart';
+import 'package:ioul/screens_controllers/payment_controller.dart';
+
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import 'package:ioul/router/route_constants.dart';
@@ -73,7 +76,15 @@ class AdmissionPaymentView
                     onTap: () => state.selectedValue == "Scratch Card"
                         ? NavigatorHelper(context)
                             .pushNamedScreen(RouteConstants.scratchCard)
-                        : NavigatorHelper(context).pushNamedScreen(
+                        :
+                        //  Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) =>
+                        //             const Payments("Online payment")),
+                        //   )
+
+                        NavigatorHelper(context).pushNamedScreen(
                             RouteConstants.applicationConfirmation),
                   ),
                 ],

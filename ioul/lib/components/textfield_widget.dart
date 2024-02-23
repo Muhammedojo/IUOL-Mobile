@@ -14,6 +14,9 @@ class TextFieldWidget extends StatelessWidget {
     this.textInputAction,
     this.onValidate,
     this.inputFormatter,
+    this.padding,
+    this.isDense,
+    this.isCollapsed,
     required this.controller,
   }) : super(key: key);
   final String? title;
@@ -25,6 +28,9 @@ class TextFieldWidget extends StatelessWidget {
   final TextInputAction? textInputAction;
   final String? Function(String?)? onValidate;
   final List<TextInputFormatter>? inputFormatter;
+  final EdgeInsets? padding;
+  final bool? isDense;
+  final bool? isCollapsed;
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +44,9 @@ class TextFieldWidget extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       inputFormatters: inputFormatter ?? [],
       decoration: InputDecoration(
-        isCollapsed: true,
-        isDense: true,
-        contentPadding: REdgeInsets.all(16),
+        isCollapsed: isCollapsed ?? true,
+        isDense: isDense ?? true,
+        contentPadding: padding ?? REdgeInsets.all(16),
         fillColor: AppColors.backgroundWhite,
         filled: true,
         suffixIcon: passwordIcon,

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:ioul/response/register_response.dart';
+import 'package:path/path.dart';
 import '../model/model.dart';
 import '../packages/package.dart';
 import '../response/response.dart';
@@ -190,9 +191,68 @@ class ApiProvider {
       SubmitApplication application) async {
     int? statusCode;
     try {
+      var formData = FormData.fromMap(application.toJson());
+      List<MapEntry<String, MultipartFile>> images = [];
+
+      if (application.photo != null && application.photo!.isNotEmpty) {
+        images.add(
+          MapEntry(
+            'photo',
+            await MultipartFile.fromFile(application.photo!,
+                filename: basename(application.photo!)),
+          ),
+        );
+      }
+
+      if (application.document != null && application.document!.isNotEmpty) {
+        images.add(
+          MapEntry(
+            'document',
+            await MultipartFile.fromFile(application.document!,
+                filename: basename(application.document!)),
+          ),
+        );
+      }
+
+      log("normal cooperative payload: ${formData.fields}");
+
+      formData.files.addAll(images);
       log("application submission request payload: $application");
       Response response =
           await doPostRequestAuth(submitApplication, application);
+      statusCode = response.statusCode;
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        requestResponse.message = response.statusMessage;
+
+        return requestResponse;
+        //return _createDefaultGenericResponse(statusCode);
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode!;
+      requestResponse.message = _handleDioError(e); //e.message;
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> pushSubmitProgram(
+      ApplicationFormData formData) async {
+    int? statusCode;
+    try {
+      log("application submission request payload: $formData");
+      Response response =
+          await doPostRequestAuth(applicationFormData, formData);
       statusCode = response.statusCode;
 
       if (_isConnectionSuccessful(statusCode)) {
@@ -223,6 +283,141 @@ class ApiProvider {
     int? statusCode;
     try {
       Response response = await doGetRequest(countries);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCourseDetails({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(coursesEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCourseVideo({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(courseVideoEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCourseDocument({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(courseDocumentEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCourseAudio({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(courseAudioEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> getCoursesList({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(coursesEndpoint);
       statusCode = response.statusCode;
       //print("state response: ${response.toString()}");
 
@@ -300,7 +495,7 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> verifyEmail(
+  Future<EmailVerification> verifyEmail(
       {String? endpoint, required String pin, required String email}) async {
     int? statusCode;
     Map<String, dynamic> body = {};
@@ -318,16 +513,17 @@ class ApiProvider {
         //print("Hello ");
         var decodedBody = jsonDecode(response.toString());
 
-        var requestResponse = GenericResponse.fromJson(decodedBody);
+        var requestResponse = EmailVerification.fromJson(decodedBody['data']);
+
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       } else {
-        var requestResponse = GenericResponse();
+        var requestResponse = EmailVerification();
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       }
     } on DioException catch (e) {
-      var requestResponse = GenericResponse();
+      var requestResponse = EmailVerification();
       //requestResponse.statusCode = statusCode ?? e.response.statusCode;
       requestResponse.message = _handleDioError(e);
 
@@ -536,7 +732,7 @@ _handleDioError(DioException error) {
     case DioExceptionType.sendTimeout:
       errorDescription = "Send timeout in connection with server.";
       break;
-    case DioErrorType.unknown:
+    case DioExceptionType.unknown:
       errorDescription =
           "Something went wrong and your request could not be completed.";
       break;

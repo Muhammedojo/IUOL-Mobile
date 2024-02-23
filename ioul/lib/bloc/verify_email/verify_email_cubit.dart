@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:ioul/model/model.dart';
+import 'package:ioul/provider/shared_prefrence.dart';
 import '../../packages/package.dart';
 import '../../utils/global_states.dart';
 import 'verify_email_state.dart';
@@ -12,12 +13,15 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
       emit(VerifyEmailLoading());
       final response =
           await repository.verifyEmail(data.pin ?? "", data.email ?? "");
-      log("response body first: ${response.data}");
-      if (response.isConnectionSuccessful()) {
+      log("response body first: ${response.user}");
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        Login loginData = Login()..token = response.token;
+
+        AppPrefs().saveTokenToPrefs(loginData);
         emit(VerifyEmailLoaded(response));
       } else {
-        log("response error body: ${response.responseMessage}");
-        emit(VerifyEmailFailure(message: response.responseMessage));
+        log("response error body: ${response.message}");
+        emit(VerifyEmailFailure(message: response.message ?? ""));
       }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");

@@ -1,4 +1,5 @@
 import 'package:form_validator/form_validator.dart';
+import 'package:ioul/bloc/bloc.dart';
 
 import '../components/custom_dropdown_widget.dart';
 import '../values/values.dart';
@@ -127,21 +128,41 @@ class AddressView extends StatelessView<Address, AddressController> {
                 ],
               ),
               SizedBox(height: 10.w),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: CustomDropdownWidget(
-                    dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
-                    ],
-                    controller: state.countryController,
-                    onChange: (value) => state.setSelectedValue(value),
+              BlocBuilder<CountryCubit, CountryState>(
+                  builder: (context, states) {
+                if (states is CountryLoaded) {
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: CustomDropdownWidget(
+                        dropdownList: const [
+                          'Islam',
+                          'Christianity',
+                          'Traditionalist',
+                        ],
+                        controller: state.countryController,
+                        onChange: (value) => state.setSelectedValue(value),
+                      ),
+                    ),
+                  );
+                }
+                return Align(
+                  alignment: Alignment.centerLeft,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: CustomDropdownWidget(
+                      dropdownList: const [
+                        'Islam',
+                        'Christianity',
+                        'Traditionalist',
+                      ],
+                      controller: state.countryController,
+                      onChange: (value) => state.setSelectedValue(value),
+                    ),
                   ),
-                ),
-              ),
+                );
+              }),
               SizedBox(height: 28.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
