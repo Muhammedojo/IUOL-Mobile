@@ -1,3 +1,5 @@
+import 'package:ioul/screen_views/payment.dart';
+
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import 'package:ioul/router/route_constants.dart';
@@ -69,13 +71,18 @@ class AdmissionPaymentView
                   ),
                   SizedBox(height: 51.h),
                   ElevatedButtonWidget(
-                    title: "Proceed",
-                    onTap: () => state.selectedValue == "Scratch Card"
-                        ? NavigatorHelper(context)
-                            .pushNamedScreen(RouteConstants.scratchCard)
-                        : NavigatorHelper(context).pushNamedScreen(
-                            RouteConstants.applicationConfirmation),
-                  ),
+                      title: "Proceed",
+                      onTap: () => state.selectedValue == "Scratch Card"
+                          ? NavigatorHelper(context)
+                              .pushNamedScreen(RouteConstants.scratchCard)
+                          : Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Payments("Online payment")))
+                      //  NavigatorHelper(context).pushNamedScreen(
+                      //     RouteConstants.applicationConfirmation),
+                      ),
                 ],
               ),
             ),

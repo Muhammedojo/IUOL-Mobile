@@ -169,7 +169,7 @@ class _PaymentsState extends State<Payments> {
             ? getPublicKey()
             : publicKeyController.text.trim(),
         currency: selectedCurrency,
-        redirectUrl: 'https://facebook.com',
+        redirectUrl: '',
         txRef: const Uuid().v1(),
         amount: amountController.text.toString().trim(),
         customer: customer,
