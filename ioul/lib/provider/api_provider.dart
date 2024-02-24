@@ -621,6 +621,7 @@ Future<Map<String, String>> _getNormalHeader() async {
 
 Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
   var header = await _getTokenHeader();
+  var data = {"programme": body.programme};
   //print("headers: $header");
 
   var dio = Dio();
@@ -637,7 +638,7 @@ Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
   dio.options.receiveTimeout = const Duration(minutes: 1); // 2 min
 
   return dio.post(endPoint,
-      data: jsonEncode(body), options: Options(headers: header));
+      data: jsonEncode(data), options: Options(headers: header));
 }
 
 Future<Response> doGetRequest(String endPoint) async {

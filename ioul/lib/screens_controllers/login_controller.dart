@@ -64,26 +64,27 @@ class LoginController extends State<Login> {
   }
 
   void onPressLoginButton() async {
-    String email = emailController.text.trim();
-    String password = passwordController.text.trim();
+    NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
+    // String email = emailController.text.trim();
+    // String password = passwordController.text.trim();
 
-    if (email.isEmpty) {
-      WidgetHelper.showToastError(context, "Email is required");
-      return;
-    } else if (!isValidEmail(email)) {
-      WidgetHelper.showToastError(context, "Invalid email address");
-      return;
-    }
+    // if (email.isEmpty) {
+    //   WidgetHelper.showToastError(context, "Email is required");
+    //   return;
+    // } else if (!isValidEmail(email)) {
+    //   WidgetHelper.showToastError(context, "Invalid email address");
+    //   return;
+    // }
 
-    if (password.isEmpty) {
-      WidgetHelper.showToastError(context, "Password is required");
-      return;
-    } else if (!isStrongPassword(password)) {
-      WidgetHelper.showToastError(context,
-          "Weak password. Use at least 8 characters with a mix of uppercase, lowercase, and numbers.");
-      return;
-    }
-    loginUser(email, password);
+    // if (password.isEmpty) {
+    //   WidgetHelper.showToastError(context, "Password is required");
+    //   return;
+    // } else if (!isStrongPassword(password)) {
+    //   WidgetHelper.showToastError(context,
+    //       "Weak password. Use at least 8 characters with a mix of uppercase, lowercase, and numbers.");
+    //   return;
+    // }
+    // loginUser(email, password);
   }
 
   void loginUser(String username, String password) async {

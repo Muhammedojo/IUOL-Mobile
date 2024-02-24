@@ -1,6 +1,6 @@
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
 import '../screen_views/course_view.dart';
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
 class Course extends StatefulWidget {
@@ -17,6 +17,7 @@ class CourseController extends State<Course> {
 
   @override
   void initState() {
+    context.read<CoursesCubit>().loadCoursesFromServer();
     super.initState();
   }
 

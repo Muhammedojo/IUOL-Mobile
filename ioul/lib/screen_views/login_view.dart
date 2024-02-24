@@ -121,9 +121,9 @@ class LoginView extends StatelessView<Login, LoginController> {
                           // Navigator.push(
                           //       context,
                           //       MaterialPageRoute(
-                          //           builder: (context) =>
-                          //               const AdmissionPayment()),
+                          //           builder: (context) => const Dashboard()),
                           //     )
+
                           state.onPressLoginButton(),
                     ),
                     SizedBox(height: 20.h),

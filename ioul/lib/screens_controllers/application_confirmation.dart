@@ -23,9 +23,9 @@ class ApplicationConfirmationController extends State<ApplicationConfirmation> {
 
   final TextEditingController dropdownController = TextEditingController();
 
-  setSelectedValue(String value) {
+  setSelectedValue(String? value) {
     setState(() {
-      selectedValue = value;
+      selectedValue = value!;
     });
   }
 
@@ -50,8 +50,7 @@ class ApplicationConfirmationController extends State<ApplicationConfirmation> {
   void getFormDataForSelectedProgram() async {
     var program = ApplicationFormData();
 
-    program.programme = "Diploma Program";
-    //selectedValue;
+    program.programme = selectedValue;
 
     context.read<ApplicationFormDataCubit>().pushProgramToServer(program);
   }
