@@ -55,13 +55,12 @@ class ApplicationFormView
                 padding: REdgeInsets.symmetric(horizontal: 16),
                 child: IgnorePointer(
                   child: TabBar(
-                    // tabAlignment: TabAlignment.start,
+                    tabAlignment: TabAlignment.start,
                     physics: const AlwaysScrollableScrollPhysics(),
                     isScrollable: true,
                     controller: state.tabController,
                     dragStartBehavior: DragStartBehavior.start,
                     indicatorSize: TabBarIndicatorSize.label,
-                    // padding: REdgeInsets.only(right: 24, left: 24),
                     padding: EdgeInsets.zero,
                     enableFeedback: true,
                     labelPadding: EdgeInsets.zero,
@@ -71,6 +70,7 @@ class ApplicationFormView
                     labelColor: AppColors.inkDarker,
                     indicatorPadding: REdgeInsets.only(right: 16),
                     indicatorColor: AppColors.primary,
+                    dividerColor: AppColors.lightGrey,
                     tabs: [
                       Container(
                         padding:

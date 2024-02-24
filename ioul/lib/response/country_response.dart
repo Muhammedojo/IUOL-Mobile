@@ -1,5 +1,7 @@
+import 'dart:developer';
+
 class CountryData {
-  int? id;
+  String? id;
   String? name;
 
   CountryData({
@@ -16,9 +18,15 @@ class CountryResponse {
   CountryResponse({this.data});
 
   factory CountryResponse.fromJson(Map<String, dynamic> json) {
-    List<CountryData> data =
-        json['data'].forEach((key, value) => CountryData(id: key, name: value));
+    // log("country data json: $json");
+    List<CountryData> newData = [];
+    json['data'].entries.forEach((item) {
+      // log("key: $key");
+      newData.add(
+        CountryData(id: item.key, name: item.value),
+      );
+    });
 
-    return CountryResponse(data: data);
+    return CountryResponse(data: newData);
   }
 }

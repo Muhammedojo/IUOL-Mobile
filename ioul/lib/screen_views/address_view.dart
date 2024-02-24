@@ -1,7 +1,6 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:ioul/bloc/bloc.dart';
-import 'package:ioul/response/country_response.dart';
 
 import '../components/custom_dropdown_widget.dart';
 import '../values/values.dart';
@@ -136,7 +135,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                   List<String> countries = [];
                   states.response.data
                       ?.forEach((e) => countries.add(e.name ?? ""));
-                  Align(
+                  return Align(
                     alignment: Alignment.centerLeft,
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,
@@ -152,7 +151,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                         selectedStyle: Styles.x16dp_72777A_400w(),
                         listItemStyle: Styles.x16dp_000000_400w(),
                         // fieldSuffixIcon: ,
-                        // onChanged: (value) => onChange!(value),
+                        onChanged: (value) => state.onSelectCountry(value),
                       ),
                     ),
                   );
