@@ -6,6 +6,7 @@ import 'package:ioul/response/register_response.dart';
 import 'package:path/path.dart';
 import '../model/model.dart';
 import '../packages/package.dart';
+import '../response/programme_response.dart';
 import '../response/response.dart';
 import 'endpoints.dart';
 import 'shared_prefrence.dart';
@@ -214,12 +215,11 @@ class ApiProvider {
         );
       }
 
-      log("normal cooperative payload: ${formData.fields}");
+      log("normal application payload: ${formData.fields}");
 
       formData.files.addAll(images);
-      log("application submission request payload: $application");
-      Response response =
-          await doPostRequestAuth(submitApplication, application);
+      log("application submission request payload: $formData");
+      Response response = await doPostRequestAuth(submitApplication, formData);
       statusCode = response.statusCode;
 
       if (_isConnectionSuccessful(statusCode)) {
@@ -246,24 +246,25 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> pushSubmitProgram(
+  Future<ProgrammeResponse> pushSubmitProgram(
       ApplicationFormData formData) async {
     int? statusCode;
     try {
-      log("application submission request payload: $formData");
-      Response response =
-          await doPostRequestAuth(applicationFormData, formData);
+      Map<String, dynamic> data = {
+        "programme": formData.programme,
+      };
+      Response response = await doPostRequestAuth(applicationFormData, data);
       statusCode = response.statusCode;
 
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
 
-        var requestResponse = GenericResponse.fromJson(decodedBody);
+        var requestResponse = ProgrammeResponse.fromJson(decodedBody);
         requestResponse.statusCode = statusCode!;
 
         return requestResponse;
       } else {
-        var requestResponse = GenericResponse();
+        var requestResponse = ProgrammeResponse();
         requestResponse.statusCode = statusCode!;
         requestResponse.message = response.statusMessage;
 
@@ -271,7 +272,7 @@ class ApiProvider {
         //return _createDefaultGenericResponse(statusCode);
       }
     } on DioException catch (e) {
-      var requestResponse = GenericResponse();
+      var requestResponse = ProgrammeResponse();
       //requestResponse.statusCode = statusCode!;
       requestResponse.message = _handleDioError(e); //e.message;
 

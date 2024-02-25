@@ -1,3 +1,5 @@
+import 'package:ioul/response/programme_response.dart';
+
 import '../../model/model.dart';
 import '../../packages/package.dart';
 
@@ -19,7 +21,7 @@ class ApplicationFormDataLoading extends ApplicationFormDataState {
 }
 
 class ApplicationFormDataLoaded extends ApplicationFormDataState {
-  final ApplicationFormData formData;
+  final ProgrammeResponse formData;
   const ApplicationFormDataLoaded(this.formData);
 
   @override

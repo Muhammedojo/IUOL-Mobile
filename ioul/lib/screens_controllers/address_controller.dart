@@ -1,3 +1,8 @@
+import 'dart:developer';
+
+import 'package:ioul/bloc/bloc.dart';
+import 'package:ioul/packages/package.dart';
+import 'package:ioul/response/country_response.dart';
 import 'package:ioul/utils/utils.dart';
 
 import '../helpers/helper.dart';
@@ -43,9 +48,20 @@ class AddressController extends State<Address>
   String selectedValue = "";
 
   setSelectedValue(String value) {
+    log("selected value: $value");
     setState(() {
       selectedValue = value;
     });
+  }
+
+  CountryData selectedCountry = CountryData();
+
+  onSelectCountry(String value) {
+    CountryState state = context.read<CountryCubit>().state;
+    if (state is CountryLoaded) {
+      selectedCountry = state.response.data!.firstWhere((element) =>
+          element.name!.trim().toLowerCase() == value.trim().toLowerCase());
+    }
   }
 
   onNextPressed() {

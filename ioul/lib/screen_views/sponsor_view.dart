@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:ioul/values/styles.dart';
+import '../bloc/bloc.dart';
 import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
+import '../packages/package.dart';
 import '../screens_controllers/sponsor_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
@@ -49,14 +48,23 @@ class SponsorView extends StatelessView<Sponsor, SponsorController> {
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: CustomDropdownWidget(
-                    dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
-                    ],
-                    controller: state.sponsorController,
-                    onChange: (value) => state.setSelectedValue(value),
+                  child: BlocBuilder<ApplicationFormDataCubit,
+                      ApplicationFormDataState>(
+                    builder: (context, applicationState) {
+                      if (applicationState is ApplicationFormDataLoaded) {
+                        return CustomDropdownWidget(
+                          dropdownList:
+                              applicationState.formData.sponsors ?? [],
+                          controller: state.sponsorController,
+                          onChange: (value) => state.setSelectedValue(value),
+                        );
+                      }
+                      return CustomDropdownWidget(
+                        dropdownList: const [],
+                        controller: state.sponsorController,
+                        onChange: (value) => state.setSelectedValue(value),
+                      );
+                    },
                   ),
                 ),
               ),

@@ -11,11 +11,12 @@ class ApplicationFormDataCubit extends Cubit<ApplicationFormDataState> {
     try {
       emit(ApplicationFormDataLoading());
       final response = await repository.submitProgram(formData);
-      if (response.isConnectionSuccessful()) {
-        emit(ApplicationFormDataLoaded(formData));
+      log("application form data response: ${response.genders}");
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        emit(ApplicationFormDataLoaded(response));
       } else {
-        log("response error body: ${response.responseMessage}");
-        emit(ApplicationFormDataFailure(message: response.responseMessage));
+        // log("response error body: ${response.responseMessage}");
+        emit(ApplicationFormDataFailure(message: response.message ?? ""));
       }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");

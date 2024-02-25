@@ -1,5 +1,3 @@
-import 'package:ioul/bloc/bloc.dart';
-
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../router/router.dart';
@@ -39,18 +37,9 @@ class CourseView extends StatelessView<Course, CourseController> {
 
   Widget _body(context) {
     return Column(mainAxisSize: MainAxisSize.min, children: [
-      Column(
+      const Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
-          // Text(
-          //   'heloooooowodoowo',
-          //   style: Styles.x12dp_090A0A_400w(),
-          // ),
-          // Text('heloooooowodoowo'),
-          // Text('heloooooowodoowo'),
-          // Text('heloooooowodoowo'),
-          // Text('heloooooowodoowo')
-        ],
+        children: [],
       ),
       Expanded(
         child: SingleChildScrollView(
@@ -62,23 +51,17 @@ class CourseView extends StatelessView<Course, CourseController> {
                 SizedBox(
                   height: 20.h,
                 ),
-                BlocBuilder<CoursesCubit, CoursesState>(
-                    builder: (context, states) {
-                  if (states is CoursesLoaded) {
-                    return states.co
-                    ListView.separated(
-                      separatorBuilder: (context, index) => SizedBox(
-                        height: 10.h,
-                      ),
-                      itemCount: 10,
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) => EnrolledCourseWidget(
-                          onTap: () => NavigatorHelper(context).pushNamedScreen(
-                                RouteConstants.courseDetailOverview,
-                              )),
-                    );
-                  }
-                }),
+                ListView.separated(
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 10.h,
+                  ),
+                  itemCount: 10,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => EnrolledCourseWidget(
+                      onTap: () => NavigatorHelper(context).pushNamedScreen(
+                            RouteConstants.courseDetailOverview,
+                          )),
+                ),
               ],
             ),
           ),

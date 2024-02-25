@@ -4,7 +4,6 @@ import '../packages/package.dart';
 import 'package:ioul/helpers/helper.dart';
 import '../router/router.dart';
 import '../components/components.dart';
-import '../screens_controllers/login_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 
@@ -117,14 +116,7 @@ class LoginView extends StatelessView<Login, LoginController> {
                     SizedBox(height: 20.h),
                     ElevatedButtonWidget(
                       title: "Log in",
-                      onTap: () =>
-                          // Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //           builder: (context) => const Dashboard()),
-                          //     )
-
-                          state.onPressLoginButton(),
+                      onTap: () => state.onPressLoginButton(),
                     ),
                     SizedBox(height: 20.h),
                     Align(

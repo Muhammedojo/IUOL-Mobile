@@ -3,6 +3,8 @@ import 'package:ioul/provider/api_provider.dart';
 import 'package:ioul/response/register_response.dart';
 import 'package:ioul/response/response.dart';
 
+import '../response/programme_response.dart';
+
 class AppRepository {
   final ApiProvider _apiProvider = ApiProvider();
 
@@ -47,7 +49,7 @@ class AppRepository {
           SubmitApplication application) async =>
       _apiProvider.pushSubmitApplication(application);
 
-  Future<GenericResponse> submitProgram(ApplicationFormData formData) async =>
+  Future<ProgrammeResponse> submitProgram(ApplicationFormData formData) async =>
       _apiProvider.pushSubmitProgram(formData);
 
   //Future<GenericResponse> verifyEmail(String pin, String email) async =>

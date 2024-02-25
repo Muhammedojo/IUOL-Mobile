@@ -49,16 +49,52 @@ class AddressView extends StatelessView<Address, AddressController> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: CustomDropdownWidget(
-                    dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
-                    ],
-                    controller: state.nationalityController,
+                    dropdownList: const ['Nigeria'],
+                    controller: state.countryController,
                     onChange: (value) => state.setSelectedValue(value),
                   ),
                 ),
-              ),
+              )
+              // BlocBuilder<CountryCubit, CountryState>(
+              //     builder: (context, states) {
+              //   if (states is CountryLoaded) {
+              //     List<String> countries = [];
+              //     states.response.data
+              //         ?.forEach((e) => countries.add(e.name ?? ""));
+              //     return Align(
+              //       alignment: Alignment.centerLeft,
+              //       child: SizedBox(
+              //         width: MediaQuery.of(context).size.width,
+              //         child: CustomDropdown(
+              //           borderSide: BorderSide(
+              //             color: AppColors.inkLight,
+              //             width: 1.w,
+              //           ),
+              //           borderRadius: BorderRadius.circular(8.r),
+              //           hintText: 'Select',
+              //           items: countries,
+              //           controller: state.nationalityController,
+              //           selectedStyle: Styles.x16dp_72777A_400w(),
+              //           listItemStyle: Styles.x16dp_000000_400w(),
+              //           // fieldSuffixIcon: ,
+              //           onChanged: (value) => state.onSelectNationality(value),
+              //         ),
+              //       ),
+              //     );
+              //   }
+              //   return Align(
+              //     alignment: Alignment.centerLeft,
+              //     child: SizedBox(
+              //       width: MediaQuery.of(context).size.width,
+              //       child: CustomDropdownWidget(
+              //         dropdownList: const ['Nigeria'],
+              //         controller: state.countryController,
+              //         onChange: (value) => state.setSelectedValue(value),
+              //       ),
+              //     ),
+              //   );
+              // }),
+              ,
               SizedBox(height: 28.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -152,11 +188,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: CustomDropdownWidget(
-                      dropdownList: const [
-                        'Islam',
-                        'Christianity',
-                        'Traditionalist',
-                      ],
+                      dropdownList: const ['Nigeria'],
                       controller: state.countryController,
                       onChange: (value) => state.setSelectedValue(value),
                     ),
