@@ -1,25 +1,25 @@
 import '../../packages/package.dart';
 
-abstract class CourseRegState extends Equatable {
-  const CourseRegState();
+abstract class AssignmentState extends Equatable {
+  const AssignmentState();
 
   @override
   List<Object> get props => [];
 }
 
-class CourseRegInitialState extends CourseRegState {
+class AssignmentInitialState extends AssignmentState {
   @override
   List<Object> get props => [];
 }
 
-class CourseRegLoading extends CourseRegState {
+class AssignmentLoading extends AssignmentState {
   @override
   List<Object> get props => [];
 }
 
-class CourseRegLoaded extends CourseRegState {
+class AssignmentLoaded extends AssignmentState {
   // final GenericResponse courseList;
-  const CourseRegLoaded(
+  const AssignmentLoaded(
       //this.courseList
       );
 
@@ -28,9 +28,9 @@ class CourseRegLoaded extends CourseRegState {
   // courseList];
 }
 
-class CourseRegFailure extends CourseRegState {
+class AssignmentFailure extends AssignmentState {
   final String message;
-  const CourseRegFailure({required this.message});
+  const AssignmentFailure({required this.message});
   @override
   List<Object> get props => [message];
 }

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutterwave_standard/flutterwave.dart';
 import 'package:uuid/uuid.dart';
 
+import '../values/values.dart';
+
 class Payments extends StatefulWidget {
   const Payments(this.title, {Key? key}) : super(key: key);
 
@@ -32,7 +34,9 @@ class _PaymentsState extends State<Payments> {
     currencyController.text = selectedCurrency;
 
     return Scaffold(
+      backgroundColor: AppColors.backgroundWhite,
       appBar: AppBar(
+        centerTitle: true,
         title: Text(widget.title),
       ),
       body: Container(
@@ -194,7 +198,12 @@ class _PaymentsState extends State<Payments> {
   }
 
   Widget _getCurrency() {
-    final currencies = ["NGN", "RWF", "UGX", "KES", "ZAR", "USD", "GHS", "TZS"];
+    final currencies = [
+      "NGN",
+      "RWF",
+      "UGX",
+      "KES",
+    ];
     return Container(
       height: 250,
       margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),

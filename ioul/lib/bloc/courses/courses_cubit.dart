@@ -11,7 +11,7 @@ class CoursesCubit extends Cubit<CoursesState> {
       emit(CoursesLoading());
       final response = await repository.loadCourses();
       if (response.isConnectionSuccessful()) {
-        emit(CoursesLoaded());
+        emit(const CoursesLoaded());
       } else {
         log("response error body: ${response.responseMessage}");
         emit(CoursesFailure(message: response.responseMessage));

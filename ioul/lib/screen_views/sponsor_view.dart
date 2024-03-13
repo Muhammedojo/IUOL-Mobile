@@ -59,8 +59,9 @@ class SponsorView extends StatelessView<Sponsor, SponsorController> {
                           onChange: (value) => state.setSelectedValue(value),
                         );
                       }
+
                       return CustomDropdownWidget(
-                        dropdownList: const [],
+                        dropdownList: const ["Government"],
                         controller: state.sponsorController,
                         onChange: (value) => state.setSelectedValue(value),
                       );

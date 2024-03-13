@@ -1,5 +1,4 @@
 import '../../packages/package.dart';
-import '../../response/response.dart';
 
 abstract class CoursesState extends Equatable {
   const CoursesState();

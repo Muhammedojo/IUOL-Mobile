@@ -4,6 +4,7 @@ import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/payment_controller.dart';
 import '../values/values.dart';
+import 'payment.dart';
 import 'stateless_view.dart';
 
 class PaymentView extends StatelessView<Payment, PaymentController> {
@@ -21,9 +22,10 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
           title: Text(
-            'Result History',
+            'Payment',
             style: TextStyle(
                 fontSize: 18.sp,
+                color: AppColors.backgroundWhite,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700),
           ),
@@ -88,13 +90,23 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                       : '${state.selectedValue} Payment',
                   style: Styles.x16dp_202325_400w(),
                 )),
-                SizedBox(height: 60.h),
-                SubmitButtonWidget(
-                  label: 'Proceed to Payment',
-                  onPressed: () {},
-                  color: state.selectedValue.isEmpty
-                      ? Colors.grey
-                      : const Color(0xff25435B),
+                SizedBox(height: 90.h),
+                Padding(
+                  padding: REdgeInsets.symmetric(horizontal: 40.0),
+                  child: SubmitButtonWidget(
+                    label: 'Proceed to Payment',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const Payments("Acceptance Fee")),
+                      );
+                    },
+                    color: state.selectedValue.isEmpty
+                        ? Colors.grey
+                        : const Color(0xff25435B),
+                  ),
                 )
               ],
             ),

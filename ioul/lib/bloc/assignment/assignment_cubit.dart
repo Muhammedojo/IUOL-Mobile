@@ -1,20 +1,20 @@
 import 'dart:developer';
 import '../../packages/package.dart';
 import '../../utils/global_states.dart';
-import 'course_reg_state.dart';
+import 'assignment_state.dart';
 
-class CourseRegCubit extends Cubit<CourseRegState> {
-  CourseRegCubit() : super(CourseRegInitialState());
+class AssignmentCubit extends Cubit<AssignmentState> {
+  AssignmentCubit() : super(AssignmentInitialState());
 
-  loadCoursesFromServer() async {
+  loadCourseAssignmentFromServer() async {
     try {
-      emit(CourseRegLoading());
+      emit(AssignmentLoading());
       final response = await repository.loadCourses();
       if (response.isConnectionSuccessful()) {
-        emit(const CourseRegLoaded());
+        emit(const AssignmentLoaded());
       } else {
         log("response error body: ${response.responseMessage}");
-        emit(CourseRegFailure(message: response.responseMessage));
+        emit(AssignmentFailure(message: response.responseMessage));
       }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");

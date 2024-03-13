@@ -5,24 +5,26 @@ import '../screens/screens.dart';
 
 class Dashboard extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
+  //final UserData user;
 
-  const Dashboard({Key? key}) : super(key: key);
+  const Dashboard({
+    Key? key,
+  }) : super(key: key);
 
   @override
   DashboardController createState() => DashboardController();
 }
 
 class DashboardController extends State<Dashboard> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -30,11 +32,11 @@ class DashboardController extends State<Dashboard> {
   Widget build(BuildContext context) => DashboardView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 
-  notificationPage(){
+  notificationPage() {
     Navigator.push(
       context,
       CupertinoPageRoute(
@@ -42,5 +44,4 @@ class DashboardController extends State<Dashboard> {
       ),
     );
   }
-
 }

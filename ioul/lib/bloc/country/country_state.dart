@@ -1,3 +1,5 @@
+import 'package:ioul/response/country_response.dart';
+
 import '../../packages/package.dart';
 
 abstract class CountryState extends Equatable {
@@ -19,12 +21,11 @@ class CountryLoading extends CountryState {
 
 class CountryLoaded extends CountryState {
   //final GenericResponse countryResponse;
-  const CountryLoaded(
-      // this.countryResponse
-      );
+  final CountryResponse response;
+  const CountryLoaded(this.response);
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [response];
 }
 
 class CountryFailure extends CountryState {

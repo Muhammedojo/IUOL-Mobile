@@ -3,6 +3,7 @@ import 'package:ioul/provider/api_provider.dart';
 import 'package:ioul/response/register_response.dart';
 import 'package:ioul/response/response.dart';
 
+import '../response/country_response.dart';
 import '../response/programme_response.dart';
 
 class AppRepository {
@@ -22,7 +23,7 @@ class AppRepository {
   Future<GenericResponse> resetPassword(String pin, String email) async =>
       _apiProvider.resetPassword(pin, email);
 
-  Future<GenericResponse> loadCountries() async =>
+  Future<CountryResponse> loadCountries() async =>
       _apiProvider.getCountryList();
 
   Future<GenericResponse> loadCourses() async => _apiProvider.getCoursesList();

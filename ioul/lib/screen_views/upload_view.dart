@@ -47,14 +47,15 @@ class UploadView extends StatelessView<Upload, UploadController> {
                     '${state.passportImage?.path}',
                     style: Styles.x14dp_090A0A_500w(),
                   )
-                : OutlinedButtonWidget(
-                    onTap: () {
-                      state.choosePassport(
-                          ImageSource.gallery, state.passportImageController);
-                    },
-                    title: "Choose file",
-                    imagePath: "assets/images/upload.svg",
-                  ),
+                : const SizedBox.shrink(),
+            OutlinedButtonWidget(
+              onTap: () {
+                state.choosePassport(
+                    ImageSource.gallery, state.passportImageController);
+              },
+              title: "Choose file",
+              imagePath: "assets/images/upload.svg",
+            ),
             SizedBox(height: 10.h),
             TextWidget(
               text:
@@ -160,14 +161,15 @@ class UploadView extends StatelessView<Upload, UploadController> {
                     '${state.documentImage?.uri}',
                     style: Styles.x14dp_090A0A_500w(),
                   )
-                : OutlinedButtonWidget(
-                    onTap: () {
-                      state.chooseDocument(
-                          ImageSource.gallery, state.pdfDocumentController);
-                    },
-                    title: "Choose file",
-                    imagePath: "assets/images/upload.svg",
-                  ),
+                : const SizedBox.shrink(),
+            OutlinedButtonWidget(
+              onTap: () {
+                state.chooseDocument(
+                    ImageSource.gallery, state.pdfDocumentController);
+              },
+              title: "Choose file",
+              imagePath: "assets/images/upload.svg",
+            ),
             SizedBox(height: 12.h),
             TextWidget(
               text: "Please note that you can only upload .pdf file",

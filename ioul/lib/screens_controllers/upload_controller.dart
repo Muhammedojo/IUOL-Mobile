@@ -70,25 +70,45 @@ class UploadController extends State<Upload>
   @override
   Widget build(BuildContext context) => UploadView(this);
 
-  Future choosePassport(
+  Future<void> choosePassport(
       ImageSource source, TextEditingController controller) async {
     final pickedFile = await picker.pickImage(source: source);
 
-    if (pickedFile!.path.isNotEmpty) {
-      setState(() {
-        passportImage = File(pickedFile.path);
-      });
+    if (pickedFile != null) {
+      if (pickedFile.path.isNotEmpty) {
+        final file = File(pickedFile.path);
+        final fileSize = await file.length();
+        if (fileSize <= 1048576) {
+          // 1 MB in bytes
+          setState(() {
+            passportImage = file;
+          });
+        } else {
+          // File size exceeds the limit
+          // You can show an error message or handle it as needed
+          WidgetHelper.showToastError(context, "Image size exceed 1MB");
+        }
+      }
     }
   }
 
-  Future chooseDocument(
+  Future<void> chooseDocument(
       ImageSource source, TextEditingController controller) async {
     final pickedFile = await picker.pickImage(source: source);
 
-    if (pickedFile!.path.isNotEmpty) {
-      setState(() {
-        documentImage = File(pickedFile.path);
-      });
+    if (pickedFile != null) {
+      if (pickedFile.path.isNotEmpty) {
+        final file = File(pickedFile.path);
+        final fileSize = await file.length();
+        if (fileSize <= 1048576) {
+          // 1 MB in bytes
+          setState(() {
+            documentImage = file;
+          });
+        } else {
+          WidgetHelper.showToastError(context, "Image size exceed 1MB");
+        }
+      }
     }
   }
 

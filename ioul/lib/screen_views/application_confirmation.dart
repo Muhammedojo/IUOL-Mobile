@@ -74,32 +74,33 @@ class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,
                     ),
                   ),
                   SizedBox(height: 95.h),
-                  BlocListener<ApplicationFormDataCubit,
-                      ApplicationFormDataState>(
-                    listener: (context, formDataState) {
-                      if (formDataState is ApplicationFormDataLoading) {
-                        WidgetHelper.showProgress(text: 'Processing');
-                      }
-                      if (formDataState is ApplicationFormDataLoaded) {
-                        WidgetHelper.hideProgress();
-                        context.pushNamed(RouteConstants.applicationForm);
-                      }
-                      if (formDataState is ApplicationFormDataFailure) {
-                        WidgetHelper.hideProgress();
-                        WidgetHelper.showToastError(
-                          context,
-                          formDataState.message,
-                        );
-                      }
-                    },
-                    child: ElevatedButtonWidget(
-                        title: "Proceed",
-                        onTap: () {
-                          state.getFormDataForSelectedProgram();
-                          // context.read<CountryCubit>().loadCountiresFromServer();
-                          // context.pushNamed(RouteConstants.applicationForm);
-                        }),
-                  ),
+                  // BlocListener<ApplicationFormDataCubit,
+                  //     ApplicationFormDataState>(
+                  //   listener: (context, formDataState) {
+                  //     if (formDataState is ApplicationFormDataLoading) {
+                  //       WidgetHelper.showProgress(text: 'Processing');
+                  //     }
+                  //     if (formDataState is ApplicationFormDataLoaded) {
+                  //       WidgetHelper.hideProgress();
+                  //       context.pushNamed(RouteConstants.applicationForm);
+                  //     }
+                  //     if (formDataState is ApplicationFormDataFailure) {
+                  //       WidgetHelper.hideProgress();
+                  //       WidgetHelper.showToastError(
+                  //         context,
+                  //         formDataState.message,
+                  //       );
+                  //     }
+                  //   },
+                  // child:
+                  ElevatedButtonWidget(
+                      title: "Proceed",
+                      onTap: () {
+                        state.getFormDataForSelectedProgram();
+                        // context.read<CountryCubit>().loadCountiresFromServer();
+                        // context.pushNamed(RouteConstants.applicationForm);
+                      }),
+                  //  ),
                 ],
               ),
             ),

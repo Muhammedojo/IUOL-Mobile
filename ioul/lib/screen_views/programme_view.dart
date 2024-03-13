@@ -56,13 +56,13 @@ class ProgrammeView extends StatelessView<Programme, ProgrammeController> {
                       if (applicationState is ApplicationFormDataLoaded) {
                         return CustomDropdownWidget(
                           dropdownList:
-                              applicationState.formData.programmes ?? [],
+                              applicationState.formData.sponsors ?? [],
                           controller: state.programController,
                           onChange: (value) => state.setSelectedValue(value),
                         );
                       }
                       return CustomDropdownWidget(
-                        dropdownList: const [],
+                        dropdownList: const ["B.Sc. Carpentry"],
                         controller: state.programController,
                         onChange: (value) => state.setSelectedValue(value),
                       );

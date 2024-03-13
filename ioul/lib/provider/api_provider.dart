@@ -6,6 +6,7 @@ import 'package:ioul/response/register_response.dart';
 import 'package:path/path.dart';
 import '../model/model.dart';
 import '../packages/package.dart';
+import '../response/country_response.dart';
 import '../response/programme_response.dart';
 import '../response/response.dart';
 import 'endpoints.dart';
@@ -219,8 +220,9 @@ class ApiProvider {
 
       formData.files.addAll(images);
       log("application submission request payload: $formData");
-      Response response = await doPostRequestAuth(submitApplication, formData);
+      Response response = await postFormData(submitApplication, "", formData);
       statusCode = response.statusCode;
+      log("application response: ${response.data.toString()}");
 
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
@@ -280,7 +282,7 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> getCountryList({String? endpoint}) async {
+  Future<CountryResponse> getCountryList({String? endpoint}) async {
     int? statusCode;
     try {
       Response response = await doGetRequest(countries);
@@ -290,16 +292,16 @@ class ApiProvider {
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
 
-        var requestResponse = GenericResponse.fromJson(decodedBody);
+        var requestResponse = CountryResponse.fromJson(decodedBody);
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       } else {
-        var requestResponse = GenericResponse();
+        var requestResponse = CountryResponse();
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       }
     } on DioException catch (e) {
-      var requestResponse = GenericResponse();
+      var requestResponse = CountryResponse();
       //requestResponse.statusCode = statusCode ?? e.response.statusCode;
       requestResponse.message = _handleDioError(e);
 
@@ -600,7 +602,7 @@ Future<Map<String, String>> _getTokenHeader() async {
   var header = <String, String>{};
   header["Content-Type"] = "application/json";
   String? token = await getToken();
-  print("Token value here : $token");
+  // print("Token value here : $token");
 
   if (token.isNotEmpty) {
     header["Authorization"] = "Bearer $token";
@@ -617,6 +619,20 @@ Future<Map<String, String>> _getNormalHeader() async {
   header["Connection"] = "close";
   header["Accept"] = "application/json";
 
+  return header;
+}
+
+/// Get header for Form-Data GET/POST request.
+Future<Map<String, String>> _getFormDataHeader(String lastRequestTime) async {
+  var header = <String, String>{};
+  header["Content-Type"] = "multipart/form-data";
+  String? token = await getToken();
+
+  if (token.isNotEmpty) {
+    header["Authorization"] = "Bearer $token";
+  }
+  header["Connection"] = "close";
+  header["Accept"] = "application/json";
   return header;
 }
 
@@ -643,6 +659,7 @@ Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
 }
 
 Future<Response> doGetRequest(String endPoint) async {
+  var header = await _getTokenHeader();
   endPoint = endPoint.replaceAll("*", "");
   var dio = Dio();
   dio.interceptors.add(PrettyDioLogger(
@@ -656,7 +673,45 @@ Future<Response> doGetRequest(String endPoint) async {
   dio.options.baseUrl = baseApi;
   dio.options.connectTimeout = const Duration(minutes: 1); //30s
   dio.options.receiveTimeout = const Duration(minutes: 1); // 2 min
-  return dio.get(endPoint);
+  return dio.get(endPoint, options: Options(headers: header));
+}
+
+Future<Response> postFormData(
+    String endPoint, String lastRequestTime, dynamic formData) async {
+  var header = await _getFormDataHeader(lastRequestTime);
+
+  var dio = Dio();
+  dio.options.baseUrl = baseApi;
+
+  dio.interceptors.add(PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseBody: true,
+      responseHeader: false,
+      error: true,
+      compact: true,
+      maxWidth: 90));
+  dio.options.connectTimeout = const Duration(minutes: 5); //30s
+  dio.options.receiveTimeout = const Duration(minutes: 5); // 2 min
+  const int UNAUTHORIZED_STATUS_CODE = 401;
+  Response response =
+      Response(requestOptions: RequestOptions(method: "post", path: endPoint));
+  try {
+    response = await dio.post(endPoint,
+        data: formData, options: Options(headers: header));
+  } on DioException catch (e) {
+    if (e.toString().contains('$UNAUTHORIZED_STATUS_CODE')) {
+      response.statusCode = 401;
+    } else {
+      response.statusMessage =
+          (e.response?.statusCode ?? 500).toString().startsWith("5")
+              ? "Request Not Successful, Try again later"
+              : e.response.toString();
+      response.statusCode = e.response?.statusCode ?? 500;
+    }
+  }
+
+  return response;
 }
 
 Future<Response> doPostRequest(endPoint, dynamic body) async {
