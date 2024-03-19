@@ -24,7 +24,7 @@ class Sponsor extends StatefulWidget {
 }
 
 class SponsorController extends State<Sponsor>
-    with AutomaticKeepAliveClientMixin {
+   {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
@@ -89,6 +89,5 @@ class SponsorController extends State<Sponsor>
     }
   }
 
-  @override
-  bool get wantKeepAlive => true;
+  
 }

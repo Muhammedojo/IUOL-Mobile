@@ -1,6 +1,5 @@
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../model/model.dart';
 import '../screen_views/programme_view.dart';
 import '../utils/utils.dart';
 

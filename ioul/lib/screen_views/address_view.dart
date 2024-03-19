@@ -49,14 +49,23 @@ class AddressView extends StatelessView<Address, AddressController> {
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: CustomDropdownWidget(
-                    dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
-                    ],
-                    controller: state.nationalityController,
-                    onChange: (value) => state.setSelectedValue(value),
+                  child: BlocBuilder<ApplicationFormDataCubit,
+                      ApplicationFormDataState>(
+                    builder: (context, applicationState) {
+                      if (applicationState is ApplicationFormDataLoaded) {
+                        return CustomDropdownWidget(
+                          dropdownList:
+                              applicationState.formData.languages ?? [],
+                          controller: state.nationalityController,
+                          onChange: (value) => state.setSelectedValue(value),
+                        );
+                      }
+                      return CustomDropdownWidget(
+                        dropdownList: const [],
+                        controller: state.nationalityController,
+                        onChange: (value) => state.setSelectedValue(value),
+                      );
+                    },
                   ),
                 ),
               ),

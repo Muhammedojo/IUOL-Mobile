@@ -220,8 +220,7 @@ class ApiProvider {
 
       formData.files.addAll(images);
       log("application submission request payload: $application");
-      Response response =
-          await doPostRequestAuth(submitApplication, application);
+      Response response = await doPostRequestAuth(submitApplication, formData);
       statusCode = response.statusCode;
 
       if (_isConnectionSuccessful(statusCode)) {
@@ -624,7 +623,7 @@ Future<Map<String, String>> _getNormalHeader() async {
 
 Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
   var header = await _getTokenHeader();
-  //print("headers: $header");
+  // print("headers: $header");
 
   var dio = Dio();
   dio.options.baseUrl = baseApi;

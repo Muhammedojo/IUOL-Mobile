@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:ioul/model/submit_application.dart';
 import 'package:ioul/utils/utils.dart';
 import 'package:ioul/values/values.dart';
@@ -92,7 +93,8 @@ class PersonalController extends State<Personal>
 
     if (pickedDate != null) {
       setState(() {
-        dateOfBirthController.text = pickedDate.toString();
+        dateOfBirthController.text =
+            DateFormat('yyyy-MM-dd').format(pickedDate);
       });
     }
   }

@@ -1,3 +1,5 @@
+// import 'dart:developer';
+
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,6 +52,7 @@ class ScratchCardController extends State<ScratchCard> {
   }
 
   void validateCard() {
+    log("I'm validating card pin");
     var cardNumber = scratchCardController.text.trim();
 
     if (cardNumber.isEmpty
@@ -62,14 +65,15 @@ class ScratchCardController extends State<ScratchCard> {
   }
 
   void verifyPin(String cardNumber) async {
+    log("I'm verifying card pin");
     // try {
     // WidgetHelper.showProgress(text: 'Checking Pin');
 
     final VerifyScratchCardPin data = VerifyScratchCardPin();
     data.pin = cardNumber;
-    if (formKey.currentState!.validate()) {
-      context.read<VerifyScratchPinCubit>().pushPinToServer(data);
-    }
+    // if (formKey.currentState!.validate()) {
+    context.read<VerifyScratchPinCubit>().pushPinToServer(data);
+    // }
     // WidgetHelper.hideProgress();
     // } catch (e) {
     //   WidgetHelper.hideProgress();

@@ -26,8 +26,7 @@ class Upload extends StatefulWidget {
   UploadController createState() => UploadController();
 }
 
-class UploadController extends State<Upload>
-    with AutomaticKeepAliveClientMixin {
+class UploadController extends State<Upload> {
   //... //Initialization code, state vars etc, all go here
 
   bool visible = false;
@@ -123,6 +122,9 @@ class UploadController extends State<Upload>
     }
   }
 
+  // @override
+  // bool get wantKeepAlive => true;
+
   @override
-  bool get wantKeepAlive => true;
+  Widget build(BuildContext context) => UploadView(this);
 }

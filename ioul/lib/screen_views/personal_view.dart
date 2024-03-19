@@ -113,6 +113,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       hint: "spythonian@gmail.com",
                       controller: state.emailController,
                       onValidate: ValidationBuilder().required().build(),
+                      keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(height: 28.h),
                     Row(
@@ -227,15 +228,31 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       alignment: Alignment.centerLeft,
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
-                        child: CustomDropdownWidget(
-                          dropdownList: const [
-                            'Single',
-                            'Married',
-                            'Divorced',
-                            'Widow',
-                          ],
-                          controller: state.maritalStatusController,
-                          onChange: (value) => state.setSelectedValue(value),
+                        child: BlocBuilder<ApplicationFormDataCubit,
+                            ApplicationFormDataState>(
+                          builder: (context, applicationState) {
+                            if (applicationState is ApplicationFormDataLoaded) {
+                              return CustomDropdownWidget(
+                                dropdownList:
+                                    applicationState.formData.maritalStatuses ??
+                                        [],
+                                controller: state.maritalStatusController,
+                                onChange: (value) =>
+                                    state.setSelectedValue(value),
+                              );
+                            }
+                            return CustomDropdownWidget(
+                              dropdownList: const [
+                                'Single',
+                                'Married',
+                                'Divorced',
+                                'Widow',
+                              ],
+                              controller: state.maritalStatusController,
+                              onChange: (value) =>
+                                  state.setSelectedValue(value),
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -256,14 +273,29 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       alignment: Alignment.centerLeft,
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
-                        child: CustomDropdownWidget(
-                          dropdownList: const [
-                            'Islam',
-                            'Christianity',
-                            'Traditionalist',
-                          ],
-                          controller: state.religionController,
-                          onChange: (value) => state.setSelectedValue(value),
+                        child: BlocBuilder<ApplicationFormDataCubit,
+                            ApplicationFormDataState>(
+                          builder: (context, applicationState) {
+                            if (applicationState is ApplicationFormDataLoaded) {
+                              return CustomDropdownWidget(
+                                dropdownList:
+                                    applicationState.formData.religions ?? [],
+                                controller: state.religionController,
+                                onChange: (value) =>
+                                    state.setSelectedValue(value),
+                              );
+                            }
+                            return CustomDropdownWidget(
+                              dropdownList: const [
+                                'Islam',
+                                'Christianity',
+                                'Traditionalist',
+                              ],
+                              controller: state.religionController,
+                              onChange: (value) =>
+                                  state.setSelectedValue(value),
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -284,13 +316,31 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       alignment: Alignment.centerLeft,
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
-                        child: CustomDropdownWidget(
-                          dropdownList: const [
-                            'Employed',
-                            'Unemployed',
-                          ],
-                          controller: state.employmentStatusController,
-                          onChange: (value) => state.setSelectedValue(value),
+                        child: BlocBuilder<ApplicationFormDataCubit,
+                            ApplicationFormDataState>(
+                          builder: (context, applicationState) {
+                            if (applicationState is ApplicationFormDataLoaded) {
+                              return CustomDropdownWidget(
+                                dropdownList: const [
+                                  'Employed',
+                                  'Unemployed',
+                                  'under employed'
+                                ],
+                                controller: state.employmentStatusController,
+                                onChange: (value) =>
+                                    state.setSelectedValue(value),
+                              );
+                            }
+                            return CustomDropdownWidget(
+                              dropdownList: const [
+                                'Employed',
+                                'Unemployed',
+                              ],
+                              controller: state.employmentStatusController,
+                              onChange: (value) =>
+                                  state.setSelectedValue(value),
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -307,15 +357,17 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       ],
                     ),
                     SizedBox(height: 10.w),
-                    TextFieldWidget(
-                      hint: "Date of Birth",
-                      readOnly: true,
-                      controller: state.dateOfBirthController,
-                      passwordIcon: GestureDetector(
-                        onTap: () => state.showDatePickerDialog(),
-                        child: const Icon(
-                          Icons.date_range_outlined,
-                          color: AppColors.primary,
+                    GestureDetector(
+                      onTap: () => state.showDatePickerDialog(),
+                      child: AbsorbPointer(
+                        child: TextFieldWidget(
+                          hint: "Date of Birth",
+                          readOnly: true,
+                          controller: state.dateOfBirthController,
+                          passwordIcon: const Icon(
+                            Icons.date_range_outlined,
+                            color: AppColors.primary,
+                          ),
                         ),
                       ),
                     ),
@@ -354,15 +406,31 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       alignment: Alignment.centerLeft,
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
-                        child: CustomDropdownWidget(
-                          dropdownList: const [
-                            'Permanent Voters Card',
-                            'NIN',
-                            'International Passport',
-                            "Driver's License",
-                          ],
-                          controller: state.nationalIdTypeController,
-                          onChange: (value) => state.setSelectedValue(value),
+                        child: BlocBuilder<ApplicationFormDataCubit,
+                            ApplicationFormDataState>(
+                          builder: (context, applicationState) {
+                            if (applicationState is ApplicationFormDataLoaded) {
+                              return CustomDropdownWidget(
+                                dropdownList: applicationState
+                                        .formData.identificationTypes ??
+                                    [],
+                                controller: state.nationalIdTypeController,
+                                onChange: (value) =>
+                                    state.setSelectedValue(value),
+                              );
+                            }
+                            return CustomDropdownWidget(
+                              dropdownList: const [
+                                'Permanent Voters Card',
+                                'NIN',
+                                'International Passport',
+                                "Driver's License",
+                              ],
+                              controller: state.nationalIdTypeController,
+                              onChange: (value) =>
+                                  state.setSelectedValue(value),
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -382,6 +450,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                     TextFieldWidget(
                       hint: "0000000000000",
                       controller: state.identityNumberController,
+                      keyboardType: TextInputType.number,
                       onValidate: ValidationBuilder().required().build(),
                     ),
                     SizedBox(height: 28.h),

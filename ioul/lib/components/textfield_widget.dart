@@ -17,6 +17,7 @@ class TextFieldWidget extends StatelessWidget {
     this.padding,
     this.isDense,
     this.isCollapsed,
+    this.keyboardType,
     required this.controller,
   }) : super(key: key);
   final String? title;
@@ -31,6 +32,7 @@ class TextFieldWidget extends StatelessWidget {
   final EdgeInsets? padding;
   final bool? isDense;
   final bool? isCollapsed;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,7 @@ class TextFieldWidget extends StatelessWidget {
       controller: controller,
       obscureText: obscureText ?? false,
       readOnly: readOnly ?? false,
+      keyboardType: keyboardType ?? TextInputType.text,
       textInputAction: textInputAction ?? TextInputAction.next,
       validator: onValidate ?? (String? value) => null,
       autovalidateMode: AutovalidateMode.onUserInteraction,
