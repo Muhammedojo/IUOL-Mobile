@@ -1,3 +1,7 @@
+import 'package:h3m_shimmer_card/h3m_shimmer_card.dart';
+import 'package:ioul/bloc/bloc.dart';
+import 'package:ioul/bloc/payment_history/cubit.dart';
+
 import '../packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
@@ -99,19 +103,46 @@ class PaymentHistoryView
               SizedBox(
                 height: 20.h,
               ),
-              ListView.separated(
-                separatorBuilder: (context, index) => const Divider(
-                  color: Color(0xff000000),
-                ),
-                itemCount: 3,
-                shrinkWrap: true,
-                itemBuilder: (context, index) => PaymentHistoryWidget(
-                  title: 'Tuition Fee for Spring Semester 2021/2023',
-                  amount: 'N50,000',
-                  onTap: () {},
-                  time: 'May 21, 2023, 3:30pm',
-                  status: 'Completed',
-                ),
+              BlocBuilder<PaymentHistoryCubit, PaymentHistoryState>(
+                builder: (context, states) {
+                  if (state is PaymentHistoryLoading) {
+                    return CircularProgressIndicator();
+                  } else if (states is PaymentHistoryLoaded) {
+                    return states.paymentHistoryList.isNotEmpty
+                        ? ListView.separated(
+                            separatorBuilder: (context, index) => const Divider(
+                              color: Color(0xff000000),
+                            ),
+                            itemCount: states.paymentHistoryList.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              var history = states.paymentHistoryList[index];
+                              return PaymentHistoryWidget(
+                                onTap: () {},
+                                paymentHistory: history,
+                              );
+                            },
+                          )
+                        : const Center(child: Text('Empty'));
+                  }
+                  return Center(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue, // background color
+                        foregroundColor: Colors.white, // text color
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8), // button padding
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              16.0), // button border radius
+                        ),
+                      ),
+                      onPressed: () =>
+                          state.paymentHistCubit.loadPaymentHistoryFromServer(),
+                      child: Text('Refresh'),
+                    ),
+                  );
+                },
               ),
             ],
           ),

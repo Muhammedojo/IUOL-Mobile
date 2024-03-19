@@ -48,9 +48,9 @@ class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,
                   ),
                   SizedBox(height: 42.h),
                   GroupButton(
-                    // onSelected: (value) {
-                    //   state.setSelectedValue(value);
-                    // },
+                    onSelected: (value, ind, isSelected) {
+                      state.setSelectedValue(value);
+                    },
                     buttons: const [
                       "Certification Program",
                       "Diploma Program",
@@ -74,34 +74,33 @@ class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,
                     ),
                   ),
                   SizedBox(height: 95.h),
-                  BlocListener<ApplicationFormDataCubit,
-                      ApplicationFormDataState>(
-                    listener: (context, formDataState) {
-                      if (formDataState is ApplicationFormDataLoading) {
-                        WidgetHelper.showProgress(text: 'Processing');
-                      }
-                      if (formDataState is ApplicationFormDataLoaded) {
-                        WidgetHelper.hideProgress();
-                        context.pushNamed(RouteConstants.applicationForm);
-                      }
-                      if (formDataState is ApplicationFormDataFailure) {
-                        WidgetHelper.hideProgress();
-                        WidgetHelper.showToastError(
-                          context,
-                          formDataState.message,
-                        );
-                      }
-                    },
-                    child: ElevatedButtonWidget(
-                        title: "Proceed",
-                        onTap: () {
-                          context
-                              .read<CountryCubit>()
-                              .loadCountiresFromServer();
-                          // context.pushNamed(RouteConstants.applicationForm);
-                          state.getFormDataForSelectedProgram();
-                        }),
-                  ),
+                  // BlocListener<ApplicationFormDataCubit,
+                  //     ApplicationFormDataState>(
+                  //   listener: (context, formDataState) {
+                  //     if (formDataState is ApplicationFormDataLoading) {
+                  //       WidgetHelper.showProgress(text: 'Processing');
+                  //     }
+                  //     if (formDataState is ApplicationFormDataLoaded) {
+                  //       WidgetHelper.hideProgress();
+                  //       context.pushNamed(RouteConstants.applicationForm);
+                  //     }
+                  //     if (formDataState is ApplicationFormDataFailure) {
+                  //       WidgetHelper.hideProgress();
+                  //       WidgetHelper.showToastError(
+                  //         context,
+                  //         formDataState.message,
+                  //       );
+                  //     }
+                  //   },
+                  // child:
+                  ElevatedButtonWidget(
+                      title: "Proceed",
+                      onTap: () {
+                        state.getFormDataForSelectedProgram();
+                        // context.read<CountryCubit>().loadCountiresFromServer();
+                        // context.pushNamed(RouteConstants.applicationForm);
+                      }),
+                  //  ),
                 ],
               ),
             ),

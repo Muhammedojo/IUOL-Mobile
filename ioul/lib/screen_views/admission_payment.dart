@@ -77,7 +77,7 @@ class AdmissionPaymentView
                         ? NavigatorHelper(context)
                             .pushNamedScreen(RouteConstants.scratchCard)
                         :
-                        //  Navigator.push(
+                        // Navigator.push(
                         //     context,
                         //     MaterialPageRoute(
                         //         builder: (context) =>

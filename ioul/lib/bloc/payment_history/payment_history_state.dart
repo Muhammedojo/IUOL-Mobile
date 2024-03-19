@@ -1,3 +1,6 @@
+import 'package:ioul/screens/screens.dart';
+
+import '../../model/model.dart';
 import '../../packages/package.dart';
 
 abstract class PaymentHistoryState extends Equatable {
@@ -18,10 +21,11 @@ class PaymentHistoryLoading extends PaymentHistoryState {
 }
 
 class PaymentHistoryLoaded extends PaymentHistoryState {
-  const PaymentHistoryLoaded();
+  final List<PaymentsHistory> paymentHistoryList;
+  const PaymentHistoryLoaded(this.paymentHistoryList);
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [paymentHistoryList];
 }
 
 class PaymentHistoryFailure extends PaymentHistoryState {

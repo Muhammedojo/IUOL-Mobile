@@ -95,7 +95,7 @@ class LoginController extends State<Login> {
       if (!mounted) return;
       if (loginResponse.isConnectionSuccessful()) {
         AppPrefs().saveTokenToPrefs(loginResponse);
-        loginResponse.user!.hasApplication == false
+        loginResponse.user!.hasApplication == true
             ? NavigatorHelper(context)
                 .goNamedScreen(RouteConstants.admissionPayment)
             : NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);

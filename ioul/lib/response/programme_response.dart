@@ -13,6 +13,7 @@ class ProgrammeResponse {
   List<String>? certificates;
   List<String>? examinations;
   List<String>? referralTypes;
+  List<String>? programmes;
   int? statusCode;
   String? message;
 
@@ -29,6 +30,7 @@ class ProgrammeResponse {
     this.religions,
     this.sponsors,
     this.underGraduateQualifications,
+    this.programmes,
     this.statusCode,
     this.message,
   });
@@ -81,6 +83,12 @@ class ProgrammeResponse {
     for (var item in json['data']['formOptions']['referralTypes'].values) {
       referralTypesData.add(item);
     }
+    List<String> programmesData = [];
+    if (json['data']['formOptions']['programmes'].values != '') {
+      for (var item in json['data']['formOptions']['programmes'].values) {
+        programmesData.add(item);
+      }
+    }
     return ProgrammeResponse(
       user: json['user'],
       genders: newGender,
@@ -94,6 +102,7 @@ class ProgrammeResponse {
       certificates: certificatesData,
       examinations: examinationsData,
       referralTypes: referralTypesData,
+      programmes: programmesData,
     );
   }
 }

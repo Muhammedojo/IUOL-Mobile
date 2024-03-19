@@ -13,6 +13,7 @@ import 'package:ioul/utils/utils.dart';
 import 'package:ioul/values/styles.dart';
 import '../bloc/bloc.dart';
 import '../components/custom_dropdown_widget.dart';
+import '../packages/package.dart';
 import '../screens_controllers/personal_controller.dart';
 import '../values/colors.dart';
 import 'stateless_view.dart';
@@ -56,7 +57,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                     ),
                     SizedBox(height: 10.w),
                     TextFieldWidget(
-                      hint: "Sulaiman",
+                      hint: "Ojo",
                       controller: state.firstNameController,
                       onValidate: ValidationBuilder().required().build(),
                     ),
@@ -74,7 +75,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                     ),
                     SizedBox(height: 10.w),
                     TextFieldWidget(
-                      hint: "Idris",
+                      hint: "Muhammad",
                       controller: state.surnameController,
                       onValidate: ValidationBuilder().required().build(),
                     ),
@@ -110,7 +111,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                     ),
                     SizedBox(height: 10.w),
                     TextFieldWidget(
-                      hint: "spythonian@gmail.com",
+                      hint: "s******@gmail.com",
                       controller: state.emailController,
                       onValidate: ValidationBuilder().required().build(),
                       keyboardType: TextInputType.emailAddress,
@@ -178,7 +179,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       disableLengthCheck: false,
                       pickerDialogStyle: PickerDialogStyle(
                           backgroundColor: AppColors.primary,
-                          searchFieldInputDecoration: InputDecoration(),
+                          searchFieldInputDecoration: const InputDecoration(),
                           countryNameStyle: const TextStyle(
                             color: AppColors.lightGrey,
                           )),
@@ -423,8 +424,6 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                               dropdownList: const [
                                 'Permanent Voters Card',
                                 'NIN',
-                                'International Passport',
-                                "Driver's License",
                               ],
                               controller: state.nationalIdTypeController,
                               onChange: (value) =>

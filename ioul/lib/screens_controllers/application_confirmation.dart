@@ -3,7 +3,7 @@ import 'package:ioul/packages/package.dart';
 
 import '../bloc/application_form_data/application_form_data_cubit.dart';
 import '../helpers/helper.dart';
-import 'package:flutter/material.dart';
+import '../router/router.dart';
 import '../screen_views/application_confirmation.dart';
 
 class ApplicationConfirmation extends StatefulWidget {
@@ -23,9 +23,9 @@ class ApplicationConfirmationController extends State<ApplicationConfirmation> {
 
   final TextEditingController dropdownController = TextEditingController();
 
-  setSelectedValue(String value) {
+  setSelectedValue(String? value) {
     setState(() {
-      selectedValue = value;
+      selectedValue = value!;
     });
   }
 
@@ -48,9 +48,10 @@ class ApplicationConfirmationController extends State<ApplicationConfirmation> {
   }
 
   void getFormDataForSelectedProgram() async {
+    context.pushNamed(RouteConstants.applicationForm);
     var program = ApplicationFormData();
 
-    program.programme = "Diploma Program";
+    program.programme = 'degree';
     //selectedValue;
 
     context.read<ApplicationFormDataCubit>().pushProgramToServer(program);

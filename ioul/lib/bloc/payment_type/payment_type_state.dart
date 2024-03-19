@@ -1,3 +1,5 @@
+import 'package:ioul/response/response.dart';
+
 import '../../model/model.dart';
 import '../../packages/package.dart';
 
@@ -19,7 +21,7 @@ class PaymentTypeLoading extends PaymentTypeState {
 }
 
 class PaymentTypeLoaded extends PaymentTypeState {
-  final Register registerStudent;
+  final GenericResponse registerStudent;
   const PaymentTypeLoaded(this.registerStudent);
 
   @override

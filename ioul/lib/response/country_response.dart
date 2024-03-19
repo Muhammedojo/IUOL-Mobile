@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 class CountryData {
   String? id;
   String? name;

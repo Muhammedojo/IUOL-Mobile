@@ -70,11 +70,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                             ),
                           ),
                           InkWell(
-                            onTap: () {
-                              NavigatorHelper(context).pushNamedScreen(
-                                RouteConstants.notification,
-                              );
-                            },
+                            onTap: () => state.notificationPage(),
                             child: SvgPicture.asset('assets/images/bell.svg',
                                 fit: BoxFit.scaleDown),
                           )
@@ -82,7 +78,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                       ),
                       SizedBox(height: 16.h),
                       Text(
-                        'Hi, Sulaimon Adili',
+                        'Hi Muhammad',
                         style: TextStyle(
                             fontSize: 24.sp,
                             fontWeight: FontWeight.w700,

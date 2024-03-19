@@ -18,13 +18,14 @@ class CoursesLoading extends CoursesState {
 }
 
 class CoursesLoaded extends CoursesState {
-  //final GenericResponse countryResponse;
+  // final GenericResponse courseList;
   const CoursesLoaded(
-      // this.countryResponse
+      //this.courseList
       );
 
   @override
   List<Object> get props => [];
+  // courseList];
 }
 
 class CoursesFailure extends CoursesState {

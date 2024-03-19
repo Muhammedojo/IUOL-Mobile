@@ -1,19 +1,14 @@
+import '../model/model.dart';
 import '../packages/package.dart';
 
 class PaymentHistoryWidget extends StatelessWidget {
-  final String? amount;
-  final String? title;
-  final String? time;
-  final String? status;
+  final PaymentsHistory paymentHistory;
   final Function()? onTap;
 
   const PaymentHistoryWidget({
     Key? key,
-    required this.title,
-    required this.amount,
-    required this.time,
-    required this.status,
     required this.onTap,
+    required this.paymentHistory,
   }) : super(key: key);
 
   @override
@@ -35,9 +30,9 @@ class PaymentHistoryWidget extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     //  'assets/images/pending_payment.svg',
-                    status == 'Completed'
+                    paymentHistory.status == 'successful'
                         ? 'assets/images/success_pay.svg'
-                        : (status == 'Pending'
+                        : (paymentHistory.status == 'pending'
                             ? 'assets/images/pending_payment.svg'
                             : 'assets/images/cancel_pay.svg'),
                     fit: BoxFit.scaleDown,
@@ -49,7 +44,7 @@ class PaymentHistoryWidget extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      '$title',
+                      '${paymentHistory.name}',
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontFamily: 'Inter',
@@ -62,7 +57,7 @@ class PaymentHistoryWidget extends StatelessWidget {
                     width: 20.w,
                   ),
                   Text(
-                    '$amount',
+                    '${paymentHistory.amount}',
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontFamily: 'Inter',
@@ -82,7 +77,7 @@ class PaymentHistoryWidget extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      '$time',
+                      '${paymentHistory.date}',
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontFamily: 'Inter',
@@ -92,14 +87,14 @@ class PaymentHistoryWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '$status',
+                    '${paymentHistory.status}',
                     style: TextStyle(
                         fontSize: 14.sp,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w500,
-                        color: status == 'Completed'
+                        color: paymentHistory.status == 'successful'
                             ? const Color(0xff23C16B)
-                            : (status == 'Pending'
+                            : (paymentHistory.status == 'pending'
                                 ? const Color(0xffFFB323)
                                 : const Color(0xffFF5247))),
                   ),

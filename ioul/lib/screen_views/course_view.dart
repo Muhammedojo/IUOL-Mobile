@@ -37,7 +37,7 @@ class CourseView extends StatelessView<Course, CourseController> {
 
   Widget _body(context) {
     return Column(mainAxisSize: MainAxisSize.min, children: [
-       Column(
+      const Column(
         mainAxisSize: MainAxisSize.min,
         children: [],
       ),
