@@ -161,6 +161,10 @@ class SemesterRegistrationView extends StatelessView<SemesterRegistration,
                     ],
                   )
                 : const SizedBox.shrink(),
+            SizedBox(
+              height: 48.h,
+            ),
+            ElevatedButtonWidget(onTap: () {}, title: "Submit"),
           ],
         ),
       ),
