@@ -26,7 +26,13 @@ class AppRepository {
   Future<CountryResponse> loadCountries() async =>
       _apiProvider.getCountryList();
 
+  Future<GenericResponse> loadSemesterFormData() async =>
+      _apiProvider.getSemesterFormData();
+
   Future<GenericResponse> loadCourses() async => _apiProvider.getCoursesList();
+  Future<GenericResponse> initializeCourseReg() async =>
+      _apiProvider.initializeCourseReg();
+
   Future<GenericResponse> loadCourseDetails() async =>
       _apiProvider.getCourseDetails();
 

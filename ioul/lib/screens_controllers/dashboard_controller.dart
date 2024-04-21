@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
+import '../model/user.dart';
 import '../screen_views/dashboard_view.dart';
 import '../helpers/helper.dart';
 import '../screens/screens.dart';
 
 class Dashboard extends StatefulWidget {
-  // static const routeName = Strings.SCREEN_BLANK;
-  //final UserData user;
+  final UserData user;
 
   const Dashboard({
     Key? key,
+    required this.user,
   }) : super(key: key);
 
   @override

@@ -27,6 +27,9 @@ class IOULApp extends StatelessWidget {
           BlocProvider<VerifyEmailCubit>(
             create: (BuildContext context) => VerifyEmailCubit(),
           ),
+          BlocProvider<CoursesCubit>(
+            create: (BuildContext context) => CoursesCubit(),
+          ),
           BlocProvider<ResendEmailVerificationCubit>(
             create: (BuildContext context) => ResendEmailVerificationCubit(),
           ),
@@ -65,14 +68,7 @@ class IOULApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 routerConfig: AppRouter.router,
                 title: 'IOUL',
-                theme:
-                    // ThemeData(
-                    //   fontFamily: 'Inter',
-                    //   primarySwatch: Colors.blue,
-                    //   textTheme:
-                    //       Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-                    // ),
-                    CustomTheme.lightThemeData(context),
+                theme: CustomTheme.lightThemeData(context),
                 darkTheme: CustomTheme.darkThemeData(),
                 themeMode: ThemeMode.system,
               );

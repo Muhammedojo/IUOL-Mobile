@@ -96,9 +96,14 @@ class LoginController extends State<Login> {
       if (loginResponse.isConnectionSuccessful()) {
         AppPrefs().saveTokenToPrefs(loginResponse);
         loginResponse.user!.hasApplication == true
-            ? NavigatorHelper(context)
-                .goNamedScreen(RouteConstants.admissionPayment)
-            : NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
+            ?
+            // NavigatorHelper(context)
+            //     .goNamedScreen(RouteConstants.admissionPayment, null)
+            context.goNamed(RouteConstants.admissionPayment)
+            : context.goNamed(RouteConstants.dashboard,
+                extra: loginResponse.user);
+        // NavigatorHelper(context)
+        //     .goNamedScreen(RouteConstants.dashboard, loginResponse.user);
       } else {
         WidgetHelper.showToastError(context, ('${loginResponse.message}'));
         return;

@@ -17,9 +17,5 @@ class CountryCubit extends Cubit<CountryState> {
       // log("response error body: ${response.responseMessage}");
       emit(CountryFailure(message: response.message ?? ""));
     }
-    // }
-    // catch (e) {
-    //   debugPrint("problem sending request: ${e.toString()}");
-    // }
   }
 }

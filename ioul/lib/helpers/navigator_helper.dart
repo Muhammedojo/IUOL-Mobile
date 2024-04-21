@@ -15,8 +15,8 @@ class NavigatorHelper {
     GoRouter.of(context).pushNamed(path);
   }
 
-  goNamedScreen(String path) {
-    return GoRouter.of(context).goNamed(path);
+  goNamedScreen(String path, Object? extra) {
+    return GoRouter.of(context).goNamed(path, extra: extra);
   }
 
   normalNavigation(Widget destination) {

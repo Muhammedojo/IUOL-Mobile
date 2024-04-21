@@ -20,4 +20,19 @@ class CourseRegCubit extends Cubit<CourseRegState> {
       debugPrint("problem sending request: ${e.toString()}");
     }
   }
+
+  initCourseRegistration() async {
+    try {
+      emit(CourseRegLoading());
+      final response = await repository.initializeCourseReg();
+      if (response.isConnectionSuccessful()) {
+        emit(const CourseRegLoaded());
+      } else {
+        log("response error body: ${response.responseMessage}");
+        emit(CourseRegFailure(message: response.responseMessage));
+      }
+    } catch (e) {
+      debugPrint("problem sending request: ${e.toString()}");
+    }
+  }
 }

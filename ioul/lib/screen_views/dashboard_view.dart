@@ -47,9 +47,11 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                         children: [
                           InkWell(
                             onTap: () {
-                              NavigatorHelper(context).pushNamedScreen(
-                                RouteConstants.userProfile,
-                              );
+                              // NavigatorHelper(context).pushNamedScreen(
+                              //   RouteConstants.userProfile,
+                              // );
+                              context.pushNamed(RouteConstants.userProfile,
+                                  extra: widget.user);
                             },
                             child: ClipOval(
                               child: Image.network(
@@ -78,7 +80,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                       ),
                       SizedBox(height: 16.h),
                       Text(
-                        'Hi Muhammad',
+                        'Hi ${widget.user.name ?? ''}',
                         style: TextStyle(
                             fontSize: 24.sp,
                             fontWeight: FontWeight.w700,

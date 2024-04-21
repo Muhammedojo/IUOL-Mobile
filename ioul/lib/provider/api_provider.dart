@@ -309,6 +309,33 @@ class ApiProvider {
     }
   }
 
+  Future<GenericResponse> getSemesterFormData({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(semesterFormData);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
   Future<GenericResponse> getCourseDetails({String? endpoint}) async {
     int? statusCode;
     try {
@@ -421,6 +448,33 @@ class ApiProvider {
     int? statusCode;
     try {
       Response response = await doGetRequest(coursesEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> initializeCourseReg({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(registerCourse);
       statusCode = response.statusCode;
       //print("state response: ${response.toString()}");
 
@@ -693,14 +747,14 @@ Future<Response> postFormData(
       maxWidth: 90));
   dio.options.connectTimeout = const Duration(minutes: 5); //30s
   dio.options.receiveTimeout = const Duration(minutes: 5); // 2 min
-  const int UNAUTHORIZED_STATUS_CODE = 401;
+  const int unauthorizedStatusCode = 401;
   Response response =
       Response(requestOptions: RequestOptions(method: "post", path: endPoint));
   try {
     response = await dio.post(endPoint,
         data: formData, options: Options(headers: header));
   } on DioException catch (e) {
-    if (e.toString().contains('$UNAUTHORIZED_STATUS_CODE')) {
+    if (e.toString().contains('$unauthorizedStatusCode')) {
       response.statusCode = 401;
     } else {
       response.statusMessage =
@@ -791,7 +845,7 @@ _handleDioError(DioException error) {
       break;
     case DioExceptionType.unknown:
       errorDescription =
-          "Something went wrong and your request could not be completed.";
+          "Connection to server failed due to internet connection.";
       break;
   }
   return errorDescription;

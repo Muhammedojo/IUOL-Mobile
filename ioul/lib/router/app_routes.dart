@@ -8,6 +8,7 @@ import 'package:ioul/screens_controllers/scratch_card.dart';
 import 'package:ioul/screens_controllers/sponsor_controller.dart';
 import 'package:ioul/screens_controllers/upload_controller.dart';
 
+import '../model/user.dart';
 import '../packages/package.dart';
 import '../utils/global_variables.dart';
 
@@ -141,8 +142,10 @@ class AppRouter {
               GoRoute(
                 path: '/${RouteConstants.dashboard}',
                 name: RouteConstants.dashboard,
-                pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Dashboard(),
+                pageBuilder: (context, state) => NoTransitionPage(
+                  child: Dashboard(
+                    user: state.extra as UserData,
+                  ),
                 ),
                 routes: [
                   GoRoute(
@@ -153,7 +156,9 @@ class AppRouter {
                   GoRoute(
                     path: RouteConstants.userProfile,
                     name: RouteConstants.userProfile,
-                    builder: (context, state) => const UserProfile(),
+                    builder: (context, state) => UserProfile(
+                      user: state.extra as UserData,
+                    ),
                   ),
                 ],
               ),

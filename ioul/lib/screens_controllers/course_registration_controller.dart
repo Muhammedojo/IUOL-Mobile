@@ -1,5 +1,8 @@
+import 'package:ioul/packages/package.dart';
+
+import '../bloc/bloc.dart';
 import '../screen_views/course_registration_view.dart';
-import 'package:flutter/material.dart';
+
 import '../helpers/helper.dart';
 
 class CourseRegistration extends StatefulWidget {
@@ -12,17 +15,18 @@ class CourseRegistration extends StatefulWidget {
 }
 
 class CourseRegistrationController extends State<CourseRegistration> {
-
   //... //Initialization code, state vars etc, all go here
-
+  late final CourseRegCubit initCourseRegCubit;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
+    initCourseRegCubit = context.read<CourseRegCubit>();
+    initCourseRegCubit.initCourseRegistration();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -30,8 +34,7 @@ class CourseRegistrationController extends State<CourseRegistration> {
   Widget build(BuildContext context) => CourseRegistrationView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }
