@@ -78,6 +78,7 @@ class UploadController extends State<Upload>
       if (pickedFile.path.isNotEmpty) {
         final file = File(pickedFile.path);
         final fileSize = await file.length();
+        if (!mounted) return;
         if (fileSize <= 1048576) {
           // 1 MB in bytes
           setState(() {
@@ -100,6 +101,7 @@ class UploadController extends State<Upload>
       if (pickedFile.path.isNotEmpty) {
         final file = File(pickedFile.path);
         final fileSize = await file.length();
+        if (!mounted) return;
         if (fileSize <= 1048576) {
           // 1 MB in bytes
           setState(() {

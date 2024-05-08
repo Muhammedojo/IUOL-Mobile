@@ -1,3 +1,4 @@
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../components/components.dart';
@@ -45,32 +46,43 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          InkWell(
-                            onTap: () {
-                              // NavigatorHelper(context).pushNamedScreen(
-                              //   RouteConstants.userProfile,
-                              // );
-                              context.pushNamed(RouteConstants.userProfile,
-                                  extra: widget.user);
-                            },
-                            child: ClipOval(
-                              child: Image.network(
-                                'https://www.essence.com/wp-content/uploads/2020/12/GettyImages-957598612-scaled.jpg',
-                                fit: BoxFit.cover,
-                                height: 54.w,
-                                width: 54.w,
-                                errorBuilder: (BuildContext context,
-                                    Object exception, StackTrace? stackTrace) {
-                                  return Image.asset(
-                                    'assets/images/iconic_logo.png',
-                                    width: 54.w,
-                                    height: 54.w,
-                                    fit: BoxFit.cover,
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
+                          BlocBuilder<UserCubit, UserState>(
+                              builder: (context, stateBloc) {
+                            if (stateBloc is UserLoaded) {
+                              return InkWell(
+                                  onTap: () {
+                                    context.pushNamed(
+                                      RouteConstants.userProfile,
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.blue,
+                                    ),
+                                    child: Center(
+                                        child: Text(
+                                      state.extractLetters(
+                                          '${stateBloc.login.fullName()}'),
+                                      style: TextStyle(
+                                          fontSize: 24.sp,
+                                          fontWeight: FontWeight.w700,
+                                          fontFamily: 'Inter',
+                                          color: const Color(0xffffffff)),
+                                    )),
+                                  ));
+                            }
+                            return Text(
+                              '',
+                              style: TextStyle(
+                                  fontSize: 24.sp,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: 'Inter',
+                                  color: const Color(0xffffffff)),
+                            );
+                          }),
                           InkWell(
                             onTap: () => state.notificationPage(),
                             child: SvgPicture.asset('assets/images/bell.svg',
@@ -79,14 +91,27 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                         ],
                       ),
                       SizedBox(height: 16.h),
-                      Text(
-                        'Hi ${widget.user.name ?? ''}',
-                        style: TextStyle(
-                            fontSize: 24.sp,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: 'Inter',
-                            color: const Color(0xffffffff)),
-                      ),
+                      BlocBuilder<UserCubit, UserState>(
+                          builder: (context, stateBloc) {
+                        if (stateBloc is UserLoaded) {
+                          return Text(
+                            'Hi ${stateBloc.login.fullName() ?? ''}',
+                            style: TextStyle(
+                                fontSize: 24.sp,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'Inter',
+                                color: const Color(0xffffffff)),
+                          );
+                        }
+                        return Text(
+                          '',
+                          style: TextStyle(
+                              fontSize: 24.sp,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'Inter',
+                              color: const Color(0xffffffff)),
+                        );
+                      }),
                       Text(
                         '200 level, Department of Electrical Engineering',
                         style: TextStyle(

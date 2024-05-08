@@ -656,7 +656,7 @@ Future<Map<String, String>> _getTokenHeader() async {
   var header = <String, String>{};
   header["Content-Type"] = "application/json";
   String? token = await getToken();
-  // print("Token value here : $token");
+  print("Token value here : $token");
 
   if (token.isNotEmpty) {
     header["Authorization"] = "Bearer $token";

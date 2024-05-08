@@ -1,3 +1,4 @@
+import '../utils/global_states.dart';
 import 'user.dart';
 
 class Login {
@@ -12,6 +13,8 @@ class Login {
   bool isConnectionSuccessful() => statusCode == 200;
   bool isRequestSuccessful() => responseCode == "100";
   bool isValidationError() => message == "Invalid Credentials";
+
+  String? fullName() => user!.name;
 
   Login(
       {this.success,

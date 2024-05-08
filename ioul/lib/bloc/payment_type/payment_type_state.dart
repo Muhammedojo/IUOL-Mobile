@@ -1,6 +1,5 @@
 import 'package:ioul/response/response.dart';
 
-import '../../model/model.dart';
 import '../../packages/package.dart';
 
 abstract class PaymentTypeState extends Equatable {

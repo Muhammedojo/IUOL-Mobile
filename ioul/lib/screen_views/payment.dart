@@ -1,9 +1,15 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterwave_standard/flutterwave.dart';
+import 'package:form_validator/form_validator.dart';
 import 'package:uuid/uuid.dart';
 
+import '../components/components.dart';
+import '../helpers/helper.dart';
+import '../packages/package.dart';
+import '../provider/endpoints.dart';
 import '../values/values.dart';
 
 class Payments extends StatefulWidget {
@@ -35,10 +41,9 @@ class _PaymentsState extends State<Payments> {
 
     return Scaffold(
       backgroundColor: AppColors.backgroundWhite,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(widget.title),
-      ),
+      appBar: WidgetHelper().appBackArrowWithTitle(context,
+          title: widget.title, onTap: () => onBackPressed()),
+
       body: Container(
         width: double.infinity,
         margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
@@ -48,28 +53,53 @@ class _PaymentsState extends State<Payments> {
             children: <Widget>[
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                child: TextFormField(
+                child: TextFieldWidget(
+                  hint: "Amount",
+                  title: 'Amount',
                   controller: amountController,
                   textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.number,
-                  style: const TextStyle(color: Colors.black),
-                  decoration: const InputDecoration(hintText: "Amount"),
-                  validator: (value) => value != null && value.isNotEmpty
-                      ? null
-                      : "Amount is required",
+                  onValidate: ValidationBuilder().required().build(),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+                // TextFieldWidget(
+                //   hint: "Email",
+                //   controller: emailController,
+                //   onValidate: ValidationBuilder().required().build(),
+                // ),
                 child: TextFormField(
                   controller: currencyController,
                   textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    contentPadding: REdgeInsets.all(16),
+                    fillColor: AppColors.backgroundWhite,
+                    filled: true,
+                    labelText: 'Currency',
+                    hintText: 'Currency',
+                    hintStyle: Styles.x12dp_72777A_400w(),
+                    labelStyle: Styles.x12dp_72777A_400w(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: AppColors.inkLight),
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: AppColors.inkLighter),
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.red),
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.red),
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                  ),
                   style: const TextStyle(color: Colors.black),
                   readOnly: true,
                   onTap: _openBottomSheet,
-                  decoration: const InputDecoration(
-                    hintText: "Currency",
-                  ),
                   validator: (value) => value != null && value.isNotEmpty
                       ? null
                       : "Currency is required",
@@ -77,79 +107,28 @@ class _PaymentsState extends State<Payments> {
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                child: TextFormField(
-                  controller: publicKeyController,
-                  textInputAction: TextInputAction.next,
-                  style: const TextStyle(color: Colors.black),
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    hintText: "Public Key",
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                child: TextFormField(
-                  controller: encryptionKeyController,
-                  textInputAction: TextInputAction.next,
-                  style: const TextStyle(color: Colors.black),
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    hintText: "Encryption Key",
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                child: TextFormField(
+                child: TextFieldWidget(
+                  hint: "Email",
+                  title: 'Email',
                   controller: emailController,
-                  textInputAction: TextInputAction.next,
-                  style: const TextStyle(color: Colors.black),
-                  decoration: const InputDecoration(
-                    hintText: "Email",
-                  ),
+                  onValidate: ValidationBuilder().required().build(),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                child: TextFormField(
+                child: TextFieldWidget(
+                  hint: "Phone Number",
+                  title: 'Phone Number',
                   controller: phoneNumberController,
-                  textInputAction: TextInputAction.next,
-                  style: const TextStyle(color: Colors.black),
-                  decoration: const InputDecoration(
-                    hintText: "Phone Number",
-                  ),
+                  onValidate: ValidationBuilder().required().build(),
                 ),
               ),
-              Container(
-                width: double.infinity,
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                child: Row(
-                  children: [
-                    const Text("Use Debug"),
-                    Switch(
-                      onChanged: (value) => {
-                        setState(() {
-                          isTestMode = value;
-                        })
-                      },
-                      value: isTestMode,
-                    ),
-                  ],
-                ),
+              SizedBox(height: 90.h),
+              SubmitButtonWidget(
+                label: 'Proceed to Payment',
+                onPressed: _onPressed,
+                color: const Color(0xff25435B),
               ),
-              Container(
-                width: double.infinity,
-                height: 50,
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                child: ElevatedButton(
-                  onPressed: _onPressed,
-                  child: const Text(
-                    "Make Payment",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              )
             ],
           ),
         ),
@@ -162,6 +141,10 @@ class _PaymentsState extends State<Payments> {
     if (currentState != null && currentState.validate()) {
       handlePaymentInitialization();
     }
+  }
+
+  onBackPressed() {
+    NavigatorHelper(context).closeScreen();
   }
 
   handlePaymentInitialization() async {
@@ -179,7 +162,8 @@ class _PaymentsState extends State<Payments> {
         customer: customer,
         paymentOptions: "card, payattitude, barter, bank transfer, ussd",
         customization: Customization(title: "Test Payment"),
-        isTestMode: isTestMode);
+        isTestMode: kDebugMode || !liveServer ? isTestMode : !isTestMode);
+
     final ChargeResponse response = await flutterwave.charge();
     showLoading(response.toString());
     // print("${response.toJson()}");
@@ -200,8 +184,8 @@ class _PaymentsState extends State<Payments> {
   Widget _getCurrency() {
     final currencies = [
       "NGN",
-      "RWF",
-      "UGX",
+      "USD",
+      "GBP",
       "KES",
     ];
     return Container(

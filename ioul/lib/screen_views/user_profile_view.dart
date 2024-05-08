@@ -1,4 +1,5 @@
 import 'package:ioul/packages/package.dart';
+import '../bloc/bloc.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/user_profile_controller.dart';
@@ -20,30 +21,6 @@ class UserProfileView
             child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () => state.onBackPressed(),
-                child: Container(
-                  width: 36.w,
-                  height: 36.h,
-                  constraints: BoxConstraints(maxHeight: 36.h, maxWidth: 36.w),
-                  margin: REdgeInsets.only(top: 8),
-                  decoration: const BoxDecoration(
-                    color: Color(0xff25435B),
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
         SizedBox(
           height: 15.h,
         ),
@@ -53,24 +30,36 @@ class UserProfileView
             children: [
               Row(
                 children: [
-                  const ClipOval(
-                    // child: Image.network(
-                    //   'https://www.essence.com/wp-content/uploads/2020/12/GettyImages-957598612-scaled.jpg',
-                    //   fit: BoxFit.cover,
-                    //   height: 64.w,
-                    //   width: 64.w,
-                    //   errorBuilder: (BuildContext context, Object exception,
-                    //       StackTrace? stackTrace) {
-                    //     return Image.asset(
-                    //       'assets/images/iconic_logo.png',
-                    //       width: 64.w,
-                    //       height: 64.w,
-                    //       fit: BoxFit.cover,
-                    //     );
-                    //   },
-                    // ),
-                    child: Icon(Icons.person_3_outlined),
-                  ),
+                  BlocBuilder<UserCubit, UserState>(
+                      builder: (context, stateBloc) {
+                    if (stateBloc is UserLoaded) {
+                      return Container(
+                        width: 50,
+                        height: 50,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.blue,
+                        ),
+                        child: Center(
+                            child: Text(
+                          state.extractLetters('${stateBloc.login.fullName()}'),
+                          style: TextStyle(
+                              fontSize: 24.sp,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'Inter',
+                              color: const Color(0xffffffff)),
+                        )),
+                      );
+                    }
+                    return Text(
+                      '',
+                      style: TextStyle(
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'Inter',
+                          color: const Color(0xffffffff)),
+                    );
+                  }),
                   SizedBox(
                     width: 16.w,
                   ),
@@ -78,22 +67,40 @@ class UserProfileView
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        '${widget.user.name}',
-                        style: TextStyle(
-                            fontSize: 24.sp,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: 'Inter',
-                            color: const Color(0xff090A0A)),
-                      ),
-                      Text(
-                        '${widget.user.email}',
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
-                            color: const Color(0xff090A0A)),
-                      )
+                      BlocBuilder<UserCubit, UserState>(
+                          builder: (context, stateBloc) {
+                        if (stateBloc is UserLoaded) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${stateBloc.login.fullName()}',
+                                style: TextStyle(
+                                    fontSize: 24.sp,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: 'Inter',
+                                    color: Colors.blue),
+                              ),
+                              Text(
+                                '${stateBloc.login.user?.email}',
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Inter',
+                                    color: Colors.blue),
+                              )
+                            ],
+                          );
+                        }
+                        return Text(
+                          '',
+                          style: TextStyle(
+                              fontSize: 24.sp,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'Inter',
+                              color: const Color(0xffffffff)),
+                        );
+                      }),
                     ],
                   )
                 ],
@@ -115,7 +122,7 @@ class UserProfileView
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'View Profile',
+                              'Edit Profile',
                               style: TextStyle(
                                   fontSize: 16.sp,
                                   fontFamily: 'Inter',
@@ -197,25 +204,6 @@ class UserProfileView
                     ],
                   ),
                 ),
-                Padding(
-                  padding: REdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset('assets/images/card.svg'),
-                      SizedBox(
-                        width: 12.w,
-                      ),
-                      Text(
-                        'Course Registration',
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
-                            color: const Color(0xff404446)),
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
           ),
@@ -258,7 +246,7 @@ class UserProfileView
                         width: 12.w,
                       ),
                       Text(
-                        'Course Registration',
+                        'Exam Registration',
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
@@ -277,64 +265,7 @@ class UserProfileView
                         width: 12.w,
                       ),
                       Text(
-                        'Course Registration',
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
-                            color: const Color(0xff404446)),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: REdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset('assets/images/card.svg'),
-                      SizedBox(
-                        width: 12.w,
-                      ),
-                      Text(
-                        'Course Registration',
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
-                            color: const Color(0xff404446)),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: REdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset('assets/images/card.svg'),
-                      SizedBox(
-                        width: 12.w,
-                      ),
-                      Text(
-                        'Course Registration',
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
-                            color: const Color(0xff404446)),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: REdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset('assets/images/card.svg'),
-                      SizedBox(
-                        width: 12.w,
-                      ),
-                      Text(
-                        'Course Registration',
+                        'Exam Registration',
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
@@ -386,7 +317,7 @@ class UserProfileView
                         width: 12.w,
                       ),
                       Text(
-                        'Course Registration',
+                        'Tuition Payment',
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
@@ -405,7 +336,7 @@ class UserProfileView
                         width: 12.w,
                       ),
                       Text(
-                        'Course Registration',
+                        'Semester Reg Payment',
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
@@ -424,7 +355,7 @@ class UserProfileView
                         width: 12.w,
                       ),
                       Text(
-                        'Course Registration',
+                        'Course Reg Payment',
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,

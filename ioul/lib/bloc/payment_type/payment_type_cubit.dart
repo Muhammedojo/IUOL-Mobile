@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import '../../model/model.dart';
 import '../../packages/package.dart';
 import '../../utils/global_states.dart';
 import 'cubit.dart';

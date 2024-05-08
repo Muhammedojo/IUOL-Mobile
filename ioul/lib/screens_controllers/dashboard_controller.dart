@@ -1,15 +1,13 @@
 import 'package:flutter/cupertino.dart';
-import '../model/user.dart';
+import 'package:ioul/packages/package.dart';
+import '../bloc/user/user_cubit.dart';
 import '../screen_views/dashboard_view.dart';
 import '../helpers/helper.dart';
 import '../screens/screens.dart';
 
 class Dashboard extends StatefulWidget {
-  final UserData user;
-
   const Dashboard({
     Key? key,
-    required this.user,
   }) : super(key: key);
 
   @override
@@ -18,9 +16,12 @@ class Dashboard extends StatefulWidget {
 
 class DashboardController extends State<Dashboard> {
   //... //Initialization code, state vars etc, all go here
+  late final UserCubit userCubit;
 
   @override
   void initState() {
+    userCubit = context.read<UserCubit>();
+    userCubit.loadUser();
     super.initState();
   }
 
@@ -35,6 +36,20 @@ class DashboardController extends State<Dashboard> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  String extractLetters(String input) {
+    if (input.isEmpty) {
+      return '';
+    }
+
+    final firstSpaceIndex = input.indexOf(' ');
+
+    if (firstSpaceIndex == -1 || firstSpaceIndex == input.length - 1) {
+      return input.substring(0, 1);
+    }
+
+    return input.substring(0, 1) + input[firstSpaceIndex + 1];
   }
 
   notificationPage() {

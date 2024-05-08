@@ -15,8 +15,8 @@ class NotificationView
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
-        appBar: WidgetHelper()
-            .appBackArrowWithTitle(context, title: 'Notification'),
+        appBar: WidgetHelper().appBackArrowWithTitle(context,
+            title: 'Notification', onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body()));
   }
 

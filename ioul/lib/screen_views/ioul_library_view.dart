@@ -16,8 +16,8 @@ class IOULLibraryView
     return Scaffold(
       backgroundColor: AppColors.backgroundWhite,
       body: WidgetWrapper(child: _body()),
-      appBar:
-          WidgetHelper().appBackArrowWithTitle(context, title: 'iOUL Library'),
+      appBar: WidgetHelper().appBackArrowWithTitle(context,
+          title: 'iOUL Library', onTap: () => state.onBackPressed()),
     );
   }
 

@@ -142,10 +142,8 @@ class AppRouter {
               GoRoute(
                 path: '/${RouteConstants.dashboard}',
                 name: RouteConstants.dashboard,
-                pageBuilder: (context, state) => NoTransitionPage(
-                  child: Dashboard(
-                    user: state.extra as UserData,
-                  ),
+                pageBuilder: (context, state) => const NoTransitionPage(
+                  child: Dashboard(),
                 ),
                 routes: [
                   GoRoute(
@@ -156,9 +154,7 @@ class AppRouter {
                   GoRoute(
                     path: RouteConstants.userProfile,
                     name: RouteConstants.userProfile,
-                    builder: (context, state) => UserProfile(
-                      user: state.extra as UserData,
-                    ),
+                    builder: (context, state) => const UserProfile(),
                   ),
                 ],
               ),

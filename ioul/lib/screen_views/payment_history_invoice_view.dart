@@ -17,8 +17,8 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
     return Scaffold(
       backgroundColor: AppColors.backgroundWhite,
       body: WidgetWrapper(child: _body()),
-      appBar: WidgetHelper()
-          .appBackArrowWithTitle(context, title: 'Payment Invoice'),
+      appBar: WidgetHelper().appBackArrowWithTitle(context,
+          title: 'Payment Invoice', onTap: () => state.onBackPressed()),
     );
   }
 

@@ -36,6 +36,12 @@ class IOULApp extends StatelessWidget {
           BlocProvider<VerifyScratchPinCubit>(
             create: (BuildContext context) => VerifyScratchPinCubit(),
           ),
+          BlocProvider<UserCubit>(
+            create: (BuildContext context) => UserCubit(),
+          ),
+          BlocProvider<CourseRegCubit>(
+            create: (BuildContext context) => CourseRegCubit(),
+          ),
           BlocProvider<SubmitApplicationCubit>(
             create: (BuildContext context) => SubmitApplicationCubit(),
           ),

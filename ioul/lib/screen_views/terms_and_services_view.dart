@@ -15,8 +15,8 @@ class TermsAndServicesView
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
-        appBar: WidgetHelper()
-            .appBackArrowWithTitle(context, title: 'Terms & Conditions'),
+        appBar: WidgetHelper().appBackArrowWithTitle(context,
+            title: 'Terms & Conditions', onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body()));
   }
 

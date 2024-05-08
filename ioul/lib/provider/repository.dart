@@ -5,9 +5,11 @@ import 'package:ioul/response/response.dart';
 
 import '../response/country_response.dart';
 import '../response/programme_response.dart';
+import 'shared_prefrence.dart';
 
 class AppRepository {
   final ApiProvider _apiProvider = ApiProvider();
+  final AppPrefs _sessionManager = AppPrefs();
 
   Future<Login> login(
           String username, String password, String deviceToken) async =>
@@ -62,6 +64,8 @@ class AppRepository {
   //Future<GenericResponse> verifyEmail(String pin, String email) async =>
   Future<EmailVerification> verifyEmail(String pin, String email) async =>
       _apiProvider.verifyEmail(pin: pin, email: email);
+
+  Future<Login> getUser() async => _sessionManager.getUser();
 
   Future<GenericResponse> verifyScratchCard(String pin) async =>
       _apiProvider.verifyScratchCard(pin: pin);

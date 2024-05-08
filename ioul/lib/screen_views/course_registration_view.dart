@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
@@ -36,9 +38,31 @@ class CourseRegistrationView
                 padding: REdgeInsets.symmetric(horizontal: 18.0),
                 child: Row(
                   children: [
-                    Text(
-                      '2023 Spring Semester Course Registration',
-                      style: Styles.x18dp_202326_700w(),
+                    GestureDetector(
+                      onTap: () => state.onBackPressed(),
+                      child: Container(
+                        width: 36.w,
+                        height: 36.h,
+                        constraints:
+                            BoxConstraints(maxHeight: 36.h, maxWidth: 36.w),
+                        margin: REdgeInsets.only(top: 8),
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.black54,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          '2023 Second Semester',
+                          style: Styles.x18dp_202326_700w(),
+                        ),
+                      ),
                     ),
                   ],
                 ),

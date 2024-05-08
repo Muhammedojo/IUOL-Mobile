@@ -30,28 +30,36 @@ class WidgetHelper {
     );
   }
 
-  AppBar appBackArrowWithTitle(BuildContext context, {required String title}) {
+  AppBar appBackArrowWithTitle(BuildContext context,
+      {required String title, required Function() onTap}) {
     return AppBar(
-      backgroundColor: Colors.transparent,
-      iconTheme: const IconThemeData(color: Colors.black),
-      elevation: 0,
-      leadingWidth: 45.w,
-      title: TextWidget(
-        text: title,
-        style: Styles.x18dp_202325_500w(),
+      leading: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: 30.w,
+          height: 30.h,
+          constraints: BoxConstraints(maxHeight: 30.h, maxWidth: 30.w),
+          margin: REdgeInsets.only(top: 8, left: 12),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+          ),
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.black54,
+          ),
+        ),
       ),
-      // centerTitle: false,
-      leading: InkWell(
-        onTap: () => NavigatorHelper(context).closeScreen(),
-        child: Row(
-          children: [
-            SizedBox(width: 24.w),
-            Icon(
-              Icons.arrow_back_ios,
-              size: 16.w,
-              color: AppColors.inkDarkest,
-            ),
-          ],
+      centerTitle: true,
+      bottom: PreferredSize(
+          preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
+      title: Text(title, style: Styles.x18dp_202326_700w()),
+      flexibleSpace: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
         ),
       ),
     );

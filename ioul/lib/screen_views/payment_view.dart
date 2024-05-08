@@ -1,4 +1,5 @@
 import '../components/custom_dropdown_widget.dart';
+import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
@@ -16,28 +17,8 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
     return Scaffold(
         backgroundColor: Colors.transparent,
         //AppColors.backgroundWhite,
-        appBar: AppBar(
-          // backgroundColor: const Color(0xff25435B),
-          centerTitle: true,
-          bottom: PreferredSize(
-              preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-          title: Text(
-            'Payment',
-            style: TextStyle(
-                fontSize: 18.sp,
-                color: AppColors.backgroundWhite,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700),
-          ),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
-            ),
-          ),
-        ),
+        appBar: WidgetHelper().appBackArrowWithTitle(context,
+            title: 'Payment', onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body(context)));
   }
 
@@ -92,7 +73,7 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                 )),
                 SizedBox(height: 90.h),
                 Padding(
-                  padding: REdgeInsets.symmetric(horizontal: 40.0),
+                  padding: REdgeInsets.symmetric(horizontal: 20.0),
                   child: SubmitButtonWidget(
                     label: 'Proceed to Payment',
                     onPressed: () {
@@ -100,7 +81,7 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                const Payments("Acceptance Fee")),
+                                Payments(state.selectedValue)),
                       );
                     },
                     color: state.selectedValue.isEmpty
