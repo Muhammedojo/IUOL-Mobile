@@ -13,6 +13,7 @@ class RouteConstants {
   static const accountVerification = "account_verification";
   static const admissionPayment = "admission_payment";
   static const scratchCard = "scratch_card";
+  static const admissionPaymentInvoice = "admission_payment_invoice";
   static const payment = "payment";
   static const applicationConfirmation = "application_confirmation";
   static const applicationForm = "application_form";

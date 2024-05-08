@@ -52,3 +52,4 @@ export '../screens_controllers/terms_and_services_controller.dart';
 export '../screens_controllers/privacy_policy_controller.dart';
 export '../screens_controllers/review_application_controller.dart';
 export '../screens_controllers/semester_registration_controller.dart';
+export '../screens_controllers/admission_payment_invoice_controller.dart';

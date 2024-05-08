@@ -76,16 +76,8 @@ class AdmissionPaymentView
                     onTap: () => state.selectedValue == "Scratch Card"
                         ? NavigatorHelper(context)
                             .pushNamedScreen(RouteConstants.scratchCard)
-                        :
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) =>
-                        //             const Payments("Online payment")),
-                        //   )
-
-                        NavigatorHelper(context).pushNamedScreen(
-                            RouteConstants.applicationConfirmation),
+                        : NavigatorHelper(context).pushNamedScreen(
+                            RouteConstants.admissionPaymentInvoice),
                   ),
                 ],
               ),

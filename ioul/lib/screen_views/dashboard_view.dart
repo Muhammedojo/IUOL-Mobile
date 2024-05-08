@@ -27,7 +27,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
               // backgroundColor: const Color(0xff25435B),
               centerTitle: true,
               bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(100.0.h),
+                  preferredSize: Size.fromHeight(65.0.h),
                   child: const SizedBox()),
               flexibleSpace: Container(
                 //color: Color(0xff2799F7),
@@ -119,7 +119,8 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                             fontWeight: FontWeight.w500,
                             fontFamily: 'Inter',
                             color: const Color(0xffffffff)),
-                      )
+                      ),
+                      SizedBox(height: 9.h),
                     ],
                   ),
                 ),

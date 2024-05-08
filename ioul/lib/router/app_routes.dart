@@ -8,7 +8,6 @@ import 'package:ioul/screens_controllers/scratch_card.dart';
 import 'package:ioul/screens_controllers/sponsor_controller.dart';
 import 'package:ioul/screens_controllers/upload_controller.dart';
 
-import '../model/user.dart';
 import '../packages/package.dart';
 import '../utils/global_variables.dart';
 
@@ -65,6 +64,11 @@ class AppRouter {
         path: '/${RouteConstants.scratchCard}',
         name: RouteConstants.scratchCard,
         builder: (context, state) => const ScratchCard(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.admissionPaymentInvoice}',
+        name: RouteConstants.admissionPaymentInvoice,
+        builder: (context, state) => const AdmissionPaymentInvoice(),
       ),
       GoRoute(
         path: '/${RouteConstants.payments}',
