@@ -77,7 +77,9 @@ class AdmissionPaymentView
                         ? NavigatorHelper(context)
                             .pushNamedScreen(RouteConstants.scratchCard)
                         : NavigatorHelper(context).pushNamedScreen(
-                            RouteConstants.admissionPaymentInvoice),
+                            RouteConstants.applicationConfirmation),
+                    // NavigatorHelper(context).pushNamedScreen(
+                    //     RouteConstants.admissionPaymentInvoice),
                   ),
                 ],
               ),

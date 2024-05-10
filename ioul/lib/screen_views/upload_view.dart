@@ -164,8 +164,7 @@ class UploadView extends StatelessView<Upload, UploadController> {
                 : const SizedBox.shrink(),
             OutlinedButtonWidget(
               onTap: () {
-                state.chooseDocument(
-                    ImageSource.gallery, state.pdfDocumentController);
+                state.chooseDocument(state.pdfDocumentController);
               },
               title: "Choose file",
               imagePath: "assets/images/upload.svg",

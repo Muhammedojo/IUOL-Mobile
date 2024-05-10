@@ -255,6 +255,7 @@ class ApiProvider {
       Map<String, dynamic> data = {
         "programme": formData.programme,
       };
+
       Response response = await doPostRequestAuth(applicationFormData, data);
       statusCode = response.statusCode;
 

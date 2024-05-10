@@ -28,7 +28,7 @@ const String courseDocumentEndpoint = "courses/13/resources/document-resources";
 const String courseDetailsEndpoint = "courses/13";
 const String verifyScratchCardPinEndpoint = "application/pin/verify";
 const String state = "application/states/233";
-const String submitApplication = "application/submit";
+const String submitApplication = "application";
 //Endpoint to get prefilled semester data
 const String semesterFormData = "registration/semester";
 const String submitSemesterRegistration = "registration/semester";

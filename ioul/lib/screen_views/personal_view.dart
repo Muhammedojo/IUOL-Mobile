@@ -131,6 +131,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                           dropdownList: const [
                             'Male',
                             'Female',
+                            'Others',
                           ],
                           controller: state.genderController,
                           onChange: (value) => state.setSelectedValue(value),
@@ -226,7 +227,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                                 'Single',
                                 'Married',
                                 'Divorced',
-                                'Widow',
+                                'Others',
                               ],
                               controller: state.maritalStatusController,
                               onChange: (value) =>
@@ -269,7 +270,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                               dropdownList: const [
                                 'Islam',
                                 'Christianity',
-                                'Traditionalist',
+                                'Others',
                               ],
                               controller: state.religionController,
                               onChange: (value) =>
@@ -381,8 +382,9 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                             }
                             return CustomDropdownWidget(
                               dropdownList: const [
-                                'Permanent Voters Card',
+                                'Voters Card',
                                 'NIN',
+                                "National Identity Card",
                               ],
                               controller: state.nationalIdTypeController,
                               onChange: (value) =>

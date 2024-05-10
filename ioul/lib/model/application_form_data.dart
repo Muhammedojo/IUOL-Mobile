@@ -1,4 +1,4 @@
 class ApplicationFormData {
-  String? programme;
+  int? programme;
   ApplicationFormData();
 }

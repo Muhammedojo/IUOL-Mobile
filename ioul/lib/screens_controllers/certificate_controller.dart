@@ -79,7 +79,7 @@ class CertificateController extends State<Certificate>
       formKey.currentState!.save();
 
       final application = GlobalVariables.applications.value;
-
+      application.ssceOne = certificateTypeController.text.trim();
       application.candidateExamNumber = examNumberController.text.trim();
       application.examCenterName = centerNameController.text.trim();
       application.examCenterNumber = centerNumberController.text.trim();

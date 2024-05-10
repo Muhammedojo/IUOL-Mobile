@@ -85,7 +85,10 @@ class AddressController extends State<Address>
   }
 
   @override
-  Widget build(BuildContext context) => AddressView(this);
+  Widget build(BuildContext context) {
+    super.build(context);
+    return AddressView(this);
+  }
 
   //Control logic grouped together, at top of file
   void onBackPressed() {

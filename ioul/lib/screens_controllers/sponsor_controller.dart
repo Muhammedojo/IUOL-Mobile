@@ -63,7 +63,10 @@ class SponsorController extends State<Sponsor>
   }
 
   @override
-  Widget build(BuildContext context) => SponsorView(this);
+  Widget build(BuildContext context) {
+    super.build(context);
+    return SponsorView(this);
+  }
 
   //Control logic grouped together, at top of file
   void onBackPressed() {

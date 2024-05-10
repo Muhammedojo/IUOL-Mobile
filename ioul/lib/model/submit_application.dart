@@ -179,14 +179,6 @@ Map<String, dynamic> _$SubmitApplicationToJson(SubmitApplication obj) =>
     };
 
 Future<FormData> _$SubmitApplicationToFormData(SubmitApplication obj) async {
-  MultipartFile passportMultipartFile = await MultipartFile.fromFile(
-    obj.photo!,
-    filename: basename(obj.photo!),
-  );
-  MultipartFile documentMultipartFile = await MultipartFile.fromFile(
-    obj.document!,
-    filename: basename(obj.document!),
-  );
   return FormData.fromMap({
     "first_name": obj.firstName,
     "surname": obj.lastName,
