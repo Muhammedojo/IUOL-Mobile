@@ -657,7 +657,6 @@ Future<Map<String, String>> _getTokenHeader() async {
   var header = <String, String>{};
   header["Content-Type"] = "application/json";
   String? token = await getToken();
-  print("Token value here : $token");
 
   if (token.isNotEmpty) {
     header["Authorization"] = "Bearer $token";
@@ -693,8 +692,6 @@ Future<Map<String, String>> _getFormDataHeader(String lastRequestTime) async {
 
 Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
   var header = await _getTokenHeader();
-  var data = {"programme": body.programme};
-  //print("headers: $header");
 
   var dio = Dio();
   dio.options.baseUrl = baseApi;
@@ -710,7 +707,7 @@ Future<Response> doPostRequestAuth(String endPoint, dynamic body) async {
   dio.options.receiveTimeout = const Duration(minutes: 1); // 2 min
 
   return dio.post(endPoint,
-      data: jsonEncode(data), options: Options(headers: header));
+      data: jsonEncode(body), options: Options(headers: header));
 }
 
 Future<Response> doGetRequest(String endPoint) async {

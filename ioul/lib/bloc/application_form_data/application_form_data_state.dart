@@ -1,6 +1,5 @@
 import 'package:ioul/response/programme_response.dart';
 
-import '../../model/model.dart';
 import '../../packages/package.dart';
 
 abstract class ApplicationFormDataState extends Equatable {

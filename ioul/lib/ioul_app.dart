@@ -70,19 +70,32 @@ class IOULApp extends StatelessWidget {
             },
             builder: (context, child) {
               return MaterialApp.router(
-                builder: EasyLoading.init(),
-                debugShowCheckedModeBanner: false,
-                routerConfig: AppRouter.router,
-                title: 'IOUL',
-                theme: CustomTheme.lightThemeData(context),
-                darkTheme: CustomTheme.darkThemeData(),
-                themeMode: ThemeMode.system,
-                // builder: (context, child) {
-                //   ResponsiveBreakpoints.builder(
-                //     child: child!,
-                //   );
-                // },
-              );
+                  debugShowCheckedModeBanner: false,
+                  routerConfig: AppRouter.router,
+                  title: 'IOUL',
+                  theme: CustomTheme.lightThemeData(context),
+                  darkTheme: CustomTheme.darkThemeData(),
+                  themeMode: ThemeMode.system,
+                  builder: EasyLoading.init(builder: (context, child) {
+                    EasyLoading.init();
+                    ResponsiveBreakpoints.builder(
+                      child: child!,
+                      breakpoints: [
+                        const Breakpoint(start: 0, end: 450, name: MOBILE),
+                        const Breakpoint(start: 451, end: 800, name: TABLET),
+                        const Breakpoint(start: 801, end: 1920, name: DESKTOP),
+                        const Breakpoint(
+                            start: 1921, end: double.infinity, name: '4K'),
+                      ],
+                    );
+                    return MediaQuery(
+                        data: MediaQuery.of(context).copyWith(
+                            textScaleFactor:
+                                MediaQuery.of(context).size.width > 428
+                                    ? 1
+                                    : 1.2),
+                        child: child);
+                  }));
             }));
   }
 }

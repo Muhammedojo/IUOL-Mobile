@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:ioul/values/styles.dart';
+import '../bloc/bloc.dart';
 import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
+import '../packages/package.dart';
 import '../screens_controllers/certificate_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
@@ -50,14 +49,29 @@ class CertificateView
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: CustomDropdownWidget(
-                    dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
-                    ],
-                    controller: state.certificateTypeController,
-                    onChange: (value) => state.setSelectedValue(value),
+                  child: BlocBuilder<ApplicationFormDataCubit,
+                      ApplicationFormDataState>(
+                    builder: (context, applicationState) {
+                      if (applicationState is ApplicationFormDataLoaded) {
+                        return CustomDropdownWidget(
+                          dropdownList:
+                              applicationState.formData.certificates ?? [],
+                          controller: state.certificateTypeController,
+                          onChange: (value) => state.setSelectedValue(value),
+                        );
+                      }
+                      return CustomDropdownWidget(
+                        dropdownList: const [
+                          'SSCE',
+                          'NCE',
+                          'OND',
+                          'ND',
+                          'Bachelor'
+                        ],
+                        controller: state.certificateTypeController,
+                        onChange: (value) => state.setSelectedValue(value),
+                      );
+                    },
                   ),
                 ),
               ),
@@ -128,20 +142,10 @@ class CertificateView
                 ],
               ),
               SizedBox(height: 10.w),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: CustomDropdownWidget(
-                    dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
-                    ],
-                    controller: state.examYearController,
-                    onChange: (value) => state.setSelectedValue(value),
-                  ),
-                ),
+              TextFieldWidget(
+                hint: "Exam number",
+                onValidate: ValidationBuilder().required().build(),
+                controller: state.examYearController,
               ),
               SizedBox(height: 28.h),
               Row(

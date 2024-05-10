@@ -35,7 +35,7 @@ class ProgrammeView extends StatelessView<Programme, ProgrammeController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Programme Applied for",
+                    text: "Programme applying for",
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -84,14 +84,29 @@ class ProgrammeView extends StatelessView<Programme, ProgrammeController> {
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: CustomDropdownWidget(
-                    dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
-                    ],
-                    controller: state.highestQualificationController,
-                    onChange: (value) => state.setSelectedValue(value),
+                  child: BlocBuilder<ApplicationFormDataCubit,
+                      ApplicationFormDataState>(
+                    builder: (context, applicationState) {
+                      if (applicationState is ApplicationFormDataLoaded) {
+                        return CustomDropdownWidget(
+                          dropdownList: applicationState
+                                  .formData.underGraduateQualifications ??
+                              [],
+                          controller: state.highestQualificationController,
+                          onChange: (value) => state.setSelectedValue(value),
+                        );
+                      }
+                      return CustomDropdownWidget(
+                        dropdownList: const [
+                          'SSCE',
+                          'NCE',
+                          'OND',
+                          'ND',
+                        ],
+                        controller: state.highestQualificationController,
+                        onChange: (value) => state.setSelectedValue(value),
+                      );
+                    },
                   ),
                 ),
               ),
@@ -112,14 +127,30 @@ class ProgrammeView extends StatelessView<Programme, ProgrammeController> {
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: CustomDropdownWidget(
-                    dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
-                    ],
-                    controller: state.qualificationController,
-                    onChange: (value) => state.setSelectedValue(value),
+                  child: BlocBuilder<ApplicationFormDataCubit,
+                      ApplicationFormDataState>(
+                    builder: (context, applicationState) {
+                      if (applicationState is ApplicationFormDataLoaded) {
+                        return CustomDropdownWidget(
+                          dropdownList: applicationState
+                                  .formData.postGraduateQualifications ??
+                              [],
+                          controller: state.qualificationController,
+                          onChange: (value) => state.setSelectedValue(value),
+                        );
+                      }
+                      return CustomDropdownWidget(
+                        dropdownList: const [
+                          'SSCE',
+                          'NCE',
+                          'OND',
+                          'ND',
+                          'Bachelor'
+                        ],
+                        controller: state.qualificationController,
+                        onChange: (value) => state.setSelectedValue(value),
+                      );
+                    },
                   ),
                 ),
               ),
@@ -142,9 +173,11 @@ class ProgrammeView extends StatelessView<Programme, ProgrammeController> {
                   width: MediaQuery.of(context).size.width,
                   child: CustomDropdownWidget(
                     dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
+                      'Undergraduate',
+                      '100',
+                      '200',
+                      '300',
+                      '400',
                     ],
                     controller: state.levelController,
                     onChange: (value) => state.setSelectedValue(value),

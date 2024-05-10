@@ -4,10 +4,8 @@ import 'package:ioul/packages/package.dart';
 import 'package:ioul/utils/utils.dart';
 import '../helpers/helper.dart';
 import '../model/model.dart';
-
 import '../screen_views/upload_view.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart' as path;
 
 class Upload extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -104,31 +102,6 @@ class UploadController extends State<Upload>
     }
   }
 
-  // Future<void> chooseDocument(
-  //     ImageSource source, TextEditingController controller) async {
-  //   final pickedFile = await picker.pickImage(source: source);
-
-  //   if (pickedFile != null) {
-  //     if (pickedFile.path.isNotEmpty) {
-  //       final file = File(pickedFile.path);
-  //       final fileSize = await file.length();
-  //       if (!mounted) return;
-  //       if (fileSize <= 1048576) {
-  //         // 1 MB in bytes
-  //         final extension = path.extension(pickedFile.path);
-  //         if (extension.toLowerCase() == '.pdf') {
-  //           setState(() {
-  //             documentImage = file;
-  //           });
-  //         } else {
-  //           WidgetHelper.showToastError(context, "Selected file is not a PDF");
-  //         }
-  //       } else {
-  //         WidgetHelper.showToastError(context, "File size exceeds 1MB");
-  //       }
-  //     }
-  //   }
-  // }
   Future<void> chooseDocument(TextEditingController controller) async {
     FilePickerResult? result = await FilePicker.platform.pickFiles();
 

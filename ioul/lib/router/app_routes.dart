@@ -37,11 +37,11 @@ class AppRouter {
         name: RouteConstants.codeInput,
         builder: (context, state) => CodeInput(email: state.extra as String),
       ),
-      // GoRoute(
-      //   path: '/${RouteConstants.resetPassword}',
-      //   name: RouteConstants.resetPassword,
-      //   builder: (context, state) =>  ResetPassword(),
-      // ),
+      GoRoute(
+        path: '/${RouteConstants.pendingApplication}',
+        name: RouteConstants.pendingApplication,
+        builder: (context, state) => const PendingApplication(),
+      ),
       GoRoute(
         path: '/${RouteConstants.createAccount}',
         name: RouteConstants.createAccount,
@@ -54,7 +54,6 @@ class AppRouter {
           email: state.extra as String,
         ),
       ),
-
       GoRoute(
         path: '/${RouteConstants.admissionPayment}',
         name: RouteConstants.admissionPayment,

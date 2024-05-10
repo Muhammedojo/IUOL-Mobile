@@ -45,17 +45,6 @@ class AddressView extends StatelessView<Address, AddressController> {
                 ],
               ),
               SizedBox(height: 10.w),
-              // Align(
-              //   alignment: Alignment.centerLeft,
-              //   child: SizedBox(
-              //     width: MediaQuery.of(context).size.width,
-              //     child: CustomDropdownWidget(
-              //       dropdownList: const ['Nigeria'],
-              //       controller: state.countryController,
-              //       onChange: (value) => state.setSelectedValue(value),
-              //     ),
-              //   ),
-              // ),
               BlocBuilder<CountryCubit, CountryState>(
                   builder: (context, states) {
                 if (states is CountryLoaded) {
@@ -95,7 +84,6 @@ class AddressView extends StatelessView<Address, AddressController> {
                   ),
                 );
               }),
-
               SizedBox(height: 28.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -115,9 +103,10 @@ class AddressView extends StatelessView<Address, AddressController> {
                   width: MediaQuery.of(context).size.width,
                   child: CustomDropdownWidget(
                     dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
+                      'Kaduna',
+                      'Sokoto',
+                      'Yobe',
+                      'Oyo',
                     ],
                     controller: state.stateController,
                     onChange: (value) => state.setSelectedValue(value),
@@ -143,9 +132,15 @@ class AddressView extends StatelessView<Address, AddressController> {
                   width: MediaQuery.of(context).size.width,
                   child: CustomDropdownWidget(
                     dropdownList: const [
-                      'Islam',
-                      'Christianity',
-                      'Traditionalist',
+                      'Binji',
+                      'Bodinga',
+                      'Gada',
+                      'Gudu',
+                      'Kebbi',
+                      'Sokoto South',
+                      'Tambuwal',
+                      'Sabon Birnin',
+                      'Shagari',
                     ],
                     controller: state.lgaController,
                     onChange: (value) => state.setSelectedValue(value),
@@ -168,18 +163,26 @@ class AddressView extends StatelessView<Address, AddressController> {
               BlocBuilder<CountryCubit, CountryState>(
                   builder: (context, states) {
                 if (states is CountryLoaded) {
-                  Align(
+                  List<String> countries = [];
+                  states.response.data
+                      ?.forEach((e) => countries.add(e.name ?? ""));
+                  return Align(
                     alignment: Alignment.centerLeft,
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,
-                      child: CustomDropdownWidget(
-                        dropdownList: const [
-                          'Islam',
-                          'Christianity',
-                          'Traditionalist',
-                        ],
+                      child: CustomDropdown(
+                        borderSide: BorderSide(
+                          color: AppColors.inkLight,
+                          width: 1.w,
+                        ),
+                        borderRadius: BorderRadius.circular(8.r),
+                        hintText: 'Select',
+                        items: countries,
                         controller: state.countryController,
-                        onChange: (value) => state.setSelectedValue(value),
+                        selectedStyle: Styles.x16dp_72777A_400w(),
+                        listItemStyle: Styles.x16dp_000000_400w(),
+                        // fieldSuffixIcon: ,
+                        onChanged: (value) => state.onSelectCountry(value),
                       ),
                     ),
                   );
@@ -210,7 +213,7 @@ class AddressView extends StatelessView<Address, AddressController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "LGA",
+                hint: "State",
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.stateOfResidenceController,
               ),
@@ -228,7 +231,7 @@ class AddressView extends StatelessView<Address, AddressController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "LGA",
+                hint: "Address",
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.permanentAddressController,
               ),
@@ -246,7 +249,7 @@ class AddressView extends StatelessView<Address, AddressController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Country",
+                hint: "Work Address",
                 controller: state.workAddressController,
                 onValidate: ValidationBuilder().required().build(),
               ),

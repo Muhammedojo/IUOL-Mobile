@@ -27,7 +27,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
               // backgroundColor: const Color(0xff25435B),
               centerTitle: true,
               bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(65.0.h),
+                  preferredSize: Size.fromHeight(71.0.h),
                   child: const SizedBox()),
               flexibleSpace: Container(
                 //color: Color(0xff2799F7),
@@ -95,11 +95,12 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                           builder: (context, stateBloc) {
                         if (stateBloc is UserLoaded) {
                           return Text(
-                            'Hi ${stateBloc.login.fullName() ?? ''}',
+                            'Hi, ${stateBloc.login.fullName() ?? ''}',
                             style: TextStyle(
                                 fontSize: 24.sp,
                                 fontWeight: FontWeight.w700,
                                 fontFamily: 'Inter',
+                                height: 32.00 / 24.0,
                                 color: const Color(0xffffffff)),
                           );
                         }
@@ -113,11 +114,12 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                         );
                       }),
                       Text(
-                        '200 level, Department of Electrical Engineering',
+                        '200 level, Department of Computer Science',
                         style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w500,
                             fontFamily: 'Inter',
+                            height: 20.00 / 14.0,
                             color: const Color(0xffffffff)),
                       ),
                       SizedBox(height: 9.h),

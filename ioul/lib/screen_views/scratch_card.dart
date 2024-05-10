@@ -75,7 +75,7 @@ class ScratchCardView
                             VerifyScratchPinState>(
                           listener: (context, scratchPinState) {
                             if (scratchPinState is VerifyScratchPinLoading) {
-                              WidgetHelper.showProgress();
+                              WidgetHelper.showProgress(text: 'Verifying');
                             }
                             if (scratchPinState is VerifyScratchPinLoaded) {
                               WidgetHelper.hideProgress();
@@ -85,52 +85,18 @@ class ScratchCardView
                             }
                             if (scratchPinState is VerifyScratchPinFailure) {
                               WidgetHelper.hideProgress();
+                              WidgetHelper.showToastError(
+                                context,
+                                scratchPinState.message,
+                              );
                             }
                           },
                           child: ElevatedButtonWidget(
                             title: "Proceed",
                             onTap: () => state.validateCard(),
-                            // NavigatorHelper(context).pushNamedScreen(
-                            //   RouteConstants.applicationConfirmation,
-                            // ),
                           ),
                         ),
                         SizedBox(width: 10.w),
-                        //SvgPicture.asset("assets/images/red_star.svg"),
-
-                        // SizedBox(height: 12.h),
-                        // TextFieldWidget(
-                        //   title: "00*********00",
-                        //   controller: state.scratchCardController,
-                        // ),
-                        // SizedBox(height: 51.h),
-                        // BlocListener<VerifyScratchPinCubit, VerifyScratchPinState>(
-                        //   listener: (context, scratchCardState) {
-                        //     if (scratchCardState is VerifyScratchPinLoading) {
-                        //       WidgetHelper.showProgress(text: 'Verifying');
-                        //     }
-                        //     if (scratchCardState is VerifyScratchPinLoaded) {
-                        //       WidgetHelper.hideProgress();
-                        //       context.pushNamed(
-                        //         RouteConstants.applicationConfirmation,
-                        //       );
-                        //     }
-                        //     if (scratchCardState is VerifyScratchPinFailure) {
-                        //       WidgetHelper.hideProgress();
-                        //       WidgetHelper.showToastError(
-                        //         context,
-                        //         scratchCardState.message,
-                        //       );
-                        //     }
-                        //   },
-                        //   child: ElevatedButtonWidget(
-                        //     title: "Proceed",
-                        //     onTap: () => state.validateCard(),
-                        //     // NavigatorHelper(context).pushNamedScreen(
-                        //     //   RouteConstants.applicationConfirmation,
-                        //     // ),
-                        //   ),
-                        // ),
                       ]),
                 ),
               ),

@@ -6,7 +6,7 @@ export 'package:toggle_switch/toggle_switch.dart';
 export 'package:go_router/go_router.dart';
 export 'package:flutter/gestures.dart';
 export 'package:flutter/material.dart';
-//export 'package:flutterwave_standard/flutterwave.dart';
+export 'package:responsive_framework/responsive_framework.dart';
 export "package:dio/dio.dart";
 export 'package:file_picker/file_picker.dart';
 export 'package:pretty_dio_logger/pretty_dio_logger.dart';

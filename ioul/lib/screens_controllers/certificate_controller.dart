@@ -2,7 +2,7 @@ import 'package:ioul/utils/utils.dart';
 
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../model/model.dart';
+
 import '../screen_views/certificate_view.dart';
 
 class Certificate extends StatefulWidget {
@@ -67,7 +67,10 @@ class CertificateController extends State<Certificate>
   }
 
   @override
-  Widget build(BuildContext context) => CertificateView(this);
+  Widget build(BuildContext context) {
+    super.build(context);
+    return CertificateView(this);
+  }
 
   //Control logic grouped together, at top of file
   void onBackPressed() {

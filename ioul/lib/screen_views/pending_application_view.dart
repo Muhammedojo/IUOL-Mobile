@@ -1,13 +1,14 @@
 import 'package:ioul/packages/package.dart';
-import 'package:ioul/screens_controllers/login_controller.dart';
 import '../components/components.dart';
-import '../screens_controllers/review_application_controller.dart';
+import 'package:ioul/screens_controllers/login_controller.dart';
+import '../router/route_constants.dart';
+import '../screens_controllers/pending_application_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 
-class ReviewApplicationView
-    extends StatelessView<ReviewApplication, ReviewApplicationController> {
-  const ReviewApplicationView(ReviewApplicationController state, {Key? key})
+class PendingApplicationView
+    extends StatelessView<PendingApplication, PendingApplicationController> {
+  const PendingApplicationView(PendingApplicationController state, {Key? key})
       : super(state, key: key);
 
   @override
@@ -30,26 +31,15 @@ class ReviewApplicationView
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Center(
-                  child: SvgPicture.asset(
-                    'assets/images/check.svg',
-                    height: 132.w,
-                    width: 132.w,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                SizedBox(
-                  height: 25.h,
-                ),
                 Text(
-                  'Congratulations!',
+                  'Check back later!',
                   style: Styles.x16dp_202325_400w(),
                   textAlign: TextAlign.center,
                 ),
                 Padding(
                   padding: REdgeInsets.symmetric(horizontal: 40.0),
                   child: Text(
-                    'Your application has been submitted successfully, we will  evaluate your documents and notify you by email.',
+                    'Your application is under process.',
                     style: Styles.x16dp_202325_400w(),
                     textAlign: TextAlign.center,
                   ),
@@ -65,10 +55,12 @@ class ReviewApplicationView
               padding: REdgeInsets.symmetric(horizontal: 40.0),
               child: ElevatedButtonWidget(
                   title: "Login Page",
-                  onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Login()),
-                      )),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Login()),
+                    );
+                  }),
             ),
           )
         ],
