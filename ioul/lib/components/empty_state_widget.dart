@@ -91,7 +91,7 @@ class ErrorItemWidget extends StatelessWidget {
                   : Center(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.primaryBase,
+                            backgroundColor: AppColors.lightBlue,
                             padding: REdgeInsets.symmetric(
                                 horizontal: 30, vertical: 5.0),
                             shape: RoundedRectangleBorder(
@@ -107,7 +107,7 @@ class ErrorItemWidget extends StatelessWidget {
                         },
                         child: Text(
                           buttonLabel ?? 'Try again',
-                          style: Styles.x14dp_090A0A_400w(),
+                          style: Styles.x15dp_303437_400w(),
                         ),
                       ),
                     ),
