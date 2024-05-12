@@ -5,7 +5,6 @@ import 'package:ioul/provider/shared_prefrence.dart';
 import '../helpers/helper.dart';
 import '../router/router.dart';
 import '../screen_views/Login_view.dart';
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
 class Login extends StatefulWidget {
@@ -24,7 +23,7 @@ class LoginController extends State<Login> {
   String deviceToken = "";
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  bool visible = false;
+  bool visible = true;
 
   toggleVisibility() {
     setState(() {
