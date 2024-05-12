@@ -51,7 +51,14 @@ class PaymentHistoryView
                           );
                         },
                       )
-                    : const Center(child: Text('Empty'));
+                    : ErrorItemWidget(
+                        title: "Empty List",
+                        message: "No payment history",
+                        hideButton: false,
+                        onTap: () {
+                          state.refresh();
+                        },
+                      );
               }
               return ErrorItemWidget(
                 title: "Error occurred",

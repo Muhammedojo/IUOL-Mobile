@@ -1,3 +1,4 @@
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../router/router.dart';
@@ -20,7 +21,7 @@ class ReportView extends StatelessView<Report, ReportController> {
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
           title: Text(
-            '2023 Spring Semester Report',
+            'Semester Report',
             style: Styles.x18dp_202326_700w(),
           ),
           flexibleSpace: Container(
@@ -32,7 +33,7 @@ class ReportView extends StatelessView<Report, ReportController> {
             ),
           ),
         ),
-        body: _body(context));
+        body: WidgetWrapper(child: _body(context)));
   }
 
   Widget _body(context) {
@@ -43,17 +44,44 @@ class ReportView extends StatelessView<Report, ReportController> {
           SizedBox(
             height: 20.h,
           ),
-          ListView.separated(
-            separatorBuilder: (context, index) => SizedBox(
-              height: 10.h,
-            ),
-            itemCount: 3,
-            shrinkWrap: true,
-            itemBuilder: (context, index) => EnrolledCourseWidget(
-                onTap: () => NavigatorHelper(context).pushNamedScreen(
-                      RouteConstants.reportPreview,
-                    )),
-          ),
+          BlocBuilder<ReportCubit, ReportState>(builder: (context, stateBloc) {
+            if (stateBloc is ReportLoading) {
+              return const Loader();
+            } else if (stateBloc is ReportLoaded) {
+              return stateBloc.reportList.isNotEmpty
+                  ? ListView.separated(
+                      separatorBuilder: (context, index) => SizedBox(
+                            height: 10.h,
+                          ),
+                      itemCount: stateBloc.reportList.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        var reports = stateBloc.reportList[index];
+                        return ReportWidget(
+                          onTap: () => NavigatorHelper(context).pushNamedScreen(
+                            RouteConstants.courseDetailOverview,
+                          ),
+                          report: reports,
+                        );
+                      })
+                  : ErrorItemWidget(
+                      title: "Empty List",
+                      message: "Report List is empty",
+                      hideButton: false,
+                      onTap: () {
+                        // state.refresh();
+                      },
+                    );
+            }
+            return ErrorItemWidget(
+              title: "Error occurred",
+              message: "Couldn't fetch report",
+              hideButton: false,
+              onTap: () {
+                // state.refresh();
+              },
+            );
+          }),
         ]),
       ),
     );

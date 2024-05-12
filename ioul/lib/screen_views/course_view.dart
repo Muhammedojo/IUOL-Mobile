@@ -1,3 +1,4 @@
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../router/router.dart';
@@ -51,17 +52,46 @@ class CourseView extends StatelessView<Course, CourseController> {
                 SizedBox(
                   height: 20.h,
                 ),
-                ListView.separated(
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 10.h,
-                  ),
-                  itemCount: 10,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) => EnrolledCourseWidget(
-                      onTap: () => NavigatorHelper(context).pushNamedScreen(
-                            RouteConstants.courseDetailOverview,
-                          )),
-                ),
+                BlocBuilder<CoursesCubit, CoursesState>(
+                    builder: (context, stateBloc) {
+                  if (stateBloc is CoursesLoading) {
+                    return const Loader();
+                  } else if (stateBloc is CoursesLoaded) {
+                    return stateBloc.courseList.isNotEmpty
+                        ? ListView.separated(
+                            separatorBuilder: (context, index) => SizedBox(
+                                  height: 10.h,
+                                ),
+                            itemCount: stateBloc.courseList.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              var courses = stateBloc.courseList[index];
+                              return EnrolledCourseWidget(
+                                onTap: () =>
+                                    NavigatorHelper(context).pushNamedScreen(
+                                  RouteConstants.courseDetailOverview,
+                                ),
+                                course: courses,
+                              );
+                            })
+                        : ErrorItemWidget(
+                            title: "Empty List",
+                            message: "Course List is empty",
+                            hideButton: false,
+                            onTap: () {
+                              state.refresh();
+                            },
+                          );
+                  }
+                  return ErrorItemWidget(
+                    title: "Error occurred",
+                    message: "Couldn't fetch courses",
+                    hideButton: false,
+                    onTap: () {
+                      state.refresh();
+                    },
+                  );
+                }),
               ],
             ),
           ),

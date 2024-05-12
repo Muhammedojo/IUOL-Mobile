@@ -17,7 +17,7 @@ class ShimmerTile extends StatelessWidget {
       beginAlignment: Alignment.topLeft,
       endAlignment: Alignment.bottomRight,
       backgroundColor:
-          color?.withOpacity(0.05) ?? AppColors.primary.withOpacity(0.05),
+          color?.withOpacity(0.05) ?? AppColors.primaryBlue.withOpacity(0.05),
       shimmerColor:
           color?.withOpacity(0.1) ?? AppColors.primary.withOpacity(0.1),
     );

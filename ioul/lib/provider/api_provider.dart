@@ -479,7 +479,7 @@ class ApiProvider {
   Future<GenericResponse> getCoursesList({String? endpoint}) async {
     int? statusCode;
     try {
-      Response response = await doGetRequest(coursesEndpoint);
+      Response response = await doGetRequestCampus(coursesEndpoint);
       statusCode = response.statusCode;
       //print("state response: ${response.toString()}");
 
@@ -754,6 +754,24 @@ Future<Response> doGetRequest(String endPoint) async {
       compact: true,
       maxWidth: 90));
   dio.options.baseUrl = baseApi;
+  dio.options.connectTimeout = const Duration(minutes: 1); //30s
+  dio.options.receiveTimeout = const Duration(minutes: 1); // 2 min
+  return dio.get(endPoint, options: Options(headers: header));
+}
+
+Future<Response> doGetRequestCampus(String endPoint) async {
+  var header = await _getTokenHeader();
+  endPoint = endPoint.replaceAll("*", "");
+  var dio = Dio();
+  dio.interceptors.add(PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseBody: true,
+      responseHeader: false,
+      error: true,
+      compact: true,
+      maxWidth: 90));
+  dio.options.baseUrl = campusBaseApi;
   dio.options.connectTimeout = const Duration(minutes: 1); //30s
   dio.options.receiveTimeout = const Duration(minutes: 1); // 2 min
   return dio.get(endPoint, options: Options(headers: header));

@@ -1,3 +1,6 @@
+import 'package:ioul/components/shimmer.dart';
+
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../router/router.dart';
@@ -19,8 +22,7 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
           centerTitle: true,
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-          title: Text('2023 Spring Semester Assignment',
-              style: Styles.x18dp_202326_700w()),
+          title: Text('Semester Assignment', style: Styles.x18dp_202326_700w()),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -30,7 +32,7 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
             ),
           ),
         ),
-        body: _body(context));
+        body: WidgetWrapper(child: _body(context)));
   }
 
   Widget _body(context) {
@@ -41,18 +43,45 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
           SizedBox(
             height: 20.h,
           ),
-          ListView.separated(
-            separatorBuilder: (context, index) => SizedBox(
-              height: 10.h,
-            ),
-            itemBuilder: (BuildContext context, int index) =>
-                EnrolledCourseWidget(
-                    onTap: () => NavigatorHelper(context).pushNamedScreen(
-                          RouteConstants.assignmentPreview,
-                        )),
-            itemCount: 5,
-            shrinkWrap: true,
-          ),
+          BlocBuilder<AssignmentCubit, AssignmentState>(
+              builder: (context, stateBloc) {
+            if (stateBloc is AssignmentLoading) {
+              return const Loader();
+            } else if (stateBloc is AssignmentLoaded) {
+              return stateBloc.assignmentList.isNotEmpty
+                  ? ListView.separated(
+                      separatorBuilder: (context, index) => SizedBox(
+                            height: 10.h,
+                          ),
+                      itemCount: stateBloc.assignmentList.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        var assignment = stateBloc.assignmentList[index];
+                        return AssignmentWidget(
+                          onTap: () => NavigatorHelper(context).pushNamedScreen(
+                            RouteConstants.courseDetailOverview,
+                          ),
+                          assignment: assignment,
+                        );
+                      })
+                  : ErrorItemWidget(
+                      title: "Empty List",
+                      message: "Assignment List is empty",
+                      hideButton: false,
+                      onTap: () {
+                        state.refresh();
+                      },
+                    );
+            }
+            return ErrorItemWidget(
+              title: "Error occurred",
+              message: "Couldn't fetch assignments",
+              hideButton: false,
+              onTap: () {
+                state.refresh();
+              },
+            );
+          }),
         ]),
       ),
     );

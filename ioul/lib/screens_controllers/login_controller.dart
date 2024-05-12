@@ -77,11 +77,8 @@ class LoginController extends State<Login> {
     if (password.isEmpty) {
       WidgetHelper.showToastError(context, "Password is required");
       return;
-    } else if (!isStrongPassword(password)) {
-      WidgetHelper.showToastError(context,
-          "Weak password. Use at least 8 characters with a mix of uppercase, lowercase, and numbers.");
-      return;
     }
+
     loginUser(email, password);
   }
 
@@ -94,9 +91,9 @@ class LoginController extends State<Login> {
       if (!mounted) return;
       if (loginResponse.isConnectionSuccessful()) {
         AppPrefs().saveTokenToPrefs(loginResponse);
-        loginResponse.user!.hasApplication == true
+        loginResponse.user!.hasApplication == false
             ? context.goNamed(RouteConstants.admissionPayment)
-            : (loginResponse.user!.isAdmitted == true
+            : (loginResponse.user!.isAdmitted == false
                 ? context.goNamed(RouteConstants.pendingApplication)
                 : context.goNamed(RouteConstants.dashboard,
                     extra: loginResponse.user));

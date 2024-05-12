@@ -25,3 +25,5 @@ export 'identification_type.dart';
 export 'post_graduate_qualifications.dart';
 export 'registered_courses.dart';
 export 'unit.dart';
+export 'report.dart';
+export 'assignment.dart';

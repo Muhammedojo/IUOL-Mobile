@@ -189,13 +189,25 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   ),
                   Row(
                     children: [
-                      const Expanded(
-                        child: CardWidget(
-                          title: 'Enrolled Course',
-                          number: '12',
-                          onTap: null,
-                        ),
-                      ),
+                      BlocBuilder<CoursesCubit, CoursesState>(
+                          builder: (context, stateBloc) {
+                        if (stateBloc is CoursesLoaded) {
+                          return Expanded(
+                            child: CardWidget(
+                              title: 'Enrolled Course',
+                              number: '${stateBloc.courseList.length}',
+                              onTap: null,
+                            ),
+                          );
+                        }
+                        return const Expanded(
+                          child: CardWidget(
+                            title: 'Enrolled Course',
+                            number: '0',
+                            onTap: null,
+                          ),
+                        );
+                      }),
                       SizedBox(
                         width: 10.w,
                       ),

@@ -33,4 +33,8 @@ class CourseController extends State<Course> {
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
+
+  refresh() {
+    context.read<CoursesCubit>().loadCoursesFromServer();
+  }
 }

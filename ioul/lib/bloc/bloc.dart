@@ -17,3 +17,5 @@ export 'course_audio_resources/cubit.dart';
 export 'course_video_resources/cubit.dart';
 export 'course_details_resources/cubit.dart';
 export 'user/cubit.dart';
+export 'assignment/cubit.dart';
+export 'report/cubit.dart';

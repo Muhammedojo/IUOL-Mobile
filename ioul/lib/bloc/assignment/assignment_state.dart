@@ -1,3 +1,4 @@
+import '../../model/model.dart';
 import '../../packages/package.dart';
 
 abstract class AssignmentState extends Equatable {
@@ -18,14 +19,11 @@ class AssignmentLoading extends AssignmentState {
 }
 
 class AssignmentLoaded extends AssignmentState {
-  // final GenericResponse courseList;
-  const AssignmentLoaded(
-      //this.courseList
-      );
+  final List<Assignment> assignmentList;
+  const AssignmentLoaded(this.assignmentList);
 
   @override
-  List<Object> get props => [];
-  // courseList];
+  List<Object> get props => [assignmentList];
 }
 
 class AssignmentFailure extends AssignmentState {

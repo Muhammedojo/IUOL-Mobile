@@ -109,11 +109,14 @@ class CourseRegistrationView
                                       unit: '2 Units',
                                     ),
                                   )
-                                : Center(
-                                    child: Text(
-                                    'Empty',
-                                    style: Styles.x16dp_090A0A_400w(),
-                                  ));
+                                : ErrorItemWidget(
+                                    title: "Empty List",
+                                    message: "No available course",
+                                    hideButton: false,
+                                    onTap: () {
+                                      state.refresh();
+                                    },
+                                  );
                           }
                           return ErrorItemWidget(
                             title: "Error occurred",

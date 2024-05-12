@@ -1,4 +1,7 @@
+import 'package:ioul/model/model.dart';
+
 import '../../packages/package.dart';
+import '../../response/responses.dart';
 
 abstract class CoursesState extends Equatable {
   const CoursesState();
@@ -18,14 +21,13 @@ class CoursesLoading extends CoursesState {
 }
 
 class CoursesLoaded extends CoursesState {
-  // final GenericResponse courseList;
-  const CoursesLoaded(
-      //this.courseList
-      );
+  final List<Course> courseList;
+  const CoursesLoaded(this.courseList);
 
   @override
-  List<Object> get props => [];
-  // courseList];
+  List<Object> get props => [courseList];
+  @override
+  String toString() => 'CoursesLoaded { courses: $courseList }';
 }
 
 class CoursesFailure extends CoursesState {

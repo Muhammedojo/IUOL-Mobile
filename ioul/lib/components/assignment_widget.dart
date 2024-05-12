@@ -1,11 +1,11 @@
 import '../model/model.dart';
 import '../packages/package.dart';
 
-class EnrolledCourseWidget extends StatelessWidget {
+class AssignmentWidget extends StatelessWidget {
   final Function()? onTap;
-  final Course course;
-  const EnrolledCourseWidget(
-      {Key? key, required this.onTap, required this.course})
+  final Assignment assignment;
+  const AssignmentWidget(
+      {Key? key, required this.onTap, required this.assignment})
       : super(key: key);
 
   @override
@@ -44,7 +44,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${course.title}',
+                      '${assignment.title}',
                       style: TextStyle(
                           fontSize: 14.sp,
                           fontFamily: 'Inter',
@@ -55,7 +55,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       height: 4.h,
                     ),
                     Text(
-                      '${course.code}',
+                      '${assignment.code}',
                       style: TextStyle(
                           fontSize: 13.sp,
                           fontFamily: 'Inter',
@@ -66,7 +66,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       height: 4.h,
                     ),
                     Text(
-                      '${course.unit}',
+                      '${assignment.unit}',
                       style: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Inter',

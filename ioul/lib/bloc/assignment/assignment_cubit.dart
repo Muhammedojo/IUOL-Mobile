@@ -11,7 +11,7 @@ class AssignmentCubit extends Cubit<AssignmentState> {
       emit(AssignmentLoading());
       final response = await repository.loadCourses();
       if (response.isConnectionSuccessful()) {
-        emit(const AssignmentLoaded());
+        emit(const AssignmentLoaded([]));
       } else {
         log("response error body: ${response.responseMessage}");
         emit(AssignmentFailure(message: response.responseMessage));

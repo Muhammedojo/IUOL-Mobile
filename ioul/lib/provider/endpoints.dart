@@ -5,7 +5,9 @@ const bool liveServer = false;
 const baseUrl = liveServer
     ? "https://iconicuniversity.edu.ng"
     : "https://test-portal.iconicuniversity.edu.ng/";
+const String campusBaseUrl = "https://test-campus.iconicuniversity.edu.ng";
 const String baseApi = "$baseUrl/api/students/v1/";
+const String campusBaseApi = "$campusBaseUrl/api/students/v1/";
 const String paymentHistoryEndpoint = 'payment-history';
 const String loginEndpoint = "auth/login";
 const String registerEndpoint = "auth/register";

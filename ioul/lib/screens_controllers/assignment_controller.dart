@@ -1,3 +1,4 @@
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
 import '../screen_views/assignment_view.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class AssignmentController extends State<Assignment> {
 
   @override
   void initState() {
+    context.read<AssignmentCubit>().loadCourseAssignmentFromServer();
     super.initState();
   }
 
@@ -31,5 +33,9 @@ class AssignmentController extends State<Assignment> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  refresh() {
+    context.read<AssignmentCubit>().loadCourseAssignmentFromServer();
   }
 }
