@@ -1,3 +1,6 @@
+import 'package:ioul/response/course_reg_response.dart';
+import 'package:ioul/response/response.dart';
+
 import '../../packages/package.dart';
 
 abstract class CourseRegState extends Equatable {
@@ -18,14 +21,19 @@ class CourseRegLoading extends CourseRegState {
 }
 
 class CourseRegLoaded extends CourseRegState {
-  // final GenericResponse courseList;
-  const CourseRegLoaded(
-      //this.courseList
-      );
+  final CourseRegResponse courseRegData;
+  const CourseRegLoaded(this.courseRegData);
 
   @override
-  List<Object> get props => [];
-  // courseList];
+  List<Object> get props => [courseRegData];
+}
+
+class CourseRegPushLoaded extends CourseRegState {
+  final GenericResponse courseRegData;
+  const CourseRegPushLoaded(this.courseRegData);
+
+  @override
+  List<Object> get props => [courseRegData];
 }
 
 class CourseRegFailure extends CourseRegState {

@@ -21,8 +21,7 @@ class CourseRegistrationController extends State<CourseRegistration> {
   @override
   void initState() {
     super.initState();
-    initCourseRegCubit = context.read<CourseRegCubit>();
-    initCourseRegCubit.initCourseRegistration();
+    context.read<CourseRegCubit>().initCourseRegistration();
   }
 
   @override
@@ -36,5 +35,11 @@ class CourseRegistrationController extends State<CourseRegistration> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  refresh() {
+    if (mounted) {
+      context.read<CourseRegCubit>().initCourseRegistration();
+    }
   }
 }

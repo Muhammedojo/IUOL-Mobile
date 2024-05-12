@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+import '../bloc/bloc.dart';
 import '../packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
@@ -56,14 +55,27 @@ class CourseRegistrationView
                         ),
                       ),
                     ),
-                    Expanded(
-                      child: Center(
-                        child: Text(
-                          '2023 Second Semester',
-                          style: Styles.x18dp_202326_700w(),
+                    BlocBuilder<CourseRegCubit, CourseRegState>(
+                        builder: (context, stateBloc) {
+                      if (stateBloc is CourseRegLoaded) {
+                        return Expanded(
+                          child: Center(
+                            child: Text(
+                              '${stateBloc.courseRegData.units?.semester} Semester',
+                              style: Styles.x18dp_202326_700w(),
+                            ),
+                          ),
+                        );
+                      }
+                      return Expanded(
+                        child: Center(
+                          child: Text(
+                            'Register Course',
+                            style: Styles.x18dp_202326_700w(),
+                          ),
                         ),
-                      ),
-                    ),
+                      );
+                    }),
                   ],
                 ),
               ),
@@ -78,22 +90,54 @@ class CourseRegistrationView
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        ListView.separated(
-                          separatorBuilder: (context, index) => const Divider(
-                            color: Colors.grey,
-                          ),
-                          itemCount: 8,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) =>
-                              const CourseRegWidget(
-                            course: 'ARA 111 - Introduction to Arabic Language',
-                            unit: '2 Units',
-                          ),
-                        ),
+                        BlocBuilder<CourseRegCubit, CourseRegState>(
+                            builder: (context, stateBloc) {
+                          if (stateBloc is CourseRegLoaded) {
+                            return stateBloc
+                                    .courseRegData.availableCourses!.isNotEmpty
+                                ? ListView.separated(
+                                    separatorBuilder: (context, index) =>
+                                        const Divider(
+                                      color: Colors.grey,
+                                    ),
+                                    itemCount: 8,
+                                    shrinkWrap: true,
+                                    itemBuilder: (context, index) =>
+                                        const CourseRegWidget(
+                                      course:
+                                          'ARA 111 - Introduction to Arabic Language',
+                                      unit: '2 Units',
+                                    ),
+                                  )
+                                : Center(
+                                    child: Text(
+                                    'Empty',
+                                    style: Styles.x16dp_090A0A_400w(),
+                                  ));
+                          }
+                          return ErrorItemWidget(
+                            title: "Error occurred",
+                            message: "Course List is empty",
+                            hideButton: false,
+                            onTap: () {
+                              state.refresh();
+                            },
+                          );
+                        }),
                         SizedBox(
                           height: 30.h,
                         ),
-                        SubmitButtonWidget(label: 'Submit', onPressed: () {})
+                        BlocBuilder<CourseRegCubit, CourseRegState>(
+                            builder: (context, stateBloc) {
+                          if (stateBloc is CourseRegLoaded) {
+                            return stateBloc
+                                    .courseRegData.availableCourses!.isNotEmpty
+                                ? SubmitButtonWidget(
+                                    label: 'Submit', onPressed: () {})
+                                : const SizedBox.shrink();
+                          }
+                          return const SizedBox.shrink();
+                        }),
                       ],
                     )),
               ),

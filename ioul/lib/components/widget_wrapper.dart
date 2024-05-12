@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:ioul/values/values.dart';
 
 class WidgetWrapper extends StatelessWidget {
   final Widget child;
 
-  const WidgetWrapper({Key? key, required this.child});
+  const WidgetWrapper({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

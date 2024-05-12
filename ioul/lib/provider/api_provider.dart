@@ -7,6 +7,7 @@ import 'package:path/path.dart';
 import '../model/model.dart';
 import '../packages/package.dart';
 import '../response/country_response.dart';
+import '../response/course_reg_response.dart';
 import '../response/programme_response.dart';
 import '../response/response.dart';
 import 'endpoints.dart';
@@ -182,6 +183,36 @@ class ApiProvider {
       }
     } on DioException catch (e) {
       var requestResponse = RegisterResponse();
+      //requestResponse.statusCode = statusCode!;
+      requestResponse.message = _handleDioError(e); //e.message;
+
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> submitCourseRegistration(SubmitCourseReg reg) async {
+    int? statusCode;
+    try {
+      Response response = await doPostRequestAuth(registerCourse, reg);
+      statusCode = response.statusCode;
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        requestResponse.message = response.statusMessage;
+
+        return requestResponse;
+        //return _createDefaultGenericResponse(statusCode);
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
       //requestResponse.statusCode = statusCode!;
       requestResponse.message = _handleDioError(e); //e.message;
 
@@ -472,7 +503,7 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> initializeCourseReg({String? endpoint}) async {
+  Future<CourseRegResponse> initializeCourseReg({String? endpoint}) async {
     int? statusCode;
     try {
       Response response = await doGetRequest(registerCourse);
@@ -482,16 +513,16 @@ class ApiProvider {
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
 
-        var requestResponse = GenericResponse.fromJson(decodedBody);
+        var requestResponse = CourseRegResponse.fromJson(decodedBody);
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       } else {
-        var requestResponse = GenericResponse();
+        var requestResponse = CourseRegResponse();
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       }
     } on DioException catch (e) {
-      var requestResponse = GenericResponse();
+      var requestResponse = CourseRegResponse();
       //requestResponse.statusCode = statusCode ?? e.response.statusCode;
       requestResponse.message = _handleDioError(e);
 

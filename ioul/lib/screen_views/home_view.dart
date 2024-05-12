@@ -83,7 +83,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                             height: 20.w,
                           ),
                         ),
-                        SizedBox(height: 8.h),
+                        SizedBox(height: 7.h),
                         Text(
                           "Course",
                           style: TextStyle(
@@ -93,6 +93,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       ? const Color(0xff25435B)
                                       : const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
+                              height: 16.0 / 10.0,
                               fontFamily: 'Inter'),
                         ),
                       ],
@@ -118,7 +119,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                             height: 20.w,
                           ),
                         ),
-                        SizedBox(height: 8.h),
+                        SizedBox(height: 7.h),
                         Text(
                           "Assignment",
                           style: TextStyle(
@@ -128,6 +129,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       ? const Color(0xff25435B)
                                       : const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
+                              height: 16.0 / 10.0,
                               fontFamily: 'Inter'),
                         ),
                       ],
@@ -164,7 +166,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                             height: 24.w,
                           ),
                         ),
-                        SizedBox(height: 8.h),
+                        SizedBox(height: 7.h),
                         Text(
                           "Report",
                           style: TextStyle(
@@ -174,6 +176,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       ? const Color(0xff25435B)
                                       : const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
+                              height: 16.0 / 10.0,
                               fontFamily: 'Inter'),
                         ),
                       ],
@@ -200,12 +203,13 @@ class HomeView extends StatelessView<Home, HomeController> {
                             height: 20.w,
                           ),
                         ),
-                        SizedBox(height: 8.h),
+                        SizedBox(height: 7.h),
                         Text(
                           "More",
                           style: TextStyle(
                               fontSize: 10.sp,
-                              color: AppColors.primaryBlue,
+                              height: 16.0 / 10.0,
+                              color: const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
                               fontFamily: 'Inter'),
                         ),

@@ -1,4 +1,3 @@
-
 import 'package:ioul/model/model.dart';
 import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
@@ -25,7 +24,6 @@ class CodeInputController extends State<CodeInput> {
   @override
   void initState() {
     super.initState();
-    // log("state email: ${widget.email}");
   }
 
   @override
@@ -63,8 +61,8 @@ class CodeInputController extends State<CodeInput> {
   }
 
   void resendEmailVerification(String email) async {
-    final ResendEmailVerification data = ResendEmailVerification();
-    data.email = widget.email;
-    context.read<ResendEmailVerificationCubit>().resendPin(data);
+    final ResendEmailVerification detail = ResendEmailVerification();
+    detail.email = widget.email;
+    context.read<ResendEmailVerificationCubit>().resendPin(detail);
   }
 }

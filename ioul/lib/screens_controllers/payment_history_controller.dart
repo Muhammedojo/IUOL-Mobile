@@ -1,8 +1,6 @@
 import 'package:ioul/packages/package.dart';
-
 import '../bloc/bloc.dart';
 import '../screen_views/payment_history_view.dart';
-
 import '../helpers/helper.dart';
 
 class PaymentHistory extends StatefulWidget {
@@ -21,8 +19,7 @@ class PaymentHistoryController extends State<PaymentHistory> {
   @override
   void initState() {
     super.initState();
-    paymentHistCubit = context.read<PaymentHistoryCubit>();
-    paymentHistCubit.loadPaymentHistoryFromServer();
+    context.read<PaymentHistoryCubit>().loadPaymentHistoryFromServer();
   }
 
   @override
@@ -36,5 +33,11 @@ class PaymentHistoryController extends State<PaymentHistory> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  refresh() {
+    if (mounted) {
+      context.read<PaymentHistoryCubit>().loadPaymentHistoryFromServer();
+    }
   }
 }

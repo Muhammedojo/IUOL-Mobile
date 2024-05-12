@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'colors.dart';
 
 class Styles {
+  static const font = 'Inter';
   static x32dp_25435B_700w() => TextStyle(
         fontSize: 32.sp,
         color: AppColors.primary,

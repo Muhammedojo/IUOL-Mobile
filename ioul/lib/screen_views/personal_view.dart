@@ -61,7 +61,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Surname Name",
+                          text: "Surname",
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),

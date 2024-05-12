@@ -1,10 +1,7 @@
 import 'package:ioul/model/model.dart';
 import 'package:ioul/provider/api_provider.dart';
-import 'package:ioul/response/register_response.dart';
-import 'package:ioul/response/response.dart';
-
-import '../response/country_response.dart';
-import '../response/programme_response.dart';
+import 'package:ioul/response/course_reg_response.dart';
+import '../response/responses.dart';
 import 'shared_prefrence.dart';
 
 class AppRepository {
@@ -32,7 +29,7 @@ class AppRepository {
       _apiProvider.getSemesterFormData();
 
   Future<GenericResponse> loadCourses() async => _apiProvider.getCoursesList();
-  Future<GenericResponse> initializeCourseReg() async =>
+  Future<CourseRegResponse> initializeCourseReg() async =>
       _apiProvider.initializeCourseReg();
 
   Future<GenericResponse> loadCourseDetails() async =>
@@ -57,6 +54,9 @@ class AppRepository {
   Future<GenericResponse> submitApplication(
           SubmitApplication application) async =>
       _apiProvider.pushSubmitApplication(application);
+
+  Future<GenericResponse> submitCourseRegistration(SubmitCourseReg reg) async =>
+      _apiProvider.submitCourseRegistration(reg);
 
   Future<ProgrammeResponse> submitProgram(ApplicationFormData formData) async =>
       _apiProvider.pushSubmitProgram(formData);

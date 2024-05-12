@@ -1,4 +1,5 @@
 import 'dart:developer';
+import '../../model/submit_course_reg.dart';
 import '../../packages/package.dart';
 import '../../utils/global_states.dart';
 import 'course_reg_state.dart';
@@ -6,27 +7,28 @@ import 'course_reg_state.dart';
 class CourseRegCubit extends Cubit<CourseRegState> {
   CourseRegCubit() : super(CourseRegInitialState());
 
-  loadCoursesFromServer() async {
+  initCourseRegistration() async {
     try {
       emit(CourseRegLoading());
-      final response = await repository.loadCourses();
-      if (response.isConnectionSuccessful()) {
-        emit(const CourseRegLoaded());
+      final response = await repository.initializeCourseReg();
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        emit(CourseRegLoaded(response));
       } else {
-        log("response error body: ${response.responseMessage}");
-        emit(CourseRegFailure(message: response.responseMessage));
+        log("response error body: ${response.message}");
+        emit(CourseRegFailure(message: '${response.message}'));
       }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");
     }
   }
 
-  initCourseRegistration() async {
+  pushCourseRegToServer(SubmitCourseReg reg) async {
     try {
       emit(CourseRegLoading());
-      final response = await repository.initializeCourseReg();
+      final response = await repository.submitCourseRegistration(reg);
+
       if (response.isConnectionSuccessful()) {
-        emit(const CourseRegLoaded());
+        emit(CourseRegPushLoaded(response));
       } else {
         log("response error body: ${response.responseMessage}");
         emit(CourseRegFailure(message: response.responseMessage));

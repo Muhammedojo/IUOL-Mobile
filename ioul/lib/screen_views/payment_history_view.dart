@@ -1,13 +1,9 @@
-import 'package:h3m_shimmer_card/h3m_shimmer_card.dart';
-import 'package:ioul/bloc/bloc.dart';
 import 'package:ioul/bloc/payment_history/cubit.dart';
-
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/payment_history_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class PaymentHistoryView
@@ -57,25 +53,13 @@ class PaymentHistoryView
                       )
                     : const Center(child: Text('Empty'));
               }
-              return Center(
-                child: InkWell(
-                  onTap: () =>
-                      state.paymentHistCubit.loadPaymentHistoryFromServer(),
-                  child: Container(
-                    width: 100, // Set the width of the container
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Refresh',
-                        style: Styles.x18dp_202326_700w(),
-                      ),
-                    ),
-                  ),
-                ),
+              return ErrorItemWidget(
+                title: "Error occurred",
+                message: "Payment History is empty",
+                hideButton: false,
+                onTap: () {
+                  state.refresh();
+                },
               );
             },
           ),
