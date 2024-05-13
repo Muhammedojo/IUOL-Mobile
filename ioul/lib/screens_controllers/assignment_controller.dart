@@ -1,7 +1,6 @@
 import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
 import '../screen_views/assignment_view.dart';
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
 class Assignment extends StatefulWidget {

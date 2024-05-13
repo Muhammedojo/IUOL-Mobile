@@ -29,6 +29,26 @@ class Loader extends StatelessWidget {
           height: 10.h,
         ),
         const ShimmerTile(),
+        SizedBox(
+          height: 10.h,
+        ),
+        const ShimmerTile(),
+        SizedBox(
+          height: 10.h,
+        ),
+        const ShimmerTile(),
+        SizedBox(
+          height: 10.h,
+        ),
+        const ShimmerTile(),
+        SizedBox(
+          height: 10.h,
+        ),
+        const ShimmerTile(),
+        SizedBox(
+          height: 10.h,
+        ),
+        const ShimmerTile(),
       ],
     );
   }

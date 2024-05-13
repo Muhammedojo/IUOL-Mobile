@@ -1,6 +1,6 @@
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
 import '../screen_views/report_view.dart';
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
 class Report extends StatefulWidget {
@@ -17,6 +17,7 @@ class ReportController extends State<Report> {
 
   @override
   void initState() {
+    context.read<ReportCubit>().loadReportsFromServer();
     super.initState();
   }
 
@@ -31,5 +32,9 @@ class ReportController extends State<Report> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  refresh() {
+    context.read<ReportCubit>().loadReportsFromServer();
   }
 }

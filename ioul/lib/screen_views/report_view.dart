@@ -69,7 +69,7 @@ class ReportView extends StatelessView<Report, ReportController> {
                       message: "Report List is empty",
                       hideButton: false,
                       onTap: () {
-                        // state.refresh();
+                        state.refresh();
                       },
                     );
             }
@@ -78,7 +78,7 @@ class ReportView extends StatelessView<Report, ReportController> {
               message: "Couldn't fetch report",
               hideButton: false,
               onTap: () {
-                // state.refresh();
+                state.refresh();
               },
             );
           }),
