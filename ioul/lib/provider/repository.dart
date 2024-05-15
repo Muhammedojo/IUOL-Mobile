@@ -25,6 +25,9 @@ class AppRepository {
   Future<CountryResponse> loadCountries() async =>
       _apiProvider.getCountryList();
 
+  Future<GenericResponse> loadPaymentType() async =>
+      _apiProvider.getPaymentTypeList();
+
   Future<GenericResponse> loadSemesterFormData() async =>
       _apiProvider.getSemesterFormData();
 

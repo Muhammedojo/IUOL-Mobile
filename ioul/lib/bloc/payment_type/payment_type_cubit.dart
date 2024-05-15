@@ -1,19 +1,17 @@
-import 'dart:developer';
-
 import '../../packages/package.dart';
 import '../../utils/global_states.dart';
 import 'cubit.dart';
 
 class PaymentTypeCubit extends Cubit<PaymentTypeState> {
-  PaymentTypeCubit() : super(InitialState());
+  PaymentTypeCubit() : super(InitialPaymentTypeState());
 
-  loadCountiresFromServer() async {
+  loadPaymentTypeFromServer() async {
     try {
       emit(PaymentTypeLoading());
-      final response = await repository.loadCountries();
+      final response = await repository.loadPaymentType();
       if (response.statusCode == 201 || response.statusCode == 200) {
-        log("country response: $response");
-        // emit(PaymentTypeLoaded(response.data as List<PaymentType>));
+        // log("Payment List response: $response");
+        emit(PaymentTypeLoaded(response));
       } else {
         // log("response error body: ${response.responseMessage}");
         emit(PaymentTypeFailure(message: response.message ?? ""));

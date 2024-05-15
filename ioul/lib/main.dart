@@ -1,7 +1,17 @@
 import 'package:ioul/ioul_app.dart';
+import 'package:ioul/utils/utils.dart';
 import 'packages/package.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const IOULApp());
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+      supportedLocales: GlobalVariables().appLocales,
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en', 'US'),
+      saveLocale: true,
+      startLocale: const Locale('en', 'US'),
+      useFallbackTranslations: true,
+      useOnlyLangCode: true,
+      child: const IOULApp()));
 }

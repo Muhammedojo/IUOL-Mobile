@@ -5,6 +5,7 @@ import 'package:ioul/helpers/helper.dart';
 import 'package:ioul/values/styles.dart';
 
 import '../components/components.dart';
+import '../packages/package.dart';
 import '../values/colors.dart';
 
 class WidgetHelper {
@@ -95,6 +96,66 @@ class WidgetHelper {
             )
           : null,
     ));
+  }
+
+  static languageSelectionModal(
+    context,
+    Function(Locale) onSelectLanguage,
+    List<Locale> locales,
+  ) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(24.r),
+                    topRight: Radius.circular(24.r))),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 10.h,
+                ),
+                const Icon(Icons.drag_handle_rounded),
+                SizedBox(
+                  height: 15.h,
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: List.generate(
+                      locales.length,
+                      (index) => ListTile(
+                            title: Text(
+                              locales[index].toLanguageTag(),
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: Styles.font,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                              ),
+                            ),
+                            //subtitle: Text(locales[index].languageCode),
+                            subtitle: const Text(''),
+                            leading: SvgPicture.asset(
+                                'icons/flags/svg/${locales[index].countryCode!.toLowerCase()}.svg',
+                                height: 20.w,
+                                width: 20.w,
+                                fit: BoxFit.contain,
+                                package: 'country_icons'),
+                            onTap: () {
+                              Navigator.of(context).pop();
+                              onSelectLanguage(locales[index]);
+                            },
+                          )),
+                )
+              ],
+            ),
+          );
+        });
   }
 
   static showProgress({String? text}) {

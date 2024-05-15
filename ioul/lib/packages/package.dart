@@ -16,3 +16,4 @@ export 'package:shared_preferences/shared_preferences.dart';
 export 'package:flutter_windowmanager/flutter_windowmanager.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:equatable/equatable.dart';
+export 'package:easy_localization/easy_localization.dart' hide TextDirection;

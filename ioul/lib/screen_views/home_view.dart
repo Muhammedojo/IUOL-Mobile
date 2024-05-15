@@ -85,7 +85,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                         ),
                         SizedBox(height: 7.h),
                         Text(
-                          "Course",
+                          "course".tr(),
                           style: TextStyle(
                               fontSize: 10.sp,
                               color:
@@ -168,7 +168,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                         ),
                         SizedBox(height: 7.h),
                         Text(
-                          "Report",
+                          "report".tr(),
                           style: TextStyle(
                               fontSize: 10.sp,
                               color:

@@ -92,7 +92,10 @@ class SettingsView extends StatelessView<Settings, SettingsController> {
                               color: AppColors.greylight))
                     ],
                   ),
-                ))
+                )),
+            InkWell(
+                onTap: () => state.showLanguageSelectionOption(),
+                child: const Icon(Icons.lan))
           ],
         ),
       ),

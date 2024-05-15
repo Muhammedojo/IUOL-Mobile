@@ -9,7 +9,7 @@ abstract class PaymentTypeState extends Equatable {
   List<Object> get props => [];
 }
 
-class InitialState extends PaymentTypeState {
+class InitialPaymentTypeState extends PaymentTypeState {
   @override
   List<Object> get props => [];
 }
@@ -20,11 +20,11 @@ class PaymentTypeLoading extends PaymentTypeState {
 }
 
 class PaymentTypeLoaded extends PaymentTypeState {
-  final GenericResponse registerStudent;
-  const PaymentTypeLoaded(this.registerStudent);
+  final GenericResponse paymentType;
+  const PaymentTypeLoaded(this.paymentType);
 
   @override
-  List<Object> get props => [registerStudent];
+  List<Object> get props => [paymentType];
 }
 
 class PaymentTypeFailure extends PaymentTypeState {

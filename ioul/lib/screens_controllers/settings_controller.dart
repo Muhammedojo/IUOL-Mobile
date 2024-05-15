@@ -1,6 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import '../screen_views/settings_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
+import '../utils/utils.dart';
 
 class Settings extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -12,17 +15,16 @@ class Settings extends StatefulWidget {
 }
 
 class SettingsController extends State<Settings> {
-
   //... //Initialization code, state vars etc, all go here
   bool onNotification = true;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -30,11 +32,25 @@ class SettingsController extends State<Settings> {
   Widget build(BuildContext context) => SettingsView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-onSwitch(value){
-  setState(() => onNotification = value);
-}
 
+  onLanguageSelected(Locale locale) {
+    if (mounted) {
+      setState(() {
+        context.setLocale(locale);
+        GlobalVariables().appLanguage = locale.languageCode;
+      });
+    }
+  }
+
+  showLanguageSelectionOption() {
+    WidgetHelper.languageSelectionModal(
+        context, onLanguageSelected, GlobalVariables().appLocales);
+  }
+
+  onSwitch(value) {
+    setState(() => onNotification = value);
+  }
 }

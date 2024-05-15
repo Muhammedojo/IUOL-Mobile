@@ -341,6 +341,33 @@ class ApiProvider {
     }
   }
 
+  Future<GenericResponse> getPaymentTypeList({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequest(paymentTypes);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
   Future<GenericResponse> getSemesterFormData({String? endpoint}) async {
     int? statusCode;
     try {

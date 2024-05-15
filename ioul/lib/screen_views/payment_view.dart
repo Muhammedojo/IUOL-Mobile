@@ -1,3 +1,4 @@
+import '../bloc/bloc.dart';
 import '../components/custom_dropdown_widget.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
@@ -51,15 +52,49 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                   alignment: Alignment.centerLeft,
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    child: CustomDropdownWidget(
-                      dropdownList: const [
-                        'Tuition Fee',
-                        'Acceptance Fee',
-                        'Management Fee',
-                        'Departmental Fee',
-                      ],
-                      controller: state.dropdownController,
-                      onChange: (value) => state.setSelectedValue(value),
+                    child: BlocBuilder<PaymentTypeCubit, PaymentTypeState>(
+                      builder: (context, applicationState) {
+                        if (applicationState is PaymentTypeLoaded) {
+                          //final data = applicationState.paymentType.data;
+                          // print('Payment data: $data');
+
+                          // List<String> dropdownList = ['ok'];
+                          // if (data != null && data is Map<String, String>) {
+                          //   print('Payment data length: ${data.length}');
+                          //   dropdownList = data.values.cast<String>().toList();
+                          //   print('Dropdown List: $dropdownList');
+                          // } else {
+                          //   print('Data is null or not a Map<String, String>');
+                          // }
+
+                          return CustomDropdownWidget(
+                            dropdownList: const [
+                              'Application Form Fee',
+                              'Semester Registration Fee',
+                              'Late Registration Fee',
+                              'Transcript',
+                              "Test Extention",
+                              'Assignment Extention'
+                            ],
+                            controller: state.dropdownController,
+                            onChange: (value) => state.setSelectedValue(value),
+                          );
+                        }
+
+                        // Default dropdown items
+                        return CustomDropdownWidget(
+                          dropdownList: const [
+                            'Application Form Fee',
+                            'Semester Registration Fee',
+                            'Late Registration Fee',
+                            'Transcript',
+                            "Test Extention",
+                            'Assignment Extention'
+                          ],
+                          controller: state.dropdownController,
+                          onChange: (value) => state.setSelectedValue(value),
+                        );
+                      },
                     ),
                   ),
                 ),

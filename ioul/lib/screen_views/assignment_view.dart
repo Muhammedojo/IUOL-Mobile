@@ -1,9 +1,5 @@
-import 'package:ioul/components/shimmer.dart';
-
 import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
 import '../packages/package.dart';
-import '../router/router.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/assignment_controller.dart';

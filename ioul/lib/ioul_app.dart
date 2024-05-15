@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:ioul/bloc/bloc.dart';
@@ -42,6 +43,9 @@ class IOULApp extends StatelessWidget {
           BlocProvider<AssignmentCubit>(
             create: (BuildContext context) => AssignmentCubit(),
           ),
+          BlocProvider<PaymentTypeCubit>(
+            create: (BuildContext context) => PaymentTypeCubit(),
+          ),
           BlocProvider<ReportCubit>(
             create: (BuildContext context) => ReportCubit(),
           ),
@@ -76,6 +80,9 @@ class IOULApp extends StatelessWidget {
             },
             builder: (context, child) {
               return MaterialApp.router(
+                  localizationsDelegates: context.localizationDelegates,
+                  supportedLocales: context.supportedLocales,
+                  locale: context.locale,
                   debugShowCheckedModeBanner: false,
                   routerConfig: AppRouter.router,
                   title: 'IOUL',
