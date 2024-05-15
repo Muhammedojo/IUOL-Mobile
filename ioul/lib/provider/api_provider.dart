@@ -25,7 +25,7 @@ class ApiProvider {
       Response response = await doPostRequest(loginEndpoint, body);
       statusCode = response.statusCode;
 
-      log("Login response : ${response.toString()}");
+      //log("Login response : ${response.toString()}");
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
         var requestResponse = Login.fromJson(decodedBody);
@@ -38,13 +38,41 @@ class ApiProvider {
         return requestResponse;
       }
     } on DioException catch (e) {
-      // print("Status error: ${e.response!.statusCode}");
-      log("Response error: ${e.response!.data}");
-      // print("Message error: ${e.message}");
+      // log("Response error: ${e.response!.data}");
+
       var requestResponse = Login();
-      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
-      // requestResponse.statusMessage = _handleDioError(e);
+
       requestResponse.message = _handleDioError(e);
+      return requestResponse;
+    }
+  }
+
+  Future<GenericResponse> logout() async {
+    int statusCode;
+    try {
+      Response response = await doPostRequestAuth(logoutEndpoint, '');
+
+      statusCode = response.statusCode!;
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode;
+
+        requestResponse.message = response.statusMessage;
+
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+
+      requestResponse.message = _handleDioError(e); //e.message;
+
       return requestResponse;
     }
   }
@@ -247,13 +275,13 @@ class ApiProvider {
         );
       }
 
-      log("normal application payload: ${formData.fields}");
+      // log("normal application payload: ${formData.fields}");
 
       formData.files.addAll(images);
-      log("application submission request payload: $formData");
+      // log("application submission request payload: $formData");
       Response response = await postFormData(submitApplication, "", formData);
       statusCode = response.statusCode;
-      log("application response: ${response.data.toString()}");
+      // log("application response: ${response.data.toString()}");
 
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
@@ -888,25 +916,22 @@ Future<Response> doPostRequest(endPoint, dynamic body) async {
   dio.options.connectTimeout = const Duration(minutes: 1); //30s
   dio.options.receiveTimeout = const Duration(minutes: 1); // 2 min
 
+  Response response =
+      Response(requestOptions: RequestOptions(method: "post", path: endPoint));
+  try {
+    response = await dio.post(endPoint,
+        data: jsonEncode(body), options: Options(headers: header));
+  } on DioException catch (e) {
+    response.statusMessage =
+        (e.response?.statusCode ?? 500).toString().startsWith("5")
+            ? "something_went_wrong_and_your_request_could_not_be_completed"
+            : e.response?.data['message'];
+    response.statusCode = e.response?.statusCode ?? 500;
+  }
+
+  return response;
   // return dio.post(endPoint,
   //     data: jsonEncode(body), options: Options(headers: header));
-
-  // Response response =
-  //     Response(requestOptions: RequestOptions(method: "post", path: endPoint));
-  // try {
-  //   response = await dio.post(endPoint,
-  //       data: jsonEncode(body), options: Options(headers: header));
-  // } on DioException catch (e) {
-  //   response.statusMessage =
-  //       (e.response?.statusCode ?? 500).toString().startsWith("5")
-  //           ? "something_went_wrong_and_your_request_could_not_be_completed"
-  //           : e.response?.data['message'];
-  //   response.statusCode = e.response?.statusCode ?? 500;
-  // }
-
-  // return response;
-  return dio.post(endPoint,
-      data: jsonEncode(body), options: Options(headers: header));
 }
 
 bool _isConnectionSuccessful(int? statusCode) =>

@@ -697,13 +697,8 @@ class HomeView extends StatelessView<Home, HomeController> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        CupertinoPageRoute(
-                                          builder: (context) =>
-                                              const ExaminationExtension(),
-                                        ),
-                                      );
+                                      state.onBackPressed();
+                                      state.logoutUser();
                                     },
                                     child: SvgPicture.asset(
                                         'assets/images/log_out.svg',

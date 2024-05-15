@@ -1,10 +1,7 @@
 import 'package:ioul/bloc/register/cubit.dart';
 import 'package:ioul/model/register_student.dart';
-
 import '../helpers/helper.dart';
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
-import '../router/router.dart';
 import '../screen_views/create_account.dart';
 
 class CreateAccount extends StatefulWidget {

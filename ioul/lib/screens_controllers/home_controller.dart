@@ -1,10 +1,13 @@
+import 'package:ioul/router/router.dart';
+
 import '../helpers/helper.dart';
 import '../screen_views/home_view.dart';
 import '../packages/package.dart';
+import '../utils/global_states.dart';
 
 class Home extends StatefulWidget {
- // static const routeName = Strings.SCREEN_BLANK;
- final StatefulNavigationShell navigationShell;
+  // static const routeName = Strings.SCREEN_BLANK;
+  final StatefulNavigationShell navigationShell;
 
   const Home({Key? key, required this.navigationShell}) : super(key: key);
 
@@ -13,17 +16,16 @@ class Home extends StatefulWidget {
 }
 
 class HomeController extends State<Home> {
-
   //... //Initialization code, state vars etc, all go here
   int selectedPage = 0;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -42,10 +44,36 @@ class HomeController extends State<Home> {
   }
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 
+  logoutUser() async {
+    try {
+      WidgetHelper.showProgress(text: 'logging_out'.tr());
 
+      var response = await repository.logout();
 
+      WidgetHelper.hideProgress();
+
+      if (!mounted) return;
+      if (response.isConnectionSuccessful()) {
+        await clearUserData();
+        context.goNamed(RouteConstants.login);
+      } else {
+        WidgetHelper.showToastError(context, '${response.message}');
+        return;
+      }
+    } catch (e) {
+      WidgetHelper.hideProgress();
+      WidgetHelper.showToastError(context, 'An error occurred during logout');
+    } finally {
+      WidgetHelper.hideProgress(); // Ensure progress is hidden
+    }
+  }
+
+  Future<void> clearUserData() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+  }
 }

@@ -1,4 +1,3 @@
-import '../utils/global_states.dart';
 import 'user.dart';
 
 class Login {

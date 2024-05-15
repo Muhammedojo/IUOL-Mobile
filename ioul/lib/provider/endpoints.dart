@@ -18,7 +18,7 @@ const String coursesAssignment = "courses/assignment";
 const String resendEmailVerificationEndpoint = "auth/resend-email-verification";
 const String verifyResetPasswordPin = "auth/verify-reset-password-pin";
 const String resetPasswordEndpoint = "auth/reset-password";
-const String logout = "auth/logout";
+const String logoutEndpoint = "auth/logout";
 //Endpoint to fetch programs list
 const String startApplication = "application/start";
 
