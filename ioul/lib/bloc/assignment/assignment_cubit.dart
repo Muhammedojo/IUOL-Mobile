@@ -9,7 +9,7 @@ class AssignmentCubit extends Cubit<AssignmentState> {
   loadCourseAssignmentFromServer() async {
     try {
       emit(AssignmentLoading());
-      final response = await repository.loadCourses();
+      final response = await repository.loadCoursesAssignment();
       if (response.isConnectionSuccessful()) {
         emit(const AssignmentLoaded([]));
       } else {

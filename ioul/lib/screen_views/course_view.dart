@@ -1,14 +1,12 @@
 import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
 import '../packages/package.dart';
-import '../router/router.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/course_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 
-class CourseView extends StatelessView<Course, CourseController> {
+class CourseView extends StatelessView<Courses, CourseController> {
   const CourseView(CourseController state, {Key? key}) : super(state, key: key);
 
   @override
@@ -67,10 +65,7 @@ class CourseView extends StatelessView<Course, CourseController> {
                             itemBuilder: (context, index) {
                               var courses = stateBloc.courseList[index];
                               return EnrolledCourseWidget(
-                                onTap: () =>
-                                    NavigatorHelper(context).pushNamedScreen(
-                                  RouteConstants.courseDetailOverview,
-                                ),
+                                onTap: () => state.showCourseDetails(courses),
                                 course: courses,
                               );
                             })

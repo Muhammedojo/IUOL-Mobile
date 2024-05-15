@@ -55,7 +55,7 @@ class AssignmentWidget extends StatelessWidget {
                       height: 4.h,
                     ),
                     Text(
-                      '${assignment.code}',
+                      '${assignment.assignmentQuestion}',
                       style: TextStyle(
                           fontSize: 13.sp,
                           fontFamily: 'Inter',
@@ -66,7 +66,7 @@ class AssignmentWidget extends StatelessWidget {
                       height: 4.h,
                     ),
                     Text(
-                      '${assignment.unit}',
+                      '${assignment.startDate}',
                       style: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Inter',

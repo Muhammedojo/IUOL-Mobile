@@ -10,7 +10,7 @@ import '../screens_controllers/assignment_controller.dart';
 import '../values/values.dart';
 import 'stateless_view.dart';
 
-class AssignmentView extends StatelessView<Assignment, AssignmentController> {
+class AssignmentView extends StatelessView<Assignments, AssignmentController> {
   const AssignmentView(AssignmentController state, {Key? key})
       : super(state, key: key);
 
@@ -58,9 +58,7 @@ class AssignmentView extends StatelessView<Assignment, AssignmentController> {
                       itemBuilder: (context, index) {
                         var assignment = stateBloc.assignmentList[index];
                         return AssignmentWidget(
-                          onTap: () => NavigatorHelper(context).pushNamedScreen(
-                            RouteConstants.courseDetailOverview,
-                          ),
+                          onTap: () => state.showAssignmentPreview(assignment),
                           assignment: assignment,
                         );
                       })

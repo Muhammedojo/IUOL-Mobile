@@ -1,18 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
+import '../model/model.dart';
 import '../screen_views/course_view.dart';
 import '../packages/package.dart';
+import '../screens/screens.dart';
 
-class Course extends StatefulWidget {
+class Courses extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
 
-  const Course({Key? key}) : super(key: key);
+  const Courses({Key? key}) : super(key: key);
 
   @override
   CourseController createState() => CourseController();
 }
 
-class CourseController extends State<Course> {
+class CourseController extends State<Courses> {
   //... //Initialization code, state vars etc, all go here
 
   @override
@@ -32,6 +35,15 @@ class CourseController extends State<Course> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  showCourseDetails(Course course) async {
+    Navigator.push(
+        context,
+        CupertinoPageRoute(
+            builder: (context) => CourseDetailOverview(
+                  course: course,
+                )));
   }
 
   refresh() {

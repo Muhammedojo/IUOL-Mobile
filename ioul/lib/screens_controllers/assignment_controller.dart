@@ -1,18 +1,22 @@
+import 'package:flutter/cupertino.dart';
+
 import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
+import '../model/model.dart';
 import '../screen_views/assignment_view.dart';
 import '../packages/package.dart';
+import '../screens/screens.dart';
 
-class Assignment extends StatefulWidget {
+class Assignments extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
 
-  const Assignment({Key? key}) : super(key: key);
+  const Assignments({Key? key}) : super(key: key);
 
   @override
   AssignmentController createState() => AssignmentController();
 }
 
-class AssignmentController extends State<Assignment> {
+class AssignmentController extends State<Assignments> {
   //... //Initialization code, state vars etc, all go here
 
   @override
@@ -36,5 +40,14 @@ class AssignmentController extends State<Assignment> {
 
   refresh() {
     context.read<AssignmentCubit>().loadCourseAssignmentFromServer();
+  }
+
+  showAssignmentPreview(Assignment assignment) async {
+    Navigator.push(
+        context,
+        CupertinoPageRoute(
+            builder: (context) => AssignmentPreview(
+                  assignment: assignment,
+                )));
   }
 }

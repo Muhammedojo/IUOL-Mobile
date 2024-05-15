@@ -8,7 +8,7 @@ import '../values/values.dart';
 import 'stateless_view.dart';
 
 class CourseOverviewView
-    extends StatelessView<CourseOverview, CourseOverviewController> {
+    extends StatelessView<CourseDetailOverview, CourseOverviewController> {
   const CourseOverviewView(CourseOverviewController state, {Key? key})
       : super(state, key: key);
 

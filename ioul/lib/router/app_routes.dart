@@ -171,7 +171,7 @@ class AppRouter {
                 path: '/${RouteConstants.courses}',
                 name: RouteConstants.courses,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Course(),
+                  child: Courses(),
                 ),
                 routes: [
                   // GoRoute(
@@ -197,7 +197,7 @@ class AppRouter {
                   GoRoute(
                     path: RouteConstants.courseDetailOverview,
                     name: RouteConstants.courseDetailOverview,
-                    builder: (context, state) => const CourseOverview(),
+                    builder: (context, state) => const CourseDetailOverview(),
                   ),
                   // GoRoute(
                   //   path: RouteConstants.ioulLibrary,
@@ -243,7 +243,7 @@ class AppRouter {
                 name: RouteConstants.assignment,
                 // parentNavigatorKey: GlobalVariables.rootNavigatorKey,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Assignment(),
+                  child: Assignments(),
                 ),
                 routes: [
                   GoRoute(

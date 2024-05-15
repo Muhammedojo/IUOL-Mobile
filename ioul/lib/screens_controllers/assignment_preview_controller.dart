@@ -1,27 +1,27 @@
+import '../model/model.dart';
 import '../screen_views/assignment_preview_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
 
 class AssignmentPreview extends StatefulWidget {
-  // static const routeName = Strings.SCREEN_BLANK;
-
-  const AssignmentPreview({Key? key}) : super(key: key);
+  final Assignment? assignment;
+  const AssignmentPreview({Key? key, this.assignment}) : super(key: key);
 
   @override
   AssignmentPreviewController createState() => AssignmentPreviewController();
 }
 
 class AssignmentPreviewController extends State<AssignmentPreview> {
-
   //... //Initialization code, state vars etc, all go here
+  late Assignment? assignment;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -29,8 +29,7 @@ class AssignmentPreviewController extends State<AssignmentPreview> {
   Widget build(BuildContext context) => AssignmentPreviewView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

@@ -29,6 +29,9 @@ class AppRepository {
       _apiProvider.getSemesterFormData();
 
   Future<GenericResponse> loadCourses() async => _apiProvider.getCoursesList();
+  Future<GenericResponse> loadCoursesAssignment() async =>
+      _apiProvider.getCoursesAssignment();
+
   Future<CourseRegResponse> initializeCourseReg() async =>
       _apiProvider.initializeCourseReg();
 

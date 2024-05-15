@@ -14,7 +14,7 @@ const String registerEndpoint = "auth/register";
 const String verifyEmailEndpoint = "auth/verify-email";
 const String forgotPasswordEndpoint = "auth/forgot-password";
 const String countries = "application/countries";
-
+const String coursesAssignment = "courses/assignment";
 const String resendEmailVerificationEndpoint = "auth/resend-email-verification";
 const String verifyResetPasswordPin = "auth/verify-reset-password-pin";
 const String resetPasswordEndpoint = "auth/reset-password";

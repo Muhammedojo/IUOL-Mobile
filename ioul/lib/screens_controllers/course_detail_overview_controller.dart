@@ -1,17 +1,19 @@
 import '../helpers/helper.dart';
+import '../model/model.dart';
 import '../screen_views/course_detail_overview_view.dart';
 import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
-class CourseOverview extends StatefulWidget {
+class CourseDetailOverview extends StatefulWidget {
+  final Course? course;
 
-  const CourseOverview({Key? key}) : super(key: key);
+  const CourseDetailOverview({Key? key, this.course}) : super(key: key);
 
   @override
   CourseOverviewController createState() => CourseOverviewController();
 }
 
-class CourseOverviewController extends State<CourseOverview> {
+class CourseOverviewController extends State<CourseDetailOverview> {
   //... //Initialization code, state vars etc, all go here
   int selectedPage = 0;
   @override
@@ -28,7 +30,7 @@ class CourseOverviewController extends State<CourseOverview> {
   Widget build(BuildContext context) => CourseOverviewView(this);
 
   //Control logic grouped together, at top of file
-   onBackPressed() {
+  onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 
