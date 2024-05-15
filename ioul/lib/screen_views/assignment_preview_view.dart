@@ -77,7 +77,7 @@ class AssignmentPreviewView
                         '${state.assignment?.title}',
                         style: TextStyle(
                             fontSize: 18.sp,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             fontWeight: FontWeight.w700),
                       ),
                     ],
@@ -115,7 +115,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -361,7 +361,7 @@ class AssignmentPreviewView
                                   'Please note that you have to use the above template',
                                   style: TextStyle(
                                       fontSize: 8.sp,
-                                      fontFamily: 'Inter',
+                                      fontFamily: Styles.font,
                                       color: const Color(0xff0f0f0f),
                                       fontWeight: FontWeight.w400),
                                 ),

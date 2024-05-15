@@ -6,7 +6,7 @@ class ErrorItemWidget extends StatelessWidget {
   final String? title;
   final Function()? onTap;
   final double? imageHeight;
-  final String? buttonLabel;
+
   final bool? hideButton;
   final String? image;
   final double? marginTop;
@@ -17,7 +17,6 @@ class ErrorItemWidget extends StatelessWidget {
     this.title = "",
     this.onTap,
     this.imageHeight = 100,
-    this.buttonLabel = "Refresh",
     this.hideButton = true,
     this.image = "assets/images/error-dark.svg",
     this.marginTop = 5.0,
@@ -106,7 +105,7 @@ class ErrorItemWidget extends StatelessWidget {
                           onTap!();
                         },
                         child: Text(
-                          buttonLabel ?? 'Try again',
+                          'refresh'.tr(),
                           style: Styles.x15dp_303437_400w(),
                         ),
                       ),

@@ -70,7 +70,7 @@ class CourseView extends StatelessView<Courses, CourseController> {
                               );
                             })
                         : ErrorItemWidget(
-                            title: "Empty List",
+                            title: "empty_list".tr(),
                             message: "Course List is empty",
                             hideButton: false,
                             onTap: () {
@@ -79,7 +79,7 @@ class CourseView extends StatelessView<Courses, CourseController> {
                           );
                   }
                   return ErrorItemWidget(
-                    title: "Error occurred",
+                    title: "error_occurred".tr(),
                     message: "Couldn't fetch courses",
                     hideButton: false,
                     onTap: () {

@@ -59,7 +59,7 @@ class AssignmentView extends StatelessView<Assignments, AssignmentController> {
                         );
                       })
                   : ErrorItemWidget(
-                      title: "Empty List",
+                      title: "empty_list".tr(),
                       message: "Assignment List is empty",
                       hideButton: false,
                       onTap: () {
@@ -68,7 +68,7 @@ class AssignmentView extends StatelessView<Assignments, AssignmentController> {
                     );
             }
             return ErrorItemWidget(
-              title: "Error occurred",
+              title: "error_occurred".tr(),
               message: "Couldn't fetch assignments",
               hideButton: false,
               onTap: () {

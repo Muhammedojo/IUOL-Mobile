@@ -194,15 +194,15 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                         if (stateBloc is CoursesLoaded) {
                           return Expanded(
                             child: CardWidget(
-                              title: 'Enrolled Course',
+                              title: 'enrolled_course'.tr(),
                               number: '${stateBloc.courseList.length}',
                               onTap: null,
                             ),
                           );
                         }
-                        return const Expanded(
+                        return Expanded(
                           child: CardWidget(
-                            title: 'Enrolled Course',
+                            title: 'enrolled_course'.tr(),
                             number: '0',
                             onTap: null,
                           ),
@@ -211,9 +211,9 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                       SizedBox(
                         width: 10.w,
                       ),
-                      const Expanded(
+                      Expanded(
                         child: CardWidget(
-                          title: 'Calendar',
+                          title: 'calendar'.tr(),
                           number: '18',
                           onTap: null,
                         ),
@@ -225,9 +225,9 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   ),
                   Row(
                     children: [
-                      const Expanded(
+                      Expanded(
                         child: CardWidget(
-                          title: 'Virtual Library',
+                          title: 'virtual_library'.tr(),
                           number: '12',
                           onTap: null,
                         ),
@@ -235,9 +235,9 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                       SizedBox(
                         width: 10.w,
                       ),
-                      const Expanded(
+                      Expanded(
                         child: CardWidget(
-                          title: 'Resources',
+                          title: 'resources'.tr(),
                           number: '18',
                           onTap: null,
                         ),
@@ -247,7 +247,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  Text('Recent class',
+                  Text('recent_class'.tr(),
                       style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
@@ -275,7 +275,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  Text('Upcoming Tasks and Assignment',
+                  Text('upcoming_task_assignment'.tr(),
                       style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w500,

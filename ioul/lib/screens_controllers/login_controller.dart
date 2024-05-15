@@ -84,7 +84,7 @@ class LoginController extends State<Login> {
 
   void loginUser(String username, String password) async {
     try {
-      WidgetHelper.showProgress(text: 'Checking');
+      WidgetHelper.showProgress(text: 'Checking'.tr());
       var loginResponse =
           await repository.login(username, password, deviceToken);
       WidgetHelper.hideProgress();

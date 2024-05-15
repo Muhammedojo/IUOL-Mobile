@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/widget_helper.dart';
+import 'package:ioul/packages/package.dart';
 import 'package:ioul/screens_controllers/programme_controller.dart';
 import 'package:ioul/screens_controllers/sponsor_controller.dart';
 import 'package:ioul/screens_controllers/upload_controller.dart';
@@ -23,7 +24,7 @@ class ApplicationFormView
       backgroundColor: AppColors.backgroundWhite,
       appBar: WidgetHelper().appBackArrowWithTitleAndTabBar(
         context,
-        title: "Application form",
+        title: "application_form".tr(),
         bottomWidget: Padding(
           padding: EdgeInsets.zero,
           child: Column(
@@ -75,37 +76,37 @@ class ApplicationFormView
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: const Text("Personal"),
+                        child: Text("personal".tr()),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: const Text("Address"),
+                        child: Text("address".tr()),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: const Text("Contacts"),
+                        child: Text("contacts".tr()),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: const Text("Sponsor"),
+                        child: Text("sponsor".tr()),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: const Text("Programme"),
+                        child: Text("programme".tr()),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: const Text("Certificates"),
+                        child: Text("certificates".tr()),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: const Text("Uploads"),
+                        child: Text("uploads".tr()),
                       ),
                     ],
                   ),

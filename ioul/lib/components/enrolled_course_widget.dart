@@ -44,7 +44,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${course.title}',
+                      '${course.courseTitle}',
                       style: TextStyle(
                           fontSize: 14.sp,
                           fontFamily: 'Inter',
@@ -55,7 +55,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       height: 4.h,
                     ),
                     Text(
-                      '${course.code}',
+                      '${course.courseCode}',
                       style: TextStyle(
                           fontSize: 13.sp,
                           fontFamily: 'Inter',

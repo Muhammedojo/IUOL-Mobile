@@ -7,7 +7,6 @@ class GlobalVariables {
   List<Locale> appLocales = [
     const Locale('en', 'US'),
     const Locale('fr', 'FR'),
-    const Locale('sw', 'TZ')
   ];
   static final rootNavigatorKey = GlobalKey<NavigatorState>();
   final shellNavigatorDashboardKey =

@@ -20,7 +20,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
       backgroundColor: AppColors.backgroundWhite,
       body: WidgetWrapper(child: _body(context)),
       appBar: WidgetHelper().appBackArrowWithTitle(context,
-          title: 'Payment Invoice', onTap: () => state.onBackPressed()),
+          title: 'payment_invoice'.tr(), onTap: () => state.onBackPressed()),
     );
   }
 

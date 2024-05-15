@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:ioul/packages/package.dart';
 import '../components/components.dart';
 import '../screens_controllers/contact_controller.dart';
 import '../values/values.dart';
@@ -36,7 +37,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Next of Kin Name",
+                    text: "nok_name".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -54,7 +55,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Next of Kin Email Address",
+                    text: "nok_email".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -72,7 +73,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Next of Kin Phone Number",
+                    text: "nok_phone".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -99,7 +100,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                   filled: true,
                   // isDense: true,
                   isCollapsed: true,
-                  hintText: 'Phone Number',
+                  hintText: 'phone_number'.tr(),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(color: AppColors.inkLight),
                     borderRadius: BorderRadius.circular(8.r),
@@ -126,13 +127,13 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Address",
+                hint: "address".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.nokAddressController,
               ),
               SizedBox(height: 28.h),
               TextWidget(
-                text: "Referee",
+                text: "referee".tr(),
                 style: Styles.x16dp_202325_700w(),
               ),
               SizedBox(height: 6.h),
@@ -144,7 +145,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Referee Name",
+                    text: "referee_name".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -162,7 +163,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Referee Email",
+                    text: "referee_email".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -180,7 +181,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Referee Phone",
+                    text: "referee_phone".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -207,7 +208,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                   filled: true,
                   // isDense: true,
                   isCollapsed: true,
-                  hintText: 'Phone Number',
+                  hintText: 'phone'.tr(),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(color: AppColors.inkLight),
                     borderRadius: BorderRadius.circular(8.r),
@@ -225,7 +226,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Referee Address",
+                    text: "referee_address".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -234,7 +235,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "address",
+                hint: "address".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.refAddressController,
               ),
@@ -245,14 +246,15 @@ class ContactView extends StatelessView<Contact, ContactController> {
                   Expanded(
                     flex: 1,
                     child: ElevatedButtonWidget(
-                        onTap: () => state.onReversePressed(), title: "Back"),
+                        onTap: () => state.onReversePressed(),
+                        title: "back".tr()),
                   ),
                   SizedBox(width: 132.w),
                   Expanded(
                     flex: 1,
                     child: ElevatedButtonWidget(
                         onTap: () => state.validateContactInfo(),
-                        title: "Next"),
+                        title: "next".tr()),
                   )
                 ],
               ),

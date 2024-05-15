@@ -37,7 +37,7 @@ class CertificateView
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Type of Certificate",
+                    text: "type_of_Certificate".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -80,7 +80,7 @@ class CertificateView
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Exam Center Name",
+                    text: "exam_center_name".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -89,7 +89,7 @@ class CertificateView
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Center name",
+                hint: "exam_center_name".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.centerNameController,
               ),
@@ -98,7 +98,7 @@ class CertificateView
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Exam Centre Number",
+                    text: "exam_centre_no".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -107,7 +107,7 @@ class CertificateView
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Center number",
+                hint: "center_no".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.centerNumberController,
               ),
@@ -134,7 +134,7 @@ class CertificateView
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Exam Year",
+                    text: "exam_year".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -143,7 +143,7 @@ class CertificateView
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Exam number",
+                hint: "exam_year".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.examYearController,
               ),

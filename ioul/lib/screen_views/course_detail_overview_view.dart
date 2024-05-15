@@ -81,7 +81,7 @@ class CourseOverviewView
                       inactiveFgColor: Colors.black,
                       initialLabelIndex: state.selectedPage,
                       totalSwitches: 2,
-                      labels: const ['Overview', 'Resources'],
+                      labels: ['overview'.tr(), 'resources'.tr()],
                       radiusStyle: true,
                       onToggle: (index) {
                         state.onChipSelected(index!);
@@ -120,7 +120,7 @@ class CourseOverviewView
                                     ),
                                     child: ExpansionTile(
                                       title: Text(
-                                        'Introduction',
+                                        'introduction'.tr(),
                                         style: TextStyle(
                                             fontSize: 17.sp,
                                             fontWeight: FontWeight.w700,
@@ -132,7 +132,50 @@ class CourseOverviewView
                                           padding: REdgeInsets.symmetric(
                                               horizontal: 10.0, vertical: 5),
                                           child: Text(
-                                            '''The aim and objective of this course is computer literacy. Information Technology is the frontier hero of the new century,driven by ambition and full courage, replicating itself like a virus and sweping all before it, So in order not to be marginalized ''',
+                                            '${state.course!.courseDetails?.overview?.introduction}',
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(
+                                              color: const Color(0xff000000),
+                                              fontSize: 15.sp,
+                                              fontFamily: Styles.font,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    )),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8.r),
+                                      color: AppColors.backgroundWhite,
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          color: Colors.grey,
+                                          blurRadius: 2.0,
+                                          spreadRadius: 0.0,
+                                          offset: Offset(1.0,
+                                              1.0), // shadow direction: bottom right
+                                        ),
+                                      ],
+                                    ),
+                                    child: ExpansionTile(
+                                      title: Text(
+                                        'description'.tr(),
+                                        style: TextStyle(
+                                            fontSize: 17.sp,
+                                            fontWeight: FontWeight.w700,
+                                            color: const Color(0xff191C1C)),
+                                      ),
+                                      textColor: Colors.red,
+                                      children: [
+                                        Padding(
+                                          padding: REdgeInsets.symmetric(
+                                              horizontal: 10.0, vertical: 5),
+                                          child: Text(
+                                            '${state.course!.courseDetails?.overview?.description}',
                                             textAlign: TextAlign.justify,
                                             style: TextStyle(
                                               color: const Color(0xff000000),
@@ -162,49 +205,7 @@ class CourseOverviewView
                                     ),
                                     child: ExpansionTile(
                                       title: Text(
-                                        'Description',
-                                        style: TextStyle(
-                                            fontSize: 17.sp,
-                                            fontWeight: FontWeight.w700,
-                                            color: const Color(0xff191C1C)),
-                                      ),
-                                      textColor: Colors.red,
-                                      children: [
-                                        Padding(
-                                          padding: REdgeInsets.symmetric(
-                                              horizontal: 10.0, vertical: 5),
-                                          child: Text(
-                                            '''The aim and objective of this course is computer literacy. Information Technology is the frontier hero of the new century,driven by ambition and full courage, replicating itself like a virus and sweping all before it, So in order not to be marginalized ''',
-                                            textAlign: TextAlign.justify,
-                                            style: TextStyle(
-                                              color: const Color(0xff000000),
-                                              fontSize: 15.sp,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    )),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8.r),
-                                      color: AppColors.backgroundWhite,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Colors.grey,
-                                          blurRadius: 2.0,
-                                          spreadRadius: 0.0,
-                                          offset: Offset(1.0,
-                                              1.0), // shadow direction: bottom right
-                                        ),
-                                      ],
-                                    ),
-                                    child: ExpansionTile(
-                                      title: Text(
-                                        'Outline',
+                                        'outline'.tr(),
                                         style: TextStyle(
                                             fontSize: 17.sp,
                                             fontWeight: FontWeight.w700,
@@ -235,25 +236,8 @@ class CourseOverviewView
                                                 SizedBox(
                                                   height: 3.h,
                                                 ),
-                                                Text('Unit 1 What is Computer',
-                                                    style: TextStyle(
-                                                      color: const Color(
-                                                          0xff000000),
-                                                      fontSize: 15.sp,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                    )),
                                                 Text(
-                                                    'Unit 2 Element of Computer: Hardware',
-                                                    style: TextStyle(
-                                                      color: const Color(
-                                                          0xff000000),
-                                                      fontSize: 15.sp,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                    )),
-                                                Text(
-                                                    'Unit 3 Element of Computer: Software',
+                                                    '${state.course!.courseDetails?.overview?.outline}',
                                                     style: TextStyle(
                                                       color: const Color(
                                                           0xff000000),
@@ -277,29 +261,13 @@ class CourseOverviewView
                                                 SizedBox(
                                                   height: 3.h,
                                                 ),
-                                                Text('Unit 1 What is Computer',
-                                                    style: TextStyle(
-                                                      color: const Color(
-                                                          0xff000000),
-                                                      fontSize: 15.sp,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                    )),
                                                 Text(
-                                                    'Unit 2 Element of Computer: Hardware',
+                                                    '${state.course!.courseDetails?.overview?.outline}',
                                                     style: TextStyle(
                                                       color: const Color(
                                                           0xff000000),
                                                       fontSize: 15.sp,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                    )),
-                                                Text(
-                                                    'Unit 3 Element of Computer: Software',
-                                                    style: TextStyle(
-                                                      color: const Color(
-                                                          0xff000000),
-                                                      fontSize: 15.sp,
+                                                      fontFamily: Styles.font,
                                                       fontWeight:
                                                           FontWeight.w400,
                                                     )),
@@ -367,8 +335,9 @@ class CourseOverviewView
                                           .pushNamedScreen(
                                         RouteConstants.documentResources,
                                       ),
-                                      type: 'Document',
-                                      number: '12',
+                                      type: 'document'.tr(),
+                                      number:
+                                          '${state.course!.courseDetails?.resources?.documentResources}',
                                       color: const Color(0xffFFD188),
                                       image: 'assets/images/documents.svg',
                                     ),
@@ -377,8 +346,9 @@ class CourseOverviewView
                                           .pushNamedScreen(
                                         RouteConstants.videoResources,
                                       ),
-                                      type: 'Videos',
-                                      number: '12',
+                                      type: 'video'.tr(),
+                                      number:
+                                          '${state.course!.courseDetails?.resources?.videoResources}',
                                       color: const Color(0xffC4E4FF),
                                       image: 'assets/images/videos.svg',
                                     ),
@@ -387,8 +357,9 @@ class CourseOverviewView
                                           .pushNamedScreen(
                                         RouteConstants.audioResources,
                                       ),
-                                      type: 'Audios',
-                                      number: '12',
+                                      type: 'audio'.tr(),
+                                      number:
+                                          '${state.course!.courseDetails?.resources?.audioResources}',
                                       color: const Color(0xff7DDE86),
                                       image: 'assets/images/audios.svg',
                                     ),
@@ -402,12 +373,13 @@ class CourseOverviewView
               ),
             )
           ])),
-      const Positioned(
+      Positioned(
           top: 145,
           left: 19,
           right: 19,
           child: CourseInfoWidget(
             onTap: null,
+            course: widget.course,
           )),
     ]);
   }

@@ -124,7 +124,7 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                   BlocListener<VerifyEmailCubit, VerifyEmailState>(
                     listener: (context, verifyState) {
                       if (verifyState is VerifyEmailLoading) {
-                        WidgetHelper.showProgress(text: "Processing");
+                        WidgetHelper.showProgress(text: "processing".tr());
                       } else if (verifyState is VerifyEmailLoaded) {
                         WidgetHelper.hideProgress();
                         Navigator.push(
@@ -143,7 +143,7 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                       }
                     },
                     child: ElevatedButtonWidget(
-                        title: "Continue",
+                        title: "continue".tr(),
                         onTap: () {
                           state.verifyPin();
                         }),

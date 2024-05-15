@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import '../packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
@@ -61,7 +58,7 @@ class AddDropCourseView
                     Expanded(
                       child: Center(
                         child: Text(
-                          'Add/Drop Course',
+                          'add_and_drop_course'.tr(),
                           style: Styles.x18dp_202326_700w(),
                         ),
                       ),
@@ -95,7 +92,8 @@ class AddDropCourseView
                         SizedBox(
                           height: 30.h,
                         ),
-                        SubmitButtonWidget(label: 'Preview', onPressed: () {})
+                        SubmitButtonWidget(
+                            label: 'preview'.tr(), onPressed: () {})
                       ],
                     )),
               ),

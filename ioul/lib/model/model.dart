@@ -27,6 +27,7 @@ export 'registered_courses.dart';
 export 'unit.dart';
 export 'report.dart';
 export 'assignment.dart';
+export 'course_detail.dart';
 export 'course_summary.dart';
 export 'time_table.dart';
 export 'resources.dart';

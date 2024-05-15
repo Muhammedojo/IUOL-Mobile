@@ -1,8 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:ioul/bloc/bloc.dart';
-
 import 'packages/package.dart';
 import 'router/router.dart';
 import 'utils/theme.dart';

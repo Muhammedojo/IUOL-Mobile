@@ -94,7 +94,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       : const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
                               height: 16.0 / 10.0,
-                              fontFamily: 'Inter'),
+                              fontFamily: Styles.font),
                         ),
                       ],
                     ),
@@ -121,7 +121,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                         ),
                         SizedBox(height: 7.h),
                         Text(
-                          "Assignment",
+                          "assignment".tr(),
                           style: TextStyle(
                               fontSize: 10.sp,
                               color:
@@ -130,7 +130,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       : const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
                               height: 16.0 / 10.0,
-                              fontFamily: 'Inter'),
+                              fontFamily: Styles.font),
                         ),
                       ],
                     ),
@@ -177,7 +177,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       : const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
                               height: 16.0 / 10.0,
-                              fontFamily: 'Inter'),
+                              fontFamily: Styles.font),
                         ),
                       ],
                     ),
@@ -205,13 +205,13 @@ class HomeView extends StatelessView<Home, HomeController> {
                         ),
                         SizedBox(height: 7.h),
                         Text(
-                          "More",
+                          "more".tr(),
                           style: TextStyle(
                               fontSize: 10.sp,
                               height: 16.0 / 10.0,
                               color: const Color(0xff979C9E),
                               fontWeight: FontWeight.w500,
-                              fontFamily: 'Inter'),
+                              fontFamily: Styles.font),
                         ),
                       ],
                     ),
@@ -276,9 +276,10 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     color: Colors.red,
                                   ),
                                   Text(
-                                    'Course',
+                                    'course'.tr(),
                                     style: TextStyle(
                                         fontSize: 16.sp,
+                                        fontFamily: Styles.font,
                                         fontWeight: FontWeight.w400,
                                         color: const Color(0xff202325)),
                                   ),
@@ -352,9 +353,10 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     color: Colors.red,
                                   ),
                                   Text(
-                                    'Assessment',
+                                    'assessment'.tr(),
                                     style: TextStyle(
                                         fontSize: 16.sp,
+                                        fontFamily: Styles.font,
                                         fontWeight: FontWeight.w400,
                                         color: const Color(0xff202325)),
                                   ),
@@ -418,9 +420,10 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     width: 5.w,
                                   ),
                                   Text(
-                                    'Extension',
+                                    'extension'.tr(),
                                     style: TextStyle(
                                         fontSize: 16.sp,
+                                        fontFamily: Styles.font,
                                         fontWeight: FontWeight.w400,
                                         color: const Color(0xff202325)),
                                   ),
@@ -498,7 +501,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     color: Colors.red,
                                   ),
                                   Text(
-                                    'Payment',
+                                    'payment'.tr(),
                                     style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.w400,
@@ -559,9 +562,10 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     color: Colors.red,
                                   ),
                                   Text(
-                                    'Resources',
+                                    'resources'.tr(),
                                     style: TextStyle(
                                         fontSize: 16.sp,
+                                        fontFamily: Styles.font,
                                         fontWeight: FontWeight.w400,
                                         color: const Color(0xff202325)),
                                   ),
@@ -620,7 +624,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     color: Colors.red,
                                   ),
                                   Text(
-                                    'Others',
+                                    'others'.tr(),
                                     style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.w400,

@@ -54,7 +54,7 @@ class WidgetHelper {
       centerTitle: true,
       bottom: PreferredSize(
           preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-      title: Text(title, style: Styles.x18dp_202326_700w()),
+      title: Text(title.tr(), style: Styles.x18dp_202326_700w()),
       flexibleSpace: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -71,7 +71,10 @@ class WidgetHelper {
     showDialog(
         context: context,
         builder: (BuildContext context) => ResponseConfirmationWidget(
-            title: "success", message: message, image: "", onTap: () => onTap));
+            title: "success".tr(),
+            message: message,
+            image: "",
+            onTap: () => onTap));
   }
 
   static showToastError(BuildContext context, String message,
@@ -86,7 +89,7 @@ class WidgetHelper {
       ),
       action: onActionPressed != null
           ? SnackBarAction(
-              label: actionLabel ?? "Close",
+              label: actionLabel ?? "close".tr(),
               textColor:
                   AppColors.backgroundWhite, // or some operation you would like
               onPressed: () {

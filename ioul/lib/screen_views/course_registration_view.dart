@@ -110,7 +110,7 @@ class CourseRegistrationView
                                     ),
                                   )
                                 : ErrorItemWidget(
-                                    title: "Empty List",
+                                    title: "empty_list".tr(),
                                     message: "No available course",
                                     hideButton: false,
                                     onTap: () {
@@ -119,7 +119,7 @@ class CourseRegistrationView
                                   );
                           }
                           return ErrorItemWidget(
-                            title: "Error occurred",
+                            title: "error_occurred".tr(),
                             message: "Course List is empty",
                             hideButton: false,
                             onTap: () {
@@ -136,7 +136,7 @@ class CourseRegistrationView
                             return stateBloc
                                     .courseRegData.availableCourses!.isNotEmpty
                                 ? SubmitButtonWidget(
-                                    label: 'Submit', onPressed: () {})
+                                    label: 'submit'.tr(), onPressed: () {})
                                 : const SizedBox.shrink();
                           }
                           return const SizedBox.shrink();

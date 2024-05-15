@@ -37,7 +37,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Nationality",
+                    text: "nationality".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -61,7 +61,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                           width: 1.w,
                         ),
                         borderRadius: BorderRadius.circular(8.r),
-                        hintText: 'Select',
+                        hintText: 'select'.tr(),
                         items: countries,
                         controller: state.nationalityController,
                         selectedStyle: Styles.x16dp_72777A_400w(),
@@ -89,7 +89,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "State",
+                    text: "state".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -118,7 +118,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Local Government Area",
+                    text: "lga".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -152,7 +152,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Residence Country",
+                    text: "residence_country".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -176,7 +176,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                           width: 1.w,
                         ),
                         borderRadius: BorderRadius.circular(8.r),
-                        hintText: 'Select',
+                        hintText: 'select'.tr(),
                         items: countries,
                         controller: state.countryController,
                         selectedStyle: Styles.x16dp_72777A_400w(),
@@ -204,7 +204,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Residence State",
+                    text: "residence_state".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -213,7 +213,7 @@ class AddressView extends StatelessView<Address, AddressController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "State",
+                hint: "state".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.stateOfResidenceController,
               ),
@@ -222,7 +222,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Permanent Address",
+                    text: "permanent_address".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -231,7 +231,7 @@ class AddressView extends StatelessView<Address, AddressController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Address",
+                hint: "address".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.permanentAddressController,
               ),
@@ -240,7 +240,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Work Address",
+                    text: "work_address".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -249,7 +249,7 @@ class AddressView extends StatelessView<Address, AddressController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Work Address",
+                hint: "work_address".tr(),
                 controller: state.workAddressController,
                 onValidate: ValidationBuilder().required().build(),
               ),
@@ -260,7 +260,8 @@ class AddressView extends StatelessView<Address, AddressController> {
                   Expanded(
                     flex: 1,
                     child: ElevatedButtonWidget(
-                        onTap: () => state.onReversePressed(), title: "Back"),
+                        onTap: () => state.onReversePressed(),
+                        title: "back".tr()),
                   ),
                   SizedBox(width: 132.w),
                   Expanded(
@@ -269,7 +270,7 @@ class AddressView extends StatelessView<Address, AddressController> {
                         onTap: () {
                           state.validateAddressInfo();
                         },
-                        title: "Next"),
+                        title: "next".tr()),
                   )
                 ],
               ),

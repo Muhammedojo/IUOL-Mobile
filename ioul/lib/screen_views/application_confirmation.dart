@@ -92,7 +92,7 @@ class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,
                   //   },
                   // child:
                   ElevatedButtonWidget(
-                      title: "Proceed",
+                      title: "proceed".tr(),
                       onTap: () {
                         state.getFormDataForSelectedProgram();
                         // context.read<CountryCubit>().loadCountiresFromServer();

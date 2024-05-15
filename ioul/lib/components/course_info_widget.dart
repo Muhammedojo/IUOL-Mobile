@@ -1,8 +1,13 @@
+import 'package:ioul/values/values.dart';
+
+import '../model/model.dart';
 import '../packages/package.dart';
 
 class CourseInfoWidget extends StatelessWidget {
   final Function()? onTap;
-  const CourseInfoWidget({Key? key, required this.onTap}) : super(key: key);
+  final Course? course;
+  const CourseInfoWidget({Key? key, required this.onTap, required this.course})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +36,10 @@ class CourseInfoWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'ARB 111 - Introduction to Arabic Language',
+                    '${course?.courseTitle}',
                     style: TextStyle(
                         fontSize: 14.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w800,
                         color: const Color(0xff000000)),
                   )
@@ -65,16 +70,18 @@ class CourseInfoWidget extends StatelessWidget {
                             fit: BoxFit.scaleDown,
                           ),
                           Text(
-                            '1st Semester',
+                            '${course?.courseSummary?.semesterName} Semester',
                             style: TextStyle(
                                 fontSize: 15.sp,
-                                fontFamily: 'Inter',
+                                fontFamily: Styles.font,
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )
                         ],
                       ),
-                      SizedBox(height: 10.h,),
+                      SizedBox(
+                        height: 10.h,
+                      ),
                       Row(
                         children: [
                           SvgPicture.asset(
@@ -84,10 +91,10 @@ class CourseInfoWidget extends StatelessWidget {
                             fit: BoxFit.scaleDown,
                           ),
                           Text(
-                            '4 Resources',
+                            '${course?.courseSummary?.resourcesCount} Resources',
                             style: TextStyle(
                                 fontSize: 15.sp,
-                                fontFamily: 'Inter',
+                                fontFamily: Styles.font,
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )
@@ -108,7 +115,7 @@ class CourseInfoWidget extends StatelessWidget {
                             fit: BoxFit.scaleDown,
                           ),
                           Text(
-                            '2 Assignments',
+                            '${course?.courseSummary?.assignmentCount} Assignment',
                             style: TextStyle(
                                 fontSize: 15.sp,
                                 fontFamily: 'Inter',
@@ -117,7 +124,9 @@ class CourseInfoWidget extends StatelessWidget {
                           )
                         ],
                       ),
-                      SizedBox(height: 10.h,),
+                      SizedBox(
+                        height: 10.h,
+                      ),
                       Row(
                         children: [
                           SvgPicture.asset(
@@ -127,7 +136,7 @@ class CourseInfoWidget extends StatelessWidget {
                             fit: BoxFit.scaleDown,
                           ),
                           Text(
-                            '2 Reports',
+                            '${course?.courseSummary?.reportCount} Report',
                             style: TextStyle(
                                 fontSize: 15.sp,
                                 fontFamily: 'Inter',

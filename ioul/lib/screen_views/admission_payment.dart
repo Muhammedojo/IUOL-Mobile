@@ -1,6 +1,3 @@
-import 'package:ioul/screen_views/payment.dart';
-import 'package:ioul/screens_controllers/payment_controller.dart';
-
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import 'package:ioul/router/route_constants.dart';
@@ -39,7 +36,7 @@ class AdmissionPaymentView
                   ),
                   SizedBox(height: 36.h),
                   TextWidget(
-                    text: "Admission Process Payment",
+                    text: "admission_process_payment".tr(),
                     style: Styles.x16dp_000000_400w(),
                   ),
                   SizedBox(height: 72.h),
@@ -48,7 +45,7 @@ class AdmissionPaymentView
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       TextWidget(
-                        text: "Payment Method:",
+                        text: "payment_method".tr(),
                         style: Styles.x16dp_202325_400w(),
                       ),
                       SizedBox(width: 10.w),
@@ -72,7 +69,7 @@ class AdmissionPaymentView
                   ),
                   SizedBox(height: 51.h),
                   ElevatedButtonWidget(
-                    title: "Proceed",
+                    title: "proceed".tr(),
                     onTap: () => state.selectedValue == "Scratch Card"
                         ? NavigatorHelper(context)
                             .pushNamedScreen(RouteConstants.scratchCard)
