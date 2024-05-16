@@ -3,6 +3,7 @@ import '../bloc/bloc.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/user_profile_controller.dart';
+import '../values/values.dart';
 import 'stateless_view.dart';
 
 class UserProfileView
@@ -41,14 +42,43 @@ class UserProfileView
                           color: Colors.blue,
                         ),
                         child: Center(
-                            child: Text(
-                          state.extractLetters('${stateBloc.login.fullName()}'),
-                          style: TextStyle(
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'Inter',
-                              color: const Color(0xffffffff)),
-                        )),
+                          child: Image.network(
+                            width: 38,
+                            height: 38,
+                            '${stateBloc.login.user?.imageUrl}',
+                            loadingBuilder: (BuildContext context, Widget child,
+                                ImageChunkEvent? loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              } else {
+                                return Center(
+                                  child: CircularProgressIndicator(
+                                    value: loadingProgress.expectedTotalBytes !=
+                                            null
+                                        ? loadingProgress
+                                                .cumulativeBytesLoaded /
+                                            (loadingProgress
+                                                    .expectedTotalBytes ??
+                                                1)
+                                        : null,
+                                  ),
+                                );
+                              }
+                            },
+                            errorBuilder: (BuildContext context,
+                                Object exception, StackTrace? stackTrace) {
+                              return Text(
+                                state.extractLetters(
+                                    '${stateBloc.login.fullName()}'),
+                                style: TextStyle(
+                                    fontSize: 24.sp,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: Styles.font,
+                                    color: const Color(0xffffffff)),
+                              );
+                            },
+                          ),
+                        ),
                       );
                     }
                     return Text(
@@ -56,7 +86,7 @@ class UserProfileView
                       style: TextStyle(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.w700,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xffffffff)),
                     );
                   }),
@@ -78,7 +108,7 @@ class UserProfileView
                                 style: TextStyle(
                                     fontSize: 24.sp,
                                     fontWeight: FontWeight.w700,
-                                    fontFamily: 'Inter',
+                                    fontFamily: Styles.font,
                                     color: Colors.blue),
                               ),
                               Text(
@@ -86,7 +116,7 @@ class UserProfileView
                                 style: TextStyle(
                                     fontSize: 16.sp,
                                     fontWeight: FontWeight.w400,
-                                    fontFamily: 'Inter',
+                                    fontFamily: Styles.font,
                                     color: Colors.blue),
                               )
                             ],
@@ -97,7 +127,7 @@ class UserProfileView
                           style: TextStyle(
                               fontSize: 24.sp,
                               fontWeight: FontWeight.w700,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xffffffff)),
                         );
                       }),

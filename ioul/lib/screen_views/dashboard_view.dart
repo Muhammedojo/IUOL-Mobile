@@ -63,15 +63,46 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                                       color: Colors.blue,
                                     ),
                                     child: Center(
-                                        child: Text(
-                                      state.extractLetters(
-                                          '${stateBloc.login.fullName()}'),
-                                      style: TextStyle(
-                                          fontSize: 24.sp,
-                                          fontWeight: FontWeight.w700,
-                                          fontFamily: 'Inter',
-                                          color: const Color(0xffffffff)),
-                                    )),
+                                      child: Image.network(
+                                        width: 40,
+                                        height: 40,
+                                        '${stateBloc.login.user?.imageUrl}',
+                                        loadingBuilder: (BuildContext context,
+                                            Widget child,
+                                            ImageChunkEvent? loadingProgress) {
+                                          if (loadingProgress == null) {
+                                            return child;
+                                          } else {
+                                            return Center(
+                                              child: CircularProgressIndicator(
+                                                value: loadingProgress
+                                                            .expectedTotalBytes !=
+                                                        null
+                                                    ? loadingProgress
+                                                            .cumulativeBytesLoaded /
+                                                        (loadingProgress
+                                                                .expectedTotalBytes ??
+                                                            1)
+                                                    : null,
+                                              ),
+                                            );
+                                          }
+                                        },
+                                        errorBuilder: (BuildContext context,
+                                            Object exception,
+                                            StackTrace? stackTrace) {
+                                          return Text(
+                                            state.extractLetters(
+                                                '${stateBloc.login.fullName()}'),
+                                            style: TextStyle(
+                                                fontSize: 24.sp,
+                                                fontWeight: FontWeight.w700,
+                                                fontFamily: Styles.font,
+                                                color: const Color(0xffffffff)),
+                                          );
+                                        },
+                                      ),
+                                    ),
                                   ));
                             }
                             return Text(
@@ -79,7 +110,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                               style: TextStyle(
                                   fontSize: 24.sp,
                                   fontWeight: FontWeight.w700,
-                                  fontFamily: 'Inter',
+                                  fontFamily: Styles.font,
                                   color: const Color(0xffffffff)),
                             );
                           }),
@@ -99,7 +130,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                             style: TextStyle(
                                 fontSize: 24.sp,
                                 fontWeight: FontWeight.w700,
-                                fontFamily: 'Inter',
+                                fontFamily: Styles.font,
                                 height: 32.00 / 24.0,
                                 color: const Color(0xffffffff)),
                           );
@@ -109,19 +140,33 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                           style: TextStyle(
                               fontSize: 24.sp,
                               fontWeight: FontWeight.w700,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xffffffff)),
                         );
                       }),
-                      Text(
-                        '200 level, Department of Computer Science',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Inter',
-                            height: 20.00 / 14.0,
-                            color: const Color(0xffffffff)),
-                      ),
+                      BlocBuilder<UserCubit, UserState>(
+                          builder: (context, stateBloc) {
+                        if (stateBloc is UserLoaded) {
+                          return Text(
+                            '${stateBloc.login.level()} ${stateBloc.login.department()}',
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: Styles.font,
+                                height: 20.00 / 14.0,
+                                color: const Color(0xffffffff)),
+                          );
+                        }
+                        return Text(
+                          '',
+                          style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Styles.font,
+                              height: 20.00 / 14.0,
+                              color: const Color(0xffffffff)),
+                        );
+                      }),
                       SizedBox(height: 9.h),
                     ],
                   ),

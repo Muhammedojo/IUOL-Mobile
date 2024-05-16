@@ -4,6 +4,9 @@ class UserData {
   bool? hasApplication;
   bool? isAdmitted;
   String? phone;
+  String? department;
+  String? imageUrl;
+  int? level;
   String? createdAt;
 
   UserData(
@@ -11,6 +14,9 @@ class UserData {
       this.email,
       this.phone,
       this.createdAt,
+      this.level,
+      this.imageUrl,
+      this.department,
       this.hasApplication,
       this.isAdmitted});
 
@@ -19,6 +25,9 @@ class UserData {
       name: json["name"],
       email: json["email"],
       phone: json["phone"],
+      department: json["department"],
+      level: json["level"],
+      imageUrl: json["image_url"],
       hasApplication: json["has_application"],
       isAdmitted: json["is_admitted"],
       createdAt: json["created_at"],
@@ -30,6 +39,9 @@ class UserData {
       "name": name,
       "email": email,
       "phone": phone,
+      "department": department,
+      "level": level,
+      "image_url": imageUrl,
       "is_admitted": isAdmitted,
       "has_application": hasApplication,
       "created_at": createdAt,

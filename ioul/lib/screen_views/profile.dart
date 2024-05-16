@@ -1,7 +1,6 @@
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ioul/components/components.dart';
 import 'package:ioul/screen_views/stateless_view.dart';
-import 'package:ioul/screens_controllers/personal_controller.dart';
 import 'package:ioul/utils/utils.dart';
 import 'package:ioul/values/values.dart';
 import '../components/custom_dropdown_widget.dart';
@@ -30,17 +29,6 @@ class ProfileView extends StatelessView<Profile, ProfileController> {
               delegate: CustomSilverAppBarDelegate(expandedHeight: 570.h),
               pinned: true,
             ),
-            // SliverToBoxAdapter(
-            //   child: ListView.builder(
-            //     itemCount: 100,
-            //     shrinkWrap: true,
-            //     primary: false,
-            //     itemBuilder: (context, index) => const Text(
-            //       "data",
-            //       style: TextStyle(color: Colors.amber),
-            //     ),
-            //   ),
-            // ),
             SliverFillRemaining(
               child: TabBarView(
                 physics: const NeverScrollableScrollPhysics(),

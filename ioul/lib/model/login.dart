@@ -14,6 +14,8 @@ class Login {
   bool isValidationError() => message == "Invalid Credentials";
 
   String? fullName() => user!.name;
+  String? level() => '${user!.level} level,';
+  String? department() => 'Department of ${user!.department}';
 
   Login(
       {this.success,
