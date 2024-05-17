@@ -1,4 +1,3 @@
-import 'dart:developer';
 import '../../packages/package.dart';
 import '../../utils/global_states.dart';
 import 'courses_state.dart';
@@ -10,11 +9,11 @@ class CoursesCubit extends Cubit<CoursesState> {
     try {
       emit(CoursesLoading());
       final response = await repository.loadCourses();
-      if (response.isConnectionSuccessful()) {
-        emit(const CoursesLoaded([]));
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        emit(CoursesLoaded(response.enrolledCourse!));
       } else {
-        log("response error body: ${response.responseMessage}");
-        emit(CoursesFailure(message: response.responseMessage));
+        // log("response error body: ${response.responseMessage}");
+        emit(CoursesFailure(message: response.message.toString()));
       }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");

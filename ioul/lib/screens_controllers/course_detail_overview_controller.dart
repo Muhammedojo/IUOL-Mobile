@@ -14,7 +14,6 @@ class CourseDetailOverview extends StatefulWidget {
 }
 
 class CourseOverviewController extends State<CourseDetailOverview> {
-  late Course? course;
   //... //Initialization code, state vars etc, all go here
   int selectedPage = 0;
   @override

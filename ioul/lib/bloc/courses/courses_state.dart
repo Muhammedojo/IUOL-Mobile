@@ -1,6 +1,6 @@
-import 'package:ioul/model/model.dart';
-
+import '../../model/model.dart';
 import '../../packages/package.dart';
+import '../../response/responses.dart';
 
 abstract class CoursesState extends Equatable {
   const CoursesState();

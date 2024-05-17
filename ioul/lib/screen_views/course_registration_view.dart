@@ -70,7 +70,7 @@ class CourseRegistrationView
                       return Expanded(
                         child: Center(
                           child: Text(
-                            'Register Course',
+                            'register_course'.tr(),
                             style: Styles.x18dp_202326_700w(),
                           ),
                         ),
@@ -80,9 +80,9 @@ class CourseRegistrationView
                 ),
               ),
             ),
-            SizedBox(
-              height: 30.h,
-            ),
+            // SizedBox(
+            //   height: 20.h,
+            // ),
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
@@ -92,26 +92,30 @@ class CourseRegistrationView
                       children: [
                         BlocBuilder<CourseRegCubit, CourseRegState>(
                             builder: (context, stateBloc) {
-                          if (stateBloc is CourseRegLoaded) {
+                          if (stateBloc is CourseRegLoading) {
+                            return const Loader();
+                          } else if (stateBloc is CourseRegLoaded) {
                             return stateBloc
                                     .courseRegData.availableCourses!.isNotEmpty
                                 ? ListView.separated(
                                     separatorBuilder: (context, index) =>
                                         const Divider(
-                                      color: Colors.grey,
-                                    ),
-                                    itemCount: 8,
+                                          color: Colors.grey,
+                                        ),
+                                    itemCount: stateBloc
+                                        .courseRegData.availableCourses!.length,
                                     shrinkWrap: true,
-                                    itemBuilder: (context, index) =>
-                                        const CourseRegWidget(
-                                      course:
-                                          'ARA 111 - Introduction to Arabic Language',
-                                      unit: '2 Units',
-                                    ),
-                                  )
+                                    itemBuilder: (context, index) {
+                                      var courseSummary = stateBloc
+                                          .courseRegData
+                                          .availableCourses![index];
+                                      return CourseRegWidget(
+                                        courseSummary: courseSummary,
+                                      );
+                                    })
                                 : ErrorItemWidget(
                                     title: "empty_list".tr(),
-                                    message: "No available course",
+                                    message: stateBloc.courseRegData.message,
                                     hideButton: false,
                                     onTap: () {
                                       state.refresh();
@@ -120,7 +124,7 @@ class CourseRegistrationView
                           }
                           return ErrorItemWidget(
                             title: "error_occurred".tr(),
-                            message: "Course List is empty",
+                            message: "course_list_empty".tr(),
                             hideButton: false,
                             onTap: () {
                               state.refresh();
@@ -157,10 +161,18 @@ class CourseRegistrationView
             ),
             child: Padding(
               padding: REdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
-              child: Text(
-                '200/1000 Units',
-                style: Styles.x14dp_090A0A_400w(),
-              ),
+              child: BlocBuilder<CourseRegCubit, CourseRegState>(
+                  builder: (context, stateBloc) {
+                if (stateBloc is CourseRegLoaded) {
+                  return stateBloc.courseRegData.availableCourses!.isNotEmpty
+                      ? Text(
+                          '0/${stateBloc.courseRegData.units?.max}',
+                          style: Styles.x14dp_090A0A_400w(),
+                        )
+                      : const SizedBox.shrink();
+                }
+                return const SizedBox.shrink();
+              }),
             ),
           )),
     ]);

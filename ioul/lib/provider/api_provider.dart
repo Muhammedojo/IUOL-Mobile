@@ -10,6 +10,7 @@ import '../response/country_response.dart';
 import '../response/course_reg_response.dart';
 import '../response/programme_response.dart';
 import '../response/response.dart';
+import '../response/responses.dart';
 import 'endpoints.dart';
 import 'shared_prefrence.dart';
 
@@ -531,7 +532,7 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> getCoursesList({String? endpoint}) async {
+  Future<EnrolledCourseResponse> getCoursesList({String? endpoint}) async {
     int? statusCode;
     try {
       Response response = await doGetRequestCampus(coursesEndpoint);
@@ -541,16 +542,16 @@ class ApiProvider {
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
 
-        var requestResponse = GenericResponse.fromJson(decodedBody);
+        var requestResponse = EnrolledCourseResponse.fromJson(decodedBody);
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       } else {
-        var requestResponse = GenericResponse();
+        var requestResponse = EnrolledCourseResponse();
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       }
     } on DioException catch (e) {
-      var requestResponse = GenericResponse();
+      var requestResponse = EnrolledCourseResponse();
       //requestResponse.statusCode = statusCode ?? e.response.statusCode;
       requestResponse.message = _handleDioError(e);
 

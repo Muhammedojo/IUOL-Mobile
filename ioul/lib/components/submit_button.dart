@@ -1,4 +1,5 @@
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class SubmitButtonWidget extends StatelessWidget {
   final String label;
@@ -25,7 +26,7 @@ class SubmitButtonWidget extends StatelessWidget {
                 label,
                 style: TextStyle(
                     fontSize: 16.sp,
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     color: const Color(0xffFFFFFF),
                     fontWeight: FontWeight.w500),
               ),

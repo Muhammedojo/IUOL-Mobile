@@ -9,13 +9,6 @@ class Course {
   CourseDetails? courseDetails;
   CourseSummary? courseSummary;
 
-  //  "student_course_id": 3,
-  //               "course_code": "HBP941",
-  //               "course_title": "Sint qui dolore hic.",
-  //               "units": 1,
-  // course_details
-  //course_summary
-
   Course();
 
   factory Course.fromJson(Map<String, dynamic> json) => _$CourseFromJson(json);

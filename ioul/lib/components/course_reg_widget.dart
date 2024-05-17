@@ -1,10 +1,10 @@
+import 'package:ioul/model/model.dart';
 import '../packages/package.dart';
 import '../values/values.dart';
 
 class CourseRegWidget extends StatefulWidget {
-  final String course;
-  final String unit;
-  const CourseRegWidget({Key? key, required this.course, required this.unit})
+  final SummaryCourse courseSummary;
+  const CourseRegWidget({Key? key, required this.courseSummary})
       : super(key: key);
 
   @override
@@ -12,14 +12,18 @@ class CourseRegWidget extends StatefulWidget {
 }
 
 class _CourseRegWidgetState extends State<CourseRegWidget> {
+  final List<int> _selectedCourses = [];
   @override
   Widget build(BuildContext context) {
-    bool checked = true;
-
-    toggleCheck() {
+    void toggleSelection(int id) {
       setState(() {
-        checked = !checked;
+        if (_selectedCourses.contains(widget.courseSummary.id)) {
+          _selectedCourses.remove(widget.courseSummary.id);
+        } else {
+          _selectedCourses.add(widget.courseSummary.id ?? 0);
+        }
       });
+      print('Selected: ${_selectedCourses.length}');
     }
 
     return Row(
@@ -29,21 +33,25 @@ class _CourseRegWidgetState extends State<CourseRegWidget> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'GST 111 - Communication in English',
-              style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xff090A0A),
-                  fontSize: 16.sp),
+            Row(
+              children: [
+                Text(
+                  '${widget.courseSummary.code}-${widget.courseSummary.title}',
+                  style: TextStyle(
+                      fontFamily: Styles.font,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff090A0A),
+                      fontSize: 14.sp),
+                ),
+              ],
             ),
             Text(
-              '2 Unit',
+              '${widget.courseSummary.units} Unit',
               style: TextStyle(
-                  fontFamily: 'Inter',
+                  fontFamily: Styles.font,
                   fontWeight: FontWeight.w400,
                   color: const Color(0xff72777A),
-                  fontSize: 14.sp),
+                  fontSize: 13.sp),
             ),
           ],
         ),
@@ -52,8 +60,10 @@ class _CourseRegWidgetState extends State<CourseRegWidget> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(4),
           ),
-          value: checked,
-          onChanged: (e) => toggleCheck(),
+          value: _selectedCourses.contains(widget.courseSummary.id),
+          onChanged: (bool? value) {
+            toggleSelection(widget.courseSummary.id ?? 0);
+          },
         ),
       ],
     );

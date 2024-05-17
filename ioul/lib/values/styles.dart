@@ -9,138 +9,138 @@ class Styles {
         fontSize: 32.sp,
         color: AppColors.primary,
         fontWeight: FontWeight.w700,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x24dp_090A0A_700w({FontWeight? weight}) => TextStyle(
         fontSize: 24.sp,
         color: AppColors.inkDarkest,
         fontWeight: weight ?? FontWeight.w700,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
 
   static x12dp_72777A_400w() => TextStyle(
         fontSize: 12.sp,
         color: AppColors.inkLighter,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x12dp_090A0A_400w({Color? color}) => TextStyle(
         fontSize: 12.sp,
         color: color ?? AppColors.inkDarkest,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x14dp_090A0A_500w({Color? color}) => TextStyle(
         fontSize: 14.sp,
         color: color ?? AppColors.inkDarkest,
         fontWeight: FontWeight.w500,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x14dp_090A0A_400w() => TextStyle(
         fontSize: 14.sp,
         color: AppColors.skyLightest,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x15dp_303437_400w() => TextStyle(
         fontSize: 15.sp,
         color: AppColors.textLight,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
 
   static x16dp_090A0A_400w({FontWeight? fontWeight}) => TextStyle(
         fontSize: 16.sp,
         color: AppColors.inkDarkest,
         fontWeight: fontWeight ?? FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
 
   static x16dp_72777A_400w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.inkLighter,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x16dp_000000_400w() => TextStyle(
         fontSize: 16.sp,
         color: Colors.black,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x18dp_000000_400w() => TextStyle(
         fontSize: 18.sp,
         color: Colors.black,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x18dp_202325_500w() => TextStyle(
         fontSize: 18.sp,
         color: AppColors.inkDarker,
         fontWeight: FontWeight.w500,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x18dp_202325_700w() => TextStyle(
         fontSize: 18.sp,
         color: AppColors.inkDarker,
         fontWeight: FontWeight.w700,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x18dp_202326_700w() => TextStyle(
         fontSize: 18.sp,
         color: AppColors.skyLightest,
         fontWeight: FontWeight.w700,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x18dp_202325_500g({Color? color}) => TextStyle(
         fontSize: 18.sp,
         color: color ?? AppColors.backgroundWhite,
         fontWeight: FontWeight.w500,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x16dp_202325_400w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.inkDarker,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x8dp_979C9E_400w() => TextStyle(
         fontSize: 8.sp,
         color: AppColors.skyDark,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x16dp_25435B_400w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.primary,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x16dp_404446_400w({Color? color}) => TextStyle(
         fontSize: 16.sp,
         color: color ?? AppColors.inkBase,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x16dp_4EAFFF_500w({TextDecoration? decoration}) => TextStyle(
         fontSize: 16.sp,
         color: AppColors.primaryBase,
         fontWeight: FontWeight.w500,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
         decoration: decoration,
       );
   static x12dp_4EAFFF_400w({TextDecoration? decoration}) => TextStyle(
         fontSize: 12.sp,
         color: AppColors.primaryBase,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
         decoration: decoration,
       );
   static x16dp_4EAFFFF_400w({TextDecoration? decoration}) => TextStyle(
         fontSize: 16.sp,
         color: AppColors.primaryBase,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
         decoration: decoration,
       );
 
@@ -148,30 +148,30 @@ class Styles {
         fontSize: 16.sp,
         color: AppColors.backgroundWhite,
         fontWeight: FontWeight.w500,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x16dp_25435B_500w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.primary,
         fontWeight: FontWeight.w500,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x36dp_25435B_500w() => TextStyle(
         fontSize: 36.sp,
         color: AppColors.primary,
         fontWeight: FontWeight.w500,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x16dp_4EAFFF_400w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.primaryBase,
         fontWeight: FontWeight.w400,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
   static x16dp_202325_700w() => TextStyle(
         fontSize: 16.sp,
         color: AppColors.inkDarker,
         fontWeight: FontWeight.w700,
-        fontFamily: "Inter",
+        fontFamily: Styles.font,
       );
 }

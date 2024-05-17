@@ -1,3 +1,5 @@
+import 'package:ioul/values/values.dart';
+
 import '../model/model.dart';
 import '../packages/package.dart';
 
@@ -46,7 +48,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                     Text(
                       '${course.courseTitle}',
                       style: TextStyle(
-                          fontSize: 14.sp,
+                          fontSize: 15.sp,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
@@ -57,8 +59,8 @@ class EnrolledCourseWidget extends StatelessWidget {
                     Text(
                       '${course.courseCode}',
                       style: TextStyle(
-                          fontSize: 13.sp,
-                          fontFamily: 'Inter',
+                          fontSize: 14.sp,
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     ),
@@ -66,10 +68,10 @@ class EnrolledCourseWidget extends StatelessWidget {
                       height: 4.h,
                     ),
                     Text(
-                      '${course.unit}',
+                      'Unit: ${course.unit}',
                       style: TextStyle(
                           fontSize: 12.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     )

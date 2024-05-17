@@ -33,7 +33,8 @@ class AppRepository {
   Future<GenericResponse> loadSemesterFormData() async =>
       _apiProvider.getSemesterFormData();
 
-  Future<GenericResponse> loadCourses() async => _apiProvider.getCoursesList();
+  Future<EnrolledCourseResponse> loadCourses() async =>
+      _apiProvider.getCoursesList();
   Future<GenericResponse> loadCoursesAssignment() async =>
       _apiProvider.getCoursesAssignment();
 

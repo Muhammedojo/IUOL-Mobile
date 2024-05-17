@@ -64,8 +64,8 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                                     ),
                                     child: Center(
                                       child: Image.network(
-                                        width: 40,
-                                        height: 40,
+                                        width: 38,
+                                        height: 38,
                                         '${stateBloc.login.user?.imageUrl}',
                                         loadingBuilder: (BuildContext context,
                                             Widget child,

@@ -41,7 +41,6 @@ class _PaymentsState extends State<Payments> {
       backgroundColor: AppColors.backgroundWhite,
       appBar: WidgetHelper().appBackArrowWithTitle(context,
           title: widget.title, onTap: () => onBackPressed()),
-
       body: Container(
         width: double.infinity,
         margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
@@ -52,8 +51,8 @@ class _PaymentsState extends State<Payments> {
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
                 child: TextFieldWidget(
-                  hint: "Amount",
-                  title: 'Amount',
+                  hint: "amount".tr(),
+                  title: 'amount'.tr(),
                   controller: amountController,
                   textInputAction: TextInputAction.next,
                   onValidate: ValidationBuilder().required().build(),
@@ -74,8 +73,8 @@ class _PaymentsState extends State<Payments> {
                     contentPadding: REdgeInsets.all(16),
                     fillColor: AppColors.backgroundWhite,
                     filled: true,
-                    labelText: 'Currency',
-                    hintText: 'Currency',
+                    labelText: 'currency'.tr(),
+                    hintText: 'currency'.tr(),
                     hintStyle: Styles.x12dp_72777A_400w(),
                     labelStyle: Styles.x12dp_72777A_400w(),
                     enabledBorder: OutlineInputBorder(
@@ -100,14 +99,14 @@ class _PaymentsState extends State<Payments> {
                   onTap: _openBottomSheet,
                   validator: (value) => value != null && value.isNotEmpty
                       ? null
-                      : "Currency is required",
+                      : "currency_is_required".tr(),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
                 child: TextFieldWidget(
-                  hint: "Email",
-                  title: 'Email',
+                  hint: "email".tr(),
+                  title: 'email'.tr(),
                   controller: emailController,
                   onValidate: ValidationBuilder().required().build(),
                 ),
@@ -115,22 +114,22 @@ class _PaymentsState extends State<Payments> {
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
                 child: TextFieldWidget(
-                  hint: "Phone Number",
-                  title: 'Phone Number',
+                  hint: "phone_number".tr(),
+                  title: "phone_number".tr(),
                   controller: phoneNumberController,
                   onValidate: ValidationBuilder().required().build(),
                 ),
               ),
               SizedBox(height: 90.h),
               SubmitButtonWidget(
-                label: 'Proceed to Payment',
+                label: 'proceed_to_payment'.tr(),
                 onPressed: _onPressed,
                 color: const Color(0xff25435B),
               ),
             ],
           ),
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 
@@ -187,8 +186,8 @@ class _PaymentsState extends State<Payments> {
       "KES",
     ];
     return Container(
-      height: 250,
-      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+      height: 250.h,
+      margin: REdgeInsets.fromLTRB(0, 10, 0, 0),
       color: Colors.white,
       child: ListView(
         children: currencies
@@ -199,9 +198,10 @@ class _PaymentsState extends State<Payments> {
                       Text(
                         currency,
                         textAlign: TextAlign.start,
-                        style: const TextStyle(color: Colors.black),
+                        style: const TextStyle(
+                            color: Colors.black, fontFamily: Styles.font),
                       ),
-                      const SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       const Divider(height: 1)
                     ],
                   ),
@@ -228,7 +228,7 @@ class _PaymentsState extends State<Payments> {
           content: Container(
             margin: const EdgeInsets.fromLTRB(30, 20, 30, 20),
             width: double.infinity,
-            height: 50,
+            height: 50.h,
             child: Text(message),
           ),
         );

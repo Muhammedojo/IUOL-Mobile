@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class PaymentsHistory {
   String? name;
   String? admissionNumber;

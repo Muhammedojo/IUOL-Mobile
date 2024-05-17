@@ -1,44 +1,41 @@
-import 'package:ioul/model/course.dart';
-import 'package:ioul/model/unit.dart';
+import '../model/model.dart';
 
 class CourseRegResponse {
   int? statusCode;
   String? message;
   Unit? units;
   int? studentRegID;
-  List<Course>? failedCourses;
-  List<Course>? registeredCourses;
-  List<Course>? availableCourses;
+  List<SummaryCourse>? failedCourses;
+  List<SummaryCourse>? registeredCourses;
+  List<SummaryCourse>? availableCourses;
 
-  CourseRegResponse(
-      {this.availableCourses,
-      this.failedCourses,
-      this.message,
-      this.studentRegID,
-      this.registeredCourses,
-      this.statusCode,
-      this.units});
+  CourseRegResponse({
+    this.statusCode,
+    this.message,
+    this.units,
+    this.studentRegID,
+    this.failedCourses,
+    this.registeredCourses,
+    this.availableCourses,
+  });
 
   factory CourseRegResponse.fromJson(Map<String, dynamic> json) {
-    List<Course> failedCoursesData = [];
-    for (var item in json['data']['failed_courses'].values) {
-      failedCoursesData.add(item);
-    }
-    List<Course> registeredCoursesData = [];
-    for (var item in json['data']['registered_courses'].values) {
-      registeredCoursesData.add(item);
-    }
-    List<Course> availableCoursesData = [];
-    for (var item in json['data']['available_courses'].values) {
-      availableCoursesData.add(item);
-    }
     return CourseRegResponse(
-      units: json['unit'],
-      studentRegID: json['student_registration_id'],
-      failedCourses: failedCoursesData,
-      registeredCourses: registeredCoursesData,
-      availableCourses: availableCoursesData,
+      statusCode: json['statusCode'],
       message: json['message'],
+      units: json['data']['units'] != null
+          ? Unit.fromJson(json['data']['units'])
+          : null,
+      studentRegID: json['data']['student_registration_id'],
+      failedCourses: (json['data']['failed_courses'] as List)
+          .map((item) => SummaryCourse.fromJson(item))
+          .toList(),
+      registeredCourses: (json['data']['registered_courses'] as List)
+          .map((item) => SummaryCourse.fromJson(item))
+          .toList(),
+      availableCourses: (json['data']['available_courses'] as List)
+          .map((item) => SummaryCourse.fromJson(item))
+          .toList(),
     );
   }
 }

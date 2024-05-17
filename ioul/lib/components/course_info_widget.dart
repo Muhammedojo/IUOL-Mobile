@@ -27,7 +27,7 @@ class CourseInfoWidget extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: REdgeInsets.symmetric(vertical: 24.0, horizontal: 10),
+          padding: REdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,9 +38,9 @@ class CourseInfoWidget extends StatelessWidget {
                   Text(
                     '${course?.courseTitle}',
                     style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 18.sp,
                         fontFamily: Styles.font,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w700,
                         color: const Color(0xff000000)),
                   )
                 ],
@@ -69,6 +69,9 @@ class CourseInfoWidget extends StatelessWidget {
                             width: 24.w,
                             fit: BoxFit.scaleDown,
                           ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
                           Text(
                             '${course?.courseSummary?.semesterName} Semester',
                             style: TextStyle(
@@ -89,6 +92,9 @@ class CourseInfoWidget extends StatelessWidget {
                             height: 24.w,
                             width: 24.w,
                             fit: BoxFit.scaleDown,
+                          ),
+                          SizedBox(
+                            width: 5.w,
                           ),
                           Text(
                             '${course?.courseSummary?.resourcesCount} Resources',
@@ -118,7 +124,7 @@ class CourseInfoWidget extends StatelessWidget {
                             '${course?.courseSummary?.assignmentCount} Assignment',
                             style: TextStyle(
                                 fontSize: 15.sp,
-                                fontFamily: 'Inter',
+                                fontFamily: Styles.font,
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )
@@ -139,7 +145,7 @@ class CourseInfoWidget extends StatelessWidget {
                             '${course?.courseSummary?.reportCount} Report',
                             style: TextStyle(
                                 fontSize: 15.sp,
-                                fontFamily: 'Inter',
+                                fontFamily: Styles.font,
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff000000)),
                           )

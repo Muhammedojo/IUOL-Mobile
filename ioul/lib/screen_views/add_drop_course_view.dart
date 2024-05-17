@@ -78,17 +78,17 @@ class AddDropCourseView
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         ListView.separated(
-                          separatorBuilder: (context, index) => const Divider(
-                            color: Colors.grey,
-                          ),
-                          itemCount: 7,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) =>
-                              const CourseRegWidget(
-                            course: 'ARA 111 - Introduction to Arabic Language',
-                            unit: '2 Units',
-                          ),
-                        ),
+                            separatorBuilder: (context, index) => const Divider(
+                                  color: Colors.grey,
+                                ),
+                            itemCount: 7,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) =>
+                                //     const CourseRegWidget(
+                                //   course: 'ARA 111 - Introduction to Arabic Language',
+                                //   unit: '2 Units',
+                                // ),
+                                const SizedBox()),
                         SizedBox(
                           height: 30.h,
                         ),
