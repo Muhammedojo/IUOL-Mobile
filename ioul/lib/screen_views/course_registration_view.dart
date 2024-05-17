@@ -140,7 +140,7 @@ class CourseRegistrationView
                             return stateBloc
                                     .courseRegData.availableCourses!.isNotEmpty
                                 ? SubmitButtonWidget(
-                                    label: 'submit'.tr(), onPressed: () {})
+                                    label: 'preview'.tr(), onPressed: () {})
                                 : const SizedBox.shrink();
                           }
                           return const SizedBox.shrink();

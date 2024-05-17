@@ -37,7 +37,7 @@ class CertificateView
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "type_of_Certificate".tr(),
+                    text: "type_of_certificate".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -116,7 +116,7 @@ class CertificateView
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Candidate Exam Number",
+                    text: "candidate_exam_no".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -125,7 +125,7 @@ class CertificateView
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Exam number",
+                hint: "exam_number".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.examNumberController,
               ),
@@ -153,14 +153,15 @@ class CertificateView
                   Expanded(
                     flex: 1,
                     child: ElevatedButtonWidget(
-                        onTap: () => state.onReversePressed(), title: "Back"),
+                        onTap: () => state.onReversePressed(),
+                        title: "back".tr()),
                   ),
                   SizedBox(width: 132.w),
                   Expanded(
                     flex: 1,
                     child: ElevatedButtonWidget(
                         onTap: () => state.validateCertificateInfo(),
-                        title: "Next"),
+                        title: "next".tr()),
                   )
                 ],
               ),
