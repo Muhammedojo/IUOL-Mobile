@@ -18,4 +18,6 @@ class GlobalVariables {
 
   static ValueNotifier<SubmitApplication> applications =
       ValueNotifier(SubmitApplication());
+
+  static String userEmail = '';
 }

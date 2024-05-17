@@ -81,17 +81,17 @@ class ResetPasswordController extends State<ResetPassword> {
     var pin = widget.pin;
     var email = widget.email;
     try {
-      WidgetHelper.showProgress(text: 'Checking');
-      var loginResponse =
-          await repository.newPassword(password, confirmPassword, email, pin);
-      WidgetHelper.hideProgress();
-      if (!mounted) return;
-      if (loginResponse.isConnectionSuccessful()) {
-        NavigatorHelper(context).pushNamedScreen(RouteConstants.login);
-      } else {
-        WidgetHelper.showToastError(context, ('${loginResponse.message}'));
-        return;
-      }
+      // WidgetHelper.showProgress(text: 'Checking');
+      // var loginResponse =
+      //     await repository.newPassword(password, confirmPassword, email, pin);
+      // WidgetHelper.hideProgress();
+      // if (!mounted) return;
+      // if (loginResponse.isConnectionSuccessful()) {
+      //   NavigatorHelper(context).pushNamedScreen(RouteConstants.login);
+      // } else {
+      //   WidgetHelper.showToastError(context, ('${loginResponse.message}'));
+      //   return;
+      // }
     } catch (e) {
       WidgetHelper.hideProgress();
     }

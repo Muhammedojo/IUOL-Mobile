@@ -68,23 +68,23 @@ class ForgotPasswordController extends State<ForgotPassword> {
 
   void requestPasswordReset(String email) async {
     try {
-      WidgetHelper.showProgress(text: 'Processing');
-      var response = await repository.forgotPassword(email);
-      WidgetHelper.hideProgress();
-      if (!mounted) return;
-      if (response.isConnectionSuccessful()) {
-        Navigator.push(
-          context,
-          CupertinoPageRoute(
-            builder: (context) => CodeInput(
-              email: emailController.text.trim(),
-            ),
-          ),
-        );
-      } else {
-        WidgetHelper.showToastError(context, ('${response.message}'));
-        return;
-      }
+      // WidgetHelper.showProgress(text: 'Processing');
+      // // var response = await repository.forgotPassword(email);
+      // WidgetHelper.hideProgress();
+      // if (!mounted) return;
+      // if (response.isConnectionSuccessful()) {
+      //   Navigator.push(
+      //     context,
+      //     CupertinoPageRoute(
+      //       builder: (context) => CodeInput(
+      //         email: emailController.text.trim(),
+      //       ),
+      //     ),
+      //   );
+      // } else {
+      //   WidgetHelper.showToastError(context, ('${response.message}'));
+      //   return;
+      // }
     } catch (e) {
       WidgetHelper.hideProgress();
     }

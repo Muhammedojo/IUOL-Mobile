@@ -51,7 +51,7 @@ class ApplicationConfirmationController extends State<ApplicationConfirmation> {
     context.pushNamed(RouteConstants.applicationForm);
     var program = ApplicationFormData();
 
-    program.programme = 'degree';
+    // program.programme = 'degree';
     //selectedValue;
 
     context.read<ApplicationFormDataCubit>().pushProgramToServer(program);

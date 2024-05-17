@@ -1,5 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutterwave_standard/flutterwave.dart';
 import 'package:uuid/uuid.dart';
@@ -172,17 +174,18 @@ class _PaymentsState extends State<Payments> {
         publicKey: publicKeyController.text.trim().isEmpty
             ? getPublicKey()
             : publicKeyController.text.trim(),
-        currency: selectedCurrency,
-        redirectUrl: '',
+        currency: "NGN",
+        redirectUrl: 'www.facebook.com',
         txRef: const Uuid().v1(),
-        amount: amountController.text.toString().trim(),
+        amount: "10000",
         customer: customer,
         paymentOptions: "card, payattitude, barter, bank transfer, ussd",
-        customization: Customization(title: "Test Payment"),
+        customization: Customization(title: "IOUL Admission Payment"),
         isTestMode: isTestMode);
     final ChargeResponse response = await flutterwave.charge();
+
     showLoading(response.toString());
-    // print("${response.toJson()}");
+    log("${response.toJson()}");
   }
 
   String getPublicKey() {

@@ -11,14 +11,14 @@ class PaymentTypeCubit extends Cubit<PaymentTypeState> {
   loadCountiresFromServer() async {
     try {
       emit(PaymentTypeLoading());
-      final response = await repository.loadCountries();
-      if (response.statusCode == 201 || response.statusCode == 200) {
-        log("country response: $response");
-        // emit(PaymentTypeLoaded(response.data as List<PaymentType>));
-      } else {
-        // log("response error body: ${response.responseMessage}");
-        emit(PaymentTypeFailure(message: response.message ?? ""));
-      }
+      // final response = await repository.loadCountries();
+      // if (response.statusCode == 201 || response.statusCode == 200) {
+      //   log("country response: $response");
+      //   // emit(PaymentTypeLoaded(response.data as List<PaymentType>));
+      // } else {
+      //   // log("response error body: ${response.responseMessage}");
+      //   emit(PaymentTypeFailure(message: response.message ?? ""));
+      // }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");
     }

@@ -1,11 +1,14 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:developer';
+
+import 'package:ioul/bloc/register/cubit.dart';
+import 'package:ioul/provider/dio_client.dart';
 import 'package:ioul/provider/provider.dart';
-import 'package:ioul/provider/shared_prefrence.dart';
 
 import '../helpers/helper.dart';
-import '../router/router.dart';
+import '../model/login.dart';
+import '../provider/shared_prefrence.dart';
+import '../router/route_constants.dart';
 import '../screen_views/Login_view.dart';
-import 'package:flutter/material.dart';
 import '../packages/package.dart';
 
 class Login extends StatefulWidget {
@@ -22,8 +25,10 @@ class LoginController extends State<Login> {
 
   final repository = AppRepository();
   String deviceToken = "";
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController =
+      TextEditingController(text: "sam@mailinator.com");
+  final TextEditingController passwordController =
+      TextEditingController(text: "#Killerbean1");
   bool visible = false;
 
   toggleVisibility() {
@@ -87,24 +92,24 @@ class LoginController extends State<Login> {
   }
 
   void loginUser(String username, String password) async {
-    try {
-      WidgetHelper.showProgress(text: 'Checking');
-      var loginResponse =
-          await repository.login(username, password, deviceToken);
-      WidgetHelper.hideProgress();
-      if (!mounted) return;
-      if (loginResponse.isConnectionSuccessful()) {
-        AppPrefs().saveTokenToPrefs(loginResponse);
-        loginResponse.user!.hasApplication == true
-            ? NavigatorHelper(context)
-                .goNamedScreen(RouteConstants.admissionPayment)
-            : NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
-      } else {
-        WidgetHelper.showToastError(context, ('${loginResponse.message}'));
-        return;
-      }
-    } catch (e) {
-      WidgetHelper.hideProgress();
-    }
+    LoginData data = LoginData();
+    data.email = emailController.text;
+    data.password = passwordController.text;
+    context.read<RegisterCubit>().pushLoginToServer(data);
+  }
+
+  void onLoginSuccess(LoginData data) {
+    WidgetHelper.hideProgress();
+    AppPrefs().saveTokenToPrefs(data);
+    data.user!.hasApplication == false
+        ? NavigatorHelper(context)
+            .pushNamedScreen(RouteConstants.admissionPayment)
+        : NavigatorHelper(context).goNamedScreen(RouteConstants.dashboard);
+    DioClient().setToken(data.token ?? "");
+  }
+
+  void onLoginFailure(String message) {
+    WidgetHelper.hideProgress();
+    WidgetHelper.showToastError(context, (message));
   }
 }

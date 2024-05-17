@@ -9,13 +9,13 @@ class CoursesCubit extends Cubit<CoursesState> {
   loadCoursesFromServer() async {
     try {
       emit(CoursesLoading());
-      final response = await repository.loadCourses();
-      if (response.isConnectionSuccessful()) {
-        emit(const CoursesLoaded());
-      } else {
-        log("response error body: ${response.responseMessage}");
-        emit(CoursesFailure(message: response.responseMessage));
-      }
+      // final response = await repository.loadCourses();
+      // if (response.isConnectionSuccessful()) {
+      //   emit(const CoursesLoaded());
+      // } else {
+      //   log("response error body: ${response.responseMessage}");
+      //   emit(CoursesFailure(message: response.responseMessage));
+      // }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");
     }

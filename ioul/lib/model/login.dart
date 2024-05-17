@@ -1,33 +1,27 @@
 import 'user.dart';
 
-class Login {
+class LoginData {
   bool? success;
   String? message;
+  String? email;
+  String? password;
   UserData? user;
   String? token;
-  String? responseCode = "-700";
-  int statusCode = 400;
-  List<dynamic>? metadata;
 
-  bool isConnectionSuccessful() => statusCode == 200;
-  bool isRequestSuccessful() => responseCode == "100";
-  bool isValidationError() => message == "Invalid Credentials";
-
-  Login(
+  LoginData(
       {this.success,
       this.message,
       this.user,
       this.token,
-      this.metadata,
-      this.responseCode});
+      this.email,
+      this.password});
 
-  factory Login.fromJson(Map<String, dynamic> json) {
-    return Login(
+  factory LoginData.fromJson(Map<String, dynamic> json) {
+    return LoginData(
       success: json["success"],
       message: json["message"],
-      user: UserData.fromJson(json["data"]["user"]),
-      token: json["data"]["token"],
-      metadata: json["metadata"],
+      user: UserData.fromJson(json["user"]),
+      token: json["token"],
     );
   }
 
@@ -39,7 +33,6 @@ class Login {
         "user": user?.toJson(),
         "token": token,
       },
-      "metadata": metadata,
     };
   }
 }

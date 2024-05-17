@@ -1,12 +1,18 @@
 class UserData {
   String? name;
   String? email;
+  String? password;
   bool? hasApplication;
   String? phone;
   String? createdAt;
 
   UserData(
-      {this.name, this.email, this.phone, this.createdAt, this.hasApplication});
+      {this.name,
+      this.email,
+      this.phone,
+      this.createdAt,
+      this.hasApplication,
+      this.password});
 
   factory UserData.fromJson(Map<String, dynamic> json) {
     return UserData(

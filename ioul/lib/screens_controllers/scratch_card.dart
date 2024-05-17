@@ -23,7 +23,8 @@ class ScratchCardController extends State<ScratchCard> {
   //... //Initialization code, state vars etc, all go here
 
   String selectedValue = "";
-  final TextEditingController scratchCardController = TextEditingController();
+  final TextEditingController scratchCardController =
+      TextEditingController(text: "6903681429559082");
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 

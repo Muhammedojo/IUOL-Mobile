@@ -9,13 +9,13 @@ class CourseVideoResourcesCubit extends Cubit<CourseVideoResourcesState> {
   loadCourseVideoFromServer() async {
     try {
       emit(CourseVideoResourcesLoading());
-      final response = await repository.loadCourseVideo();
-      if (response.isConnectionSuccessful()) {
-        emit(const CourseVideoResourcesLoaded());
-      } else {
-        log("response error body: ${response.responseMessage}");
-        emit(CourseVideoResourcesFailure(message: response.responseMessage));
-      }
+      // final response = await repository.loadCourseVideo();
+      // if (response.isConnectionSuccessful()) {
+      //   emit(const CourseVideoResourcesLoaded());
+      // } else {
+      //   log("response error body: ${response.responseMessage}");
+      //   emit(CourseVideoResourcesFailure(message: response.responseMessage));
+      // }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");
     }

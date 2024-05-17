@@ -19,7 +19,7 @@ class VerifyScratchPinLoading extends VerifyScratchPinState {
 }
 
 class VerifyScratchPinLoaded extends VerifyScratchPinState {
-  final GenericResponse verifyScratchPinResponse;
+  final String verifyScratchPinResponse;
   const VerifyScratchPinLoaded(this.verifyScratchPinResponse);
 
   @override

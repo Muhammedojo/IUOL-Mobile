@@ -6,8 +6,8 @@ class CustomTheme {
     return ThemeData(
       fontFamily: 'Inter',
       // useMaterial3: true,
-      primarySwatch: Colors.blue,
-      textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+      // primarySwatch: AppColors.primary,
+      textTheme: Typography.englishLike2021.apply(fontSizeFactor: 1.sp),
     );
   }
 
@@ -16,7 +16,7 @@ class CustomTheme {
         fontFamily: 'Inter',
         useMaterial3: true,
         primarySwatch: Colors.blue,
-        textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+        textTheme: Typography.englishLike2021.apply(fontSizeFactor: 1.sp),
         colorScheme: ColorScheme.fromSeed(
           brightness: Brightness.dark,
           seedColor: AppColors.primary,

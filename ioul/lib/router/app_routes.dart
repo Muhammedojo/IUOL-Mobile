@@ -1,6 +1,7 @@
 import 'package:ioul/router/route_constants.dart';
 import 'package:ioul/screen_views/payment.dart';
 import 'package:ioul/screens/screens.dart';
+import 'package:ioul/screens_controllers/admission_payment_invoice.dart';
 import 'package:ioul/screens_controllers/more_controller.dart';
 import 'package:ioul/screens_controllers/profile.dart';
 import 'package:ioul/screens_controllers/programme_controller.dart';
@@ -59,6 +60,11 @@ class AppRouter {
         path: '/${RouteConstants.admissionPayment}',
         name: RouteConstants.admissionPayment,
         builder: (context, state) => const AdmissionPayment(),
+      ),
+      GoRoute(
+        path: '/${RouteConstants.admissionPaymentInvoice}',
+        name: RouteConstants.admissionPaymentInvoice,
+        builder: (context, state) => const AdmissionPaymentInvoice(),
       ),
       GoRoute(
         path: '/${RouteConstants.scratchCard}',

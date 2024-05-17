@@ -1,7 +1,12 @@
+import 'dart:developer';
+
+import 'package:ioul/bloc/register/cubit.dart';
 import 'package:ioul/screens/screens.dart';
 
+import '../model/login.dart';
 import '../packages/package.dart';
 import 'package:ioul/helpers/helper.dart';
+import '../provider/shared_prefrence.dart';
 import '../router/router.dart';
 import '../components/components.dart';
 import '../values/values.dart';
@@ -114,9 +119,19 @@ class LoginView extends StatelessView<Login, LoginController> {
                       ),
                     ),
                     SizedBox(height: 20.h),
-                    ElevatedButtonWidget(
-                      title: "Log in",
-                      onTap: () => state.onPressLoginButton(),
+                    BlocListener<RegisterCubit, RegisterState>(
+                      listener: (context, loginState) => switch (loginState) {
+                        LoginLoading _ => WidgetHelper.showProgress(),
+                        LoginLoaded(:LoginData registerStudent) =>
+                          state.onLoginSuccess(registerStudent),
+                        LoginFailure(message: String message) =>
+                          state.onLoginFailure(message),
+                        _ => {},
+                      },
+                      child: ElevatedButtonWidget(
+                        title: "Log in",
+                        onTap: () => state.onPressLoginButton(),
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     Align(

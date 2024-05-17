@@ -10,15 +10,15 @@ class ResendEmailVerificationCubit extends Cubit<ResendEmailVerificationState> {
   resendPin(ResendEmailVerification data) async {
     try {
       emit(ResendEmailVerificationLoading());
-      final response =
-          await repository.resendEmailVerification(data.email ?? "");
-      log("response body first: ${response.data}");
-      if (response.isConnectionSuccessful()) {
-        emit(ResendEmailVerificationLoaded(response));
-      } else {
-        log("response error body: ${response.responseMessage}");
-        emit(ResendEmailVerificationFailure(message: response.responseMessage));
-      }
+      // final response =
+      //     await repository.resendEmailVerification(data.email ?? "");
+      // log("response body first: ${response.data}");
+      // if (response.isConnectionSuccessful()) {
+      //   emit(ResendEmailVerificationLoaded(response));
+      // } else {
+      //   log("response error body: ${response.responseMessage}");
+      //   emit(ResendEmailVerificationFailure(message: response.responseMessage));
+      // }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");
       emit(ResendEmailVerificationFailure(message: e.toString()));

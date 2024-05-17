@@ -13,24 +13,24 @@ class AppPrefs {
   }
 
   Future<String> getToken() async {
-    var user = await getUser();
-    return user.token ?? "";
+    // var user = await getUser();
+    return getPrefs().then((value) => value.getString("token") ?? "");
   }
 
-  Future<void> saveTokenToPrefs(Login user) async {
-    String userJsonString = jsonEncode(user.toJson());
+  Future<void> saveTokenToPrefs(LoginData user) async {
+    // String userJsonString = jsonEncode(user.toJson());
     SharedPreferences prefs = await getPrefs();
-    prefs.setString("token", userJsonString);
+    prefs.setString("token", user.token ?? "");
   }
 
-  Future<Login> getUser() async {
+  Future<LoginData> getUser() async {
     String? encodedUserString = await getString("token");
 
     if (encodedUserString != null && encodedUserString.isNotEmpty) {
       Map<String, dynamic> userJson = jsonDecode(encodedUserString);
-      return Login.fromJson(userJson);
+      return LoginData.fromJson(userJson);
     }
 
-    return Login();
+    return LoginData();
   }
 }

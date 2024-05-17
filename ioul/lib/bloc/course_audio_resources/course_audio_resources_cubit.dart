@@ -9,13 +9,13 @@ class CourseAudioResourcesCubit extends Cubit<CourseAudioResourcesState> {
   loadCourseAudioFromServer() async {
     try {
       emit(CourseAudioResourcesLoading());
-      final response = await repository.loadCourseAudio();
-      if (response.isConnectionSuccessful()) {
-        emit(const CourseAudioResourcesLoaded());
-      } else {
-        log("response error body: ${response.responseMessage}");
-        emit(CourseAudioResourcesFailure(message: response.responseMessage));
-      }
+      // final response = await repository.loadCourseAudio();
+      // if (response.isConnectionSuccessful()) {
+      //   emit(const CourseAudioResourcesLoaded());
+      // } else {
+      //   log("response error body: ${response.responseMessage}");
+      //   emit(CourseAudioResourcesFailure(message: response.responseMessage));
+      // }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");
     }

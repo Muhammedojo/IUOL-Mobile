@@ -8,6 +8,7 @@ const baseUrl = liveServer
 const String baseApi = "$baseUrl/api/students/v1/";
 const String paymentHistoryEndpoint = 'payment-history';
 const String loginEndpoint = "auth/login";
+const String payment = "payment";
 const String registerEndpoint = "auth/register";
 const String verifyEmailEndpoint = "auth/verify-email";
 const String forgotPasswordEndpoint = "auth/forgot-password";
@@ -38,4 +39,12 @@ const String makeSemesterPayment = "payment/semester/semester-fee";
 const String lateCourseRegistrationPayment =
     "payment/semester/late-course-registration";
 const String getPaymentHistoryEndpoint = "payment/history";
-// const String 
+const String applicationFormDataFee =
+    "payment/application/application-form-fee";
+// const String
+
+//Constants
+
+const String flutterWavePublicKey =
+    "FLWPUBK_TEST-632a46c05124f5170ec1c488bbe2bfb4-X";
+const String redirectUrl = 'http://iuol.test/webhook/flutterwave';

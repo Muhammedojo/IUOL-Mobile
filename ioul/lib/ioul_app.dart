@@ -1,6 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:ioul/bloc/bloc.dart';
+import 'package:ioul/bloc/get_application_form/get_application_form_cubit.dart';
+import 'package:ioul/bloc/make_payment/make_payment_cubit.dart';
 
 import 'packages/package.dart';
 import 'router/router.dart';
@@ -50,6 +52,12 @@ class IOULApp extends StatelessWidget {
           ),
           BlocProvider<PaymentHistoryCubit>(
             create: (BuildContext context) => PaymentHistoryCubit(),
+          ),
+          BlocProvider<GetApplicationFormCubit>(
+            create: (BuildContext context) => GetApplicationFormCubit(),
+          ),
+          BlocProvider<MakePaymentCubit>(
+            create: (BuildContext context) => MakePaymentCubit(),
           ),
         ],
         child: ScreenUtilInit(
