@@ -52,17 +52,18 @@ class ProgrammeView extends StatelessView<Programme, ProgrammeController> {
                     builder: (context, applicationState) {
                       if (applicationState is ApplicationFormDataLoaded) {
                         return CustomDropdownWidget(
-                          dropdownList:
-                              applicationState.formData.programmes ?? [],
-                          controller: state.programController,
-                          onChange: (value) => state.setSelectedValue(value),
-                        );
+                            dropdownList:
+                                applicationState.formData.programmes ?? [],
+                            controller: state.programController,
+                            onChange: (String value) =>
+                                state.onSelectProgramme(value)
+                            //setSelectedValue(value),
+                            );
                       }
                       return CustomDropdownWidget(
-                        dropdownList: const ["B.Sc. Carpentry"],
-                        controller: state.programController,
-                        onChange: (value) => state.setSelectedValue(value),
-                      );
+                          dropdownList: const ["B.Sc. Carpentry"],
+                          controller: state.programController,
+                          onChange: (value) => state.onSelectProgramme(value));
                     },
                   ),
                 ),

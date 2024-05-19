@@ -60,11 +60,6 @@ class _PaymentsState extends State<Payments> {
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                // TextFieldWidget(
-                //   hint: "Email",
-                //   controller: emailController,
-                //   onValidate: ValidationBuilder().required().build(),
-                // ),
                 child: TextFormField(
                   controller: currencyController,
                   textInputAction: TextInputAction.next,

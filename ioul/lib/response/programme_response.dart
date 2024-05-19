@@ -14,6 +14,7 @@ class ProgrammeResponse {
   List<String>? examinations;
   List<String>? referralTypes;
   List<String>? programmes;
+  Map<String, String>? programmesMap;
   int? statusCode;
   String? message;
 
@@ -31,6 +32,7 @@ class ProgrammeResponse {
     this.sponsors,
     this.underGraduateQualifications,
     this.programmes,
+    this.programmesMap,
     this.statusCode,
     this.message,
   });
@@ -84,11 +86,20 @@ class ProgrammeResponse {
       referralTypesData.add(item);
     }
     List<String> programmesData = [];
+    Map<String, String> programmesMap = {};
     if (json['data']['formOptions']['programmes'].values != '') {
-      for (var item in json['data']['formOptions']['programmes'].values) {
-        programmesData.add(item);
+      for (var key in json['data']['formOptions']['programmes'].keys) {
+        String value = json['data']['formOptions']['programmes'][key];
+        programmesData.add(value);
+        programmesMap[key] = value;
       }
     }
+    // List<String> programmesData = [];
+    // if (json['data']['formOptions']['programmes'].values != '') {
+    //   for (var item in json['data']['formOptions']['programmes'].values) {
+    //     programmesData.add(item);
+    //   }
+    // }
     return ProgrammeResponse(
       user: json['user'],
       genders: newGender,
@@ -103,6 +114,7 @@ class ProgrammeResponse {
       examinations: examinationsData,
       referralTypes: referralTypesData,
       programmes: programmesData,
+      programmesMap: programmesMap,
     );
   }
 }

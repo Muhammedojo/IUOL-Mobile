@@ -1,3 +1,4 @@
+import 'package:form_validator/form_validator.dart';
 import 'package:ioul/screens/screens.dart';
 
 import '../packages/package.dart';
@@ -39,16 +40,18 @@ class LoginView extends StatelessView<Login, LoginController> {
                     ),
                     SizedBox(height: 26.h),
                     TextFieldWidget(
-                      title: "Email",
+                      title: "email".tr(),
                       controller: state.emailController,
+                      onValidate: ValidationBuilder().required().build(),
                     ),
                     SizedBox(height: 20.h),
                     SizedBox(
                       height: 60.h,
                       child: TextFieldWidget(
-                        title: "Password",
+                        title: "password".tr(),
                         controller: state.passwordController,
                         obscureText: state.visible,
+                        onValidate: ValidationBuilder().required().build(),
                         isDense: false,
                         isCollapsed: false,
                         padding:
@@ -72,7 +75,7 @@ class LoginView extends StatelessView<Login, LoginController> {
                         RouteConstants.forgotPassword,
                       ),
                       child: TextWidget(
-                        text: "Forgot Password?",
+                        text: "forgot_password".tr(),
                         style: Styles.x16dp_4EAFFF_500w(),
                       ),
                     ),

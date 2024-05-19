@@ -46,7 +46,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Full name",
+                hint: "fullname".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.nokNameController,
               ),
@@ -118,7 +118,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Next of Kin Address",
+                    text: "nok_address".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -154,7 +154,7 @@ class ContactView extends StatelessView<Contact, ContactController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "full name",
+                hint: "fullname".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.refNameController,
               ),

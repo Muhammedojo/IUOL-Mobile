@@ -77,6 +77,12 @@ class WidgetHelper {
             onTap: () => onTap));
   }
 
+  bool isValidEmail(String email) {
+    // Regular expression for a valid email address
+    final emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
+    return emailRegex.hasMatch(email);
+  }
+
   static showToastError(BuildContext context, String message,
       {String? actionLabel, Function? onActionPressed}) {
 // Find the ScaffoldMessenger in the widget tree

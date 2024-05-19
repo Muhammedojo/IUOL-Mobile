@@ -1,6 +1,8 @@
+import 'package:ioul/packages/package.dart';
+
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
-import 'package:flutter/material.dart';
-import '../model/model.dart';
+import '../response/responses.dart';
 import '../screen_views/programme_view.dart';
 import '../utils/utils.dart';
 
@@ -35,13 +37,46 @@ class ProgrammeController extends State<Programme>
       TextEditingController();
   final TextEditingController levelController = TextEditingController();
   final TextEditingController qualificationController = TextEditingController();
-
+  String selectedProgramme = "";
   String selectedValue = "";
 
   setSelectedValue(String value) {
     setState(() {
       selectedValue = value;
     });
+  }
+
+  // ProgrammeResponse selectedProgramme = ProgrammeResponse();
+
+  // onSelectProgramme(int value) {
+  //   ApplicationFormDataState states =
+  //       context.read<ApplicationFormDataCubit>().state;
+  //   if (states is ApplicationFormDataLoaded) {
+  //     selectedProgramme = states.formData.programmes.;
+  //   }
+  // }
+  void onSelectProgramme(String selectedValue) {
+    ApplicationFormDataState states =
+        context.read<ApplicationFormDataCubit>().state;
+    if (states is ApplicationFormDataLoaded) {
+      Map<String, String> programmesMap = states.formData.programmesMap!;
+      print('Selected ');
+      // Find the key for the selected value
+      String? selectedKey;
+      programmesMap.forEach((key, value) {
+        if (value == selectedValue) {
+          selectedKey = key;
+        }
+      });
+      print('Selected2');
+      // Now you have the selectedKey which corresponds to the selectedValue
+      if (selectedKey != null) {
+        print('Selected key: $selectedKey');
+        // Do something with the selectedKey
+      } else {
+        print('Selected value not found');
+      }
+    }
   }
 
   onNextPressed() {
@@ -65,7 +100,10 @@ class ProgrammeController extends State<Programme>
   }
 
   @override
-  Widget build(BuildContext context) => ProgrammeView(this);
+  Widget build(BuildContext context) {
+    super.build(context);
+    return ProgrammeView(this);
+  }
 
   //Control logic grouped together, at top of file
   void onBackPressed() {
@@ -90,7 +128,7 @@ class ProgrammeController extends State<Programme>
 
       onNextPressed();
     } else {
-      WidgetHelper.showToastError(context, "Fill required field.");
+      WidgetHelper.showToastError(context, "fill_required_fields");
       return;
     }
   }

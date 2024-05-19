@@ -52,8 +52,8 @@ class PaymentHistoryView
                         },
                       )
                     : ErrorItemWidget(
-                        title: "Empty List",
-                        message: "No payment history",
+                        title: "empty_list".tr(),
+                        message: "no_payment_history".tr(),
                         hideButton: false,
                         onTap: () {
                           state.refresh();
@@ -61,8 +61,8 @@ class PaymentHistoryView
                       );
               }
               return ErrorItemWidget(
-                title: "Error occurred",
-                message: "Payment History is empty",
+                title: "error_occurred".tr(),
+                message: "no_payment_history".tr(),
                 hideButton: false,
                 onTap: () {
                   state.refresh();

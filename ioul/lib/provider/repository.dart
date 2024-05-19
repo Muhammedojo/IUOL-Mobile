@@ -54,7 +54,7 @@ class AppRepository {
   Future<GenericResponse> getPaymentType() async =>
       _apiProvider.getPaymentType();
 
-  Future<GenericResponse> getPaymentHistory() async =>
+  Future<PaymentHistoryResponse> getPaymentHistory() async =>
       _apiProvider.getPaymentHistory();
 
   Future<RegisterResponse> registerStudent(Register register) async =>

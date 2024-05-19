@@ -47,7 +47,7 @@ class AddressController extends State<Address>
   String selectedValue = "";
 
   setSelectedValue(String value) {
-    log("selected value: $value");
+    //log("selected value: $value");
     setState(() {
       selectedValue = value;
     });
@@ -75,7 +75,6 @@ class AddressController extends State<Address>
       widget.controller!.animateTo(0);
       widget.decreaseProgress!();
     });
-    // }
   }
 
   @override
@@ -115,12 +114,10 @@ class AddressController extends State<Address>
       application.residenceStateId = 231;
       //stateOfResidenceController.text.trim() as int?;
       GlobalVariables.applications.value = application;
-      print('${GlobalVariables.applications.value.identificationNumber}');
-      print('${GlobalVariables.applications.value.permanentAddress}');
 
       onNextPressed();
     } else {
-      WidgetHelper.showToastError(context, "Fill required field.");
+      WidgetHelper.showToastError(context, "fill_required_fields");
       return;
     }
   }

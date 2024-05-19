@@ -643,7 +643,7 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> getPaymentHistory({String? endpoint}) async {
+  Future<PaymentHistoryResponse> getPaymentHistory({String? endpoint}) async {
     int? statusCode;
     try {
       Response response = await doGetRequest(getPaymentHistoryEndpoint);
@@ -653,16 +653,16 @@ class ApiProvider {
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());
 
-        var requestResponse = GenericResponse.fromJson(decodedBody);
+        var requestResponse = PaymentHistoryResponse.fromJson(decodedBody);
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       } else {
-        var requestResponse = GenericResponse();
+        var requestResponse = PaymentHistoryResponse();
         requestResponse.statusCode = statusCode!;
         return requestResponse;
       }
     } on DioException catch (e) {
-      var requestResponse = GenericResponse();
+      var requestResponse = PaymentHistoryResponse();
       //requestResponse.statusCode = statusCode ?? e.response.statusCode;
       requestResponse.message = _handleDioError(e);
 

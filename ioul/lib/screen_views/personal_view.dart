@@ -43,7 +43,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "First Name",
+                          text: "firstname".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -61,7 +61,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Surname",
+                          text: "surname".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -79,7 +79,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Middle Name",
+                          text: "middlename".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -97,7 +97,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Email address",
+                          text: "email".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -115,7 +115,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Gender",
+                          text: "gender".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -143,7 +143,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Phone Number",
+                          text: "phone_number".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -176,7 +176,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                         filled: false,
                         // isDense: true,
                         isCollapsed: true,
-                        hintText: 'Phone Number',
+                        hintText: 'phone_number'.tr(),
 
                         enabledBorder: OutlineInputBorder(
                           borderSide:
@@ -197,7 +197,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Marital Status",
+                          text: "marital_status".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -242,7 +242,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Religion",
+                          text: "religion".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -285,7 +285,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Employment Status",
+                          text: "employment_status".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -312,7 +312,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Date of Birth",
+                          text: "dob".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -321,7 +321,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                     ),
                     SizedBox(height: 10.w),
                     TextFieldWidget(
-                      hint: "Date of Birth",
+                      hint: "dob".tr(),
                       readOnly: true,
                       controller: state.dateOfBirthController,
                       passwordIcon: GestureDetector(
@@ -337,7 +337,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Native Language",
+                          text: "native_language".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -346,7 +346,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                     ),
                     SizedBox(height: 10.w),
                     TextFieldWidget(
-                      hint: "Native language",
+                      hint: "native_language".tr(),
                       controller: state.nativeLanguageController,
                       onValidate: ValidationBuilder().required().build(),
                     ),
@@ -355,7 +355,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "National Identification Type",
+                          text: "national_identification_type".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -399,7 +399,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextWidget(
-                          text: "Identification Number",
+                          text: "identification_number".tr(),
                           style: Styles.x16dp_202325_400w(),
                         ),
                         SizedBox(width: 10.w),
@@ -417,7 +417,7 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                         onTap: () {
                           state.validatePersonalInfo();
                         },
-                        title: "Next")
+                        title: "next".tr())
                   ],
                 ),
               );

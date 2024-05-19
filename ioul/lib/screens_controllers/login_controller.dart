@@ -49,12 +49,6 @@ class LoginController extends State<Login> {
     NavigatorHelper(context).closeScreen();
   }
 
-  bool isValidEmail(String email) {
-    // Regular expression for a valid email address
-    final emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
-    return emailRegex.hasMatch(email);
-  }
-
   bool isStrongPassword(String password) {
     // Regular expression for a strong password (at least 8 characters with a mix of uppercase, lowercase, and numbers)
     final passwordRegex =
@@ -66,16 +60,8 @@ class LoginController extends State<Login> {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
 
-    if (email.isEmpty) {
-      WidgetHelper.showToastError(context, "Email is required");
-      return;
-    } else if (!isValidEmail(email)) {
-      WidgetHelper.showToastError(context, "Invalid email address");
-      return;
-    }
-
-    if (password.isEmpty) {
-      WidgetHelper.showToastError(context, "Password is required");
+    if (!WidgetHelper().isValidEmail(email)) {
+      WidgetHelper.showToastError(context, "invalid_email");
       return;
     }
 

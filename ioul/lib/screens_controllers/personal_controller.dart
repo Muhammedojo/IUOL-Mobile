@@ -1,4 +1,5 @@
 import 'package:ioul/model/submit_application.dart';
+import 'package:ioul/packages/package.dart';
 import 'package:ioul/utils/utils.dart';
 import 'package:ioul/values/values.dart';
 
@@ -8,6 +9,7 @@ import '../screen_views/personal_view.dart';
 
 late SubmitApplication sub;
 
+// ignore: must_be_immutable
 class Personal extends StatefulWidget {
   late SubmitApplication sub;
   // static const routeName = Strings.SCREEN_BLANK;
@@ -103,7 +105,10 @@ class PersonalController extends State<Personal>
   }
 
   @override
-  Widget build(BuildContext context) => PersonalView(this);
+  Widget build(BuildContext context) {
+    super.build(context);
+    return PersonalView(this);
+  }
 
   //Control logic grouped together, at top of file
   void onBackPressed() {
@@ -113,6 +118,22 @@ class PersonalController extends State<Personal>
   validatePersonalInfo() async {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
+      String email = emailController.text.trim();
+      String phone = phoneController.text.trim();
+      String dob = dateOfBirthController.text.trim();
+
+      if (!WidgetHelper().isValidEmail(email)) {
+        WidgetHelper.showToastError(context, "invalid_email");
+        return;
+      }
+      if (phone.isEmpty || phone.length < 10) {
+        WidgetHelper.showToastError(context, 'incorrect_phone_no');
+        return;
+      }
+      if (dob.isEmpty) {
+        WidgetHelper.showToastError(context, 'kindly_select_dob');
+        return;
+      }
 
       var application = SubmitApplication();
       // var newApplication = SubmitApplication();
@@ -132,11 +153,9 @@ class PersonalController extends State<Personal>
       application.occupation = employmentStatusController.text.trim();
 
       GlobalVariables.applications.value = application;
-      //newApplication = GlobalVariables.applications.value;
-      //print('${newApplication.identificationNumber}');
       onNextPressed();
     } else {
-      WidgetHelper.showToastError(context, "Fill required field.");
+      WidgetHelper.showToastError(context, "fill_required_fields");
       return;
     }
   }

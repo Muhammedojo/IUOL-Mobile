@@ -1,13 +1,9 @@
 import 'package:ioul/utils/utils.dart';
-
 import '../helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../model/model.dart';
 import '../screen_views/contact_view.dart';
 
 class Contact extends StatefulWidget {
-  // static const routeName = Strings.SCREEN_BLANK;
-
   const Contact({
     Key? key,
     this.controller,
@@ -69,7 +65,10 @@ class ContactController extends State<Contact>
   }
 
   @override
-  Widget build(BuildContext context) => ContactView(this);
+  Widget build(BuildContext context) {
+    super.build(context);
+    return ContactView(this);
+  }
 
   //Control logic grouped together, at top of file
   void onBackPressed() {
@@ -79,6 +78,29 @@ class ContactController extends State<Contact>
   validateContactInfo() async {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
+
+      String phone = nokPhoneController.text.trim();
+      String refPhone = refPhoneController.text.trim();
+      String nokEmail = nokEmailController.text.trim();
+      String refEmail = refEmailController.text.trim();
+
+      if (!WidgetHelper().isValidEmail(nokEmail)) {
+        WidgetHelper.showToastError(context, "invalid_email");
+        return;
+      }
+
+      if (phone.isEmpty || phone.length < 10) {
+        WidgetHelper.showToastError(context, 'incorrect_phone_no');
+        return;
+      }
+      if (!WidgetHelper().isValidEmail(refEmail)) {
+        WidgetHelper.showToastError(context, "invalid_email");
+        return;
+      }
+      if (refPhone.isEmpty || refPhone.length < 10) {
+        WidgetHelper.showToastError(context, 'incorrect_phone_no');
+        return;
+      }
 
       final application = GlobalVariables.applications.value;
 
@@ -96,7 +118,7 @@ class ContactController extends State<Contact>
 
       onNextPressed();
     } else {
-      WidgetHelper.showToastError(context, "Fill required field.");
+      WidgetHelper.showToastError(context, "fill_required_fields");
       return;
     }
   }

@@ -5,4 +5,5 @@ export 'programme_response.dart';
 export 'register_response.dart';
 export 'response_contract.dart';
 export 'enrolled_course_response.dart';
+export 'payment_history_response.dart';
 export 'response.dart';

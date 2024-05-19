@@ -51,9 +51,11 @@
     "proceed":"Proceed",
     "admission_process_payment":"Admission Process Payment",
     "payment_method":"Payment Method",
+    "kindly_select_dob":"Kindly select DOB",
     "firstname":"First Name",
     "surname":"Surname",
     "middlename":"Middle Name",
+    "incorrect_phone_no":"Incorrect phone number",
     "gender":"Gender",
     "phone_number":"Phone Number",
     "marital_status":"Marital Status",
@@ -79,6 +81,7 @@
     "work_address":"Work Address",
     "application_form":"Application Form",
     "referee":"Referee",
+    "fullname":"Full name",
     "referee_name":"Referee Name",
     "referee_email":"Referee Email",
     "referee_phone":"Referee Phone",
@@ -125,6 +128,11 @@
     "introduction":"Introduction",
     "overview":"Overview",
     "outline":"Outline",
+    "no_payment_history":"Payment History List Empty",
+    "invalid_email":"Invalid email address",
+    "password_required":"Password is required",
+    "email_required":"Email is required",
+    "fill_required_fields":"Fill required fields.",
     "settings":"Settings"
 
 }
