@@ -648,7 +648,7 @@ class ApiProvider {
     try {
       Response response = await doGetRequest(getPaymentHistoryEndpoint);
       statusCode = response.statusCode;
-      //print("state response: ${response.toString()}");
+      print("state response: ${response.toString()}");
 
       if (_isConnectionSuccessful(statusCode)) {
         var decodedBody = jsonDecode(response.toString());

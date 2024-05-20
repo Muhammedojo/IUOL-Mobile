@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../screen_views/application_form_view.dart';
 
 class ApplicationForm extends StatefulWidget {
-  // static const routeName = Strings.SCREEN_BLANK;
-
   const ApplicationForm({Key? key}) : super(key: key);
 
   @override
@@ -52,7 +50,10 @@ class ApplicationFormController extends State<ApplicationForm>
   }
 
   @override
-  Widget build(BuildContext context) => ApplicationFormView(this);
+  Widget build(BuildContext context) {
+    super.build(context);
+    return ApplicationFormView(this);
+  }
 
   //Control logic grouped together, at top of file
   void onBackPressed() {

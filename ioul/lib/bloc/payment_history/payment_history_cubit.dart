@@ -9,6 +9,7 @@ class PaymentHistoryCubit extends Cubit<PaymentHistoryState> {
       emit(PaymentHistoryLoading());
       final response = await repository.getPaymentHistory();
       if ((response.statusCode == 200 || response.statusCode == 201)) {
+        print('Success');
         emit(PaymentHistoryLoaded(response.transactions!));
       } else {
         // log("response error body: ${response.message}");

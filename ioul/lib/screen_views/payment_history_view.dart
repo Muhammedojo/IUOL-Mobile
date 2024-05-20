@@ -34,7 +34,7 @@ class PaymentHistoryView
           BlocBuilder<PaymentHistoryCubit, PaymentHistoryState>(
             builder: (context, states) {
               if (state is PaymentHistoryLoading) {
-                return const CircularProgressIndicator();
+                const Loader();
               } else if (states is PaymentHistoryLoaded) {
                 return states.paymentHistoryList.isNotEmpty
                     ? ListView.separated(

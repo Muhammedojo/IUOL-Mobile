@@ -1,3 +1,5 @@
+import 'package:ioul/values/values.dart';
+
 import '../model/model.dart';
 import '../packages/package.dart';
 
@@ -13,6 +15,12 @@ class PaymentHistoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final DateTime paymentDate = DateTime.parse('${paymentHistory.date}');
+    final String formattedDate = DateFormat('dd-MM-yyyy').format(paymentDate);
+    final double amount = double.parse('${paymentHistory.amount}');
+    final String formattedAmount =
+        NumberFormat.currency(symbol: "₦", decimalDigits: 2).format(amount);
+
     return InkWell(
         onTap: onTap,
         child: Container(
@@ -21,82 +29,100 @@ class PaymentHistoryWidget extends StatelessWidget {
               color: Colors.transparent
               //AppColors.lightBlue,
               ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
+              SvgPicture.asset(
+                paymentHistory.status == 'successful'
+                    ? 'assets/images/success_pay.svg'
+                    : (paymentHistory.status == 'pending'
+                        ? 'assets/images/pending_payment.svg'
+                        : 'assets/images/cancel_pay.svg'),
+                fit: BoxFit.scaleDown,
+                height: 35.w,
+                width: 35.w,
+              ),
+              SizedBox(
+                width: 10.w,
+              ),
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SvgPicture.asset(
-                    //  'assets/images/pending_payment.svg',
-                    paymentHistory.status == 'successful'
-                        ? 'assets/images/success_pay.svg'
-                        : (paymentHistory.status == 'pending'
-                            ? 'assets/images/pending_payment.svg'
-                            : 'assets/images/cancel_pay.svg'),
-                    fit: BoxFit.scaleDown,
-                    height: 24.w,
-                    width: 24.w,
-                  ),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  Expanded(
-                    child: Text(
-                      '${paymentHistory.name}',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xff090A0A),
-                      ),
+                  Text(
+                    '${paymentHistory.paymentType}',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontFamily: Styles.font,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff090A0A),
                     ),
                   ),
                   SizedBox(
-                    width: 20.w,
+                    height: 5.h,
                   ),
                   Text(
-                    '${paymentHistory.amount}',
+                    '${paymentHistory.name}',
                     style: TextStyle(
-                      fontSize: 16.sp,
-                      fontFamily: 'Inter',
+                      fontSize: 14.sp,
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w400,
-                      color: const Color(0xff202325),
+                      color: const Color(0xff72777A),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Text(
+                    '${paymentHistory.transactionId}',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontFamily: Styles.font,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff72777A),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                height: 6.h,
-              ),
-              Row(
+              const Spacer(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  SizedBox(
-                    width: 34.w,
-                  ),
-                  Expanded(
-                    child: Text(
-                      '${paymentHistory.date}',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xff72777A),
-                      ),
+                  Text(
+                    formattedAmount,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontFamily: Styles.font,
+                      fontWeight: FontWeight.w600,
+                      color: const Color(0xff202325),
                     ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
                   ),
                   Text(
                     '${paymentHistory.status}',
                     style: TextStyle(
                         fontSize: 14.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w500,
                         color: paymentHistory.status == 'successful'
                             ? const Color(0xff23C16B)
                             : (paymentHistory.status == 'pending'
                                 ? const Color(0xffFFB323)
                                 : const Color(0xffFF5247))),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Text(
+                    formattedDate,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontFamily: Styles.font,
+                      fontWeight: FontWeight.w600,
+                      color: const Color(0xff72777A),
+                    ),
                   ),
                 ],
               ),

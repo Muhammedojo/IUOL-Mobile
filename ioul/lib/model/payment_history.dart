@@ -1,8 +1,8 @@
 class PaymentsHistory {
   String? name;
   String? admissionNumber;
-  int? transactionId;
-  double? amount;
+  String? transactionId;
+  int? amount;
   String? description;
   String? date;
   String? status;
