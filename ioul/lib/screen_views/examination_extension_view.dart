@@ -37,8 +37,8 @@ class ExaminationExtensionView extends StatelessView<ExaminationExtension,
           centerTitle: true,
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-          title:
-              Text('Assignment Extension', style: Styles.x18dp_202326_700w()),
+          title: Text('examination_extension'.tr(),
+              style: Styles.x18dp_202326_700w()),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -62,7 +62,7 @@ class ExaminationExtensionView extends StatelessView<ExaminationExtension,
             'These are the list of courses you failed to attampt their examinations during the assigned duration. Select the ones you wish to extend and proceed to payment. After payment a new date would be assigned.',
             textAlign: TextAlign.justify,
             style: TextStyle(
-                fontFamily: 'Inter',
+                fontFamily: Styles.font,
                 fontWeight: FontWeight.w400,
                 color: const Color(0xff090A0A),
                 fontSize: 16.sp),
@@ -73,7 +73,7 @@ class ExaminationExtensionView extends StatelessView<ExaminationExtension,
           Text(
             '#1000 per course',
             style: TextStyle(
-                fontFamily: 'Inter',
+                fontFamily: Styles.font,
                 fontWeight: FontWeight.w700,
                 color: const Color(0xff090A0A),
                 fontSize: 16.sp),
@@ -91,7 +91,7 @@ class ExaminationExtensionView extends StatelessView<ExaminationExtension,
             ),
           ),
           SizedBox(height: 30.h),
-          ElevatedButtonWidget(onTap: () {}, title: 'Proceed to Payment')
+          ElevatedButtonWidget(onTap: () {}, title: 'proceed_to_payment'.tr())
         ],
       ),
     );

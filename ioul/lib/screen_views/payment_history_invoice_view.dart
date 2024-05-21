@@ -18,11 +18,14 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
       backgroundColor: AppColors.backgroundWhite,
       body: WidgetWrapper(child: _body()),
       appBar: WidgetHelper().appBackArrowWithTitle(context,
-          title: 'Payment Invoice', onTap: () => state.onBackPressed()),
+          title: 'payment_invoice'.tr(), onTap: () => state.onBackPressed()),
     );
   }
 
   Widget _body() {
+    double amount = double.parse('${widget.paymentHistory?.amount}');
+    String formattedAmount =
+        NumberFormat.currency(symbol: "₦", decimalDigits: 2).format(amount);
     return Padding(
       padding: REdgeInsets.symmetric(vertical: 30.0, horizontal: 15),
       child: Column(
@@ -32,7 +35,7 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
             child: Text('Iconic University of Opening Learning',
                 style: TextStyle(
                     fontSize: 18.sp,
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     fontWeight: FontWeight.w700,
                     color: const Color(0xff000000))),
           ),
@@ -47,17 +50,17 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                 Text('Transaction ID:',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff000000))),
                 SizedBox(
                   width: 20.w,
                 ),
                 Expanded(
-                  child: Text('#38741084',
+                  child: Text('${widget.paymentHistory?.transactionId}',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w700,
                           color: const Color(0xff000000))),
                 ),
@@ -75,18 +78,18 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                 Text('Name:',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff000000))),
                 SizedBox(
                   width: 20.w,
                 ),
                 Expanded(
-                  child: Text('Sulaiman Ademola Idris',
+                  child: Text('${widget.paymentHistory?.name}',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
+                          fontFamily: Styles.font,
+                          fontWeight: FontWeight.w700,
                           color: const Color(0xff000000))),
                 ),
               ],
@@ -102,18 +105,18 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                 Text('Admission Number:',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff000000))),
                 SizedBox(
                   width: 20.w,
                 ),
                 Expanded(
-                  child: Text('1610600109',
+                  child: Text('${widget.paymentHistory?.admissionNumber}',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
+                          fontFamily: Styles.font,
+                          fontWeight: FontWeight.w700,
                           color: const Color(0xff000000))),
                 ),
               ],
@@ -129,18 +132,18 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                 Text('Product/Service:',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff000000))),
                 SizedBox(
                   width: 20.w,
                 ),
                 Expanded(
-                  child: Text('Tuition Fee for Spring Semester (2021/2023)',
+                  child: Text('${widget.paymentHistory?.paymentType}',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
+                          fontFamily: Styles.font,
+                          fontWeight: FontWeight.w700,
                           color: const Color(0xff000000))),
                 ),
               ],
@@ -156,18 +159,18 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                 Text('Amount:',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff000000))),
                 SizedBox(
                   width: 20.w,
                 ),
                 Expanded(
-                  child: Text('N50,000.00',
+                  child: Text(formattedAmount,
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
+                          fontFamily: Styles.font,
+                          fontWeight: FontWeight.w700,
                           color: const Color(0xff000000))),
                 ),
               ],
@@ -179,7 +182,7 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
           SizedBox(
             height: 80.h,
           ),
-          ElevatedButtonWidget(onTap: () {}, title: 'Download Invoice')
+          ElevatedButtonWidget(onTap: () {}, title: 'download_invoice'.tr())
         ],
       ),
     );

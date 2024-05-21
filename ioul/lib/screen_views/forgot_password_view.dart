@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/helper.dart';
-import 'package:ioul/router/route_constants.dart';
+import 'package:ioul/packages/package.dart';
 import '../components/components.dart';
 import '../screens_controllers/forgot_password_controller.dart';
 import '../values/values.dart';
@@ -30,23 +28,22 @@ class ForgotPasswordView
                 children: [
                   SizedBox(height: 12.h),
                   TextWidget(
-                    text: "Forgotten your password?",
+                    text: "forgotten_password".tr(),
                     style: Styles.x24dp_090A0A_700w(),
                   ),
                   SizedBox(height: 8.h),
                   TextWidget(
-                    text:
-                        "Don't worry, we'll send you a message to help you reset your password.",
+                    text: "message_to_reset_password".tr(),
                     style: Styles.x16dp_090A0A_400w(),
                   ),
                   SizedBox(height: 26.h),
                   TextFieldWidget(
-                    title: "Email",
+                    title: "email".tr(),
                     controller: state.emailController,
                   ),
                   SizedBox(height: 259.h),
                   ElevatedButtonWidget(
-                      title: "Continue",
+                      title: "continue".tr(),
                       onTap: () => state.onTapPasswordResetButton()
                       //NavigatorHelper(context)
                       //  .pushNamedScreen(RouteConstants.codeInput),

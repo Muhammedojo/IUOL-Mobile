@@ -219,9 +219,11 @@ class _PaymentsState extends State<Payments> {
       context: context,
       barrierDismissible: true,
       builder: (BuildContext context) {
+        // print('CallBack  $message');
         return AlertDialog(
+          backgroundColor: Colors.black87,
           content: Container(
-            margin: const EdgeInsets.fromLTRB(30, 20, 30, 20),
+            margin: REdgeInsets.fromLTRB(30, 20, 30, 20),
             width: double.infinity,
             height: 50.h,
             child: Text(message),

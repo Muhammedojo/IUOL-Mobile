@@ -31,10 +31,10 @@ class RecentClassWidget extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '$code',
+                      '$code'.tr(),
                       style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w700,
                         color: const Color(0xff202325),
                       ),
@@ -48,10 +48,10 @@ class RecentClassWidget extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        '$title',
+                        '$title'.tr(),
                         style: TextStyle(
                           fontSize: 15.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w700,
                           color: const Color(0xff202325),
                         ),

@@ -923,10 +923,11 @@ Future<Response> doPostRequest(endPoint, dynamic body) async {
     response = await dio.post(endPoint,
         data: jsonEncode(body), options: Options(headers: header));
   } on DioException catch (e) {
-    response.statusMessage =
-        (e.response?.statusCode ?? 500).toString().startsWith("5")
-            ? "something_went_wrong_and_your_request_could_not_be_completed"
-            : e.response?.data['message'];
+    response.statusMessage = (e.response?.statusCode ?? 500)
+            .toString()
+            .startsWith("5")
+        ? "something_went_wrong_and_your_request_could_not_be_completed".tr()
+        : e.response?.data['message'];
     response.statusCode = e.response?.statusCode ?? 500;
   }
 

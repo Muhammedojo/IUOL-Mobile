@@ -416,12 +416,6 @@ class ProfileView extends StatelessView<Profile, ProfileController> {
                       ),
                     ),
                   ),
-                  Text("data"),
-                  Text("data"),
-                  Text("data"),
-                  Text("data"),
-                  Text("data"),
-                  Text("data"),
                 ],
               ),
             ),
@@ -453,7 +447,9 @@ class CustomSilverAppBarDelegate extends SliverPersistentHeaderDelegate {
               Container(
                 height: 50.h,
                 color: Colors.white,
-                child: const TabBar(
+                child: TabBar(
+                  labelStyle:
+                      TextStyle(fontFamily: Styles.font, fontSize: 12.sp),
                   indicatorSize: TabBarIndicatorSize.label,
                   isScrollable: true,
                   indicatorColor: Colors.black,
@@ -461,25 +457,25 @@ class CustomSilverAppBarDelegate extends SliverPersistentHeaderDelegate {
                   unselectedLabelColor: Colors.grey,
                   tabs: [
                     Tab(
-                      text: "Personal",
+                      text: "personal".tr(),
                     ),
                     Tab(
-                      text: "Address",
+                      text: "address".tr(),
                     ),
                     Tab(
-                      text: "Contacts",
+                      text: "contacts".tr(),
                     ),
                     Tab(
-                      text: "Sponsor",
+                      text: "sponsor".tr(),
                     ),
                     Tab(
-                      text: "Programme",
+                      text: "programme".tr(),
                     ),
                     Tab(
-                      text: "Certificates",
+                      text: "certificates".tr(),
                     ),
                     Tab(
-                      text: "Uploads",
+                      text: "uploads".tr(),
                     ),
                   ],
                 ),

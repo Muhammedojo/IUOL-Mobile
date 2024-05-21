@@ -15,7 +15,7 @@ class HelpDeskView extends StatelessView<HelpDesk, HelpDeskController> {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
         appBar: WidgetHelper().appBackArrowWithTitle(context,
-            title: 'Help Desk', onTap: () => state.onBackPressed()),
+            title: 'help_desk'.tr(), onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body()));
   }
 
@@ -38,6 +38,7 @@ class HelpDeskView extends StatelessView<HelpDesk, HelpDeskController> {
                 Text('support@iconicuniversity.edu.ng',
                     style: TextStyle(
                         fontSize: 16.sp,
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff090A0A))),
               ],
@@ -58,6 +59,7 @@ class HelpDeskView extends StatelessView<HelpDesk, HelpDeskController> {
                 Text('+2347064658830',
                     style: TextStyle(
                         fontSize: 16.sp,
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff090A0A))),
               ],
@@ -79,6 +81,7 @@ class HelpDeskView extends StatelessView<HelpDesk, HelpDeskController> {
                 Text('+2347064658830',
                     style: TextStyle(
                         fontSize: 16.sp,
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff090A0A))),
               ],

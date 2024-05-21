@@ -33,3 +33,4 @@ export 'time_table.dart';
 export 'resources.dart';
 export 'course_overview.dart';
 export 'summary_course.dart';
+export 'notification.dart';

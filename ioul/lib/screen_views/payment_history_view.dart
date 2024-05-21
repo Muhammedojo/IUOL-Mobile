@@ -17,7 +17,7 @@ class PaymentHistoryView
         backgroundColor: Colors.transparent,
         //AppColors.backgroundWhite,
         appBar: WidgetHelper().appBackArrowWithTitle(context,
-            title: 'Payment History', onTap: () => state.onBackPressed()),
+            title: 'payment_history'.tr(), onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body(context)));
   }
 
@@ -41,12 +41,15 @@ class PaymentHistoryView
                         separatorBuilder: (context, index) => const Divider(
                           color: Color(0xff000000),
                         ),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: states.paymentHistoryList.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           var history = states.paymentHistoryList[index];
                           return PaymentHistoryWidget(
-                            onTap: () {},
+                            onTap: () {
+                              state.showPaymentDetails(history);
+                            },
                             paymentHistory: history,
                           );
                         },

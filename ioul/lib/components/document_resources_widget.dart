@@ -1,14 +1,13 @@
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class DocumentResourcesWidget extends StatelessWidget {
   final String? image;
   final Function()? onTap;
 
-  const DocumentResourcesWidget({
-    Key? key,
-    required this.image,
-    required this.onTap
-  }) : super(key: key);
+  const DocumentResourcesWidget(
+      {Key? key, required this.image, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,7 @@ class DocumentResourcesWidget extends StatelessWidget {
                       'Module One Test 1 (Part 1) ',
                       style: TextStyle(
                           fontSize: 14.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xff202325)),
                     ),
@@ -60,7 +59,7 @@ class DocumentResourcesWidget extends StatelessWidget {
                       'Introduction to Arabic Language',
                       style: TextStyle(
                           fontSize: 14.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xff202325)),
                     ),

@@ -1,3 +1,5 @@
+import 'package:ioul/model/notification.dart';
+
 import '../components/components.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
@@ -16,7 +18,7 @@ class NotificationView
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
         appBar: WidgetHelper().appBackArrowWithTitle(context,
-            title: 'Notification', onTap: () => state.onBackPressed()),
+            title: 'notification'.tr(), onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body()));
   }
 
@@ -28,11 +30,15 @@ class NotificationView
           mainAxisSize: MainAxisSize.min,
           children: [
             ListView.separated(
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: 5,
-              shrinkWrap: true,
-              itemBuilder: (context, index) => const NotificationWidget(),
-            ),
+                separatorBuilder: (context, index) => const Divider(),
+                itemCount: 5,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  var note = Notificationss();
+                  return NotificationWidget(
+                    notification: note,
+                  );
+                }),
           ],
         ),
       ),

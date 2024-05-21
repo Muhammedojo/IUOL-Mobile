@@ -90,7 +90,7 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                       ResendEmailVerificationState>(
                     listener: (context, state) {
                       if (state is ResendEmailVerificationLoading) {
-                        WidgetHelper.showProgress(text: "Processing");
+                        WidgetHelper.showProgress(text: "processing".tr());
                       }
                       if (state is ResendEmailVerificationLoaded) {
                         WidgetHelper.hideProgress();

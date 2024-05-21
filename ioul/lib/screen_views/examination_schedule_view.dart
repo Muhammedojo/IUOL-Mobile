@@ -36,7 +36,7 @@ class ExaminationScheduleView
           centerTitle: true,
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-          title: Text('Examination', style: Styles.x18dp_202326_700w()),
+          title: Text('examination'.tr(), style: Styles.x18dp_202326_700w()),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -60,7 +60,7 @@ class ExaminationScheduleView
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 23.sp,
-                fontFamily: 'Inter',
+                fontFamily: Styles.font,
                 fontWeight: FontWeight.w700,
                 color: const Color(0xff000000)),
           ),
@@ -100,7 +100,7 @@ class ExaminationScheduleView
             height: 60.h,
           ),
           ElevatedButtonWidget(
-            title: 'Download Exam Timetable',
+            title: 'download_exam_timetable'.tr(),
             onTap: () {},
           )
         ],

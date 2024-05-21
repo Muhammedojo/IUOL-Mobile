@@ -31,7 +31,7 @@ class _TestResetWidgetState extends State<TestResetWidget> {
             Text(widget.course,
                 style: TextStyle(
                     fontSize: 16.sp,
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     fontWeight: FontWeight.w400,
                     color: const Color(0xff090A0A))),
             SizedBox(
@@ -40,7 +40,7 @@ class _TestResetWidgetState extends State<TestResetWidget> {
             Text(widget.unit,
                 style: TextStyle(
                     fontSize: 14.sp,
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     fontWeight: FontWeight.w400,
                     color: const Color(0xff72777A)))
           ],

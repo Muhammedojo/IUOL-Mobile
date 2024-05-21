@@ -86,11 +86,11 @@ class ReportPreviewView
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Downloads',
+                                  'downloads'.tr(),
                                   style: TextStyle(
                                       fontSize: 16.sp,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: 'Inter',
+                                      fontFamily: Styles.font,
                                       color: const Color(0xff000000)),
                                 ),
                                 SizedBox(
@@ -103,7 +103,7 @@ class ReportPreviewView
                                       // decoration: TextDecoration
                                       //     .underline,
                                       fontWeight: FontWeight.w400,
-                                      fontFamily: 'Inter',
+                                      fontFamily: Styles.font,
                                       color: const Color(0xff000000)),
                                 ),
                                 SizedBox(
@@ -116,7 +116,7 @@ class ReportPreviewView
                                       // decoration: TextDecoration
                                       //     .underline,
                                       fontWeight: FontWeight.w400,
-                                      fontFamily: 'Inter',
+                                      fontFamily: Styles.font,
                                       color: const Color(0xff000000)),
                                 ),
                                 SizedBox(
@@ -129,7 +129,7 @@ class ReportPreviewView
                                       // decoration: TextDecoration
                                       //     .underline,
                                       fontWeight: FontWeight.w400,
-                                      fontFamily: 'Inter',
+                                      fontFamily: Styles.font,
                                       color: const Color(0xff000000)),
                                 ),
                                 SizedBox(
@@ -165,7 +165,7 @@ class ReportPreviewView
                                       style: TextStyle(
                                           fontSize: 16.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Inter',
+                                          fontFamily: Styles.font,
                                           color: const Color(0xff000000)),
                                     ),
                                     SizedBox(width: 10.w),
@@ -185,7 +185,7 @@ class ReportPreviewView
                                       style: TextStyle(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.w600,
-                                          fontFamily: 'Inter',
+                                          fontFamily: Styles.font,
                                           color: const Color(0xff000000)),
                                     ),
                                     SizedBox(
@@ -196,7 +196,7 @@ class ReportPreviewView
                                       style: TextStyle(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.w400,
-                                          fontFamily: 'Inter',
+                                          fontFamily: Styles.font,
                                           color: const Color(0xff000000)),
                                     ),
                                     SizedBox(
@@ -232,7 +232,7 @@ class ReportPreviewView
                                       style: TextStyle(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.w600,
-                                          fontFamily: 'Inter',
+                                          fontFamily: Styles.font,
                                           color: const Color(0xff000000)),
                                     ),
                                     SizedBox(
@@ -243,7 +243,7 @@ class ReportPreviewView
                                       style: TextStyle(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.w400,
-                                          fontFamily: 'Inter',
+                                          fontFamily: Styles.font,
                                           color: const Color(0xff000000)),
                                     ),
                                     SizedBox(
@@ -279,7 +279,7 @@ class ReportPreviewView
                                                     'Choose File',
                                                     style: TextStyle(
                                                         fontSize: 16.sp,
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: Styles.font,
                                                         color: const Color(
                                                             0xff000000),
                                                         fontWeight:
@@ -309,7 +309,7 @@ class ReportPreviewView
                                       style: TextStyle(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.w600,
-                                          fontFamily: 'Inter',
+                                          fontFamily: Styles.font,
                                           color: const Color(0xff000000)),
                                     ),
                                     SizedBox(
@@ -320,7 +320,7 @@ class ReportPreviewView
                                       style: TextStyle(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.w400,
-                                          fontFamily: 'Inter',
+                                          fontFamily: Styles.font,
                                           color: const Color(0xff000000)),
                                     ),
                                     SizedBox(
@@ -353,10 +353,10 @@ class ReportPreviewView
                                                     width: 5.w,
                                                   ),
                                                   Text(
-                                                    'Choose File',
+                                                    'choose_file'.tr(),
                                                     style: TextStyle(
                                                         fontSize: 16.sp,
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: Styles.font,
                                                         color: const Color(
                                                             0xff000000),
                                                         fontWeight:

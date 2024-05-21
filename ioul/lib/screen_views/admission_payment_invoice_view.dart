@@ -34,7 +34,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
             child: Text('Iconic Open University',
                 style: TextStyle(
                     fontSize: 18.sp,
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     fontWeight: FontWeight.w700,
                     color: const Color(0xff000000))),
           ),
@@ -49,7 +49,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                 Text('Transaction ID:',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff000000))),
                 SizedBox(
@@ -59,7 +59,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                   child: Text('#38741084',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w700,
                           color: const Color(0xff000000))),
                 ),
@@ -76,7 +76,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                 Text('Name:',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff000000))),
                 SizedBox(
@@ -91,7 +91,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff000000)),
                       );
                     }
@@ -100,7 +100,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                       style: TextStyle(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.w700,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xffffffff)),
                     );
                   }),
@@ -118,7 +118,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                 Text('Product/Service:',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff000000))),
                 SizedBox(
@@ -128,7 +128,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                   child: Text('Application Form Payment',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff000000))),
                 ),
@@ -145,7 +145,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                 Text('Amount:',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff000000))),
                 SizedBox(
@@ -155,7 +155,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                   child: Text('N10,000.00',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff000000))),
                 ),
@@ -177,7 +177,7 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                           const Payments("Application Payment")),
                 );
               },
-              title: 'Continue')
+              title: 'continue'.tr())
         ],
       ),
     );

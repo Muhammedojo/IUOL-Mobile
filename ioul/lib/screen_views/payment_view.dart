@@ -19,7 +19,7 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
         backgroundColor: Colors.transparent,
         //AppColors.backgroundWhite,
         appBar: WidgetHelper().appBackArrowWithTitle(context,
-            title: 'Payment', onTap: () => state.onBackPressed()),
+            title: 'payment'.tr(), onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body(context)));
   }
 
@@ -110,7 +110,7 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                 Padding(
                   padding: REdgeInsets.symmetric(horizontal: 20.0),
                   child: SubmitButtonWidget(
-                    label: 'Proceed to Payment',
+                    label: 'proceed_to_payment'.tr(),
                     onPressed: () {
                       Navigator.push(
                         context,

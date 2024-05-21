@@ -1,27 +1,30 @@
+import '../model/model.dart';
 import '../screen_views/payment_history_invoice_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
 
 class PaymentHistoryInvoice extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
+  final PaymentsHistory? paymentHistory;
 
-  const PaymentHistoryInvoice({Key? key}) : super(key: key);
+  const PaymentHistoryInvoice({Key? key, this.paymentHistory})
+      : super(key: key);
 
   @override
-  PaymentHistoryInvoiceController createState() => PaymentHistoryInvoiceController();
+  PaymentHistoryInvoiceController createState() =>
+      PaymentHistoryInvoiceController();
 }
 
 class PaymentHistoryInvoiceController extends State<PaymentHistoryInvoice> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -29,8 +32,7 @@ class PaymentHistoryInvoiceController extends State<PaymentHistoryInvoice> {
   Widget build(BuildContext context) => PaymentHistoryInvoiceView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

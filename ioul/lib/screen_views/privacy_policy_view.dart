@@ -16,7 +16,7 @@ class PrivacyPolicyView
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
         appBar: WidgetHelper().appBackArrowWithTitle(context,
-            title: 'Privacy Policy', onTap: () => state.onBackPressed()),
+            title: 'privacy_policy'.tr(), onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body()));
   }
 
@@ -48,6 +48,7 @@ class PrivacyPolicyView
                   'The Policy',
                   style: TextStyle(
                       fontSize: 17.sp,
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w700,
                       color: const Color(0xff191C1C)),
                 ),
@@ -62,6 +63,7 @@ class PrivacyPolicyView
                       style: TextStyle(
                         color: const Color(0xff000000),
                         fontSize: 15.sp,
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -89,6 +91,7 @@ class PrivacyPolicyView
                   'The Information We Gathered',
                   style: TextStyle(
                       fontSize: 17.sp,
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w700,
                       color: const Color(0xff191C1C)),
                 ),
@@ -103,6 +106,7 @@ class PrivacyPolicyView
                       style: TextStyle(
                         color: const Color(0xff000000),
                         fontSize: 15.sp,
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -130,6 +134,7 @@ class PrivacyPolicyView
                   'The Information Usage',
                   style: TextStyle(
                       fontSize: 17.sp,
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w700,
                       color: const Color(0xff191C1C)),
                 ),
@@ -144,6 +149,7 @@ class PrivacyPolicyView
                       style: TextStyle(
                         color: const Color(0xff000000),
                         fontSize: 15.sp,
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -171,6 +177,7 @@ class PrivacyPolicyView
                   'The Collection of Information',
                   style: TextStyle(
                       fontSize: 17.sp,
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w700,
                       color: const Color(0xff191C1C)),
                 ),
@@ -185,6 +192,7 @@ class PrivacyPolicyView
                       style: TextStyle(
                         color: const Color(0xff000000),
                         fontSize: 15.sp,
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -213,6 +221,7 @@ class PrivacyPolicyView
                   style: TextStyle(
                       fontSize: 17.sp,
                       fontWeight: FontWeight.w700,
+                      fontFamily: Styles.font,
                       color: const Color(0xff191C1C)),
                 ),
                 textColor: Colors.red,
@@ -226,6 +235,7 @@ class PrivacyPolicyView
                       style: TextStyle(
                         color: const Color(0xff000000),
                         fontSize: 15.sp,
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -253,6 +263,7 @@ class PrivacyPolicyView
                   'The Information Protection',
                   style: TextStyle(
                       fontSize: 17.sp,
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w700,
                       color: const Color(0xff191C1C)),
                 ),
@@ -265,6 +276,7 @@ class PrivacyPolicyView
                       '''This site has highly attended security measures put in place to help protect against the loss, misuse, and alteration of the information under our domain. However, no method of transmission over the Internet or method of electronic storage is 100% safe and secure.''',
                       textAlign: TextAlign.justify,
                       style: TextStyle(
+                        fontFamily: Styles.font,
                         color: const Color(0xff000000),
                         fontSize: 15.sp,
                         fontWeight: FontWeight.w400,
@@ -294,6 +306,7 @@ class PrivacyPolicyView
                   'The Changes to Policy',
                   style: TextStyle(
                       fontSize: 17.sp,
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w700,
                       color: const Color(0xff191C1C)),
                 ),
@@ -308,6 +321,7 @@ class PrivacyPolicyView
                       style: TextStyle(
                         color: const Color(0xff000000),
                         fontSize: 15.sp,
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                       ),
                     ),

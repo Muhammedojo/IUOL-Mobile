@@ -127,7 +127,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -141,7 +141,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -153,7 +153,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -167,7 +167,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -178,7 +178,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -189,7 +189,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -200,7 +200,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -211,7 +211,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -222,7 +222,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -233,7 +233,7 @@ class AssignmentPreviewView
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xff000000)),
                         ),
                         SizedBox(
@@ -271,7 +271,7 @@ class AssignmentPreviewView
                                         'Assignment Template',
                                         style: TextStyle(
                                             fontSize: 16.sp,
-                                            fontFamily: 'Inter',
+                                            fontFamily: Styles.font,
                                             color: const Color(0xff000000),
                                             fontWeight: FontWeight.w500),
                                       ),
@@ -309,7 +309,7 @@ class AssignmentPreviewView
                                   style: TextStyle(
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.w400,
-                                      fontFamily: 'Inter',
+                                      fontFamily: Styles.font,
                                       color: const Color(0xff000000)),
                                 ),
                                 SizedBox(
@@ -343,7 +343,7 @@ class AssignmentPreviewView
                                                 'Choose File',
                                                 style: TextStyle(
                                                     fontSize: 16.sp,
-                                                    fontFamily: 'Inter',
+                                                    fontFamily: Styles.font,
                                                     color:
                                                         const Color(0xff000000),
                                                     fontWeight:
@@ -379,7 +379,7 @@ class AssignmentPreviewView
                     height: 16.h,
                   ),
                   SubmitButtonWidget(
-                      label: 'Submit Assignment', onPressed: () {}),
+                      label: 'submit_assignment'.tr(), onPressed: () {}),
                   SizedBox(
                     height: 16.h,
                   ),

@@ -17,7 +17,7 @@ class SettingsView extends StatelessView<Settings, SettingsController> {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
         appBar: WidgetHelper().appBackArrowWithTitle(context,
-            title: 'Settings', onTap: () => state.onBackPressed()),
+            title: 'settings'.tr(), onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body()));
   }
 
@@ -53,9 +53,10 @@ class SettingsView extends StatelessView<Settings, SettingsController> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        'Push Notifications',
+                        'push_notifications'.tr(),
                         style: TextStyle(
                             fontSize: 20.sp,
+                            fontFamily: Styles.font,
                             fontWeight: FontWeight.w600,
                             color: const Color(0xff191C1C)),
                       ),
@@ -66,9 +67,10 @@ class SettingsView extends StatelessView<Settings, SettingsController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Application',
+                            'application'.tr(),
                             style: TextStyle(
                                 fontSize: 16.sp,
+                                fontFamily: Styles.font,
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xff191C1C)),
                           ),
@@ -84,10 +86,10 @@ class SettingsView extends StatelessView<Settings, SettingsController> {
                       SizedBox(
                         height: 8.h,
                       ),
-                      Text(
-                          'Receive personalized notifications about your progress and activities ',
+                      Text('receive_push_notification'.tr(),
                           style: TextStyle(
                               fontSize: 12.sp,
+                              fontFamily: Styles.font,
                               fontWeight: FontWeight.w400,
                               color: AppColors.greylight))
                     ],
@@ -123,6 +125,7 @@ class SettingsView extends StatelessView<Settings, SettingsController> {
                           'switch_language'.tr(),
                           style: TextStyle(
                               fontSize: 20.sp,
+                              fontFamily: Styles.font,
                               fontWeight: FontWeight.w600,
                               color: const Color(0xff191C1C)),
                         ),
@@ -134,6 +137,7 @@ class SettingsView extends StatelessView<Settings, SettingsController> {
                             Text('switch_to_another_language.'.tr(),
                                 style: TextStyle(
                                     fontSize: 12.sp,
+                                    fontFamily: Styles.font,
                                     fontWeight: FontWeight.w400,
                                     color: AppColors.greylight)),
                           ],

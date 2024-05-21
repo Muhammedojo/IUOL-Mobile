@@ -1,4 +1,5 @@
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class TaskStatusWidget extends StatelessWidget {
   final Function()? onTap;
@@ -35,7 +36,7 @@ class TaskStatusWidget extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w800,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         color: const Color(0xff000000)),
                   )
                 ],
@@ -59,16 +60,18 @@ class TaskStatusWidget extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            'Start Date',
+                            'start_date'.tr(),
                             style: TextStyle(
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w700,
-                                fontFamily: 'Inter',
+                                fontFamily: Styles.font,
                                 color: const Color(0xff000000)),
                           )
                         ],
                       ),
-                      SizedBox(height: 10.h,),
+                      SizedBox(
+                        height: 10.h,
+                      ),
                       Row(
                         children: [
                           SvgPicture.asset(
@@ -77,7 +80,9 @@ class TaskStatusWidget extends StatelessWidget {
                             width: 24.w,
                             fit: BoxFit.scaleDown,
                           ),
-                          SizedBox(width: 4.w,),
+                          SizedBox(
+                            width: 4.w,
+                          ),
                           Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,29 +91,27 @@ class TaskStatusWidget extends StatelessWidget {
                                 '9:30 am, June 16, 2023',
                                 style: TextStyle(
                                     fontSize: 12.sp,
-                                    fontFamily: 'Inter',
+                                    fontFamily: Styles.font,
                                     fontWeight: FontWeight.w500,
                                     color: const Color(0xff000000)),
                               ),
-                              SizedBox(height: 8.h,),
+                              SizedBox(
+                                height: 8.h,
+                              ),
                               Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(39.r),
-                                    color:const Color(0xffC9F0FF)
-
-                                ),
+                                    color: const Color(0xffC9F0FF)),
                                 child: Padding(
-                                  padding:
-                                  REdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+                                  padding: REdgeInsets.symmetric(
+                                      horizontal: 8.0, vertical: 4),
                                   child: Text(
                                     '15 days ago',
                                     style: TextStyle(
                                         fontSize: 12.sp,
                                         fontWeight: FontWeight.w400,
-                                        fontFamily: 'Inter',
-                                        color:const Color(0xff000000)
-
-                                    ),
+                                        fontFamily: Styles.font,
+                                        color: const Color(0xff000000)),
                                   ),
                                 ),
                               ),
@@ -125,16 +128,18 @@ class TaskStatusWidget extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            'End Date',
+                            'end_date',
                             style: TextStyle(
                                 fontSize: 14.sp,
-                                fontFamily: 'Inter',
+                                fontFamily: Styles.font,
                                 fontWeight: FontWeight.w700,
                                 color: const Color(0xff000000)),
                           )
                         ],
                       ),
-                      SizedBox(height: 10.h,),
+                      SizedBox(
+                        height: 10.h,
+                      ),
                       Row(
                         children: [
                           SvgPicture.asset(
@@ -143,7 +148,9 @@ class TaskStatusWidget extends StatelessWidget {
                             width: 24.w,
                             fit: BoxFit.scaleDown,
                           ),
-                          SizedBox(width: 4.w,),
+                          SizedBox(
+                            width: 4.w,
+                          ),
                           Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,29 +159,27 @@ class TaskStatusWidget extends StatelessWidget {
                                 '9:30 am, Aug 19, 2023',
                                 style: TextStyle(
                                     fontSize: 12.sp,
-                                    fontFamily: 'Inter',
+                                    fontFamily: Styles.font,
                                     fontWeight: FontWeight.w500,
                                     color: const Color(0xff000000)),
                               ),
-                              SizedBox(height: 8.h,),
+                              SizedBox(
+                                height: 8.h,
+                              ),
                               Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(39.r),
-                                    color:const Color(0xffFFE5E5)
-
-                                ),
+                                    color: const Color(0xffFFE5E5)),
                                 child: Padding(
-                                  padding:
-                                  REdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+                                  padding: REdgeInsets.symmetric(
+                                      horizontal: 8.0, vertical: 4),
                                   child: Text(
                                     '2 days from now',
                                     style: TextStyle(
                                         fontSize: 12.sp,
                                         fontWeight: FontWeight.w400,
-                                        fontFamily: 'Inter',
-                                        color:const Color(0xffFF6D6D)
-
-                                    ),
+                                        fontFamily: Styles.font,
+                                        color: const Color(0xffFF6D6D)),
                                   ),
                                 ),
                               ),

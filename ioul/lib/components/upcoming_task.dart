@@ -1,4 +1,5 @@
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class UpcomingTaskWidget extends StatelessWidget {
   final Function()? onTap;
@@ -33,7 +34,7 @@ class UpcomingTaskWidget extends StatelessWidget {
                     Text(course,
                         style: TextStyle(
                             fontSize: 16.sp,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             fontWeight: FontWeight.w400,
                             color: const Color(0xff090A0A))),
                   ],
@@ -44,7 +45,7 @@ class UpcomingTaskWidget extends StatelessWidget {
                         //'CMP 111 - Introduction to Computer Science',
                         style: TextStyle(
                             fontSize: 14.sp,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             fontWeight: FontWeight.w400,
                             color: const Color(0xff72777A))),
                   ],

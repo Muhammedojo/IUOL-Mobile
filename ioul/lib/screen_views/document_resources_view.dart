@@ -71,7 +71,7 @@ class DocumentResourcesView
                         '2023 Spring Semester Report',
                         style: TextStyle(
                             fontSize: 18.sp,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             fontWeight: FontWeight.w700),
                       ),
                     ],

@@ -1,5 +1,5 @@
-import 'package:ioul/values/colors.dart';
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class CardWidget extends StatelessWidget {
   final String? title;
@@ -25,7 +25,7 @@ class CardWidget extends StatelessWidget {
             color: AppColors.lightBlue,
           ),
           child: Padding(
-            padding: REdgeInsets.symmetric(vertical: 24.0,horizontal: 24),
+            padding: REdgeInsets.symmetric(vertical: 24.0, horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -36,13 +36,16 @@ class CardWidget extends StatelessWidget {
                     color: AppColors.secondaryLightBlue,
                   ),
                   child: Padding(
-                    padding:REdgeInsets.all(8.0),
-                    child: Text('$number',style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'Inter',
-                      color: const Color(0xff25435B),
-                    ),),
+                    padding: REdgeInsets.all(8.0),
+                    child: Text(
+                      '$number',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: Styles.font,
+                        color: const Color(0xff25435B),
+                      ),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -54,7 +57,7 @@ class CardWidget extends StatelessWidget {
                       '$title',
                       style: TextStyle(
                         fontSize: 14.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w500,
                         color: const Color(0xff000000),
                       ),

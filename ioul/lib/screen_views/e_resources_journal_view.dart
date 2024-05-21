@@ -54,7 +54,7 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
                     child: TextFormField(
                       style: TextStyle(
                           color: const Color(0xff000000),
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontSize: 12.sp),
                       controller: state.searchController,
                       onChanged: (_) {},
@@ -69,11 +69,11 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
                           height: 16.w,
                           fit: BoxFit.scaleDown,
                         ),
-                        hintText: "Search",
+                        hintText: "search".tr(),
                         hintStyle: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff6C7072)),
                         //onChanged: searchOperation,
                       ),

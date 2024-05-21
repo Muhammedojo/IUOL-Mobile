@@ -3,7 +3,7 @@ import '../values/values.dart';
 
 class AboutUsWidget extends StatelessWidget {
   const AboutUsWidget({Key? key, required this.title}) : super(key: key);
-final String title;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,6 +31,7 @@ final String title;
                   style: TextStyle(
                       fontSize: 20.sp,
                       fontWeight: FontWeight.w600,
+                      fontFamily: Styles.font,
                       color: const Color(0xff191C1C)),
                 ),
                 SizedBox(
@@ -40,6 +41,7 @@ final String title;
                   'We Build A Platform For Centralized Educational System',
                   style: TextStyle(
                       fontSize: 16.sp,
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w400,
                       color: const Color(0xff191C1C)),
                 ),
@@ -50,6 +52,7 @@ final String title;
                   'Iconic University of Open Learning read more>>',
                   style: TextStyle(
                       fontSize: 12.sp,
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w400,
                       color: AppColors.greylight),
                 ),
@@ -66,6 +69,7 @@ final String title;
                 style: TextStyle(
                   color: const Color(0xff000000),
                   fontSize: 15.sp,
+                  fontFamily: Styles.font,
                   fontWeight: FontWeight.w400,
                 ),
               ),

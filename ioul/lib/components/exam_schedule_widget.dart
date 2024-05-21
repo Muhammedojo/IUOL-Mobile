@@ -1,4 +1,5 @@
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class ExamScheduleWidget extends StatelessWidget {
   final String course;
@@ -17,10 +18,12 @@ class ExamScheduleWidget extends StatelessWidget {
         Text(course,
             style: TextStyle(
                 fontSize: 16.sp,
-                fontFamily: 'Inter',
+                fontFamily: Styles.font,
                 fontWeight: FontWeight.w500,
                 color: const Color(0xff090A0A))),
-        SizedBox(height: 8.h,),
+        SizedBox(
+          height: 8.h,
+        ),
         Row(
           children: [
             SvgPicture.asset(
@@ -32,7 +35,7 @@ class ExamScheduleWidget extends StatelessWidget {
             Text(date,
                 style: TextStyle(
                     fontSize: 14.sp,
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     fontWeight: FontWeight.w400,
                     color: const Color(0xff090A0A))),
             const Spacer(),
@@ -45,7 +48,7 @@ class ExamScheduleWidget extends StatelessWidget {
             Text(time,
                 style: TextStyle(
                     fontSize: 14.sp,
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     fontWeight: FontWeight.w400,
                     color: const Color(0xff090A0A)))
           ],

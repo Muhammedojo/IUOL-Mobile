@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/packages/package.dart';
 import 'package:ioul/values/values.dart';
 
@@ -27,13 +25,13 @@ class ElevatedButtonWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          title == "Back"
+          title == "back".tr()
               ? SvgPicture.asset(
                   'assets/images/back.svg',
                   color: AppColors.primary,
                 )
               : const SizedBox.shrink(),
-          title == "Next"
+          title == "next".tr()
               ? SizedBox(
                   width: 0.w,
                 )
@@ -42,18 +40,18 @@ class ElevatedButtonWidget extends StatelessWidget {
                 ),
           Text(
             title,
-            style: title == "Back"
+            style: title == "back".tr()
                 ? Styles.x16dp_25435B_500w()
                 : Styles.x16dp_0FFFFFF_500w(),
           ),
-          title == "Back"
+          title == "back".tr()
               ? SizedBox(
                   width: 0.w,
                 )
               : SizedBox(
                   width: 5.w,
                 ),
-          title == "Next"
+          title == "next".tr()
               ? SvgPicture.asset('assets/images/forward_arrow.svg',
                   color: Colors.white)
               : const SizedBox.shrink(),

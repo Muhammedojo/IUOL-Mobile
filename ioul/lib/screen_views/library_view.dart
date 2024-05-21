@@ -20,10 +20,10 @@ class LibraryView extends StatelessView<Library, LibraryController> {
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
           title: Text(
-            'iOUL Library',
+            'ioul_library'.tr(),
             style: TextStyle(
                 fontSize: 18.sp,
-                fontFamily: 'Inter',
+                fontFamily: Styles.font,
                 fontWeight: FontWeight.w700),
           ),
           flexibleSpace: Container(
@@ -60,7 +60,7 @@ class LibraryView extends StatelessView<Library, LibraryController> {
                   child: TextFormField(
                     style: TextStyle(
                         color: const Color(0xff000000),
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontSize: 12.sp),
                     controller: state.searchController,
                     onChanged: (_) {},
@@ -75,11 +75,11 @@ class LibraryView extends StatelessView<Library, LibraryController> {
                         height: 16.w,
                         fit: BoxFit.scaleDown,
                       ),
-                      hintText: "Search",
+                      hintText: "search".tr(),
                       hintStyle: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xff6C7072)),
                       //onChanged: searchOperation,
                     ),
@@ -96,13 +96,13 @@ class LibraryView extends StatelessView<Library, LibraryController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Category',
+                'category'.tr(),
                 style: Styles.x16dp_202325_400w(),
               ),
               InkWell(
                   onTap: () {},
                   child: Text(
-                    'View All',
+                    'view_all'.tr(),
                     style: Styles.x16dp_4EAFFF_400w(),
                   ))
             ],
@@ -131,7 +131,7 @@ class LibraryView extends StatelessView<Library, LibraryController> {
           Row(
             children: [
               Text(
-                'Recently viewed',
+                'recently_viewed'.tr(),
                 style: Styles.x16dp_202325_400w(),
               ),
             ],

@@ -2,9 +2,16 @@ import 'package:ioul/model/model.dart';
 import '../packages/package.dart';
 import '../values/values.dart';
 
+// ignore: must_be_immutable
 class CourseRegWidget extends StatefulWidget {
   final SummaryCourse courseSummary;
-  const CourseRegWidget({Key? key, required this.courseSummary})
+  bool status;
+  final Function() selectBox;
+  CourseRegWidget(
+      {Key? key,
+      required this.courseSummary,
+      required this.status,
+      required this.selectBox})
       : super(key: key);
 
   @override
@@ -12,20 +19,8 @@ class CourseRegWidget extends StatefulWidget {
 }
 
 class _CourseRegWidgetState extends State<CourseRegWidget> {
-  final List<int> _selectedCourses = [];
   @override
   Widget build(BuildContext context) {
-    void toggleSelection(int id) {
-      setState(() {
-        if (_selectedCourses.contains(widget.courseSummary.id)) {
-          _selectedCourses.remove(widget.courseSummary.id);
-        } else {
-          _selectedCourses.add(widget.courseSummary.id ?? 0);
-        }
-      });
-      print('Selected: ${_selectedCourses.length}');
-    }
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -60,9 +55,9 @@ class _CourseRegWidgetState extends State<CourseRegWidget> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(4),
           ),
-          value: _selectedCourses.contains(widget.courseSummary.id),
+          value: widget.status,
           onChanged: (bool? value) {
-            toggleSelection(widget.courseSummary.id ?? 0);
+            widget.selectBox();
           },
         ),
       ],

@@ -1,6 +1,7 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ioul/packages/package.dart';
 
 import '../values/colors.dart';
 import '../values/styles.dart';
@@ -25,7 +26,7 @@ class CustomDropdownWidget extends StatelessWidget {
         width: 1.w,
       ),
       borderRadius: BorderRadius.circular(8.r),
-      hintText: 'Select',
+      hintText: 'select'.tr(),
       items: dropdownList,
       controller: controller!,
       selectedStyle: Styles.x16dp_72777A_400w(),

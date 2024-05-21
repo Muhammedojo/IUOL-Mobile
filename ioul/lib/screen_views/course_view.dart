@@ -19,7 +19,7 @@ class CourseView extends StatelessView<Courses, CourseController> {
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
           title: Text(
-            'Enrolled Courses',
+            'enrolled_course'.tr(),
             style: Styles.x18dp_202326_700w(),
           ),
           flexibleSpace: Container(
@@ -62,6 +62,7 @@ class CourseView extends StatelessView<Courses, CourseController> {
                                 ),
                             itemCount: stateBloc.courseList.length,
                             shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
                             itemBuilder: (context, index) {
                               var courses = stateBloc.courseList[index];
                               return EnrolledCourseWidget(
@@ -71,7 +72,7 @@ class CourseView extends StatelessView<Courses, CourseController> {
                             })
                         : ErrorItemWidget(
                             title: "empty_list".tr(),
-                            message: "Course List is empty",
+                            message: "course_list_empty".tr(),
                             hideButton: false,
                             onTap: () {
                               state.refresh();

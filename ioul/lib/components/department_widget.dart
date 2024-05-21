@@ -48,7 +48,7 @@ class DeptWidget extends StatelessWidget {
                     // maxLines: 1,
                     style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w500,
                         color: const Color(0xff090A0A)),
                   ),

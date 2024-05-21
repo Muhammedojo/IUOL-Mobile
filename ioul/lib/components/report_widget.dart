@@ -1,5 +1,6 @@
 import '../model/model.dart';
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class ReportWidget extends StatelessWidget {
   final Function()? onTap;
@@ -46,7 +47,7 @@ class ReportWidget extends StatelessWidget {
                       '${report.title}',
                       style: TextStyle(
                           fontSize: 14.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     ),
@@ -57,7 +58,7 @@ class ReportWidget extends StatelessWidget {
                       '${report.code}',
                       style: TextStyle(
                           fontSize: 13.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     ),
@@ -68,7 +69,7 @@ class ReportWidget extends StatelessWidget {
                       '${report.unit}',
                       style: TextStyle(
                           fontSize: 12.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     )

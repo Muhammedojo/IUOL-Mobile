@@ -123,6 +123,7 @@ class CourseOverviewView
                                         'introduction'.tr(),
                                         style: TextStyle(
                                             fontSize: 17.sp,
+                                            fontFamily: Styles.font,
                                             fontWeight: FontWeight.w700,
                                             color: const Color(0xff191C1C)),
                                       ),
@@ -166,6 +167,7 @@ class CourseOverviewView
                                         'description'.tr(),
                                         style: TextStyle(
                                             fontSize: 17.sp,
+                                            fontFamily: Styles.font,
                                             fontWeight: FontWeight.w700,
                                             color: const Color(0xff191C1C)),
                                       ),
@@ -180,6 +182,7 @@ class CourseOverviewView
                                             style: TextStyle(
                                               color: const Color(0xff000000),
                                               fontSize: 15.sp,
+                                              fontFamily: Styles.font,
                                               fontWeight: FontWeight.w400,
                                             ),
                                           ),
@@ -209,6 +212,7 @@ class CourseOverviewView
                                         style: TextStyle(
                                             fontSize: 17.sp,
                                             fontWeight: FontWeight.w700,
+                                            fontFamily: Styles.font,
                                             color: const Color(0xff191C1C)),
                                       ),
                                       textColor: Colors.red,
@@ -224,6 +228,7 @@ class CourseOverviewView
                                               style: TextStyle(
                                                 color: const Color(0xff000000),
                                                 fontSize: 15.sp,
+                                                fontFamily: Styles.font,
                                                 fontWeight: FontWeight.w400,
                                               ),
                                             ),
@@ -253,6 +258,7 @@ class CourseOverviewView
                                         'interactive_timetable'.tr(),
                                         style: TextStyle(
                                             fontSize: 17.sp,
+                                            fontFamily: Styles.font,
                                             fontWeight: FontWeight.w700,
                                             color: const Color(0xff191C1C)),
                                       ),
@@ -267,6 +273,7 @@ class CourseOverviewView
                                             style: TextStyle(
                                               color: const Color(0xff000000),
                                               fontSize: 15.sp,
+                                              fontFamily: Styles.font,
                                               fontWeight: FontWeight.w400,
                                             ),
                                           ),

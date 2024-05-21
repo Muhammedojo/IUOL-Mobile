@@ -1,4 +1,5 @@
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class EResourceWidget extends StatelessWidget {
   final Function()? onTap;
@@ -37,7 +38,7 @@ class EResourceWidget extends StatelessWidget {
                       '$tittle',
                       style: TextStyle(
                           fontSize: 18.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w700,
                           color: const Color(0xff090A0A)),
                     ),
@@ -54,7 +55,7 @@ class EResourceWidget extends StatelessWidget {
                       '$tittle',
                       style: TextStyle(
                           fontSize: 14.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xff303437)),
                     ),

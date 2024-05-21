@@ -7,7 +7,7 @@ import '../helpers/helper.dart';
 import '../router/router.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
-import '../screens_controllers/create_account.dart';
+
 import '../values/values.dart';
 import 'stateless_view.dart';
 
@@ -36,7 +36,7 @@ class CreateAccountView
                         children: [
                           SizedBox(height: 12.h),
                           TextWidget(
-                            text: "Create an account",
+                            text: "create_an_account".tr(),
                             style: Styles.x24dp_090A0A_700w(),
                           ),
                           // SizedBox(height: 8.h),
@@ -46,28 +46,28 @@ class CreateAccountView
                           // ),
                           SizedBox(height: 26.h),
                           TextFieldWidget(
-                            title: "First name",
+                            title: "firstname".tr(),
                             controller: state.firstNameController,
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
-                            title: "Surname",
+                            title: "surname".tr(),
                             controller: state.surnameController,
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
-                            title: "Middle name",
+                            title: "middlename".tr(),
                             controller: state.middlenameController,
                             textInputAction: TextInputAction.done,
                           ),
                           SizedBox(height: 108.h),
                           ElevatedButtonWidget(
-                              title: "Continue",
+                              title: "continue".tr(),
                               onTap: () {
                                 if (state.firstNameController.text.isEmpty ||
                                     state.surnameController.text.isEmpty) {
                                   WidgetHelper.showToastError(context,
-                                      "Kindly fill the form before you proceed");
+                                      "kindly_fill_form_before_proceed".tr());
                                   return;
                                 }
 
@@ -78,7 +78,7 @@ class CreateAccountView
                             alignment: Alignment.center,
                             child: RichText(
                               text: TextSpan(
-                                text: "Already have an account? ",
+                                text: "already_have_account".tr(),
                                 style: Styles.x12dp_090A0A_400w(),
                                 children: [
                                   TextSpan(
@@ -87,7 +87,7 @@ class CreateAccountView
                                               .pushNamedScreen(
                                             RouteConstants.login,
                                           ),
-                                    text: "Sign in ",
+                                    text: "sign_in".tr(),
                                     style: Styles.x12dp_4EAFFF_400w(),
                                   ),
                                 ],
@@ -102,7 +102,7 @@ class CreateAccountView
                         children: [
                           SizedBox(height: 12.h),
                           TextWidget(
-                            text: "Create an account",
+                            text: "create_an_account".tr(),
                             style: Styles.x24dp_090A0A_700w(),
                           ),
                           SizedBox(height: 26.h),
@@ -115,7 +115,7 @@ class CreateAccountView
                               contentPadding: REdgeInsets.all(16),
                               fillColor: AppColors.backgroundWhite,
                               filled: true,
-                              labelText: "Email address",
+                              labelText: "email_address".tr(),
                               hintStyle: Styles.x12dp_72777A_400w(),
                               labelStyle: Styles.x12dp_72777A_400w(),
 
@@ -191,7 +191,7 @@ class CreateAccountView
                               filled: false,
                               // isDense: true,
                               isCollapsed: true,
-                              hintText: 'Phone Number',
+                              hintText: 'phone'.tr(),
 
                               enabledBorder: OutlineInputBorder(
                                 borderSide:
@@ -209,7 +209,7 @@ class CreateAccountView
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
-                            title: "Password",
+                            title: "password".tr(),
                             controller: state.passwordController,
                             obscureText: state.visible,
                             passwordIcon: InkWell(
@@ -225,7 +225,7 @@ class CreateAccountView
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
-                            title: "Confirm password",
+                            title: "confirm_password".tr(),
                             controller: state.passwordConfirmController,
                             obscureText: state.confirmVisible,
                             textInputAction: TextInputAction.done,
@@ -277,7 +277,8 @@ class CreateAccountView
                           BlocListener<RegisterCubit, RegisterState>(
                             listener: (context, registerState) {
                               if (registerState is RegisterLoading) {
-                                WidgetHelper.showProgress(text: 'Processing');
+                                WidgetHelper.showProgress(
+                                    text: 'processing'.tr());
                               }
                               if (registerState is RegisterLoaded) {
                                 WidgetHelper.hideProgress();
@@ -296,7 +297,7 @@ class CreateAccountView
                               }
                             },
                             child: ElevatedButtonWidget(
-                                title: "Submit",
+                                title: "submit".tr(),
                                 onTap: () {
                                   state.validateConfirmEmail();
                                 }),
@@ -306,7 +307,7 @@ class CreateAccountView
                             alignment: Alignment.center,
                             child: RichText(
                               text: TextSpan(
-                                text: "Already have an account? ",
+                                text: "already_have_account".tr(),
                                 style: Styles.x12dp_090A0A_400w(),
                                 children: [
                                   TextSpan(
@@ -315,7 +316,7 @@ class CreateAccountView
                                               .pushNamedScreen(
                                             RouteConstants.login,
                                           ),
-                                    text: "Sign in ",
+                                    text: "sign_in".tr(),
                                     style: Styles.x12dp_4EAFFF_400w(),
                                   ),
                                 ],

@@ -1,4 +1,5 @@
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class TestWidget extends StatelessWidget {
   final Function()? onTap;
@@ -50,7 +51,7 @@ class TestWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff72777A)),
                       )
                     ],
@@ -72,7 +73,7 @@ class TestWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff72777A)),
                       )
                     ],
@@ -94,7 +95,7 @@ class TestWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff72777A)),
                       )
                     ],
@@ -116,7 +117,7 @@ class TestWidget extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xffffffff)),
                         ),
                       ),

@@ -216,13 +216,13 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                                 style: TextStyle(
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w400,
-                                    fontFamily: 'Inter',
+                                    fontFamily: Styles.font,
                                     color: const Color(0xff000026))),
                             Text('1/6',
                                 style: TextStyle(
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w400,
-                                    fontFamily: 'Inter',
+                                    fontFamily: Styles.font,
                                     color: const Color(0xff000026)))
                           ],
                         ),
@@ -296,7 +296,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                       style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xff202325))),
                   SizedBox(
                     height: 20.h,
@@ -324,7 +324,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                       style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xff202325))),
                   SizedBox(
                     height: 20.h,

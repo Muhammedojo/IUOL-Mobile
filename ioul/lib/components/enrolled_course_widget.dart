@@ -49,7 +49,7 @@ class EnrolledCourseWidget extends StatelessWidget {
                       '${course.courseTitle}',
                       style: TextStyle(
                           fontSize: 15.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff202325)),
                     ),

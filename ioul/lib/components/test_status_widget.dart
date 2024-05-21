@@ -1,4 +1,5 @@
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class TestStatusWidget extends StatelessWidget {
   final String? unit;
@@ -35,7 +36,7 @@ class TestStatusWidget extends StatelessWidget {
                   '$index',
                   style: TextStyle(
                     fontSize: 16.sp,
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     fontWeight: FontWeight.w400,
                     color: const Color(0xff202325),
                   ),
@@ -51,7 +52,7 @@ class TestStatusWidget extends StatelessWidget {
                       '$title',
                       style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff090A0A),
                       ),
@@ -60,7 +61,7 @@ class TestStatusWidget extends StatelessWidget {
                       '$unit',
                       style: TextStyle(
                         fontSize: 14.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff72777A),
                       ),
@@ -79,7 +80,7 @@ class TestStatusWidget extends StatelessWidget {
                       '$status',
                       style: TextStyle(
                         fontSize: 16.sp,
-                        fontFamily: 'Inter',
+                        fontFamily: Styles.font,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff202325),
                       ),

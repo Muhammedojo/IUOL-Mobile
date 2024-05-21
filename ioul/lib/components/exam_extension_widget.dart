@@ -29,7 +29,7 @@ class _ExamExtensionWidgetState extends State<ExamExtensionWidget> {
         Text(
           'GST 111 - Communication in English',
           style: TextStyle(
-              fontFamily: 'Inter',
+              fontFamily: Styles.font,
               fontWeight: FontWeight.w400,
               color: const Color(0xff090A0A),
               fontSize: 16.sp),

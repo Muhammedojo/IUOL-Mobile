@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:ioul/packages/package.dart';
+import 'package:ioul/screens_controllers/payment_history_invoice_controller.dart';
 import '../bloc/bloc.dart';
+import '../model/model.dart';
 import '../screen_views/payment_history_view.dart';
 import '../helpers/helper.dart';
 
@@ -33,6 +36,15 @@ class PaymentHistoryController extends State<PaymentHistory> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  showPaymentDetails(PaymentsHistory paymentHistories) async {
+    Navigator.push(
+        context,
+        CupertinoPageRoute(
+            builder: (context) => PaymentHistoryInvoice(
+                  paymentHistory: paymentHistories,
+                )));
   }
 
   refresh() {

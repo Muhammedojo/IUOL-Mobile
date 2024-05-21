@@ -109,8 +109,16 @@ class CourseRegistrationView
                                       var courseSummary = stateBloc
                                           .courseRegData
                                           .availableCourses![index];
+
                                       return CourseRegWidget(
                                         courseSummary: courseSummary,
+                                        status: state.selectedCourses
+                                                .contains(index)
+                                            ? true
+                                            : false,
+                                        selectBox: () {
+                                          state.toggleSelection(index);
+                                        },
                                       );
                                     })
                                 : ErrorItemWidget(

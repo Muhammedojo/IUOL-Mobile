@@ -1,4 +1,5 @@
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class ResponseConfirmationWidget extends StatelessWidget {
   final String? message;
@@ -40,7 +41,7 @@ class ResponseConfirmationWidget extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: const Color(0xff090A0A),
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     fontSize: 24.sp,
                     fontWeight: FontWeight.w500),
               ),
@@ -70,6 +71,9 @@ class ResponseConfirmationWidget extends StatelessWidget {
             Center(
               child: Text(
                 "$title",
+                style: const TextStyle(
+                  fontFamily: Styles.font,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -80,9 +84,12 @@ class ResponseConfirmationWidget extends StatelessWidget {
               onTap: () {
                 onTap;
               },
-              child: const Center(
+              child: Center(
                 child: Text(
-                  'Done',
+                  'done'.tr(),
+                  style: const TextStyle(
+                    fontFamily: Styles.font,
+                  ),
                 ),
               ),
             ),

@@ -54,7 +54,7 @@ class WidgetHelper {
       centerTitle: true,
       bottom: PreferredSize(
           preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-      title: Text(title.tr(), style: Styles.x18dp_202326_700w()),
+      title: Text(title, style: Styles.x18dp_202326_700w()),
       flexibleSpace: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(

@@ -1,6 +1,3 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/widget_helper.dart';
 import 'package:ioul/packages/package.dart';
 import 'package:ioul/screens_controllers/programme_controller.dart';
@@ -76,37 +73,58 @@ class ApplicationFormView
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: Text("personal".tr()),
+                        child: Text(
+                          "personal".tr(),
+                          style: Styles.x12dp_4EAFFF_400w(),
+                        ),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: Text("address".tr()),
+                        child: Text(
+                          "address".tr(),
+                          style: Styles.x12dp_4EAFFF_400w(),
+                        ),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: Text("contacts".tr()),
+                        child: Text(
+                          "contacts".tr(),
+                          style: Styles.x12dp_4EAFFF_400w(),
+                        ),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: Text("sponsor".tr()),
+                        child: Text(
+                          "sponsor".tr(),
+                          style: Styles.x12dp_4EAFFF_400w(),
+                        ),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: Text("programme".tr()),
+                        child: Text(
+                          "programme".tr(),
+                          style: Styles.x12dp_4EAFFF_400w(),
+                        ),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: Text("certificates".tr()),
+                        child: Text(
+                          "certificates".tr(),
+                          style: Styles.x12dp_4EAFFF_400w(),
+                        ),
                       ),
                       Container(
                         padding:
                             REdgeInsets.only(right: 16, top: 16, bottom: 16),
-                        child: Text("uploads".tr()),
+                        child: Text(
+                          "uploads".tr(),
+                          style: Styles.x12dp_4EAFFF_400w(),
+                        ),
                       ),
                     ],
                   ),
@@ -173,7 +191,9 @@ class ApplicationFormView
                       initialProgress: () => state.setInitialProgress(7),
                       decreaseProgress: () => state.setInitialProgress(5),
                     ),
-                    const Upload(),
+                    Upload(
+                      decreaseProgress: () => state.setInitialProgress(6),
+                    ),
                   ],
                 ),
               ),

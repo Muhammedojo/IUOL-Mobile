@@ -13,8 +13,8 @@ class AboutView extends StatelessView<About, AboutController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
-        appBar: WidgetHelper().appBackArrowWithTitle(context, title: 'about',
-            onTap: () {
+        appBar: WidgetHelper()
+            .appBackArrowWithTitle(context, title: 'about'.tr(), onTap: () {
           state.onBackPressed();
         }),
         body: WidgetWrapper(child: _body()));

@@ -1,7 +1,11 @@
+import '../model/model.dart';
 import '../packages/package.dart';
+import '../values/values.dart';
 
 class NotificationWidget extends StatelessWidget {
-  const NotificationWidget({Key? key}) : super(key: key);
+  final Notificationss notification;
+  const NotificationWidget({Key? key, required this.notification})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,21 +14,20 @@ class NotificationWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-              'Test for International Policy has been scheduled. Go to the test portal to attempt your test before the closing date.',
+          Text('${notification.message}',
               style: TextStyle(
                   fontSize: 14.sp,
-                  fontFamily: 'Inter',
+                  fontFamily: Styles.font,
                   fontWeight: FontWeight.w400,
                   color: const Color(0xff1A1F36))),
           SizedBox(
             height: 16.h,
           ),
-          Text('Today at 9:42 AM',
+          Text('${notification.date}',
               textAlign: TextAlign.end,
               style: TextStyle(
                   fontSize: 14.sp,
-                  fontFamily: 'Inter',
+                  fontFamily: Styles.font,
                   fontWeight: FontWeight.w400,
                   color: const Color(0xff979C9E))),
           SizedBox(
