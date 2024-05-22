@@ -152,10 +152,10 @@ class UserProfileView
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Edit Profile',
+                              'edit_profile'.tr(),
                               style: TextStyle(
                                   fontSize: 16.sp,
-                                  fontFamily: 'Inter',
+                                  fontFamily: Styles.font,
                                   color: const Color(0xff4EAFFF),
                                   fontWeight: FontWeight.w500),
                             ),
@@ -183,11 +183,11 @@ class UserProfileView
                 Row(
                   children: [
                     Text(
-                      'Course',
+                      'course'.tr(),
                       style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xff404446)),
                     ),
                   ],
@@ -209,7 +209,7 @@ class UserProfileView
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff404446)),
                       ),
                     ],
@@ -228,7 +228,7 @@ class UserProfileView
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff404446)),
                       ),
                     ],
@@ -258,7 +258,7 @@ class UserProfileView
                       style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xff404446)),
                     ),
                   ],
@@ -280,7 +280,7 @@ class UserProfileView
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff404446)),
                       ),
                     ],
@@ -299,7 +299,7 @@ class UserProfileView
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff404446)),
                       ),
                     ],
@@ -329,7 +329,7 @@ class UserProfileView
                       style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xff404446)),
                     ),
                   ],
@@ -351,7 +351,7 @@ class UserProfileView
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff404446)),
                       ),
                     ],
@@ -370,7 +370,7 @@ class UserProfileView
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff404446)),
                       ),
                     ],
@@ -389,7 +389,7 @@ class UserProfileView
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter',
+                            fontFamily: Styles.font,
                             color: const Color(0xff404446)),
                       ),
                     ],

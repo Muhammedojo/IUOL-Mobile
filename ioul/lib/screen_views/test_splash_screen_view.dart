@@ -20,19 +20,19 @@ class TestSplashScreenView
   Widget _body() {
     return Center(
       child: Padding(
-        padding:REdgeInsets.symmetric(horizontal: 74.0),
+        padding: REdgeInsets.symmetric(horizontal: 74.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Welcome to the test portal',
+              'welcome_to_test_portal'.tr(),
               style: Styles.x16dp_4EAFFF_500w(),
             ),
             SizedBox(
               height: 10.h,
             ),
             Text(
-              'Here, you will see all the available and completed test.',
+              'all_test'.tr(),
               textAlign: TextAlign.center,
               style: Styles.x16dp_090A0A_400w(),
             ),

@@ -32,7 +32,7 @@ class VerifyEmailView
                 children: [
                   SizedBox(height: 12.h),
                   TextWidget(
-                    text: "Let us know it's you",
+                    text: "let's_know_it's_you".tr(),
                     style: Styles.x24dp_090A0A_700w(),
                   ),
                   SizedBox(height: 8.h),
@@ -90,7 +90,7 @@ class VerifyEmailView
                       ResendEmailVerificationState>(
                     listener: (context, state) {
                       if (state is ResendEmailVerificationLoading) {
-                        WidgetHelper.showProgress(text: "Processing");
+                        WidgetHelper.showProgress(text: "processing".tr());
                       }
                       if (state is ResendEmailVerificationLoaded) {
                         WidgetHelper.hideProgress();
@@ -124,11 +124,11 @@ class VerifyEmailView
                   BlocListener<VerifyEmailCubit, VerifyEmailState>(
                     listener: (context, verifyState) {
                       if (verifyState is VerifyEmailLoading) {
-                        WidgetHelper.showProgress(text: "Processing");
+                        WidgetHelper.showProgress(text: "processing".tr());
                       } else if (verifyState is VerifyEmailLoaded) {
                         WidgetHelper.hideProgress();
                         WidgetHelper.showSuccessToast(
-                            context, 'Registration Successful');
+                            context, 'registration_successful'.tr());
                         context.goNamed(RouteConstants.admissionPayment);
                       } else if (verifyState is VerifyEmailFailure) {
                         WidgetHelper.hideProgress();
@@ -137,7 +137,7 @@ class VerifyEmailView
                       }
                     },
                     child: ElevatedButtonWidget(
-                        title: "Continue",
+                        title: "continue".tr(),
                         onTap: () {
                           state.verifyPin();
                         }),

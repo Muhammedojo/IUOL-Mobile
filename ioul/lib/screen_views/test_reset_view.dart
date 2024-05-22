@@ -35,7 +35,7 @@ class TestResetView extends StatelessView<TestReset, TestResetController> {
           centerTitle: true,
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-          title: Text('Test Reset', style: Styles.x18dp_202326_700w()),
+          title: Text('test_reset'.tr(), style: Styles.x18dp_202326_700w()),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -69,7 +69,7 @@ class TestResetView extends StatelessView<TestReset, TestResetController> {
           ),
           ElevatedButtonWidget(
             onTap: () {},
-            title: 'Proceed',
+            title: 'proceed'.tr(),
           )
         ],
       ),

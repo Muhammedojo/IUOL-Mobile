@@ -65,11 +65,11 @@ class TestResetReasonView
             children: [
               SizedBox(height: 35.h),
               Text(
-                'Why do you need test rest?',
+                'why_test_reset'.tr(),
                 style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w700,
-                    fontFamily: 'Inter',
+                    fontFamily: Styles.font,
                     color: const Color(0xff090A0A)),
               ),
               TextFieldWidget(
@@ -81,7 +81,7 @@ class TestResetReasonView
               ),
               ElevatedButtonWidget(
                 onTap: () {},
-                title: 'Submit Application',
+                title: 'submit_application'.tr(),
               )
             ],
           ),

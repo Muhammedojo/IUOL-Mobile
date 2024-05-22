@@ -34,7 +34,7 @@ class UploadView extends StatelessView<Upload, UploadController> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TextWidget(
-                  text: "Passport",
+                  text: "passport".tr(),
                   style: Styles.x16dp_202325_400w(),
                 ),
                 SizedBox(width: 10.w),
@@ -53,7 +53,7 @@ class UploadView extends StatelessView<Upload, UploadController> {
                 state.choosePassport(
                     ImageSource.gallery, state.passportImageController);
               },
-              title: "Choose file",
+              title: "choose_file".tr(),
               imagePath: "assets/images/upload.svg",
             ),
             SizedBox(height: 10.h),
@@ -166,7 +166,7 @@ class UploadView extends StatelessView<Upload, UploadController> {
               onTap: () {
                 state.chooseDocument(state.pdfDocumentController);
               },
-              title: "Choose file",
+              title: "choose_file".tr(),
               imagePath: "assets/images/upload.svg",
             ),
             SizedBox(height: 12.h),
@@ -214,7 +214,8 @@ class UploadView extends StatelessView<Upload, UploadController> {
                 Expanded(
                   flex: 1,
                   child: ElevatedButtonWidget(
-                      onTap: () => state.onReversePressed(), title: "Back"),
+                      onTap: () => state.onReversePressed(),
+                      title: "back".tr()),
                 ),
                 SizedBox(width: 132.w),
                 Expanded(
@@ -223,7 +224,7 @@ class UploadView extends StatelessView<Upload, UploadController> {
                       SubmitApplicationState>(
                     listener: (context, applicationState) {
                       if (applicationState is SubmitApplicationLoading) {
-                        WidgetHelper.showProgress(text: 'Processing');
+                        WidgetHelper.showProgress(text: 'processing'.tr());
                       }
                       if (applicationState is SubmitApplicationLoaded) {
                         WidgetHelper.hideProgress();
@@ -241,7 +242,7 @@ class UploadView extends StatelessView<Upload, UploadController> {
                         onTap: () {
                           state.validateUploads();
                         },
-                        title: "Review"),
+                        title: "review".tr()),
                   ),
                 )
               ],
