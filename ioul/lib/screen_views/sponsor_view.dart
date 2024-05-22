@@ -36,7 +36,7 @@ class SponsorView extends StatelessView<Sponsor, SponsorController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Sponsor",
+                    text: "sponsor".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -74,7 +74,7 @@ class SponsorView extends StatelessView<Sponsor, SponsorController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Sponsor Name",
+                    text: "sponsor_name".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -83,7 +83,7 @@ class SponsorView extends StatelessView<Sponsor, SponsorController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Name",
+                hint: "name".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.sponsorNameController,
               ),
@@ -92,7 +92,7 @@ class SponsorView extends StatelessView<Sponsor, SponsorController> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: "Sponsor Address",
+                    text: "sponsor_address".tr(),
                     style: Styles.x16dp_202325_400w(),
                   ),
                   SizedBox(width: 10.w),
@@ -101,7 +101,7 @@ class SponsorView extends StatelessView<Sponsor, SponsorController> {
               ),
               SizedBox(height: 10.w),
               TextFieldWidget(
-                hint: "Address",
+                hint: "address".tr(),
                 onValidate: ValidationBuilder().required().build(),
                 controller: state.sponsorAddressController,
               ),
@@ -111,14 +111,15 @@ class SponsorView extends StatelessView<Sponsor, SponsorController> {
                   Expanded(
                     flex: 1,
                     child: ElevatedButtonWidget(
-                        onTap: () => state.onReversePressed(), title: "Back"),
+                        onTap: () => state.onReversePressed(),
+                        title: "back".tr()),
                   ),
                   SizedBox(width: 132.w),
                   Expanded(
                     flex: 1,
                     child: ElevatedButtonWidget(
                         onTap: () => state.validateSponsorInfo(),
-                        title: "Next"),
+                        title: "next".tr()),
                   )
                 ],
               ),

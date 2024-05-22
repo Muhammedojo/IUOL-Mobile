@@ -38,7 +38,7 @@ class ResultHistoryView
           centerTitle: true,
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-          title: Text('Result History', style: Styles.x18dp_202326_700w()),
+          title: Text('result_history'.tr(), style: Styles.x18dp_202326_700w()),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(

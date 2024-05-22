@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:ioul/bloc/bloc.dart';
 import 'package:ioul/packages/package.dart';
@@ -20,7 +19,7 @@ class SemesterRegistrationView extends StatelessView<SemesterRegistration,
         backgroundColor: AppColors.backgroundWhite,
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('Semester Registration'),
+          title: Text('semester_registration'.tr()),
         ),
         body: WidgetWrapper(child: _body(context)));
   }
@@ -38,7 +37,7 @@ class SemesterRegistrationView extends StatelessView<SemesterRegistration,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TextWidget(
-                  text: "Programme level",
+                  text: "programme_level".tr(),
                   style: Styles.x16dp_202325_400w(),
                 ),
               ],
@@ -70,7 +69,7 @@ class SemesterRegistrationView extends StatelessView<SemesterRegistration,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TextWidget(
-                  text: "Study Center",
+                  text: "study_center".tr(),
                   style: Styles.x16dp_202325_400w(),
                 ),
               ],
@@ -106,7 +105,7 @@ class SemesterRegistrationView extends StatelessView<SemesterRegistration,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TextWidget(
-                  text: "State",
+                  text: "state".tr(),
                   style: Styles.x16dp_202325_400w(),
                 ),
               ],
@@ -147,7 +146,7 @@ class SemesterRegistrationView extends StatelessView<SemesterRegistration,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           TextWidget(
-                            text: "Address",
+                            text: "address".tr(),
                             style: Styles.x16dp_202325_400w(),
                           ),
                         ],
@@ -164,7 +163,7 @@ class SemesterRegistrationView extends StatelessView<SemesterRegistration,
             SizedBox(
               height: 48.h,
             ),
-            ElevatedButtonWidget(onTap: () {}, title: "Submit"),
+            ElevatedButtonWidget(onTap: () {}, title: "submit".tr()),
           ],
         ),
       ),

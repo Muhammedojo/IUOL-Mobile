@@ -21,7 +21,7 @@ class ReportView extends StatelessView<Report, ReportController> {
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
           title: Text(
-            'Semester Report',
+            'semester_report'.tr(),
             style: Styles.x18dp_202326_700w(),
           ),
           flexibleSpace: Container(
@@ -65,7 +65,7 @@ class ReportView extends StatelessView<Report, ReportController> {
                         );
                       })
                   : ErrorItemWidget(
-                      title: "Empty List",
+                      title: "empty_list".tr(),
                       message: "Report List is empty",
                       hideButton: false,
                       onTap: () {
@@ -74,7 +74,7 @@ class ReportView extends StatelessView<Report, ReportController> {
                     );
             }
             return ErrorItemWidget(
-              title: "Error occurred",
+              title: "error_occurred".tr(),
               message: "Couldn't fetch report",
               hideButton: false,
               onTap: () {

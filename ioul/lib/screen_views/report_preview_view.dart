@@ -386,18 +386,18 @@ class ReportPreviewView
                                       style: TextStyle(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.w600,
-                                          fontFamily: 'Inter',
+                                          fontFamily: Styles.font,
                                           color: const Color(0xff000000)),
                                     ),
                                     SizedBox(
                                       height: 15.h,
                                     ),
                                     Text(
-                                      'Upload Assignment',
+                                      'upload_assignment'.tr(),
                                       style: TextStyle(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.w400,
-                                          fontFamily: 'Inter',
+                                          fontFamily: Styles.font,
                                           color: const Color(0xff000000)),
                                     ),
                                     SizedBox(
@@ -430,10 +430,10 @@ class ReportPreviewView
                                                     width: 5.w,
                                                   ),
                                                   Text(
-                                                    'Choose File',
+                                                    'choose_file'.tr(),
                                                     style: TextStyle(
                                                         fontSize: 16.sp,
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: Styles.font,
                                                         color: const Color(
                                                             0xff000000),
                                                         fontWeight:
@@ -464,7 +464,7 @@ class ReportPreviewView
                         height: 16.h,
                       ),
                       SubmitButtonWidget(
-                          label: 'Submit Assignment', onPressed: () {})
+                          label: 'submit_assignment'.tr(), onPressed: () {})
                     ],
                   ),
                 ),

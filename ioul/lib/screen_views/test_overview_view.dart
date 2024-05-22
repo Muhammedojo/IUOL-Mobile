@@ -37,7 +37,7 @@ class TestOverviewView
                   Text('Test',
                       style: TextStyle(
                           fontSize: 18.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xffF7F9FA),
                           fontWeight: FontWeight.w500)),
                   SizedBox(
@@ -48,7 +48,7 @@ class TestOverviewView
                       Text('Hello, Sulaimon',
                           style: TextStyle(
                               fontSize: 14.sp,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xffFFFFFF),
                               fontWeight: FontWeight.w500)),
                     ],
@@ -61,7 +61,7 @@ class TestOverviewView
                       Text("Let's test your knowledge",
                           style: TextStyle(
                               fontSize: 16.sp,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xffFFFFFF),
                               fontWeight: FontWeight.w700)),
                     ],
@@ -115,7 +115,7 @@ class TestOverviewView
                   child: Text('All',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xff000000),
                           fontWeight: FontWeight.w400)),
                 ),
@@ -131,7 +131,7 @@ class TestOverviewView
                   child: Text('New',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xff000000),
                           fontWeight: FontWeight.w400)),
                 ),
@@ -139,7 +139,7 @@ class TestOverviewView
                   child: Text('Unavailable',
                       style: TextStyle(
                           fontSize: 16.sp,
-                          fontFamily: 'Inter',
+                          fontFamily: Styles.font,
                           color: const Color(0xff000000),
                           fontWeight: FontWeight.w400)),
                 ),

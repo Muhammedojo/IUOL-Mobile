@@ -43,7 +43,7 @@ class TestListView extends StatelessView<TestListView, TestListController> {
                       Text('Test',
                           style: TextStyle(
                               fontSize: 18.sp,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xffF7F9FA),
                               fontWeight: FontWeight.w500)),
                       const SizedBox()
@@ -57,7 +57,7 @@ class TestListView extends StatelessView<TestListView, TestListController> {
                       Text("GST 111 - Communication in English",
                           style: TextStyle(
                               fontSize: 16.sp,
-                              fontFamily: 'Inter',
+                              fontFamily: Styles.font,
                               color: const Color(0xffFFFFFF),
                               fontWeight: FontWeight.w700)),
                     ],

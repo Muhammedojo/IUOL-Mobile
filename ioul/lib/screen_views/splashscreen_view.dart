@@ -161,9 +161,10 @@ class SplashScreenView
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           TextWidget(
-                            text: "Next",
+                            text: "next".tr(),
                             style: TextStyle(
                               fontSize: 16.sp,
+                              fontFamily: Styles.font,
                               fontWeight: FontWeight.w600,
                               color: AppColors.backgroundWhite,
                             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ioul/helpers/helper.dart';
+import 'package:ioul/packages/package.dart';
 import '../components/components.dart';
 import '../screens_controllers/reset_password.dart';
 import '../values/values.dart';
@@ -28,17 +29,17 @@ class ResetPasswordView
                 children: [
                   SizedBox(height: 12.h),
                   TextWidget(
-                    text: "Reset your password",
+                    text: "reset_your_password".tr(),
                     style: Styles.x24dp_090A0A_700w(),
                   ),
                   SizedBox(height: 8.h),
                   TextWidget(
-                    text: "Please set a new password for your account.",
+                    text: "pls_set_password".tr(),
                     style: Styles.x16dp_090A0A_400w(),
                   ),
                   SizedBox(height: 26.h),
                   TextFieldWidget(
-                    title: "New Password",
+                    title: "new_password".tr(),
                     controller: state.passwordController,
                     obscureText: state.passwordVisible,
                     passwordIcon: InkWell(
@@ -54,7 +55,7 @@ class ResetPasswordView
                   ),
                   SizedBox(height: 20.h),
                   TextFieldWidget(
-                    title: "Confirm New Password",
+                    title: "confirm_new_password".tr(),
                     controller: state.confirmPasswordController,
                     obscureText: state.confirmPasswordVisible,
                     passwordIcon: InkWell(
@@ -82,7 +83,7 @@ class ResetPasswordView
                   // ),
                   SizedBox(height: 167.h),
                   ElevatedButtonWidget(
-                    title: "Reset",
+                    title: "reset".tr(),
                     onTap: () {
                       state.resetPassword();
                     },

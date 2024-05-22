@@ -43,11 +43,12 @@ class TestResetReasonView
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Test Reset Reason',
+                    'test_reset_reason'.tr(),
                     style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Inter'),
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: Styles.font,
+                    ),
                   ),
                 ],
               ),
@@ -71,9 +72,17 @@ class TestResetReasonView
                     fontFamily: 'Inter',
                     color: const Color(0xff090A0A)),
               ),
-              TextFieldWidget(controller: state.resetReasonController,title: "The application",),
-              SizedBox(height: 50.h,),
-              ElevatedButtonWidget( onTap: (){}, title: 'Submit Application',)
+              TextFieldWidget(
+                controller: state.resetReasonController,
+                title: "The application",
+              ),
+              SizedBox(
+                height: 50.h,
+              ),
+              ElevatedButtonWidget(
+                onTap: () {},
+                title: 'Submit Application',
+              )
             ],
           ),
         )))

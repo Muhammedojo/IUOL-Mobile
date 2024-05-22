@@ -41,7 +41,7 @@ class ScratchCardView
                         ),
                         SizedBox(height: 36.h),
                         TextWidget(
-                          text: "Admission Process Payment",
+                          text: "admission_process_payment".tr(),
                           style: Styles.x16dp_000000_400w(),
                         ),
                         SizedBox(height: 72.h),
@@ -50,7 +50,7 @@ class ScratchCardView
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             TextWidget(
-                              text: "Enter Scratch Card",
+                              text: "enter_scratch_card".tr(),
                               style: Styles.x16dp_202325_400w(),
                             ),
                             SizedBox(width: 10.w),
@@ -75,7 +75,7 @@ class ScratchCardView
                             VerifyScratchPinState>(
                           listener: (context, scratchPinState) {
                             if (scratchPinState is VerifyScratchPinLoading) {
-                              WidgetHelper.showProgress(text: 'Verifying');
+                              WidgetHelper.showProgress(text: 'verifying'.tr());
                             }
                             if (scratchPinState is VerifyScratchPinLoaded) {
                               WidgetHelper.hideProgress();
@@ -92,7 +92,7 @@ class ScratchCardView
                             }
                           },
                           child: ElevatedButtonWidget(
-                            title: "Proceed",
+                            title: "proceed".tr(),
                             onTap: () => state.validateCard(),
                           ),
                         ),
