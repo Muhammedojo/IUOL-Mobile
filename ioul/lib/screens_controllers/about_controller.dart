@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
 
 class About extends StatefulWidget {
-  // static const routeName = Strings.SCREEN_BLANK;
-
   const About({Key? key}) : super(key: key);
 
   @override
@@ -12,16 +10,15 @@ class About extends StatefulWidget {
 }
 
 class AboutController extends State<About> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -29,8 +26,7 @@ class AboutController extends State<About> {
   Widget build(BuildContext context) => AboutView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

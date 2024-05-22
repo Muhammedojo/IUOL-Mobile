@@ -1,3 +1,4 @@
+import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
@@ -13,28 +14,8 @@ class LibraryView extends StatelessView<Library, LibraryController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.transparent,
-        //AppColors.backgroundWhite,
-        appBar: AppBar(
-          // backgroundColor: const Color(0xff25435B),
-          centerTitle: true,
-          bottom: PreferredSize(
-              preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-          title: Text(
-            'ioul_library'.tr(),
-            style: TextStyle(
-                fontSize: 18.sp,
-                fontFamily: Styles.font,
-                fontWeight: FontWeight.w700),
-          ),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
-            ),
-          ),
-        ),
+        appBar: WidgetHelper().appBackArrowWithTitle(context,
+            title: 'ioul_library'.tr(), onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body(context)));
   }
 

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
 
 class AddDropCourse extends StatefulWidget {
-  // static const routeName = Strings.SCREEN_BLANK;
-
   const AddDropCourse({Key? key}) : super(key: key);
 
   @override
@@ -12,17 +10,15 @@ class AddDropCourse extends StatefulWidget {
 }
 
 class AddDropCourseController extends State<AddDropCourse> {
-
   //... //Initialization code, state vars etc, all go here
 
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -30,8 +26,7 @@ class AddDropCourseController extends State<AddDropCourse> {
   Widget build(BuildContext context) => AddDropCourseView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

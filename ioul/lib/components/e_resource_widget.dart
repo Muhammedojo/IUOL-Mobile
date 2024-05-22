@@ -37,9 +37,9 @@ class EResourceWidget extends StatelessWidget {
                     child: Text(
                       '$tittle',
                       style: TextStyle(
-                          fontSize: 18.sp,
+                          fontSize: 16.sp,
                           fontFamily: Styles.font,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w600,
                           color: const Color(0xff090A0A)),
                     ),
                   ),

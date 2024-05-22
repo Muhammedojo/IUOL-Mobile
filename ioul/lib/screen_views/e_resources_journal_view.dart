@@ -1,3 +1,4 @@
+import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
@@ -13,23 +14,9 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          centerTitle: true,
-          bottom: PreferredSize(
-              preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
-          title: Text(
-            'iOUL E-Resource Journal',
-            style: Styles.x18dp_202326_700w(),
-          ),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
-            ),
-          ),
-        ),
+        appBar: WidgetHelper().appBackArrowWithTitle(context,
+            title: 'e_resource_library'.tr(),
+            onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body(context)));
   }
 
