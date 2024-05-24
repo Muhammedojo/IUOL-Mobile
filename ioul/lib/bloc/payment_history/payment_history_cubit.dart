@@ -9,14 +9,19 @@ class PaymentHistoryCubit extends Cubit<PaymentHistoryState> {
       emit(PaymentHistoryLoading());
       final response = await repository.getPaymentHistory();
       if ((response.statusCode == 200 || response.statusCode == 201)) {
-        print('Success');
         emit(PaymentHistoryLoaded(response.transactions!));
       } else {
-        // log("response error body: ${response.message}");
         emit(PaymentHistoryFailure(message: '${response.message}'));
       }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");
     }
   }
+
+  // void filterItems(String query) {
+  //   final filteredItems = state.
+  //       .where((item) => item.title.toLowerCase().contains(query.toLowerCase()))
+  //       .toList();
+  //   emit(PaymentHistoryLoaded(allItems: state.allItems, displayedHistory: filteredItems));
+  // }
 }

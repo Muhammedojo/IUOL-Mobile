@@ -74,14 +74,21 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
               height: 22.h,
             ),
             ListView.separated(
-              separatorBuilder: (context, index) => SizedBox(
-                height: 12.h,
-              ),
-              itemCount: 5,
-              shrinkWrap: true,
-              itemBuilder: (context, index) =>
-                  EResourceWidget(onTap: () {}, tittle: 'EBSCO'),
-            ),
+                separatorBuilder: (context, index) => SizedBox(
+                      height: 12.h,
+                    ),
+                itemCount: 5,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  //final item = items[index];
+                  // final link = item['link'];
+                  const link = 'https://collegeopentextbooks.org/';
+                  return EResourceWidget(
+                      onTap: () {
+                        WidgetHelper().launchURL(link);
+                      },
+                      tittle: 'EBSCO');
+                }),
           ],
         ),
       ),

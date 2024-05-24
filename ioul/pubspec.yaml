@@ -50,6 +50,9 @@ dependencies:
   form_validator: ^2.1.1
   flutterwave_standard: ^1.0.8
   easy_localization: ^3.0.7
+  screenshot: ^2.4.0
+  path_provider: ^2.1.2
+  image_gallery_saver: ^2.0.3
   #uuid: ^4.3.3
 
 

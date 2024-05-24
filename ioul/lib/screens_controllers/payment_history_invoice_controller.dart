@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import '../model/model.dart';
+import '../packages/package.dart';
 import '../screen_views/payment_history_invoice_view.dart';
-import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
 
 class PaymentHistoryInvoice extends StatefulWidget {
@@ -18,6 +20,9 @@ class PaymentHistoryInvoice extends StatefulWidget {
 class PaymentHistoryInvoiceController extends State<PaymentHistoryInvoice> {
   //... //Initialization code, state vars etc, all go here
 
+  final GlobalKey downloadGlobalKey = GlobalKey();
+  final ScreenshotController screenshotController = ScreenshotController();
+
   @override
   void initState() {
     super.initState();
@@ -34,5 +39,22 @@ class PaymentHistoryInvoiceController extends State<PaymentHistoryInvoice> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  Future<void> downloadReceipt(context) async {
+    try {
+      final image = await screenshotController.capture(pixelRatio: 2.0);
+      if (image != null) {
+        final result = await ImageGallerySaver.saveImage(
+          image,
+          quality: 100,
+          name: "receipt",
+        );
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Receipt saved to gallery!')),
+        );
+      }
+      // ignore: empty_catches
+    } catch (e) {}
   }
 }

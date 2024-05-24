@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:ioul/helpers/helper.dart';
 import 'package:ioul/values/styles.dart';
 
@@ -64,6 +63,14 @@ class WidgetHelper {
         ),
       ),
     );
+  }
+
+  Future<void> launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   static showSuccessToast(BuildContext context, String message,

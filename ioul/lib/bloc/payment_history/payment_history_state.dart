@@ -1,5 +1,3 @@
-import 'package:ioul/screens/screens.dart';
-
 import '../../model/model.dart';
 import '../../packages/package.dart';
 
@@ -22,6 +20,7 @@ class PaymentHistoryLoading extends PaymentHistoryState {
 
 class PaymentHistoryLoaded extends PaymentHistoryState {
   final List<PaymentsHistory> paymentHistoryList;
+
   const PaymentHistoryLoaded(this.paymentHistoryList);
 
   @override
