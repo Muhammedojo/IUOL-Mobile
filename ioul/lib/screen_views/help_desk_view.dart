@@ -70,11 +70,12 @@ class HelpDeskView extends StatelessView<HelpDesk, HelpDeskController> {
             const Divider(),
             Row(
               children: [
-                SvgPicture.asset(
-                  'assets/images/whatsapp.svg',
-                  fit: BoxFit.scaleDown,
-                  color: Colors.green,
-                ),
+                // SvgPicture.asset(
+                //   'assets/images/whatsapp.svg',
+                //   fit: BoxFit.scaleDown,
+                //   color: Colors.green,
+                // ),
+                const Icon(Icons.chat_outlined),
                 SizedBox(
                   width: 10.w,
                 ),

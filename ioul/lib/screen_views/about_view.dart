@@ -17,31 +17,42 @@ class AboutView extends StatelessView<About, AboutController> {
             .appBackArrowWithTitle(context, title: 'about'.tr(), onTap: () {
           state.onBackPressed();
         }),
-        body: WidgetWrapper(child: _body()));
+        body: WidgetWrapper(child: _body(context)));
   }
 
-  Widget _body() {
+  Widget _body(context) {
     return Padding(
       padding: REdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const AboutUsWidget(
-              title: 'About  iUOL',
-            ),
+            AboutUsWidget(
+                title: 'About  iUOL',
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const AboutUs()),
+                    )),
             SizedBox(
               height: 20.h,
             ),
-            const AboutUsWidget(
-              title: 'Terms and Conditions',
-            ),
+            AboutUsWidget(
+                title: 'Terms and Conditions',
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const TermsAndServices()),
+                    )),
             SizedBox(
               height: 20.h,
             ),
-            const AboutUsWidget(
-              title: 'Privacy Policies',
-            ),
+            AboutUsWidget(
+                title: 'Privacy Policies',
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PrivacyPolicy()),
+                    )),
           ],
         ),
       ),

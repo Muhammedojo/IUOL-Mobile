@@ -54,3 +54,4 @@ export '../screens_controllers/review_application_controller.dart';
 export '../screens_controllers/semester_registration_controller.dart';
 export '../screens_controllers/admission_payment_invoice_controller.dart';
 export '../screens_controllers/pending_application_controller.dart';
+export '../screens_controllers/about_us_controller.dart';
