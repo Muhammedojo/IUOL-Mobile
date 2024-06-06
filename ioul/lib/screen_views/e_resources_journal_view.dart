@@ -106,7 +106,7 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
                         })
                     : ErrorItemWidget(
                         title: "empty_list".tr(),
-                        message: "course_list_empty".tr(),
+                        message: "journal_list_empty".tr(),
                         hideButton: false,
                         onTap: () {
                           state.refresh();
@@ -115,7 +115,7 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
               }
               return ErrorItemWidget(
                 title: "error_occurred".tr(),
-                message: "Couldn't fetch courses",
+                message: "Couldn't fetch journals",
                 hideButton: false,
                 onTap: () {
                   state.refresh();
