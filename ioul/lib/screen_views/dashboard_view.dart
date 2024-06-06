@@ -1,4 +1,5 @@
 import '../bloc/bloc.dart';
+import '../bloc/upcoming_task/cubit.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../components/components.dart';
@@ -329,18 +330,54 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  ListView.separated(
-                    separatorBuilder: (context, index) => SizedBox(
-                      height: 10.h,
-                    ),
-                    itemCount: 5,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) => const UpcomingTaskWidget(
-                      onTap: null,
-                      course: 'CMP 111 - Introduction to Computer Science',
-                      date: '2/08/2023',
-                    ),
-                  ),
+                  BlocBuilder<UpcomingTaskCubit, UpcomingTaskState>(
+                      builder: (context, stateBloc) {
+                    if (stateBloc is UpcomingTaskLoading) {
+                      return const Loader();
+                    } else if (stateBloc is UpcomingTaskLoaded) {
+                      return stateBloc.upcomingTaskList.isNotEmpty
+                          ? ListView.separated(
+                              separatorBuilder: (context, index) => SizedBox(
+                                    height: 10.h,
+                                  ),
+                              itemCount: stateBloc.upcomingTaskList.length,
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                var tasks = stateBloc.upcomingTaskList[index];
+                                return UpcomingTaskWidget(
+                                  onTap: () {},
+                                  task: tasks,
+                                );
+                              })
+                          : ErrorItemWidget(
+                              title: "empty_list".tr(),
+                              message: "task_list_empty".tr(),
+                              hideButton: false,
+                              onTap: () {
+                                state.refresh();
+                              },
+                            );
+                    }
+                    return ErrorItemWidget(
+                      title: "error_occurred".tr(),
+                      message: "could_nt_fetch_tasks".tr(),
+                      hideButton: false,
+                      onTap: () {
+                        state.refresh();
+                      },
+                    );
+                  }),
+                  // ListView.separated(
+                  //   separatorBuilder: (context, index) => SizedBox(
+                  //     height: 10.h,
+                  //   ),
+                  //   itemCount: 5,
+                  //   shrinkWrap: true,
+                  //   itemBuilder: (context, index) => const UpcomingTaskWidget(
+                  //     onTap: null,
+                  //   ),
+                  // ),
                 ],
               ),
             ),

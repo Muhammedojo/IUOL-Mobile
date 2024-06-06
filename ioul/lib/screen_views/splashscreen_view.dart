@@ -136,7 +136,7 @@ class SplashScreenView
                     padding: REdgeInsets.symmetric(horizontal: 37),
                     child: TextWidget(
                       text:
-                          "Amet minim mollit non deserunt ullamco est sit aliqua amet sint. Velit officia consequat duis enim velit mollit.",
+                          "Integrating learning and research through an open system that leverages technology in line with the global best practice of tertiary education",
                       style: Styles.x15dp_303437_400w(),
                       textAlign: TextAlign.center,
                     ),

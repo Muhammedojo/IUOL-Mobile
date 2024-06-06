@@ -14,16 +14,17 @@ const String registerEndpoint = "auth/register";
 const String verifyEmailEndpoint = "auth/verify-email";
 const String forgotPasswordEndpoint = "auth/forgot-password";
 const String countries = "application/countries";
-const String coursesAssignment = "courses/assignment";
+const String coursesAssignment = "courses/assignments";
 const String resendEmailVerificationEndpoint = "auth/resend-email-verification";
 const String verifyResetPasswordPin = "auth/verify-reset-password-pin";
 const String resetPasswordEndpoint = "auth/reset-password";
 const String logoutEndpoint = "auth/logout";
 //Endpoint to fetch programs list
 const String startApplication = "application/start";
-
+const String journalsEndpoint = "virtual-library/journals";
 const String applicationFormData = "application/form-data";
 const String coursesEndpoint = "courses";
+const String upcomingAssignmentEndpoint = "home";
 const String courseVideoEndpoint = "courses/13/resources/video-resources";
 const String courseAudioEndpoint = "courses/13/resources/audio-resources";
 const String courseDocumentEndpoint = "courses/13/resources/document-resources";

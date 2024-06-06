@@ -1,12 +1,12 @@
+import 'package:ioul/model/model.dart';
+
 import '../packages/package.dart';
 import '../values/values.dart';
 
 class UpcomingTaskWidget extends StatelessWidget {
   final Function()? onTap;
-  final String course;
-  final String date;
-  const UpcomingTaskWidget(
-      {Key? key, required this.onTap, required this.course, required this.date})
+  final UpcomingTask? task;
+  const UpcomingTaskWidget({Key? key, required this.onTap, this.task})
       : super(key: key);
 
   @override
@@ -31,7 +31,7 @@ class UpcomingTaskWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(course,
+                    Text('${task?.courseCode} - ${task?.courseTitle}',
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontFamily: Styles.font,
@@ -41,8 +41,7 @@ class UpcomingTaskWidget extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text('Due on $date',
-                        //'CMP 111 - Introduction to Computer Science',
+                    Text('Due on ${task?.dueDate}',
                         style: TextStyle(
                             fontSize: 14.sp,
                             fontFamily: Styles.font,

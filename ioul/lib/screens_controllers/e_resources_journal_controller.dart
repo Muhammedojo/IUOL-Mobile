@@ -1,3 +1,6 @@
+import 'package:ioul/packages/package.dart';
+
+import '../bloc/bloc.dart';
 import '../screen_views/e_resources_journal_view.dart';
 import 'package:flutter/material.dart';
 import '../helpers/helper.dart';
@@ -12,17 +15,17 @@ class EResources extends StatefulWidget {
 }
 
 class EResourcesController extends State<EResources> {
-
   //... //Initialization code, state vars etc, all go here
   TextEditingController searchController = TextEditingController();
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
+    context.read<JournalCubit>().loadJournalsFromServer();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -30,8 +33,11 @@ class EResourcesController extends State<EResources> {
   Widget build(BuildContext context) => EResourcesView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 
+  refresh() {
+    context.read<JournalCubit>().loadJournalsFromServer();
+  }
 }

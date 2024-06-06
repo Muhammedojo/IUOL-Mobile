@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ioul/packages/package.dart';
+import '../bloc/bloc.dart';
 import '../bloc/user/user_cubit.dart';
 import '../screen_views/dashboard_view.dart';
 import '../helpers/helper.dart';
@@ -22,6 +23,7 @@ class DashboardController extends State<Dashboard> {
   void initState() {
     userCubit = context.read<UserCubit>();
     userCubit.loadUser();
+    context.read<UpcomingTaskCubit>().loadTasksFromServer();
     super.initState();
   }
 
@@ -50,6 +52,10 @@ class DashboardController extends State<Dashboard> {
     }
 
     return input.substring(0, 1) + input[firstSpaceIndex + 1];
+  }
+
+  refresh() {
+    context.read<UpcomingTaskCubit>().loadTasksFromServer();
   }
 
   notificationPage() {

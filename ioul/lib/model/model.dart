@@ -34,3 +34,5 @@ export 'resources.dart';
 export 'course_overview.dart';
 export 'summary_course.dart';
 export 'notification.dart';
+export 'upcoming_task.dart';
+export 'journal.dart';

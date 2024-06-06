@@ -128,7 +128,6 @@ class LibraryView extends StatelessView<Library, LibraryController> {
             shrinkWrap: true,
             itemBuilder: (context, index) => EResourceWidget(
               onTap: () {},
-              tittle: 'College Open Text Books',
             ),
           ),
         ],

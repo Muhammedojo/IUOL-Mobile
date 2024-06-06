@@ -1,4 +1,3 @@
-import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:ioul/bloc/bloc.dart';
 import 'packages/package.dart';
@@ -22,6 +21,12 @@ class IOULApp extends StatelessWidget {
           ),
           BlocProvider<RegisterCubit>(
             create: (BuildContext context) => RegisterCubit(),
+          ),
+          BlocProvider<UpcomingTaskCubit>(
+            create: (BuildContext context) => UpcomingTaskCubit(),
+          ),
+          BlocProvider<JournalCubit>(
+            create: (BuildContext context) => JournalCubit(),
           ),
           BlocProvider<VerifyEmailCubit>(
             create: (BuildContext context) => VerifyEmailCubit(),

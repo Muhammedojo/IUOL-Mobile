@@ -532,6 +532,61 @@ class ApiProvider {
     }
   }
 
+  Future<GenericResponse> getJournal({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequestCampus(journalsEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
+  Future<UpcomingAssignmentResponse> getUpcomingTaskList(
+      {String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequestCampus(upcomingAssignmentEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = UpcomingAssignmentResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = UpcomingAssignmentResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = UpcomingAssignmentResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
   Future<EnrolledCourseResponse> getCoursesList({String? endpoint}) async {
     int? statusCode;
     try {
@@ -559,12 +614,37 @@ class ApiProvider {
     }
   }
 
+  Future<GenericResponse> getCoursesWithReportList({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequestCampus(coursesEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
   Future<GenericResponse> getCoursesAssignment({String? endpoint}) async {
     int? statusCode;
     try {
-      var studentCourseId = "13";
-      Response response =
-          await doGetRequestCampus('$coursesAssignment/$studentCourseId');
+      Response response = await doGetRequestCampus(coursesAssignment);
 
       statusCode = response.statusCode;
       //print("state response: ${response.toString()}");

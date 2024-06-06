@@ -1,11 +1,12 @@
+import '../model/model.dart';
 import '../packages/package.dart';
 import '../values/values.dart';
 
 class EResourceWidget extends StatelessWidget {
   final Function()? onTap;
-  final String? tittle;
+  final Journal? journal;
 
-  const EResourceWidget({Key? key, required this.onTap, this.tittle})
+  const EResourceWidget({Key? key, required this.onTap, this.journal})
       : super(key: key);
 
   @override
@@ -35,7 +36,7 @@ class EResourceWidget extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      '$tittle',
+                      '${journal?.journalName}',
                       style: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: Styles.font,
@@ -52,7 +53,7 @@ class EResourceWidget extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      '$tittle',
+                      '${journal?.journalName}',
                       style: TextStyle(
                           fontSize: 14.sp,
                           fontFamily: Styles.font,

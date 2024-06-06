@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+import 'package:pinput/pinput.dart';
+
+import '../bloc/bloc.dart';
 import '../helpers/helper.dart';
 import '../packages/package.dart';
 import '../components/components.dart';
@@ -73,22 +78,50 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
             SizedBox(
               height: 22.h,
             ),
-            ListView.separated(
-                separatorBuilder: (context, index) => SizedBox(
-                      height: 12.h,
-                    ),
-                itemCount: 5,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  //final item = items[index];
-                  // final link = item['link'];
-                  const link = 'https://collegeopentextbooks.org/';
-                  return EResourceWidget(
-                      onTap: () {
-                        WidgetHelper().launchURL(link);
-                      },
-                      tittle: 'EBSCO');
-                }),
+            BlocBuilder<JournalCubit, JournalState>(
+                builder: (context, stateBloc) {
+              if (stateBloc is JournalLoading) {
+                return const Loader();
+              } else if (stateBloc is JournalLoaded) {
+                Map<String, dynamic> decodedResponse =
+                    jsonDecode('${stateBloc.response.data}');
+
+                List<dynamic> dataList = decodedResponse['data'];
+
+                return stateBloc.response.isRequestSuccessful()
+                    ? ListView.separated(
+                        separatorBuilder: (context, index) => SizedBox(
+                              height: 10.h,
+                            ),
+                        itemCount: dataList.length,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          var item = dataList[index];
+                          var link = item['url'];
+                          return EResourceWidget(
+                            onTap: () => WidgetHelper().launchURL(link),
+                            journal: item,
+                          );
+                        })
+                    : ErrorItemWidget(
+                        title: "empty_list".tr(),
+                        message: "course_list_empty".tr(),
+                        hideButton: false,
+                        onTap: () {
+                          state.refresh();
+                        },
+                      );
+              }
+              return ErrorItemWidget(
+                title: "error_occurred".tr(),
+                message: "Couldn't fetch courses",
+                hideButton: false,
+                onTap: () {
+                  state.refresh();
+                },
+              );
+            }),
           ],
         ),
       ),

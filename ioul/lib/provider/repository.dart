@@ -35,6 +35,15 @@ class AppRepository {
 
   Future<EnrolledCourseResponse> loadCourses() async =>
       _apiProvider.getCoursesList();
+
+  Future<GenericResponse> loadJournal() async => _apiProvider.getJournal();
+
+  Future<GenericResponse> loadCoursesWithReport() async =>
+      _apiProvider.getCoursesWithReportList();
+
+  Future<UpcomingAssignmentResponse> loadUpcomingTasks() async =>
+      _apiProvider.getUpcomingTaskList();
+
   Future<GenericResponse> loadCoursesAssignment() async =>
       _apiProvider.getCoursesAssignment();
 
