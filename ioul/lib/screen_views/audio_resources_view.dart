@@ -1,10 +1,8 @@
 import '../components/components.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
-import '../router/route_constants.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/audio_resources_controller.dart';
-import '../values/values.dart';
+
 import 'stateless_view.dart';
 
 class AudioResourcesView
@@ -16,16 +14,9 @@ class AudioResourcesView
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
-        appBar: AppBar(
-            backgroundColor: const Color(0xff25435B),
-            centerTitle: true,
-            bottom: PreferredSize(
-                preferredSize: Size.fromHeight(40.0.h),
-                child: const SizedBox()),
-            title: Text(
-              'ARB 111 - Audio Resources',
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
-            )),
+        appBar: WidgetHelper().appBackArrowWithTitle(context,
+            title: 'ARB 111 - Audio Resources',
+            onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body(context)));
   }
 

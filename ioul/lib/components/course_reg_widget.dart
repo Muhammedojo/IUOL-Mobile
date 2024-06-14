@@ -1,6 +1,4 @@
-import 'package:ioul/model/model.dart';
-import '../packages/package.dart';
-import '../values/values.dart';
+import '../core/core.dart';
 
 // ignore: must_be_immutable
 class CourseRegWidget extends StatefulWidget {

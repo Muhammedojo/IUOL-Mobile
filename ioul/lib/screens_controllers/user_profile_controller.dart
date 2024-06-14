@@ -1,6 +1,6 @@
 import '../screen_views/user_profile_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class UserProfile extends StatefulWidget {
   const UserProfile({

@@ -1,5 +1,4 @@
-import '../packages/package.dart';
-import '../values/values.dart';
+import '../core/core.dart';
 
 class ExamScheduleWidget extends StatelessWidget {
   final String course;

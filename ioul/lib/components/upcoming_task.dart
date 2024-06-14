@@ -1,7 +1,4 @@
-import 'package:ioul/model/model.dart';
-
-import '../packages/package.dart';
-import '../values/values.dart';
+import '../core/core.dart';
 
 class UpcomingTaskWidget extends StatelessWidget {
   final Function()? onTap;

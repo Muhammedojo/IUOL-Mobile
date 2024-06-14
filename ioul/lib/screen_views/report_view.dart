@@ -1,14 +1,10 @@
-import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
-import '../router/router.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/report_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
-class ReportView extends StatelessView<Report, ReportController> {
+class ReportView extends StatelessView<ReportScreen, ReportController> {
   const ReportView(ReportController state, {Key? key}) : super(state, key: key);
 
   @override

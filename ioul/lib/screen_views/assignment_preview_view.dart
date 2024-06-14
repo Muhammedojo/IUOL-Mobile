@@ -1,8 +1,7 @@
 import '../components/components.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/assignment_preview_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class AssignmentPreviewView

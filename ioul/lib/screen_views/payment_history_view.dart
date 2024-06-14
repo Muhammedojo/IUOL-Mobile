@@ -1,10 +1,8 @@
-import 'package:ioul/bloc/payment_history/cubit.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
+import 'package:ioul/core/bloc/payment_history/cubit.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/payment_history_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class PaymentHistoryView

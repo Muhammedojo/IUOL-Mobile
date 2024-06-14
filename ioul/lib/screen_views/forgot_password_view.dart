@@ -1,12 +1,10 @@
-import 'package:ioul/helpers/helper.dart';
-import 'package:ioul/packages/package.dart';
 import '../components/components.dart';
 import '../screens_controllers/forgot_password_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
+import '../core/core.dart';
 
 class ForgotPasswordView
-    extends StatelessView<ForgotPassword, ForgotPasswordController> {
+    extends StatelessView<ForgotPasswordScreen, ForgotPasswordController> {
   const ForgotPasswordView(ForgotPasswordController state, {Key? key})
       : super(state, key: key);
 

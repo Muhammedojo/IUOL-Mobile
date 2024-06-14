@@ -1,9 +1,7 @@
-import '../helpers/helper.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/library_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class LibraryView extends StatelessView<Library, LibraryController> {

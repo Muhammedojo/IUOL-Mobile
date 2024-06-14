@@ -1,9 +1,5 @@
-import 'package:ioul/packages/package.dart';
-
-import '../bloc/bloc.dart';
+import '../core/core.dart';
 import '../screen_views/admission_payment_invoice_view.dart';
-import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
 
 class AdmissionPaymentInvoice extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

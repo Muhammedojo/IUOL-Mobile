@@ -1,11 +1,7 @@
-import 'package:ioul/helpers/widget_helper.dart';
-import 'package:ioul/packages/package.dart';
+import '../core/core.dart';
 import 'package:ioul/screens_controllers/programme_controller.dart';
-import 'package:ioul/screens_controllers/sponsor_controller.dart';
 import 'package:ioul/screens_controllers/upload_controller.dart';
 import '../components/components.dart';
-import '../values/values.dart';
-import '../helpers/helper.dart';
 import '../screens/screens.dart';
 import 'stateless_view.dart';
 

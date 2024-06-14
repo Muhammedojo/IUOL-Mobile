@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ioul/values/values.dart';
+import 'package:ioul/core/values/values.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({

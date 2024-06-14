@@ -1,6 +1,6 @@
 import '../screen_views/result_history_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class ResultHistory extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -12,7 +12,6 @@ class ResultHistory extends StatefulWidget {
 }
 
 class ResultHistoryController extends State<ResultHistory> {
-
   //... //Initialization code, state vars etc, all go here
   String selectedValue = "";
   final TextEditingController dropdownController = TextEditingController();
@@ -24,12 +23,12 @@ class ResultHistoryController extends State<ResultHistory> {
   }
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -37,8 +36,7 @@ class ResultHistoryController extends State<ResultHistory> {
   Widget build(BuildContext context) => ResultHistoryView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

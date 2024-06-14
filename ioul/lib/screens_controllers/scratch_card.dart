@@ -1,11 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../bloc/verify_scratch_pin/verify_scratch_pin_cubit.dart';
-import '../helpers/helper.dart';
+import '../core/bloc/verify_scratch_pin/verify_scratch_pin_cubit.dart';
+import '../core/helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../model/model.dart';
+import '../core/data/model/model.dart';
 import '../screen_views/scratch_card.dart';
 
 class ScratchCard extends StatefulWidget {
@@ -52,9 +49,7 @@ class ScratchCardController extends State<ScratchCard> {
   void validateCard() {
     var cardNumber = scratchCardController.text.trim();
 
-    if (cardNumber.isEmpty
-        //|| cardNumber.length != 16
-        ) {
+    if (cardNumber.isEmpty) {
       WidgetHelper.showToastError(context, "Incorrect Card Pin.");
       return;
     }
@@ -66,10 +61,12 @@ class ScratchCardController extends State<ScratchCard> {
     // WidgetHelper.showProgress(text: 'Checking Pin');
 
     final VerifyScratchCardPin data = VerifyScratchCardPin();
+
     data.pin = cardNumber;
     if (formKey.currentState!.validate()) {
       context.read<VerifyScratchPinCubit>().pushPinToServer(data);
     }
+
     // WidgetHelper.hideProgress();
     // } catch (e) {
     //   WidgetHelper.hideProgress();

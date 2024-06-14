@@ -1,8 +1,7 @@
 import '../screen_views/test_list_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 import '../screens/screens.dart';
-
 
 class TestList extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -14,16 +13,15 @@ class TestList extends StatefulWidget {
 }
 
 class TestListController extends State<TestList> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -31,13 +29,12 @@ class TestListController extends State<TestList> {
   Widget build(BuildContext context) => TestListView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 
   goToTestBrief() => Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const TestBrief()),
-  );
-
+        context,
+        MaterialPageRoute(builder: (context) => const TestBrief()),
+      );
 }

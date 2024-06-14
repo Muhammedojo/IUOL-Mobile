@@ -1,10 +1,8 @@
 import 'package:form_validator/form_validator.dart';
-import 'package:ioul/bloc/bloc.dart';
-import 'package:ioul/packages/package.dart';
 import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
 import '../screens_controllers/semester_registration_controller.dart';
-import '../values/values.dart';
+import '../core/core.dart';
 import 'stateless_view.dart';
 
 class SemesterRegistrationView extends StatelessView<SemesterRegistration,

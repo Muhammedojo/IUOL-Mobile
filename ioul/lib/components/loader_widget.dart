@@ -1,4 +1,4 @@
-import '../packages/package.dart';
+import '../core/packages/package.dart';
 import 'shimmer.dart';
 
 class Loader extends StatelessWidget {

@@ -1,8 +1,7 @@
-import 'package:ioul/packages/package.dart';
+import '../core/core.dart';
 import '../components/components.dart';
-import 'package:ioul/screens_controllers/login_controller.dart';
+import '../screens/screens.dart';
 import '../screens_controllers/pending_application_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class PendingApplicationView
@@ -57,7 +56,8 @@ class PendingApplicationView
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Login()),
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()),
                     );
                   }),
             ),

@@ -1,12 +1,8 @@
-import 'package:ioul/helpers/helper.dart';
 import 'package:pinput/pinput.dart';
-import '../bloc/bloc.dart';
-import '../bloc/resend_email_verification/cubit.dart';
+import '../core/bloc/resend_email_verification/cubit.dart';
 import '../components/components.dart';
-import '../packages/package.dart';
-import '../router/router.dart';
+import '../core/core.dart';
 import '../screens_controllers/verify_email_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class VerifyEmailView
@@ -129,7 +125,7 @@ class VerifyEmailView
                         WidgetHelper.hideProgress();
                         WidgetHelper.showSuccessToast(
                             context, 'registration_successful'.tr());
-                        context.goNamed(RouteConstants.admissionPayment);
+                        context.goNamed(RouteConstants.login);
                       } else if (verifyState is VerifyEmailFailure) {
                         WidgetHelper.hideProgress();
                         WidgetHelper.showSuccessToast(

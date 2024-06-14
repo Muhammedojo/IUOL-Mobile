@@ -1,6 +1,6 @@
 // import '../helper/helper.dart';
 
-import '../model/register_student.dart';
+import '../core/core.dart';
 import 'response.dart';
 
 class RegisterResponse extends GenericResponse {

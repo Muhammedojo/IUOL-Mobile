@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
-import '../model/model.dart';
 import '../screen_views/assignment_view.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 
 class Assignments extends StatefulWidget {
@@ -42,7 +39,7 @@ class AssignmentController extends State<Assignments> {
     context.read<AssignmentCubit>().loadCourseAssignmentFromServer();
   }
 
-  showAssignmentPreview(Assignment assignment) async {
+  showAssignmentPreview(AssignmentSummary assignment) async {
     Navigator.push(
         context,
         CupertinoPageRoute(

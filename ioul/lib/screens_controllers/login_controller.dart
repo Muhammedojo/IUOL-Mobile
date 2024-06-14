@@ -1,22 +1,18 @@
-import 'package:flutter/cupertino.dart';
-import 'package:ioul/provider/provider.dart';
-import 'package:ioul/provider/shared_prefrence.dart';
-
-import '../helpers/helper.dart';
-import '../router/router.dart';
+import 'package:ioul/core/api/provider/provider.dart';
+import 'package:ioul/core/api/provider/shared_prefrence.dart';
 import '../screen_views/Login_view.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 
-class Login extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
 
-  const Login({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   LoginController createState() => LoginController();
 }
 
-class LoginController extends State<Login> {
+class LoginController extends State<LoginScreen> {
   //... //Initialization code, state vars etc, all go here
 
   final repository = AppRepository();
@@ -83,8 +79,6 @@ class LoginController extends State<Login> {
                 ? context.goNamed(RouteConstants.pendingApplication)
                 : context.goNamed(RouteConstants.dashboard,
                     extra: loginResponse.user));
-        // NavigatorHelper(context)
-        //     .goNamedScreen(RouteConstants.dashboard, loginResponse.user);
       } else {
         WidgetHelper.showToastError(context, ('${loginResponse.message}'));
         return;

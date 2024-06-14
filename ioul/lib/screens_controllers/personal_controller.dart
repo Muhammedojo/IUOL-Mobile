@@ -1,10 +1,4 @@
-import 'package:ioul/model/submit_application.dart';
-import 'package:ioul/packages/package.dart';
-import 'package:ioul/utils/utils.dart';
-import 'package:ioul/values/values.dart';
-
-import '../helpers/helper.dart';
-import 'package:flutter/material.dart';
+import '../core/core.dart';
 import '../screen_views/personal_view.dart';
 
 late SubmitApplication sub;

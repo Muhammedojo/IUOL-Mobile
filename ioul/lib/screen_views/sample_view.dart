@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/components.dart';
 import '../screens_controllers/sample_controller.dart';
-import '../values/values.dart';
+import '../core/values/values.dart';
 import 'stateless_view.dart';
 
 class BlankView extends StatelessView<Blank, BlankController> {
@@ -11,9 +11,9 @@ class BlankView extends StatelessView<Blank, BlankController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
-        body: WidgetWrapper(child:_body())
-    );
+        body: WidgetWrapper(child: _body()));
   }
+
   Widget _body() {
     return const SizedBox();
   }

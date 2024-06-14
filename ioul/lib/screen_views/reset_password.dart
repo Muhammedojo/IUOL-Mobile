@@ -1,14 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ioul/helpers/helper.dart';
-import 'package:ioul/packages/package.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens_controllers/reset_password.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class ResetPasswordView
-    extends StatelessView<ResetPassword, ResetPasswordController> {
+    extends StatelessView<ResetPasswordScreen, ResetPasswordController> {
   const ResetPasswordView(ResetPasswordController state, {Key? key})
       : super(state, key: key);
 

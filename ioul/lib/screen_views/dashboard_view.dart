@@ -1,12 +1,7 @@
-import '../bloc/bloc.dart';
-import '../bloc/upcoming_task/cubit.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../components/components.dart';
-import '../router/router.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/dashboard_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class DashboardView extends StatelessView<Dashboard, DashboardController> {

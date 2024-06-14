@@ -1,9 +1,5 @@
-import 'package:ioul/bloc/bloc.dart';
-import 'package:ioul/packages/package.dart';
+import '../core/core.dart';
 import 'package:ioul/response/country_response.dart';
-import 'package:ioul/utils/utils.dart';
-
-import '../helpers/helper.dart';
 import '../screen_views/address_view.dart';
 
 class Address extends StatefulWidget {

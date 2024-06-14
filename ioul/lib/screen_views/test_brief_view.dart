@@ -1,7 +1,7 @@
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
-import '../values/values.dart';
+
 import 'stateless_view.dart';
 
 class TestBriefView extends StatelessView<TestBriefView, TestBriefController> {
@@ -324,15 +324,15 @@ class TestBriefView extends StatelessView<TestBriefView, TestBriefController> {
                       height: 40.h,
                     ),
                     InkWell(
-                      onTap: (){},
+                      onTap: () {},
                       child: Center(
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(48.r),
                               color: const Color(0xff25435B)),
                           child: Padding(
-                            padding:
-                            REdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                            padding: REdgeInsets.symmetric(
+                                horizontal: 50, vertical: 15),
                             child: Text(
                               'Start Test',
                               style: TextStyle(

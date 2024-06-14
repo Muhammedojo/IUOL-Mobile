@@ -1,10 +1,9 @@
-import '../helpers/helper.dart';
+
 import '../screen_views/notification_view.dart';
-import 'package:flutter/material.dart';
-import '../packages/package.dart';
+
+import '../core/core.dart';
 
 class Notifications extends StatefulWidget {
-
   const Notifications({Key? key}) : super(key: key);
 
   @override

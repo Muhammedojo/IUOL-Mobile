@@ -1,9 +1,5 @@
 import 'dart:io';
-import 'package:ioul/bloc/bloc.dart';
-import 'package:ioul/packages/package.dart';
-import 'package:ioul/utils/utils.dart';
-import '../helpers/helper.dart';
-import '../model/model.dart';
+import '../core/core.dart';
 import '../screen_views/upload_view.dart';
 import 'package:image_picker/image_picker.dart';
 

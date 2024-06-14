@@ -1,10 +1,10 @@
-import '../model/model.dart';
+import '../core/data/model/model.dart';
 import '../screen_views/assignment_preview_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class AssignmentPreview extends StatefulWidget {
-  final Assignment? assignment;
+  final AssignmentSummary? assignment;
   const AssignmentPreview({Key? key, this.assignment}) : super(key: key);
 
   @override

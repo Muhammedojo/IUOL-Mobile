@@ -1,10 +1,8 @@
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ioul/components/components.dart';
 import 'package:ioul/screen_views/stateless_view.dart';
-import 'package:ioul/utils/utils.dart';
-import 'package:ioul/values/values.dart';
 import '../components/custom_dropdown_widget.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens_controllers/profile.dart';
 
 class ProfileView extends StatelessView<Profile, ProfileController> {

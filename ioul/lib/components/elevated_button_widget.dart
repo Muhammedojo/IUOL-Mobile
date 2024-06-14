@@ -1,5 +1,4 @@
-import 'package:ioul/packages/package.dart';
-import 'package:ioul/values/values.dart';
+import '../core/core.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
   const ElevatedButtonWidget({

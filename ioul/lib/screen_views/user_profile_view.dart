@@ -1,9 +1,7 @@
-import 'package:ioul/packages/package.dart';
-import '../bloc/bloc.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/user_profile_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class UserProfileView

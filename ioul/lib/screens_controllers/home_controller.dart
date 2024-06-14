@@ -1,9 +1,6 @@
-import 'package:ioul/router/router.dart';
-
-import '../helpers/helper.dart';
 import '../screen_views/home_view.dart';
-import '../packages/package.dart';
-import '../utils/global_states.dart';
+import '../core/core.dart';
+import '../core/utils/global_states.dart';
 
 class Home extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -59,6 +56,7 @@ class HomeController extends State<Home> {
       if (!mounted) return;
       if (response.isConnectionSuccessful()) {
         await clearUserData();
+        if (!mounted) return;
         context.goNamed(RouteConstants.login);
       } else {
         WidgetHelper.showToastError(context, '${response.message}');

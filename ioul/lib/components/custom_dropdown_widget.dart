@@ -1,10 +1,5 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ioul/packages/package.dart';
-
-import '../values/colors.dart';
-import '../values/styles.dart';
+import '../core/core.dart';
 
 class CustomDropdownWidget extends StatelessWidget {
   const CustomDropdownWidget({

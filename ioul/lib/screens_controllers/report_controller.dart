@@ -1,18 +1,16 @@
-import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
 import '../screen_views/report_view.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 
-class Report extends StatefulWidget {
+class ReportScreen extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
 
-  const Report({Key? key}) : super(key: key);
+  const ReportScreen({Key? key}) : super(key: key);
 
   @override
   ReportController createState() => ReportController();
 }
 
-class ReportController extends State<Report> {
+class ReportController extends State<ReportScreen> {
   //... //Initialization code, state vars etc, all go here
 
   @override

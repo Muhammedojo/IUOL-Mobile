@@ -1,5 +1,4 @@
-
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../screen_views/admission_payment.dart';
 
@@ -34,9 +33,7 @@ class AdmissionPaymentController extends State<AdmissionPayment> {
     super.dispose();
   }
 
-  initializeFlutterWave(){
-    
-  }
+  initializeFlutterWave() {}
 
   @override
   Widget build(BuildContext context) => AdmissionPaymentView(this);

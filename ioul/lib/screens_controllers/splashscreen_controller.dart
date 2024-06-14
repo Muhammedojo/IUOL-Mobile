@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ioul/router/router.dart';
+import '../core/router/router.dart';
 import '../screen_views/splashscreen_view.dart';
 
 class SplashScreen extends StatefulWidget {

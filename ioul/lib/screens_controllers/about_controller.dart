@@ -1,6 +1,6 @@
 import '../screen_views/about_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);

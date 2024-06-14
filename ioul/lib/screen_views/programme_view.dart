@@ -1,10 +1,7 @@
-import 'package:ioul/values/styles.dart';
-import '../bloc/bloc.dart';
 import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens_controllers/programme_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class ProgrammeView extends StatelessView<Programme, ProgrammeController> {

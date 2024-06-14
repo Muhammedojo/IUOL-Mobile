@@ -1,11 +1,8 @@
 import 'package:group_button/group_button.dart';
 
-import 'package:ioul/helpers/helper.dart';
-import 'package:ioul/packages/package.dart';
-
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens_controllers/application_confirmation.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,

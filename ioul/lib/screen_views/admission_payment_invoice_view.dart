@@ -1,10 +1,7 @@
-import '../bloc/user/cubit.dart';
 import '../components/components.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/admission_payment_invoice_controller.dart';
-import '../values/values.dart';
 import 'payment.dart';
 import 'stateless_view.dart';
 

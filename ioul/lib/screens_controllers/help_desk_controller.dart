@@ -1,6 +1,6 @@
 import '../screen_views/help_desk_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class HelpDesk extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -12,16 +12,15 @@ class HelpDesk extends StatefulWidget {
 }
 
 class HelpDeskController extends State<HelpDesk> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -29,8 +28,7 @@ class HelpDeskController extends State<HelpDesk> {
   Widget build(BuildContext context) => HelpDeskView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

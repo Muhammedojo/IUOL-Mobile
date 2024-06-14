@@ -1,11 +1,7 @@
-import 'package:ioul/model/notification.dart';
-
 import '../components/components.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/notification_controller.dart';
-import '../values/values.dart';
+import '../core/core.dart';
 import 'stateless_view.dart';
 
 class NotificationView

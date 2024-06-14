@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ioul/packages/package.dart';
+import '../core/core.dart';
 import 'package:ioul/screens_controllers/payment_history_invoice_controller.dart';
-import '../bloc/bloc.dart';
-import '../model/model.dart';
 import '../screen_views/payment_history_view.dart';
-import '../helpers/helper.dart';
 
 class PaymentHistory extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -21,8 +18,9 @@ class PaymentHistoryController extends State<PaymentHistory> {
 
   @override
   void initState() {
-    super.initState();
     context.read<PaymentHistoryCubit>().loadPaymentHistoryFromServer();
+
+    super.initState();
   }
 
   @override

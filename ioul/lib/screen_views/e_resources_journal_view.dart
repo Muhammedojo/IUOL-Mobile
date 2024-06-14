@@ -1,14 +1,8 @@
 import 'dart:convert';
-
-import 'package:pinput/pinput.dart';
-
-import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/e_resources_journal_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class EResourcesView extends StatelessView<EResources, EResourcesController> {

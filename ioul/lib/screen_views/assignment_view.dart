@@ -1,9 +1,7 @@
-import '../bloc/bloc.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/assignment_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class AssignmentView extends StatelessView<Assignments, AssignmentController> {

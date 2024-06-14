@@ -1,6 +1,6 @@
 import '../screen_views/examination_schedule_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class ExaminationSchedule extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -8,20 +8,20 @@ class ExaminationSchedule extends StatefulWidget {
   const ExaminationSchedule({Key? key}) : super(key: key);
 
   @override
-  ExaminationScheduleController createState() => ExaminationScheduleController();
+  ExaminationScheduleController createState() =>
+      ExaminationScheduleController();
 }
 
 class ExaminationScheduleController extends State<ExaminationSchedule> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -29,8 +29,7 @@ class ExaminationScheduleController extends State<ExaminationSchedule> {
   Widget build(BuildContext context) => ExaminationScheduleView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

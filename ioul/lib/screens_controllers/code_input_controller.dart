@@ -1,8 +1,5 @@
-import 'package:ioul/model/model.dart';
-import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
-import '../provider/provider.dart';
+import '../core/core.dart';
+import '../core/api/provider/provider.dart';
 
 import '../screen_views/code_input_view.dart';
 
@@ -44,10 +41,10 @@ class CodeInputController extends State<CodeInput> {
     var email = widget.email;
 
     if (pin.isEmpty) {
-      WidgetHelper.showToastError(context, "Kindly provide your pin.");
+      WidgetHelper.showToastError(context, "kindly_provide_your_pin".tr());
       return;
     } else if (pin.length < 4) {
-      WidgetHelper.showToastError(context, "Incomplete pin.");
+      WidgetHelper.showToastError(context, "incomplete_pin".tr());
       return;
     }
     sendPinToServer(pin, email);

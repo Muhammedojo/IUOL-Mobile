@@ -1,8 +1,5 @@
-import '../helpers/helper.dart';
-import '../model/model.dart';
 import '../screen_views/course_detail_overview_view.dart';
-import 'package:flutter/material.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 
 class CourseDetailOverview extends StatefulWidget {
   final Course? course;

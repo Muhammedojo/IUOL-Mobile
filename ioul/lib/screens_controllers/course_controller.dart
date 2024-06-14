@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
-import '../model/model.dart';
 import '../screen_views/course_view.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 
 class Courses extends StatefulWidget {

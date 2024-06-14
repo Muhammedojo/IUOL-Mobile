@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import '../screen_views/audio_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class Audio extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

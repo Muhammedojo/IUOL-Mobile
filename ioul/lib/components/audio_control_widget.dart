@@ -1,28 +1,30 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/material.dart';
-import 'package:ioul/values/colors.dart';
+import '../core/core.dart';
 
 class AudioControl extends StatelessWidget {
-   AudioControl({
+  AudioControl({
     super.key,
-
   });
   final player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Column(children: [
-      IconButton(
-              onPressed: (){
-            //    playAudioFromUrl('');
-    },
-              icon: const Icon(
-                Icons.play_arrow_outlined,
-                size: 80,
-                color: AppColors.primaryLightest,
-              ),
-            )
-    ],),);
+    return Center(
+      child: Column(
+        children: [
+          IconButton(
+            onPressed: () {
+              //    playAudioFromUrl('');
+            },
+            icon: const Icon(
+              Icons.play_arrow_outlined,
+              size: 80,
+              color: AppColors.primaryLightest,
+            ),
+          )
+        ],
+      ),
+    );
     //   StreamBuilder<PlayerState>(
     //   stream: audioPlayer.playerStateStream,
     //   builder: (context, snapshot) {

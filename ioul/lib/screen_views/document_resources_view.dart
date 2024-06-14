@@ -1,8 +1,7 @@
 import '../components/components.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/document_resources_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class DocumentResourcesView
@@ -15,11 +14,12 @@ class DocumentResourcesView
     return Container(
       height: 50.h,
       color: const Color(0xff25435B),
-      child: SafeArea(
-        child: Scaffold(
-            backgroundColor: AppColors.backgroundWhite,
-            body: WidgetWrapper(child: _body())),
-      ),
+      child: Scaffold(
+          appBar: WidgetHelper().appBackArrowWithTitle(context,
+              title: 'ARB 111 - Document Resources',
+              onTap: () => state.onBackPressed()),
+          backgroundColor: AppColors.backgroundWhite,
+          body: WidgetWrapper(child: _body())),
     );
   }
 
@@ -27,60 +27,6 @@ class DocumentResourcesView
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              color: const Color(0xff25435B),
-              height: 120.h,
-              alignment: Alignment.centerLeft,
-              padding: REdgeInsets.only(left: 24),
-              width: double.infinity,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () => state.onBackPressed(),
-                        child: Container(
-                          width: 36.w,
-                          height: 36.h,
-                          constraints:
-                              BoxConstraints(maxHeight: 36.h, maxWidth: 36.w),
-                          margin: REdgeInsets.only(top: 8),
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.arrow_back,
-                            color: Colors.black54,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '2023 Spring Semester Report',
-                        style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: Styles.font,
-                            fontWeight: FontWeight.w700),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
         Expanded(
           child: SingleChildScrollView(
             child: Padding(

@@ -1,4 +1,4 @@
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../screen_views/application_form_view.dart';
 

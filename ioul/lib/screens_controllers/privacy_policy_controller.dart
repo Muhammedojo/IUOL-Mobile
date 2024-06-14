@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 import '../screen_views/privacy_policy_view.dart';
 
 class PrivacyPolicy extends StatefulWidget {

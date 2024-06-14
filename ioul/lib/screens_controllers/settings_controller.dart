@@ -1,9 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-
 import '../screen_views/settings_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
-import '../utils/utils.dart';
+import '../core/helpers/helper.dart';
+import '../core/utils/utils.dart';
 
 class Settings extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

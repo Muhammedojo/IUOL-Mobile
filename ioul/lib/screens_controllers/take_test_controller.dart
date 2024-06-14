@@ -1,6 +1,5 @@
 import '../screen_views/take_test_view.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 
 class TakeTest extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -12,17 +11,16 @@ class TakeTest extends StatefulWidget {
 }
 
 class TakeTestController extends State<TakeTest> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     secureScreen();
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -30,7 +28,7 @@ class TakeTestController extends State<TakeTest> {
   Widget build(BuildContext context) => TakeTestView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 

@@ -1,10 +1,5 @@
-import 'package:ioul/packages/package.dart';
-
-import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
-import '../response/responses.dart';
 import '../screen_views/programme_view.dart';
-import '../utils/utils.dart';
+import '../core/core.dart';
 
 class Programme extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

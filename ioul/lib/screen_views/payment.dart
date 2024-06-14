@@ -5,10 +5,8 @@ import 'package:flutterwave_standard/flutterwave.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:uuid/uuid.dart';
 import '../components/components.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
-import '../provider/endpoints.dart';
-import '../values/values.dart';
+import '../core/core.dart';
+import '../core/api/provider/endpoints.dart';
 
 class Payments extends StatefulWidget {
   const Payments(this.title, {Key? key}) : super(key: key);

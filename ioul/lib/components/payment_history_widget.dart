@@ -1,7 +1,4 @@
-import 'package:ioul/values/values.dart';
-
-import '../model/model.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 
 class PaymentHistoryWidget extends StatelessWidget {
   final PaymentsHistory paymentHistory;

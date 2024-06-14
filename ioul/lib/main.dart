@@ -1,6 +1,6 @@
+import 'package:ioul/core/packages/package.dart';
 import 'package:ioul/ioul_app.dart';
-import 'package:ioul/utils/utils.dart';
-import 'packages/package.dart';
+import 'package:ioul/core/utils/utils.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

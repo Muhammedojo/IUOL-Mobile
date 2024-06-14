@@ -1,14 +1,11 @@
-import '../helpers/helper.dart';
-import 'package:flutter/material.dart';
-import '../packages/package.dart';
-import '../provider/provider.dart';
-import '../router/router.dart';
+import '../core/core.dart';
+import '../core/api/provider/provider.dart';
 import '../screen_views/reset_password.dart';
 
-class ResetPassword extends StatefulWidget {
+class ResetPasswordScreen extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
 
-  const ResetPassword({Key? key, required this.pin, required this.email})
+  const ResetPasswordScreen({Key? key, required this.pin, required this.email})
       : super(key: key);
   final String pin;
   final String email;
@@ -17,7 +14,7 @@ class ResetPassword extends StatefulWidget {
   ResetPasswordController createState() => ResetPasswordController();
 }
 
-class ResetPasswordController extends State<ResetPassword> {
+class ResetPasswordController extends State<ResetPasswordScreen> {
   //... //Initialization code, state vars etc, all go here
   final repository = AppRepository();
 

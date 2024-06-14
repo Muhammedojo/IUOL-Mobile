@@ -1,4 +1,4 @@
-import 'package:ioul/model/user.dart';
+import 'package:ioul/core/data/model/user.dart';
 
 class ProgrammeResponse {
   UserData? user;

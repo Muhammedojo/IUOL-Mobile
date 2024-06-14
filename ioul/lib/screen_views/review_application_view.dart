@@ -1,8 +1,7 @@
-import 'package:ioul/packages/package.dart';
+import '../core/core.dart';
 import 'package:ioul/screens_controllers/login_controller.dart';
 import '../components/components.dart';
 import '../screens_controllers/review_application_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class ReviewApplicationView
@@ -67,7 +66,8 @@ class ReviewApplicationView
                   title: "Login Page",
                   onTap: () => Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Login()),
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
                       )),
             ),
           )

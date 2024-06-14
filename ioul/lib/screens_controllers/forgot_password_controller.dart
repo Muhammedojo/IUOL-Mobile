@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ioul/screens_controllers/code_input_controller.dart';
-import '../helpers/helper.dart';
-import '../provider/provider.dart';
+import '../core/helpers/helper.dart';
+import '../core/api/provider/provider.dart';
 import '../screen_views/forgot_password_view.dart';
 
-class ForgotPassword extends StatefulWidget {
+class ForgotPasswordScreen extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
 
-  const ForgotPassword({Key? key}) : super(key: key);
+  const ForgotPasswordScreen({Key? key}) : super(key: key);
 
   @override
   ForgotPasswordController createState() => ForgotPasswordController();
 }
 
-class ForgotPasswordController extends State<ForgotPassword> {
+class ForgotPasswordController extends State<ForgotPasswordScreen> {
   //... //Initialization code, state vars etc, all go here
 
   final repository = AppRepository();

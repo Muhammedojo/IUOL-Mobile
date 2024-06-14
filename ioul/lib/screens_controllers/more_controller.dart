@@ -1,7 +1,5 @@
-import '../helpers/helper.dart';
 import '../screen_views/more_view.dart';
-import 'package:flutter/material.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 
 class More extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

@@ -1,6 +1,6 @@
 import '../screen_views/test_reset_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class TestReset extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -12,16 +12,15 @@ class TestReset extends StatefulWidget {
 }
 
 class TestResetController extends State<TestReset> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -29,8 +28,7 @@ class TestResetController extends State<TestReset> {
   Widget build(BuildContext context) => TestResetView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

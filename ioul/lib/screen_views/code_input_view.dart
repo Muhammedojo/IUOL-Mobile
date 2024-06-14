@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ioul/screens_controllers/reset_password.dart';
-import '../bloc/bloc.dart';
-import '../bloc/resend_email_verification/cubit.dart';
-import '../helpers/helper.dart';
+import '../core/bloc/resend_email_verification/cubit.dart';
 import 'package:pinput/pinput.dart';
 import '../components/components.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens_controllers/code_input_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
@@ -130,7 +127,7 @@ class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
                         Navigator.push(
                           context,
                           CupertinoPageRoute(
-                            builder: (context) => ResetPassword(
+                            builder: (context) => ResetPasswordScreen(
                               email: widget.email,
                               pin: state.pinputController.text,
                             ),

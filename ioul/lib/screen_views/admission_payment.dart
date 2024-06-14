@@ -1,10 +1,7 @@
-import '../helpers/helper.dart';
-import '../packages/package.dart';
-import 'package:ioul/router/route_constants.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
 import '../screens_controllers/admission_payment.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class AdmissionPaymentView
@@ -17,7 +14,7 @@ class AdmissionPaymentView
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.backgroundWhite,
-      appBar: WidgetHelper().appBackArrowOnly(context),
+      appBar: AppBar(),
       body: WidgetWrapper(
         child: SingleChildScrollView(
           child: SizedBox(

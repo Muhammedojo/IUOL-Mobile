@@ -11,6 +11,7 @@ export '../screens_controllers/certificate_controller.dart';
 export '../screens_controllers/code_input_controller.dart';
 export '../screens_controllers/contact_controller.dart';
 export '../screens_controllers/course_controller.dart';
+export '../screens_controllers/sponsor_controller.dart';
 export '../screens_controllers/course_detail_overview_controller.dart';
 export '../screens_controllers/create_account.dart';
 export '../screens_controllers/verify_email_controller.dart';

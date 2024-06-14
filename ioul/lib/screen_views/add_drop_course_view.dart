@@ -1,8 +1,7 @@
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/add_drop_course_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class AddDropCourseView

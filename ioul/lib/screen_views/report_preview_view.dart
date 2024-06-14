@@ -1,8 +1,7 @@
-import 'package:ioul/packages/package.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/report_preview_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class ReportPreviewView

@@ -1,5 +1,5 @@
-import 'package:ioul/utils/utils.dart';
-import '../helpers/helper.dart';
+import 'package:ioul/core/utils/utils.dart';
+import '../core/helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../screen_views/contact_view.dart';
 

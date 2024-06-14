@@ -1,7 +1,5 @@
-import '../packages/package.dart';
-import '../helpers/helper.dart';
+import '../core/core.dart';
 import '../screen_views/profile.dart';
-import '../values/colors.dart';
 
 class Profile extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -57,7 +55,7 @@ class ProfileController extends State<Profile> {
       lastDate: DateTime(2200),
       builder: (context, child) => Theme(
           data: Theme.of(context).copyWith(
-              colorScheme: ColorScheme.light(
+              colorScheme: const ColorScheme.light(
             primary: AppColors.primary,
           )),
           child: child!),

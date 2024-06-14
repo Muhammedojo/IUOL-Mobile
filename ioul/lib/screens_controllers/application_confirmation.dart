@@ -1,9 +1,4 @@
-import 'package:ioul/model/model.dart';
-import 'package:ioul/packages/package.dart';
-
-import '../bloc/application_form_data/application_form_data_cubit.dart';
-import '../helpers/helper.dart';
-import '../router/router.dart';
+import '../core/core.dart';
 import '../screen_views/application_confirmation.dart';
 
 class ApplicationConfirmation extends StatefulWidget {

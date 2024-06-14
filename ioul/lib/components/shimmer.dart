@@ -1,6 +1,6 @@
 import 'package:h3m_shimmer_card/h3m_shimmer_card.dart';
-import 'package:ioul/values/values.dart';
-import '../packages/package.dart';
+import 'package:ioul/core/values/values.dart';
+import '../core/packages/package.dart';
 
 class ShimmerTile extends StatelessWidget {
   const ShimmerTile({super.key, this.width, this.height, this.color});

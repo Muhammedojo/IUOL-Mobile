@@ -1,5 +1,5 @@
-import '../packages/package.dart';
-import '../values/values.dart';
+import '../core/core.dart';
+import '../core/packages/package.dart';
 
 class AboutUsWidget extends StatelessWidget {
   const AboutUsWidget({Key? key, required this.title, required this.onTap})

@@ -1,6 +1,6 @@
 import '../screen_views/video_resources_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class VideoResources extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -12,7 +12,6 @@ class VideoResources extends StatefulWidget {
 }
 
 class VideoResourcesController extends State<VideoResources> {
-
   //... //Initialization code, state vars etc, all go here
   int selectedPeriod = 0;
   String selectedPeriodType = "First Study Period";
@@ -23,12 +22,12 @@ class VideoResourcesController extends State<VideoResources> {
   ];
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -36,7 +35,7 @@ class VideoResourcesController extends State<VideoResources> {
   Widget build(BuildContext context) => VideoResourcesView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 
@@ -46,5 +45,4 @@ class VideoResourcesController extends State<VideoResources> {
       selectedPeriod = index;
     });
   }
-
 }

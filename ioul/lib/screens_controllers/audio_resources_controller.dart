@@ -1,6 +1,6 @@
 import '../screen_views/audio_resources_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class AudioResources extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -12,7 +12,6 @@ class AudioResources extends StatefulWidget {
 }
 
 class AudioResourcesController extends State<AudioResources> {
-
   //... //Initialization code, state vars etc, all go here
   int selectedPeriod = 0;
   String selectedPeriodType = "First Study Period";
@@ -23,12 +22,12 @@ class AudioResourcesController extends State<AudioResources> {
   ];
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -36,7 +35,7 @@ class AudioResourcesController extends State<AudioResources> {
   Widget build(BuildContext context) => AudioResourcesView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
 
@@ -46,5 +45,4 @@ class AudioResourcesController extends State<AudioResources> {
       selectedPeriod = index;
     });
   }
-
 }

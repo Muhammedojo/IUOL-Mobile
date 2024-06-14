@@ -1,8 +1,7 @@
 import '../components/components.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/video_resources_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class VideoResourcesView
@@ -14,16 +13,9 @@ class VideoResourcesView
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundWhite,
-        appBar: AppBar(
-            backgroundColor: const Color(0xff25435B),
-            centerTitle: true,
-            bottom: PreferredSize(
-                preferredSize: Size.fromHeight(40.0.h),
-                child: const SizedBox()),
-            title: Text(
-              'ARB 111 - Video Resources',
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
-            )),
+        appBar: WidgetHelper().appBackArrowWithTitle(context,
+            title: 'ARB 111 - Video Resources',
+            onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body()));
   }
 

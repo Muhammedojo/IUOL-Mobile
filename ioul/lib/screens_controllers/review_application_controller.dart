@@ -1,6 +1,6 @@
 import '../screen_views/review_application_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class ReviewApplication extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

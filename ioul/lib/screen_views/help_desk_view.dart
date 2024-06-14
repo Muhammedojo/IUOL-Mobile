@@ -1,9 +1,7 @@
 import '../components/components.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/help_desk_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class HelpDeskView extends StatelessView<HelpDesk, HelpDeskController> {

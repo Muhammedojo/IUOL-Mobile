@@ -1,5 +1,4 @@
-import '../values/values.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 
 class RecentClassWidget extends StatelessWidget {
   final String? code;

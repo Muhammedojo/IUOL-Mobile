@@ -1,6 +1,4 @@
-import '../packages/package.dart';
-import '../values/values.dart';
-
+import '../core/core.dart';
 class DeptWidget extends StatelessWidget {
   final String icon;
   final String label;

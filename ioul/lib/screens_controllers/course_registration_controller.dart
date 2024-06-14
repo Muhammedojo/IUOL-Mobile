@@ -1,9 +1,5 @@
-import 'package:ioul/packages/package.dart';
-
-import '../bloc/bloc.dart';
+import '../core/core.dart';
 import '../screen_views/course_registration_view.dart';
-
-import '../helpers/helper.dart';
 
 class CourseRegistration extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -32,8 +28,8 @@ class CourseRegistrationController extends State<CourseRegistration> {
         selectedCourses.add(id);
       }
     });
-    print('Selected: ${id}');
-    print('Selected: ${selectedCourses.toString()}');
+    // print('Selected: ${id}');
+    // print('Selected: ${selectedCourses.toString()}');
   }
 
   @override

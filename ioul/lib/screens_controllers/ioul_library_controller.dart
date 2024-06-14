@@ -1,6 +1,6 @@
 import '../screen_views/ioul_library_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class IOULLibrary extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -12,18 +12,17 @@ class IOULLibrary extends StatefulWidget {
 }
 
 class IOULLibraryController extends State<IOULLibrary> {
-
   //... //Initialization code, state vars etc, all go here
 
   TextEditingController searchController = TextEditingController();
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -31,8 +30,7 @@ class IOULLibraryController extends State<IOULLibrary> {
   Widget build(BuildContext context) => IOULLibraryView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

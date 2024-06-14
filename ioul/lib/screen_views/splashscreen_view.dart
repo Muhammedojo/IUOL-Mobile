@@ -1,6 +1,5 @@
 import 'package:ioul/components/text_widget.dart';
-import 'package:ioul/packages/package.dart';
-import 'package:ioul/values/values.dart';
+import '../core/core.dart';
 import '../screens/screens.dart';
 import 'stateless_view.dart';
 

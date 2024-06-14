@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 import '../screen_views/about_us_view.dart';
 
 class AboutUs extends StatefulWidget {
-  // static const routeName = Strings.SCREEN_BLANK;
-
   const AboutUs({Key? key}) : super(key: key);
 
   @override

@@ -1,6 +1,6 @@
 import '../screen_views/semester_registration_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class SemesterRegistration extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

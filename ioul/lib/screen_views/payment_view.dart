@@ -1,11 +1,9 @@
-import '../bloc/bloc.dart';
+
 import '../components/custom_dropdown_widget.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/payment_controller.dart';
-import '../values/values.dart';
 import 'payment.dart';
 import 'stateless_view.dart';
 

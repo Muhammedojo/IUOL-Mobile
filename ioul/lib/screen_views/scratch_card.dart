@@ -1,13 +1,7 @@
-import 'package:flutter/services.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:ioul/bloc/verify_scratch_pin/cubit.dart';
-import 'package:ioul/helpers/helper.dart';
-import 'package:ioul/packages/package.dart';
-import 'package:ioul/router/route_constants.dart';
-import '../bloc/bloc.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens_controllers/scratch_card.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class ScratchCardView

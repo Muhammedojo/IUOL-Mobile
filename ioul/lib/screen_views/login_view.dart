@@ -1,14 +1,10 @@
 import 'package:form_validator/form_validator.dart';
 import 'package:ioul/screens/screens.dart';
-
-import '../packages/package.dart';
-import 'package:ioul/helpers/helper.dart';
-import '../router/router.dart';
+import '../core/core.dart';
 import '../components/components.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
-class LoginView extends StatelessView<Login, LoginController> {
+class LoginView extends StatelessView<LoginScreen, LoginController> {
   const LoginView(LoginController state, {Key? key}) : super(state, key: key);
 
   @override

@@ -1,4 +1,4 @@
-import '../model/model.dart';
+import '../core/core.dart';
 
 class CourseRegResponse {
   int? statusCode;

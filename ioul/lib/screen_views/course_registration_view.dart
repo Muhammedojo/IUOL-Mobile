@@ -1,9 +1,9 @@
-import '../bloc/bloc.dart';
-import '../packages/package.dart';
+import '../core/bloc/bloc.dart';
+
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/course_registration_controller.dart';
-import '../values/values.dart';
+import '../core/core.dart';
 import 'stateless_view.dart';
 
 class CourseRegistrationView

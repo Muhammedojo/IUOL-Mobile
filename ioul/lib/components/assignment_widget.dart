@@ -1,10 +1,10 @@
-import '../model/model.dart';
-import '../packages/package.dart';
-import '../values/values.dart';
+import 'package:ioul/core/utils/extension.dart';
+import '../core/core.dart';
+import '../core/packages/package.dart';
 
 class AssignmentWidget extends StatelessWidget {
   final Function()? onTap;
-  final Assignment assignment;
+  final AssignmentSummary assignment;
   const AssignmentWidget(
       {Key? key, required this.onTap, required this.assignment})
       : super(key: key);
@@ -42,21 +42,19 @@ class AssignmentWidget extends StatelessWidget {
               ),
               Expanded(
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      '${assignment.title}',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontFamily: Styles.font,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xff202325)),
-                    ),
+                    '${assignment.courseCode}'.toText(
+                        color: const Color(0xff202325),
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
+                        translate: false),
                     SizedBox(
                       height: 4.h,
                     ),
                     Text(
-                      '${assignment.assignmentQuestion}',
+                      '${assignment.courseTitle}',
                       style: TextStyle(
                           fontSize: 13.sp,
                           fontFamily: Styles.font,
@@ -67,7 +65,7 @@ class AssignmentWidget extends StatelessWidget {
                       height: 4.h,
                     ),
                     Text(
-                      '${assignment.startDate}',
+                      '${assignment.unit}',
                       style: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: Styles.font,

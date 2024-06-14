@@ -1,12 +1,8 @@
 import 'package:image_picker/image_picker.dart';
-import 'package:ioul/bloc/submit_application/cubit.dart';
 import 'package:ioul/components/outlined_button.dart';
 import '../components/components.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
-import '../router/router.dart';
+import '../core/core.dart';
 import '../screens_controllers/upload_controller.dart';
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class UploadView extends StatelessView<Upload, UploadController> {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:ioul/values/values.dart';
+import 'package:ioul/core/values/values.dart';
 
 class WidgetWrapper extends StatelessWidget {
   final Widget child;

@@ -1,6 +1,6 @@
 import '../screen_views/examination_extension_view.dart';
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 
 class ExaminationExtension extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -8,20 +8,20 @@ class ExaminationExtension extends StatefulWidget {
   const ExaminationExtension({Key? key}) : super(key: key);
 
   @override
-  ExaminationExtensionController createState() => ExaminationExtensionController();
+  ExaminationExtensionController createState() =>
+      ExaminationExtensionController();
 }
 
 class ExaminationExtensionController extends State<ExaminationExtension> {
-
   //... //Initialization code, state vars etc, all go here
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
   }
 
@@ -29,8 +29,7 @@ class ExaminationExtensionController extends State<ExaminationExtension> {
   Widget build(BuildContext context) => ExaminationExtensionView(this);
 
   //Control logic grouped together, at top of file
-  void onBackPressed(){
+  void onBackPressed() {
     NavigatorHelper(context).closeScreen();
   }
-
 }

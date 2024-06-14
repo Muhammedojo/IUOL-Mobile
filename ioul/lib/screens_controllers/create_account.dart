@@ -1,7 +1,4 @@
-import 'package:ioul/bloc/register/cubit.dart';
-import 'package:ioul/model/register_student.dart';
-import '../helpers/helper.dart';
-import '../packages/package.dart';
+import '../core/core.dart';
 import '../screen_views/create_account.dart';
 
 class CreateAccount extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../helpers/helper.dart';
+import '../core/helpers/helper.dart';
 import '../screen_views/terms_and_services_view.dart';
 
 class TermsAndServices extends StatefulWidget {

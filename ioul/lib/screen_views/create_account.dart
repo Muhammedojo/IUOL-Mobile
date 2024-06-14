@@ -1,14 +1,9 @@
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:ioul/bloc/register/cubit.dart';
-
-import '../packages/package.dart';
-import '../helpers/helper.dart';
-import '../router/router.dart';
+import 'package:ioul/core/bloc/register/cubit.dart';
+import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
-
-import '../values/values.dart';
 import 'stateless_view.dart';
 
 class CreateAccountView
@@ -115,7 +110,7 @@ class CreateAccountView
                               contentPadding: REdgeInsets.all(16),
                               fillColor: AppColors.backgroundWhite,
                               filled: true,
-                              labelText: "email_address".tr(),
+                              labelText: "email".tr(),
                               hintStyle: Styles.x12dp_72777A_400w(),
                               labelStyle: Styles.x12dp_72777A_400w(),
 
@@ -191,7 +186,7 @@ class CreateAccountView
                               filled: false,
                               // isDense: true,
                               isCollapsed: true,
-                              hintText: 'phone'.tr(),
+                              hintText: 'phone_number'.tr(),
 
                               enabledBorder: OutlineInputBorder(
                                 borderSide:

@@ -1,8 +1,5 @@
-import '../bloc/bloc.dart';
-import '../helpers/helper.dart';
-import '../model/model.dart';
-import '../packages/package.dart';
-import '../provider/repository.dart';
+import '../core/core.dart';
+import '../core/api/provider/repository.dart';
 import '../screen_views/verify_email_view.dart';
 
 class VerifyEmail extends StatefulWidget {
@@ -54,10 +51,10 @@ class VerifyEmailController extends State<VerifyEmail> {
     var email = widget.email;
 
     if (pin.isEmpty) {
-      WidgetHelper.showToastError(context, "Kindly provide your pin.");
+      WidgetHelper.showToastError(context, "kindly_provide_your_pin".tr());
       return;
     } else if (pin.length < 4) {
-      WidgetHelper.showToastError(context, "Incomplete pin.");
+      WidgetHelper.showToastError(context, "incomplete_pin".tr());
       return;
     }
     sendPinToServer(pin, email);

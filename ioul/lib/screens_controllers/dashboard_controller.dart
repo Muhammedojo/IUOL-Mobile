@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ioul/packages/package.dart';
-import '../bloc/bloc.dart';
-import '../bloc/user/user_cubit.dart';
+import '../core/core.dart';
 import '../screen_views/dashboard_view.dart';
-import '../helpers/helper.dart';
 import '../screens/screens.dart';
 
 class Dashboard extends StatefulWidget {

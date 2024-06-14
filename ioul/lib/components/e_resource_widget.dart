@@ -1,6 +1,4 @@
-import '../model/model.dart';
-import '../packages/package.dart';
-import '../values/values.dart';
+import '../core/core.dart';
 
 class EResourceWidget extends StatelessWidget {
   final Function()? onTap;
