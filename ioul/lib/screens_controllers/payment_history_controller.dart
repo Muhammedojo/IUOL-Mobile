@@ -14,12 +14,10 @@ class PaymentHistory extends StatefulWidget {
 
 class PaymentHistoryController extends State<PaymentHistory> {
   //... //Initialization code, state vars etc, all go here
-  late final PaymentHistoryCubit paymentHistCubit;
 
   @override
   void initState() {
     context.read<PaymentHistoryCubit>().loadPaymentHistoryFromServer();
-
     super.initState();
   }
 

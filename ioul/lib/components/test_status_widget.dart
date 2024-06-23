@@ -43,29 +43,31 @@ class TestStatusWidget extends StatelessWidget {
                 SizedBox(
                   width: 12.w,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      '$title',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: Styles.font,
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xff090A0A),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        '$title',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: Styles.font,
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xff090A0A),
+                        ),
                       ),
-                    ),
-                    Text(
-                      '$unit',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontFamily: Styles.font,
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xff72777A),
+                      Text(
+                        '$unit',
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontFamily: Styles.font,
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xff72777A),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 const Spacer(),
                 Container(

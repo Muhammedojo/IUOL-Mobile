@@ -8,7 +8,7 @@ class ReportCubit extends Cubit<ReportState> {
   loadReportsFromServer() async {
     try {
       emit(ReportLoading());
-      final response = await repository.loadCourses();
+      final response = await repository.loadCoursesWithReport();
       if (response.statusCode == 200 || response.statusCode == 201) {
         emit(const ReportLoaded([]));
       } else {

@@ -73,49 +73,52 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
               height: 22.h,
             ),
             BlocBuilder<JournalCubit, JournalState>(
-                builder: (context, stateBloc) {
-              if (stateBloc is JournalLoading) {
-                return const Loader();
-              } else if (stateBloc is JournalLoaded) {
-                Map<String, dynamic> decodedResponse =
-                    jsonDecode('${stateBloc.response.data}');
-
-                List<dynamic> dataList = decodedResponse['data'];
-
-                return stateBloc.response.isRequestSuccessful()
-                    ? ListView.separated(
-                        separatorBuilder: (context, index) => SizedBox(
-                              height: 10.h,
-                            ),
-                        itemCount: dataList.length,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          var item = dataList[index];
-                          var link = item['url'];
-                          return EResourceWidget(
-                            onTap: () => WidgetHelper().launchURL(link),
-                            journal: item,
-                          );
-                        })
-                    : ErrorItemWidget(
-                        title: "empty_list".tr(),
-                        message: "journal_list_empty".tr(),
-                        hideButton: false,
-                        onTap: () {
-                          state.refresh();
-                        },
-                      );
-              }
-              return ErrorItemWidget(
-                title: "error_occurred".tr(),
-                message: "Couldn't fetch journals",
-                hideButton: false,
-                onTap: () {
-                  state.refresh();
-                },
-              );
-            }),
+              builder: (context, stateBloc) {
+                if (stateBloc is JournalLoading) {
+                  return const Loader();
+                } else if (stateBloc is JournalLoaded) {
+                  List<dynamic> dataList = stateBloc.response.datas;
+                  return dataList.isNotEmpty
+                      ? ListView.separated(
+                          separatorBuilder: (context, index) => SizedBox(
+                                height: 10.h,
+                              ),
+                          itemCount: dataList.length,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            var item = dataList[index];
+                            var link = item['url'] as String?;
+                            return EResourceWidget(
+                              onTap: () {
+                                if (link != null) {
+                                  WidgetHelper().launchURL(link);
+                                }
+                              },
+                              journal: Journal.fromJson(item),
+                            );
+                          })
+                      : ErrorItemWidget(
+                          title: "empty_list".tr(),
+                          message: "journal_list_empty".tr(),
+                          hideButton: false,
+                          onTap: () {
+                            state.refresh();
+                          },
+                        );
+                } else if (stateBloc is JournalFailure) {
+                  return ErrorItemWidget(
+                    title: "error_occurred".tr(),
+                    message: stateBloc.message,
+                    hideButton: false,
+                    onTap: () {
+                      state.refresh();
+                    },
+                  );
+                }
+                return Container();
+              },
+            )
           ],
         ),
       ),

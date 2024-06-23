@@ -455,7 +455,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 20.w,
+                                    width: 15.w,
                                   ),
                                   InkWell(
                                     onTap: () {},
@@ -464,7 +464,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                         fit: BoxFit.scaleDown),
                                   ),
                                   SizedBox(
-                                    width: 20.w,
+                                    width: 15.w,
                                   ),
                                   InkWell(
                                     onTap: () {},
@@ -473,7 +473,7 @@ class HomeView extends StatelessView<Home, HomeController> {
                                         fit: BoxFit.scaleDown),
                                   ),
                                   SizedBox(
-                                    width: 20.w,
+                                    width: 15.w,
                                   ),
                                   InkWell(
                                     onTap: () {
@@ -586,7 +586,8 @@ class HomeView extends StatelessView<Home, HomeController> {
                                       Navigator.push(
                                         context,
                                         CupertinoPageRoute(
-                                          builder: (context) => const Library(),
+                                          builder: (context) =>
+                                              const IOULLibrary(),
                                         ),
                                       );
                                     },

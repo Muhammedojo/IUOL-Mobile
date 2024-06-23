@@ -30,6 +30,7 @@ export 'assignment.dart';
 export 'course_detail.dart';
 export 'course_summary.dart';
 export 'time_table.dart';
+export 'collection.dart';
 export 'resources.dart';
 export 'course_overview.dart';
 export 'summary_course.dart';

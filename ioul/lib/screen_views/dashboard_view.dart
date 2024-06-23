@@ -52,8 +52,8 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                                     );
                                   },
                                   child: Container(
-                                    width: 50,
-                                    height: 50,
+                                    width: 48,
+                                    height: 48,
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.blue,
@@ -91,8 +91,8 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                                             state.extractLetters(
                                                 '${stateBloc.login.fullName()}'),
                                             style: TextStyle(
-                                                fontSize: 24.sp,
-                                                fontWeight: FontWeight.w700,
+                                                fontSize: 22.sp,
+                                                fontWeight: FontWeight.w600,
                                                 fontFamily: Styles.font,
                                                 color: const Color(0xffffffff)),
                                           );
@@ -117,25 +117,25 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                           )
                         ],
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 15.h),
                       BlocBuilder<UserCubit, UserState>(
                           builder: (context, stateBloc) {
                         if (stateBloc is UserLoaded) {
                           return Text(
                             'Hi, ${stateBloc.login.fullName() ?? ''}',
                             style: TextStyle(
-                                fontSize: 24.sp,
-                                fontWeight: FontWeight.w700,
+                                fontSize: 22.sp,
+                                fontWeight: FontWeight.w600,
                                 fontFamily: Styles.font,
-                                height: 32.00 / 24.0,
+                                //height: 32.00 / 24.0,
                                 color: const Color(0xffffffff)),
                           );
                         }
                         return Text(
                           '',
                           style: TextStyle(
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w700,
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.w600,
                               fontFamily: Styles.font,
                               color: const Color(0xffffffff)),
                         );
@@ -254,8 +254,9 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                       ),
                       Expanded(
                         child: CardWidget(
+                          icon: true,
+                          image: 'calendar',
                           title: 'calendar'.tr(),
-                          number: '18',
                           onTap: null,
                         ),
                       ),
@@ -268,8 +269,9 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                     children: [
                       Expanded(
                         child: CardWidget(
+                          icon: true,
                           title: 'virtual_library'.tr(),
-                          number: '12',
+                          image: 'library',
                           onTap: null,
                         ),
                       ),
@@ -290,8 +292,8 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   ),
                   Text('recent_class'.tr(),
                       style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w500,
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w600,
                           fontFamily: Styles.font,
                           color: const Color(0xff202325))),
                   SizedBox(
@@ -318,8 +320,8 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                   ),
                   Text('upcoming_task_assignment'.tr(),
                       style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w500,
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w600,
                           fontFamily: Styles.font,
                           color: const Color(0xff202325))),
                   SizedBox(

@@ -555,6 +555,33 @@ class ApiProvider {
     }
   }
 
+  Future<GenericResponse> getCollection({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequestCampus(collectionsEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = GenericResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = GenericResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = GenericResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
   Future<UpcomingAssignmentResponse> getUpcomingTaskList(
       {String? endpoint}) async {
     int? statusCode;
@@ -613,7 +640,7 @@ class ApiProvider {
   Future<GenericResponse> getCoursesWithReportList({String? endpoint}) async {
     int? statusCode;
     try {
-      Response response = await doGetRequestCampus(coursesEndpoint);
+      Response response = await doGetRequestCampus(coursesReport);
       statusCode = response.statusCode;
       //print("state response: ${response.toString()}");
 

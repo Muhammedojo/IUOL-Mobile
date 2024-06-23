@@ -1,14 +1,20 @@
+import 'package:ioul/core/utils/extension.dart';
+
 import '../core/core.dart';
 
 class CardWidget extends StatelessWidget {
   final String? title;
   final String? number;
+  final bool? icon;
+  final String? image;
   final Function()? onTap;
 
   const CardWidget({
     Key? key,
     required this.title,
-    required this.number,
+    this.number,
+    this.icon,
+    this.image,
     required this.onTap,
   }) : super(key: key);
 
@@ -29,24 +35,34 @@ class CardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.r),
-                    color: AppColors.secondaryLightBlue,
-                  ),
-                  child: Padding(
-                    padding: REdgeInsets.all(8.0),
-                    child: Text(
-                      '$number',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: Styles.font,
-                        color: const Color(0xff25435B),
+                icon == true
+                    ? Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.r),
+                          color: AppColors.secondaryLightBlue,
+                        ),
+                        child: Padding(
+                            padding: REdgeInsets.all(8.0),
+                            child: '$image'.toSvg()),
+                      )
+                    : Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.r),
+                          color: AppColors.secondaryLightBlue,
+                        ),
+                        child: Padding(
+                          padding: REdgeInsets.all(8.0),
+                          child: Text(
+                            '$number',
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: Styles.font,
+                              color: const Color(0xff25435B),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
                 SizedBox(
                   height: 15.h,
                 ),

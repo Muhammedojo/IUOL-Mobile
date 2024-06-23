@@ -11,7 +11,7 @@ class ResendEmailVerificationCubit extends Cubit<ResendEmailVerificationState> {
       emit(ResendEmailVerificationLoading());
       final response =
           await repository.resendEmailVerification('${data.email}');
-      log("response body first: ${response.data}");
+      log("response body first: ${response.datas}");
       if (response.isConnectionSuccessful()) {
         emit(ResendEmailVerificationLoaded(response));
       } else {

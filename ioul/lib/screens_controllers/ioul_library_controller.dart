@@ -1,5 +1,6 @@
+import 'package:ioul/core/packages/package.dart';
+import '../core/bloc/collection/collection_cubit.dart';
 import '../screen_views/ioul_library_view.dart';
-import 'package:flutter/material.dart';
 import '../core/helpers/helper.dart';
 
 class IOULLibrary extends StatefulWidget {
@@ -18,6 +19,7 @@ class IOULLibraryController extends State<IOULLibrary> {
 
   @override
   void initState() {
+    context.read<CollectionCubit>().loadCollectionsFromServer();
     super.initState();
   }
 
@@ -32,5 +34,11 @@ class IOULLibraryController extends State<IOULLibrary> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  refresh() {
+    if (mounted) {
+      context.read<CollectionCubit>().loadCollectionsFromServer();
+    }
   }
 }

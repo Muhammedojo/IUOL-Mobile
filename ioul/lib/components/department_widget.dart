@@ -1,16 +1,11 @@
 import '../core/core.dart';
+
 class DeptWidget extends StatelessWidget {
-  final String icon;
-  final String label;
   final Color? color;
   final Function() onTap;
+  final Collection? collection;
 
-  const DeptWidget(
-      {Key? key,
-      required this.icon,
-      required this.label,
-      this.color,
-      required this.onTap})
+  const DeptWidget({Key? key, this.color, required this.onTap, this.collection})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -33,15 +28,19 @@ class DeptWidget extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                const Text(
+                  'Hello',
+                  style: TextStyle(fontSize: 25, color: Colors.red),
+                ),
                 Image.asset(
-                  icon,
+                  'assets/images/briefcase 1.png',
                   fit: BoxFit.scaleDown,
                   height: 60.w,
                   width: 60.w,
                 ),
                 Expanded(
                   child: Text(
-                    label,
+                    '${collection?.subjectArea}',
                     textAlign: TextAlign.center,
                     // maxLines: 1,
                     style: TextStyle(

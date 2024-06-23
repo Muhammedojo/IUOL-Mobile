@@ -28,17 +28,19 @@ class UpcomingTaskWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text('${task?.courseCode} - ${task?.courseTitle}',
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: Styles.font,
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xff090A0A))),
+                    Expanded(
+                      child: Text('${task?.courseCode} - ${task?.courseTitle}',
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: Styles.font,
+                              fontWeight: FontWeight.w400,
+                              color: const Color(0xff090A0A))),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
-                    Text('Due on ${task?.dueDate}',
+                    Text('Due on ${task?.dueDate ?? 'N/A'}',
                         style: TextStyle(
                             fontSize: 14.sp,
                             fontFamily: Styles.font,

@@ -1,4 +1,3 @@
-
 import '../components/custom_dropdown_widget.dart';
 import '../core/core.dart';
 import '../components/components.dart';
@@ -72,7 +71,8 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                               'Late Registration Fee',
                               'Transcript',
                               "Test Extention",
-                              'Assignment Extention'
+                              'Assignment Extention',
+                              "Practial Course Registration"
                             ],
                             controller: state.dropdownController,
                             onChange: (value) => state.setSelectedValue(value),
@@ -87,7 +87,8 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                             'Late Registration Fee',
                             'Transcript',
                             "Test Extention",
-                            'Assignment Extention'
+                            'Assignment Extention',
+                            "Practial Course Registration"
                           ],
                           controller: state.dropdownController,
                           onChange: (value) => state.setSelectedValue(value),
@@ -108,7 +109,7 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                 Padding(
                   padding: REdgeInsets.symmetric(horizontal: 20.0),
                   child: SubmitButtonWidget(
-                    label: 'proceed_to_payment'.tr(),
+                    label: 'proceed'.tr(),
                     onPressed: () {
                       Navigator.push(
                         context,

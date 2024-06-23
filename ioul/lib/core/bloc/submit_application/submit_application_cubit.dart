@@ -11,7 +11,7 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
     try {
       emit(SubmitApplicationLoading());
       final response = await repository.submitApplication(application);
-      log("response body first: ${response.data}");
+      log("response body first: ${response.datas}");
       if (response.isConnectionSuccessful()) {
         emit(SubmitApplicationLoaded(response));
       } else {

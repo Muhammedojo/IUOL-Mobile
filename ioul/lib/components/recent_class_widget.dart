@@ -18,11 +18,11 @@ class RecentClassWidget extends StatelessWidget {
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(12.r),
             color: AppColors.lightBlue,
           ),
           child: Padding(
-            padding: REdgeInsets.symmetric(vertical: 18.0, horizontal: 19),
+            padding: REdgeInsets.symmetric(vertical: 10.0, horizontal: 19),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -30,7 +30,7 @@ class RecentClassWidget extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '$code'.tr(),
+                      '$code',
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontFamily: Styles.font,
@@ -47,7 +47,7 @@ class RecentClassWidget extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        '$title'.tr(),
+                        '$title',
                         style: TextStyle(
                           fontSize: 15.sp,
                           fontFamily: Styles.font,

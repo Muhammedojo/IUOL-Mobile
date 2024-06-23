@@ -37,7 +37,7 @@ extension StringExtension on String {
     Color? color,
   }) {
     return SvgPicture.asset(
-      'assets/vectors/$this.svg',
+      'assets/images/$this.svg',
       width: width,
       height: height,
       // ignore: deprecated_member_use

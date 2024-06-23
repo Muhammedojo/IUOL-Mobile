@@ -2,14 +2,14 @@ class GenericResponse {
   GenericResponse({
     this.success,
     this.message,
-    this.data,
+    this.datas,
   });
 
   int? responseCode = -700;
 
   String? message;
   bool? success;
-  final Object? data;
+  dynamic datas;
   String? error;
 
   String? detail;
@@ -42,7 +42,6 @@ class GenericResponse {
       }
       return message ?? "";
     } else if (!isConnectionSuccessful()) {
-      //  print("alrighty...");
       // connection is NOT successful, hence, returns connection error
       if (_isValidationError()) {
         return getApiErrorMessage().replaceAll("non field errors:", "").trim();
@@ -50,11 +49,9 @@ class GenericResponse {
       if (hasSuccessResponseWithError()) {
         return getApiErrorMessage().replaceAll("non field errors:", "").trim();
       }
-      // print("hala... ");
+
       return getApiErrorMessage();
     } else {
-      // print("holla ....");
-      // every went well.
       return getApiErrorMessage();
     }
   }
@@ -74,9 +71,10 @@ GenericResponse _$GenericResponseFromJson(Map<String, dynamic> json) {
   if (json.containsKey("message")) {
     obj.message = json["message"];
   }
-  // if(json.containsKey("data")){
-  //   obj.data =
-  // }
+
+  if (json.containsKey("data")) {
+    obj.datas = json["data"];
+  }
 
   return obj;
 }

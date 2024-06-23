@@ -28,69 +28,23 @@ class PaymentHistoryView
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            height: 10.h,
-          ),
-          // Row(
-          //   children: [
-          //     Expanded(
-          //       child: Container(
-          //         decoration: BoxDecoration(
-          //             border: Border.all(color: const Color(0xffD1D5DB)),
-          //             borderRadius: BorderRadius.circular(8.r),
-          //             color: const Color(0xffD1D5DB).withOpacity(0.2)),
-          //         child: TextFormField(
-          //           style: TextStyle(
-          //               color: const Color(0xff000000),
-          //               fontFamily: Styles.font,
-          //               fontSize: 12.sp),
-          //           //controller: state.searchController,
-          //           onChanged: (value) {
-          //             context.read<PaymentHistoryCubit>().filterItems(value);
-          //           },
-          //           autofocus: false,
-          //           decoration: InputDecoration(
-          //             border: InputBorder.none,
-          //             focusedBorder: InputBorder.none,
-          //             prefixIcon: SvgPicture.asset(
-          //               'assets/images/search.svg',
-          //               color: const Color(0xff000000),
-          //               width: 16.w,
-          //               height: 16.w,
-          //               fit: BoxFit.scaleDown,
-          //             ),
-          //             hintText: "search".tr(),
-          //             hintStyle: TextStyle(
-          //                 fontSize: 16.sp,
-          //                 fontWeight: FontWeight.w400,
-          //                 fontFamily: Styles.font,
-          //                 color: const Color(0xff6C7072)),
-          //             //onChanged: searchOperation,
-          //           ),
-          //           textInputAction: TextInputAction.search,
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
-
-          SizedBox(
             height: 20.h,
           ),
           BlocBuilder<PaymentHistoryCubit, PaymentHistoryState>(
-            builder: (context, states) {
-              if (state is PaymentHistoryLoading) {
-                const Loader();
-              } else if (states is PaymentHistoryLoaded) {
-                return states.paymentHistoryList.isNotEmpty
+            builder: (context, stateBloc) {
+              if (stateBloc is PaymentHistoryLoading) {
+                return const Loader();
+              } else if (stateBloc is PaymentHistoryLoaded) {
+                return stateBloc.paymentHistoryList.isNotEmpty
                     ? ListView.separated(
                         separatorBuilder: (context, index) => const Divider(
                           color: Color(0xff000000),
                         ),
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: states.paymentHistoryList.length,
+                        itemCount: stateBloc.paymentHistoryList.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          var history = states.paymentHistoryList[index];
+                          var history = stateBloc.paymentHistoryList[index];
                           return PaymentHistoryWidget(
                             onTap: () {
                               state.showPaymentDetails(history);

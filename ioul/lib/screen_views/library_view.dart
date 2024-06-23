@@ -13,7 +13,8 @@ class LibraryView extends StatelessView<Library, LibraryController> {
     return Scaffold(
         backgroundColor: Colors.transparent,
         appBar: WidgetHelper().appBackArrowWithTitle(context,
-            title: 'ioul_library'.tr(), onTap: () => state.onBackPressed()),
+            title: 'ioul_librarymmmmm'.tr(),
+            onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body(context)));
   }
 
@@ -99,8 +100,6 @@ class LibraryView extends StatelessView<Library, LibraryController> {
                 itemCount: 5,
                 shrinkWrap: true,
                 itemBuilder: (context, index) => DeptWidget(
-                      icon: 'assets/images/computer-science 1.png',
-                      label: 'Computer & IT',
                       onTap: () {},
                     )),
           ),
