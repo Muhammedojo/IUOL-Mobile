@@ -37,6 +37,9 @@ class AppRepository {
   Future<EnrolledCourseResponse> loadCourses() async =>
       _apiProvider.getCoursesList();
 
+  Future<NotificationResponse> loadNotifications() async =>
+      _apiProvider.getNotificationsList();
+
   Future<GenericResponse> loadJournal() async => _apiProvider.getJournal();
 
   Future<GenericResponse> loadCollection() async =>

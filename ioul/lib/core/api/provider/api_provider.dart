@@ -637,6 +637,33 @@ class ApiProvider {
     }
   }
 
+  Future<NotificationResponse> getNotificationsList({String? endpoint}) async {
+    int? statusCode;
+    try {
+      Response response = await doGetRequestCampus(notificationsEndpoint);
+      statusCode = response.statusCode;
+      //print("state response: ${response.toString()}");
+
+      if (_isConnectionSuccessful(statusCode)) {
+        var decodedBody = jsonDecode(response.toString());
+
+        var requestResponse = NotificationResponse.fromJson(decodedBody);
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      } else {
+        var requestResponse = NotificationResponse();
+        requestResponse.statusCode = statusCode!;
+        return requestResponse;
+      }
+    } on DioException catch (e) {
+      var requestResponse = NotificationResponse();
+      //requestResponse.statusCode = statusCode ?? e.response.statusCode;
+      requestResponse.message = _handleDioError(e);
+
+      return requestResponse;
+    }
+  }
+
   Future<GenericResponse> getCoursesWithReportList({String? endpoint}) async {
     int? statusCode;
     try {

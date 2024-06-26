@@ -41,6 +41,7 @@ class PaymentHistoryInvoiceController extends State<PaymentHistoryInvoice> {
     try {
       final image = await screenshotController.capture(pixelRatio: 2.0);
       if (image != null) {
+        // ignore: unused_local_variable
         final result = await ImageGallerySaver.saveImage(
           image,
           quality: 100,

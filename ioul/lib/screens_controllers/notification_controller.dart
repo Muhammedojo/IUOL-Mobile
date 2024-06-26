@@ -1,4 +1,3 @@
-
 import '../screen_views/notification_view.dart';
 
 import '../core/core.dart';
@@ -15,6 +14,7 @@ class NotificationController extends State<Notifications> {
 
   @override
   void initState() {
+    context.read<NotificationCubit>().loadNotificationsFromServer();
     super.initState();
   }
 
@@ -29,5 +29,9 @@ class NotificationController extends State<Notifications> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  refresh() {
+    context.read<NotificationCubit>().loadNotificationsFromServer();
   }
 }

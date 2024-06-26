@@ -23,3 +23,4 @@ export 'report/cubit.dart';
 export 'upcoming_task/cubit.dart';
 export 'journal/cubit.dart';
 export 'collection/cubit.dart';
+export 'notification/cubit.dart';

@@ -12,14 +12,14 @@ class Notificationss {
 Notificationss _$NotificationssFromJson(Map<String, dynamic> json) {
   var obj = Notificationss();
 
-  obj.message = json["message"];
-  obj.date = json["date"];
+  obj.message = json["content"];
+  obj.date = json["created_at"];
 
   return obj;
 }
 
 Map<String, dynamic> _$NotificationssToJson(Notificationss obj) =>
     <String, dynamic>{
-      "message": obj.message,
-      "date": obj.date,
+      "content": obj.message,
+      "created_at": obj.date,
     };

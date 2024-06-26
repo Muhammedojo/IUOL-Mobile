@@ -25,16 +25,43 @@ class NotificationView
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            ListView.separated(
-                separatorBuilder: (context, index) => const Divider(),
-                itemCount: 5,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  var note = Notificationss();
-                  return NotificationWidget(
-                    notification: note,
-                  );
-                }),
+            BlocBuilder<NotificationCubit, NotificationState>(
+                builder: (context, stateBloc) {
+              if (stateBloc is NotificationLoading) {
+                return const Loader();
+              } else if (stateBloc is NotificationLoaded) {
+                return stateBloc.notificationList.isNotEmpty
+                    ? ListView.separated(
+                        separatorBuilder: (context, index) => SizedBox(
+                              height: 10.h,
+                            ),
+                        itemCount: stateBloc.notificationList.length,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          var notifications = stateBloc.notificationList[index];
+                          return NotificationWidget(
+                            notification: notifications,
+                          );
+                        })
+                    : ErrorItemWidget(
+                        title: "empty_list".tr(),
+                        message: "notification_list_empty".tr(),
+                        hideButton: false,
+                        onTap: () {
+                          state.refresh();
+                        },
+                      );
+              }
+              return ErrorItemWidget(
+                title: "error_occurred".tr(),
+                message: "Couldn't fetch notification",
+                hideButton: false,
+                onTap: () {
+                  state.refresh();
+                },
+              );
+            }),
           ],
         ),
       ),

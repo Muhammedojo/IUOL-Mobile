@@ -26,6 +26,7 @@ const String collectionsEndpoint = "virtual-library/collection";
 const String journalsEndpoint = "virtual-library/journals";
 const String applicationFormData = "application/form-data";
 const String coursesEndpoint = "courses";
+const String notificationsEndpoint = "home/notifications";
 const String upcomingAssignmentEndpoint = "home";
 const String courseVideoEndpoint = "courses/13/resources/video-resources";
 const String courseAudioEndpoint = "courses/13/resources/audio-resources";

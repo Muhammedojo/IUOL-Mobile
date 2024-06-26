@@ -23,26 +23,28 @@ class _TestResetWidgetState extends State<TestResetWidget> {
 
     return Row(
       children: [
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(widget.course,
-                style: TextStyle(
-                    fontSize: 16.sp,
-                    fontFamily: Styles.font,
-                    fontWeight: FontWeight.w400,
-                    color: const Color(0xff090A0A))),
-            SizedBox(
-              height: 8.h,
-            ),
-            Text(widget.unit,
-                style: TextStyle(
-                    fontSize: 14.sp,
-                    fontFamily: Styles.font,
-                    fontWeight: FontWeight.w400,
-                    color: const Color(0xff72777A)))
-          ],
+        Expanded(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(widget.course,
+                  style: TextStyle(
+                      fontSize: 16.sp,
+                      fontFamily: Styles.font,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff090A0A))),
+              SizedBox(
+                height: 8.h,
+              ),
+              Text(widget.unit,
+                  style: TextStyle(
+                      fontSize: 14.sp,
+                      fontFamily: Styles.font,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff72777A)))
+            ],
+          ),
         ),
         const Spacer(),
         Checkbox(
