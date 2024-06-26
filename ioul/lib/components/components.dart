@@ -23,6 +23,7 @@ export 'upcoming_task.dart';
 export 'notification_widget.dart';
 export 'test_status_widget.dart';
 export 'test_widget.dart';
+export 'library_box.dart';
 export 'e_resource_widget.dart';
 export 'course_reg_widget.dart';
 export 'audio_control_widget.dart';

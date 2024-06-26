@@ -89,6 +89,67 @@ class IOULLibraryView
                   ],
                 ),
                 SizedBox(
+                  height: 20.h,
+                ),
+                BlocBuilder<CollectionCubit, CollectionState>(
+                    builder: (context, stateBloc) {
+                  if (stateBloc is CollectionLoading) {
+                    return const Loader();
+                  } else if (stateBloc is CollectionLoaded) {
+                    List<dynamic> dataList = stateBloc.response.datas;
+                    return dataList.isNotEmpty
+                        ? SizedBox(
+                            height: 180,
+                            child: ListView.separated(
+                                separatorBuilder: (context, index) => SizedBox(
+                                      width: 10.h,
+                                    ),
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 4,
+                                shrinkWrap: true,
+                                // physics: const NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  var item = dataList[index];
+                                  var link = item['url'] as String?;
+                                  return LibraryWidget(
+                                    onTap: () {
+                                      if (link != null) {
+                                        WidgetHelper().launchURL(link);
+                                      }
+                                    },
+                                    collection: Collection.fromJson(item),
+                                  );
+                                }))
+                        : ErrorItemWidget(
+                            title: "empty_list".tr(),
+                            message: "journal_list_empty".tr(),
+                            hideButton: false,
+                            onTap: () {
+                              state.refresh();
+                            },
+                          );
+                  } else {
+                    return ErrorItemWidget(
+                      title: "error_occurred".tr(),
+                      message: 'stateBloc.message',
+                      hideButton: false,
+                      onTap: () {
+                        state.refresh();
+                      },
+                    );
+                  }
+                }),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    'recently_viewed'
+                        .toText(fontSize: 14, fontWeight: FontWeight.w700),
+                  ],
+                ),
+                SizedBox(
                   height: 10.h,
                 ),
                 BlocBuilder<CollectionCubit, CollectionState>(
@@ -102,7 +163,7 @@ class IOULLibraryView
                             separatorBuilder: (context, index) => SizedBox(
                                   height: 10.h,
                                 ),
-                            itemCount: dataList.length,
+                            itemCount: 4,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             itemBuilder: (context, index) {
