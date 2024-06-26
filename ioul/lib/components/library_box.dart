@@ -23,8 +23,8 @@ class LibraryWidget extends StatelessWidget {
             boxShadow: const [
               BoxShadow(
                 color: Colors.black12,
-                spreadRadius: 2.0,
-                blurRadius: 5.0,
+                spreadRadius: 0.9,
+                blurRadius: 1.0,
               ),
             ],
           ),

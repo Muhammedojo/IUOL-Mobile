@@ -64,8 +64,9 @@ class WidgetHelper {
   }
 
   Future<void> launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    final Uri urlLink = Uri.parse(url);
+    if (await canLaunchUrl(urlLink)) {
+      await launchUrl(urlLink);
     } else {
       throw 'Could not launch $url';
     }

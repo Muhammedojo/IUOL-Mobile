@@ -1,4 +1,3 @@
-import 'dart:convert';
 import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
@@ -116,7 +115,7 @@ class EResourcesView extends StatelessView<EResources, EResourcesController> {
                     },
                   );
                 }
-                return Container();
+                return const SizedBox.shrink();
               },
             )
           ],

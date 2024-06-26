@@ -1,5 +1,3 @@
-import '../core/bloc/bloc.dart';
-
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/course_registration_controller.dart';
@@ -129,15 +127,17 @@ class CourseRegistrationView
                                       state.refresh();
                                     },
                                   );
+                          } else if (stateBloc is CourseRegFailure) {
+                            return ErrorItemWidget(
+                              title: "error_occurred".tr(),
+                              message: stateBloc.message,
+                              hideButton: false,
+                              onTap: () {
+                                state.refresh();
+                              },
+                            );
                           }
-                          return ErrorItemWidget(
-                            title: "error_occurred".tr(),
-                            message: "course_list_empty".tr(),
-                            hideButton: false,
-                            onTap: () {
-                              state.refresh();
-                            },
-                          );
+                          return Container();
                         }),
                         SizedBox(
                           height: 30.h,
