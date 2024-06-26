@@ -22,7 +22,7 @@ extension StringExtension on String {
           height: textHeight,
           fontSize: fontSize.sp,
           fontStyle: fontStyle,
-          color: color ?? Colors.black12,
+          color: color ?? AppColors.inkBase,
           overflow: textOverflow ?? TextOverflow.visible),
     );
   }

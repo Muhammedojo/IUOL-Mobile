@@ -24,34 +24,48 @@ class DeptWidget extends StatelessWidget {
               ),
             ]),
         child: Padding(
-            padding: REdgeInsets.symmetric(horizontal: 40, vertical: 40.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text(
-                  'Hello',
-                  style: TextStyle(fontSize: 25, color: Colors.red),
-                ),
-                Image.asset(
-                  'assets/images/briefcase 1.png',
-                  fit: BoxFit.scaleDown,
-                  height: 60.w,
-                  width: 60.w,
-                ),
-                Expanded(
-                  child: Text(
-                    '${collection?.subjectArea}',
-                    textAlign: TextAlign.center,
-                    // maxLines: 1,
-                    style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: Styles.font,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xff090A0A)),
+          padding: REdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      '${collection?.title}',
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: Styles.font,
+                          fontWeight: FontWeight.w600,
+                          color: const Color(0xff090A0A)),
+                    ),
                   ),
-                )
-              ],
-            )),
+                ],
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      '${collection?.subjectArea}',
+                      style: TextStyle(
+                          fontSize: 14.sp,
+                          fontFamily: Styles.font,
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xff303437)),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 4.h,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
