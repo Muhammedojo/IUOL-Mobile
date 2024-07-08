@@ -1,8 +1,8 @@
-import '../components/components.dart';
-import '../components/custom_dropdown_widget.dart';
-import '../core/core.dart';
-import '../screens_controllers/programme_controller.dart';
-import 'stateless_view.dart';
+import '../../../../components/components.dart';
+import '../../../../components/custom_dropdown_widget.dart';
+import '../../../../core/core.dart';
+import '../../../../screens_controllers/programme_controller.dart';
+import '../../../../screen_views/stateless_view.dart';
 
 class ProgrammeView extends StatelessView<Programme, ProgrammeController> {
   const ProgrammeView(ProgrammeController state, {Key? key})

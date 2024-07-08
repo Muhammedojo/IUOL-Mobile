@@ -2,14 +2,14 @@ import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:ioul/core/bloc/bloc.dart';
 
-import '../components/custom_dropdown_widget.dart';
-import '../core/packages/package.dart';
-import '../core/values/values.dart';
-import '../components/components.dart';
-import '../screens/screens.dart';
+import '../../../../components/custom_dropdown_widget.dart';
+import '../../../../core/packages/package.dart';
+import '../../../../core/values/values.dart';
+import '../../../../components/components.dart';
+import '../../../../screens/screens.dart';
 
-import '../screens_controllers/address_controller.dart';
-import 'stateless_view.dart';
+import '../../../../screens_controllers/address_controller.dart';
+import '../../../../screen_views/stateless_view.dart';
 
 class AddressView extends StatelessView<Address, AddressController> {
   const AddressView(AddressController state, {Key? key})

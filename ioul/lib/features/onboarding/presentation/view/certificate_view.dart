@@ -1,9 +1,9 @@
 import 'package:form_validator/form_validator.dart';
-import '../components/components.dart';
-import '../components/custom_dropdown_widget.dart';
-import '../core/core.dart';
-import '../screens_controllers/certificate_controller.dart';
-import 'stateless_view.dart';
+import '../../../../components/components.dart';
+import '../../../../components/custom_dropdown_widget.dart';
+import '../../../../core/core.dart';
+import '../../../../screens_controllers/certificate_controller.dart';
+import '../../../../screen_views/stateless_view.dart';
 
 class CertificateView
     extends StatelessView<Certificate, CertificateController> {

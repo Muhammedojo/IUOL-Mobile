@@ -1,8 +1,8 @@
-import '../core/core.dart';
-import '../components/components.dart';
-import '../screens/screens.dart';
-import '../screens_controllers/pending_application_controller.dart';
-import 'stateless_view.dart';
+import '../../../../core/core.dart';
+import '../../../../components/components.dart';
+import '../../../../screens/screens.dart';
+import '../../../../screens_controllers/pending_application_controller.dart';
+import '../../../../screen_views/stateless_view.dart';
 
 class PendingApplicationView
     extends StatelessView<PendingApplication, PendingApplicationController> {

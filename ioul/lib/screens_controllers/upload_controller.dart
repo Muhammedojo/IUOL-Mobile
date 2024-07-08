@@ -1,6 +1,6 @@
 import 'dart:io';
 import '../core/core.dart';
-import '../screen_views/upload_view.dart';
+import '../features/onboarding/presentation/view/upload_view.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Upload extends StatefulWidget {

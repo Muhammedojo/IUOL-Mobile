@@ -23,6 +23,7 @@ class SplashScreenView
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(28.r),
                   bottomRight: Radius.circular(28.r),
+
                 ),
               ),
             ),

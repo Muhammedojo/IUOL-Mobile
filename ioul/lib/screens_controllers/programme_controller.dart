@@ -1,4 +1,4 @@
-import '../screen_views/programme_view.dart';
+import '../features/onboarding/presentation/view/programme_view.dart';
 import '../core/core.dart';
 
 class Programme extends StatefulWidget {

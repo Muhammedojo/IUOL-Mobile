@@ -14,7 +14,7 @@ export '../screens_controllers/course_controller.dart';
 export '../screens_controllers/sponsor_controller.dart';
 export '../screens_controllers/course_detail_overview_controller.dart';
 export '../screens_controllers/create_account.dart';
-export '../screens_controllers/verify_email_controller.dart';
+export '../features/auth/presentation/controller/verify_email_controller.dart';
 export '../screens_controllers/report_controller.dart';
 export '../features/auth/presentation/controller/login_controller.dart';
 export '../screens_controllers/personal_controller.dart';

@@ -1,9 +1,9 @@
 import 'package:pinput/pinput.dart';
-import '../core/bloc/resend_email_verification/cubit.dart';
-import '../components/components.dart';
-import '../core/core.dart';
-import '../screens_controllers/verify_email_controller.dart';
-import 'stateless_view.dart';
+import '../../../../core/bloc/resend_email_verification/cubit.dart';
+import '../../../../components/components.dart';
+import '../../../../core/core.dart';
+import '../controller/verify_email_controller.dart';
+import '../../../../screen_views/stateless_view.dart';
 
 class VerifyEmailView
     extends StatelessView<VerifyEmail, VerifyEmailController> {

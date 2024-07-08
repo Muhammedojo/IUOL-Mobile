@@ -1,8 +1,8 @@
-import '../core/core.dart';
-import '../components/components.dart';
-import '../components/custom_dropdown_widget.dart';
-import '../screens_controllers/admission_payment.dart';
-import 'stateless_view.dart';
+import '../../../../core/core.dart';
+import '../../../../components/components.dart';
+import '../../../../components/custom_dropdown_widget.dart';
+import '../../../../screens_controllers/admission_payment.dart';
+import '../../../../screen_views/stateless_view.dart';
 
 class AdmissionPaymentView
     extends StatelessView<AdmissionPayment, AdmissionPaymentController> {

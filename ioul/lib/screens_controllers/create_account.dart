@@ -1,5 +1,5 @@
 import '../core/core.dart';
-import '../screen_views/create_account.dart';
+import '../features/onboarding/presentation/view/create_account.dart';
 
 class CreateAccount extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

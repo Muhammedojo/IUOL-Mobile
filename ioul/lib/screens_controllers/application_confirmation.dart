@@ -1,5 +1,5 @@
 import '../core/core.dart';
-import '../screen_views/application_confirmation.dart';
+import '../features/onboarding/presentation/view/application_confirmation.dart';
 
 class ApplicationConfirmation extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

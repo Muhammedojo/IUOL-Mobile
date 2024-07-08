@@ -1,7 +1,7 @@
 import 'package:ioul/core/utils/utils.dart';
 import '../core/helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/sponsor_view.dart';
+import '../features/onboarding/presentation/view/sponsor_view.dart';
 
 class Sponsor extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

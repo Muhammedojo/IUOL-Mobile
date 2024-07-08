@@ -1,6 +1,6 @@
 import '../core/core.dart';
 import '../core/data/response/responses.dart';
-import '../screen_views/address_view.dart';
+import '../features/onboarding/presentation/view/address_view.dart';
 
 class Address extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

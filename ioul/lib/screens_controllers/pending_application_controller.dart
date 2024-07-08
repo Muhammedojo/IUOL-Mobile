@@ -1,4 +1,4 @@
-import '../screen_views/pending_application_view.dart';
+import '../features/onboarding/presentation/view/pending_application_view.dart';
 import 'package:flutter/material.dart';
 import '../core/helpers/helper.dart';
 

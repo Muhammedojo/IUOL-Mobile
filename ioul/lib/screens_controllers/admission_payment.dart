@@ -1,6 +1,6 @@
 import '../core/helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/admission_payment.dart';
+import '../features/onboarding/presentation/view/admission_payment.dart';
 
 class AdmissionPayment extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

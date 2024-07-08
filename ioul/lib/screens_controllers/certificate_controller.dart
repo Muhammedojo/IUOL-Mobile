@@ -2,7 +2,7 @@ import 'package:ioul/core/utils/utils.dart';
 import '../core/helpers/helper.dart';
 import 'package:flutter/material.dart';
 
-import '../screen_views/certificate_view.dart';
+import '../features/onboarding/presentation/view/certificate_view.dart';
 
 class Certificate extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

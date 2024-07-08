@@ -1,6 +1,6 @@
-import '../core/core.dart';
-import '../core/api/provider/repository.dart';
-import '../screen_views/verify_email_view.dart';
+import '../../../../core/core.dart';
+import '../../../../core/api/provider/repository.dart';
+import '../view/verify_email_view.dart';
 
 class VerifyEmail extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

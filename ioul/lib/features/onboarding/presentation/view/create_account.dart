@@ -1,10 +1,10 @@
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ioul/core/bloc/register/cubit.dart';
-import '../core/core.dart';
-import '../components/components.dart';
-import '../screens/screens.dart';
-import 'stateless_view.dart';
+import '../../../../core/core.dart';
+import '../../../../components/components.dart';
+import '../../../../screens/screens.dart';
+import '../../../../screen_views/stateless_view.dart';
 
 class CreateAccountView
     extends StatelessView<CreateAccount, CreateAccountController> {

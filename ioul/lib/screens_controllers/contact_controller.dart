@@ -1,7 +1,7 @@
 import 'package:ioul/core/utils/utils.dart';
 import '../core/helpers/helper.dart';
 import 'package:flutter/material.dart';
-import '../screen_views/contact_view.dart';
+import '../features/onboarding/presentation/view/contact_view.dart';
 
 class Contact extends StatefulWidget {
   const Contact({
