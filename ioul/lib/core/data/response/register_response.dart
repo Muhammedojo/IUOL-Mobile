@@ -1,6 +1,4 @@
-// import '../helper/helper.dart';
-
-import '../core/core.dart';
+import '../../core.dart';
 import 'response.dart';
 
 class RegisterResponse extends GenericResponse {

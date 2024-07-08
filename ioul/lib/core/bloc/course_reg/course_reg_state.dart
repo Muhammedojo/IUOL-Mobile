@@ -1,5 +1,4 @@
-import '../../../response/course_reg_response.dart';
-import '../../../response/response.dart';
+import '../../data/response/responses.dart';
 import '../../core.dart';
 
 abstract class CourseRegState extends Equatable {

@@ -1,14 +1,14 @@
 library screens;
 
 export '../screens_controllers/home_controller.dart';
-export '../screens_controllers/splashscreen_controller.dart';
+export '../features/auth/presentation/controller/splashscreen_controller.dart';
 export '../screens_controllers/address_controller.dart';
 export '../screens_controllers/admission_payment.dart';
 export '../screens_controllers/application_confirmation.dart';
 export '../screens_controllers/application_form_controller.dart';
 export '../screens_controllers/assignment_controller.dart';
 export '../screens_controllers/certificate_controller.dart';
-export '../screens_controllers/code_input_controller.dart';
+export '../features/auth/presentation/controller/code_input_controller.dart';
 export '../screens_controllers/contact_controller.dart';
 export '../screens_controllers/course_controller.dart';
 export '../screens_controllers/sponsor_controller.dart';
@@ -16,9 +16,9 @@ export '../screens_controllers/course_detail_overview_controller.dart';
 export '../screens_controllers/create_account.dart';
 export '../screens_controllers/verify_email_controller.dart';
 export '../screens_controllers/report_controller.dart';
-export '../screens_controllers/login_controller.dart';
+export '../features/auth/presentation/controller/login_controller.dart';
 export '../screens_controllers/personal_controller.dart';
-export '../screens_controllers/forgot_password_controller.dart';
+export '../features/auth/presentation/controller/forgot_password_controller.dart';
 export '../screens_controllers/notification_controller.dart';
 export '../screens_controllers/assignment_preview_controller.dart';
 export '../screens_controllers/audio_resources_controller.dart';

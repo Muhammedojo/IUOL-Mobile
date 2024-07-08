@@ -1,7 +1,7 @@
-import '../components/components.dart';
-import '../screens_controllers/forgot_password_controller.dart';
-import 'stateless_view.dart';
-import '../core/core.dart';
+import '../../../../components/components.dart';
+import '../controller/forgot_password_controller.dart';
+import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/core.dart';
 
 class ForgotPasswordView
     extends StatelessView<ForgotPasswordScreen, ForgotPasswordController> {

@@ -1,8 +1,6 @@
 import 'package:ioul/core/data/model/model.dart';
 import 'package:ioul/core/api/provider/api_provider.dart';
-
-import '../../../response/course_reg_response.dart';
-import '../../../response/responses.dart';
+import '../../data/response/responses.dart';
 import 'shared_prefrence.dart';
 
 class AppRepository {

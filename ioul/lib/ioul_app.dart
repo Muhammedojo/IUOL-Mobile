@@ -109,12 +109,13 @@ class IOULApp extends StatelessWidget {
                       ],
                     );
                     return MediaQuery(
-                        data: MediaQuery.of(context).copyWith(
-                            textScaleFactor:
-                                MediaQuery.of(context).size.width > 428
-                                    ? 1
-                                    : 1.2),
-                        child: child);
+                      data: MediaQuery.of(context).copyWith(
+                        textScaler: MediaQuery.of(context).size.width > 428
+                            ? TextScaler.noScaling
+                            : const TextScaler.linear(1.2),
+                      ),
+                      child: child,
+                    );
                   }));
             }));
   }

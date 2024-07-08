@@ -1,7 +1,7 @@
 import 'package:ioul/core/api/provider/provider.dart';
 import 'package:ioul/core/api/provider/shared_prefrence.dart';
-import '../screen_views/Login_view.dart';
-import '../core/core.dart';
+import '../../../../screen_views/Login_view.dart';
+import '../../../../core/core.dart';
 
 class LoginScreen extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

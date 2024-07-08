@@ -1,4 +1,4 @@
-import '../../../response/responses.dart';
+import '../../data/response/responses.dart';
 import '../../core.dart';
 
 abstract class CountryState extends Equatable {

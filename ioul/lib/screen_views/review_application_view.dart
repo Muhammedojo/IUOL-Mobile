@@ -1,5 +1,5 @@
 import '../core/core.dart';
-import 'package:ioul/screens_controllers/login_controller.dart';
+import 'package:ioul/features/auth/presentation/controller/login_controller.dart';
 import '../components/components.dart';
 import '../screens_controllers/review_application_controller.dart';
 import 'stateless_view.dart';

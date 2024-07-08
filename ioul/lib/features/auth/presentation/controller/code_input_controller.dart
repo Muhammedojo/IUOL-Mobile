@@ -1,7 +1,7 @@
-import '../core/core.dart';
-import '../core/api/provider/provider.dart';
+import '../../../../core/core.dart';
+import '../../../../core/api/provider/provider.dart';
 
-import '../screen_views/code_input_view.dart';
+import '../view/code_input_view.dart';
 
 class CodeInput extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

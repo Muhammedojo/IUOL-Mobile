@@ -1,4 +1,5 @@
-import '../../../response/responses.dart';
+
+import '../../data/response/responses.dart';
 import '../../packages/package.dart';
 
 abstract class ApplicationFormDataState extends Equatable {

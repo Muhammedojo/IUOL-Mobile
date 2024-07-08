@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ioul/screens_controllers/code_input_controller.dart';
-import '../core/helpers/helper.dart';
-import '../core/api/provider/provider.dart';
-import '../screen_views/forgot_password_view.dart';
+import 'package:ioul/features/auth/presentation/controller/code_input_controller.dart';
+import '../../../../core/helpers/helper.dart';
+import '../../../../core/api/provider/provider.dart';
+import '../view/forgot_password_view.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

@@ -2,8 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:path/path.dart';
-import '../../../response/course_reg_response.dart';
-import '../../../response/responses.dart';
+import '../../data/response/responses.dart';
 import '../../data/model/model.dart';
 import '../../packages/package.dart';
 
