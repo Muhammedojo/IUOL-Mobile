@@ -1,0 +1,10 @@
+export 'about_controller.dart';
+export 'about_us_controller.dart';
+export 'e_resources_journal_controller.dart';
+export 'examination_extension_controller.dart';
+export 'examination_schedule_controller.dart';
+export 'help_desk_controller.dart';
+export 'ioul_library_controller.dart';
+export 'library_controller.dart';
+export 'privacy_policy_controller.dart';
+export 'settings_controller.dart';

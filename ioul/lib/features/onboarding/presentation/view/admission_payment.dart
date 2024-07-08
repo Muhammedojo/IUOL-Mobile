@@ -1,7 +1,7 @@
 import '../../../../core/core.dart';
 import '../../../../components/components.dart';
 import '../../../../components/custom_dropdown_widget.dart';
-import '../../../../screens_controllers/admission_payment.dart';
+import '../controller/admission_payment.dart';
 import '../../../../screen_views/stateless_view.dart';
 
 class AdmissionPaymentView

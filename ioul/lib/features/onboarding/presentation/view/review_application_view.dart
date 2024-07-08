@@ -1,12 +1,12 @@
 import '../../../../core/core.dart';
+import 'package:ioul/features/auth/presentation/controller/login_controller.dart';
 import '../../../../components/components.dart';
-import '../../../../screens/screens.dart';
-import '../controller/pending_application_controller.dart';
+import '../controller/review_application_controller.dart';
 import '../../../../screen_views/stateless_view.dart';
 
-class PendingApplicationView
-    extends StatelessView<PendingApplication, PendingApplicationController> {
-  const PendingApplicationView(PendingApplicationController state, {Key? key})
+class ReviewApplicationView
+    extends StatelessView<ReviewApplication, ReviewApplicationController> {
+  const ReviewApplicationView(ReviewApplicationController state, {Key? key})
       : super(state, key: key);
 
   @override
@@ -29,15 +29,26 @@ class PendingApplicationView
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Center(
+                  child: SvgPicture.asset(
+                    'assets/images/check.svg',
+                    height: 132.w,
+                    width: 132.w,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                SizedBox(
+                  height: 25.h,
+                ),
                 Text(
-                  'Check back later!',
+                  'Congratulations!',
                   style: Styles.x16dp_202325_400w(),
                   textAlign: TextAlign.center,
                 ),
                 Padding(
                   padding: REdgeInsets.symmetric(horizontal: 40.0),
                   child: Text(
-                    'Your application is under process.',
+                    'Your application has been submitted successfully, we will  evaluate your documents and notify you by email.',
                     style: Styles.x16dp_202325_400w(),
                     textAlign: TextAlign.center,
                   ),
@@ -53,13 +64,11 @@ class PendingApplicationView
               padding: REdgeInsets.symmetric(horizontal: 40.0),
               child: ElevatedButtonWidget(
                   title: "Login Page",
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
-                    );
-                  }),
+                  onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
+                      )),
             ),
           )
         ],

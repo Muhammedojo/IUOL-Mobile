@@ -2,7 +2,7 @@ import 'package:form_validator/form_validator.dart';
 import '../../../../components/components.dart';
 import '../../../../components/custom_dropdown_widget.dart';
 import '../../../../core/core.dart';
-import '../../../../screens_controllers/sponsor_controller.dart';
+import '../controller/sponsor_controller.dart';
 import '../../../../screen_views/stateless_view.dart';
 
 class SponsorView extends StatelessView<Sponsor, SponsorController> {

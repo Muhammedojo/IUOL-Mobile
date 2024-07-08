@@ -2,7 +2,7 @@ import 'package:group_button/group_button.dart';
 
 import '../../../../core/core.dart';
 import '../../../../components/components.dart';
-import '../../../../screens_controllers/application_confirmation.dart';
+import '../controller/application_confirmation.dart';
 import '../../../../screen_views/stateless_view.dart';
 
 class ApplicationConfirmationView extends StatelessView<ApplicationConfirmation,

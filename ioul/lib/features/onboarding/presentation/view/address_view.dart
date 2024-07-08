@@ -8,7 +8,7 @@ import '../../../../core/values/values.dart';
 import '../../../../components/components.dart';
 import '../../../../screens/screens.dart';
 
-import '../../../../screens_controllers/address_controller.dart';
+import '../controller/address_controller.dart';
 import '../../../../screen_views/stateless_view.dart';
 
 class AddressView extends StatelessView<Address, AddressController> {

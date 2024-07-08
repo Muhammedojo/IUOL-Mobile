@@ -1,4 +1,4 @@
-import '../screen_views/take_test_view.dart';
+import '../features/more/presentation/view/take_test_view.dart';
 import '../core/core.dart';
 
 class TakeTest extends StatefulWidget {
