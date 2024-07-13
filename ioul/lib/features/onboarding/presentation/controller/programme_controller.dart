@@ -55,7 +55,6 @@ class ProgrammeController extends State<Programme>
         context.read<ApplicationFormDataCubit>().state;
     if (states is ApplicationFormDataLoaded) {
       Map<String, String> programmesMap = states.formData.programmesMap!;
-      print('Selected ');
       // Find the key for the selected value
       String? selectedKey;
       programmesMap.forEach((key, value) {
@@ -63,13 +62,12 @@ class ProgrammeController extends State<Programme>
           selectedKey = key;
         }
       });
-      print('Selected2');
       // Now you have the selectedKey which corresponds to the selectedValue
       if (selectedKey != null) {
-        print('Selected key: $selectedKey');
+        // print('Selected key: $selectedKey');
         // Do something with the selectedKey
       } else {
-        print('Selected value not found');
+        //  print('Selected value not found');
       }
     }
   }

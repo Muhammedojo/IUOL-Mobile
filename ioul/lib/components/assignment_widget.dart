@@ -1,6 +1,5 @@
 import 'package:ioul/core/utils/extension.dart';
 import '../core/core.dart';
-import '../core/packages/package.dart';
 
 class AssignmentWidget extends StatelessWidget {
   final Function()? onTap;

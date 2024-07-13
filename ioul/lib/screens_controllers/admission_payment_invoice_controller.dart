@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
+
 import '../core/core.dart';
 import '../screen_views/admission_payment_invoice_view.dart';
+import '../screens/screens.dart';
 
 class AdmissionPaymentInvoice extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;
@@ -19,6 +22,9 @@ class AdmissionPaymentInvoiceController extends State<AdmissionPaymentInvoice> {
   void initState() {
     userCubit = context.read<UserCubit>();
     userCubit.loadUser();
+    context
+        .read<ApplicationPaymentCubit>()
+        .loadApplicationPaymentLinkFromServer();
     super.initState();
   }
 
@@ -33,5 +39,21 @@ class AdmissionPaymentInvoiceController extends State<AdmissionPaymentInvoice> {
   //Control logic grouped together, at top of file
   void onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  goToApplicationConfirmation() {
+    Navigator.pushReplacement(
+        context,
+        CupertinoPageRoute(
+            builder: (BuildContext context) =>
+                const ApplicationConfirmation()));
+  }
+
+  refresh() {
+    if (mounted) {
+      context
+          .read<ApplicationPaymentCubit>()
+          .loadApplicationPaymentLinkFromServer();
+    }
   }
 }

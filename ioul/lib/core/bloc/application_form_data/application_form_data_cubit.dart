@@ -1,6 +1,5 @@
 import 'dart:developer';
 import '../../core.dart';
-import '../../packages/package.dart';
 import '../../utils/global_states.dart';
 
 class ApplicationFormDataCubit extends Cubit<ApplicationFormDataState> {

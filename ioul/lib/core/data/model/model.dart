@@ -17,6 +17,7 @@ export 'verify_scratch_card_pin.dart';
 export 'forgot_password.dart';
 export 'user.dart';
 export 'payment_history.dart';
+export 'application_payment.dart';
 export 'submit_course_reg.dart';
 export 'examinations.dart';
 export 'certificates.dart';

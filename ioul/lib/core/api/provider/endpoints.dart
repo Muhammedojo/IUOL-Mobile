@@ -9,6 +9,7 @@ const String campusBaseUrl = "https://test-campus.iconicuniversity.edu.ng";
 const String baseApi = "$baseUrl/api/students/v1/";
 const String campusBaseApi = "$campusBaseUrl/api/students/v1/";
 const String paymentHistoryEndpoint = 'payment-history';
+const String applicationPaymentLink = "application/application-form/payment";
 const String loginEndpoint = "auth/login";
 const String registerEndpoint = "auth/register";
 const String verifyEmailEndpoint = "auth/verify-email";

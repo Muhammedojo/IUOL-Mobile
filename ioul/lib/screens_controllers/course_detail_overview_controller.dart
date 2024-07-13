@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
+
 import '../screen_views/course_detail_overview_view.dart';
 import '../core/core.dart';
+import '../screens/screens.dart';
 
 class CourseDetailOverview extends StatefulWidget {
   final Course? course;
@@ -29,6 +32,15 @@ class CourseOverviewController extends State<CourseDetailOverview> {
   //Control logic grouped together, at top of file
   onBackPressed() {
     NavigatorHelper(context).closeScreen();
+  }
+
+  showCourseDetails(Course course) async {
+    Navigator.push(
+        context,
+        CupertinoPageRoute(
+            builder: (context) => DocumentResources(
+                  course: course,
+                )));
   }
 
   onChipSelected(int index) {

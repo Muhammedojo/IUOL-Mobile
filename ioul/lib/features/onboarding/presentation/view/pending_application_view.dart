@@ -1,7 +1,6 @@
 import '../../../../core/core.dart';
 import '../../../../components/components.dart';
 import '../../../../screens/screens.dart';
-import '../controller/pending_application_controller.dart';
 import '../../../../screen_views/stateless_view.dart';
 
 class PendingApplicationView

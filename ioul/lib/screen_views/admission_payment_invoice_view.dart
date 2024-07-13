@@ -2,7 +2,6 @@ import '../components/components.dart';
 import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/admission_payment_invoice_controller.dart';
-import 'payment.dart';
 import 'stateless_view.dart';
 
 class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
@@ -37,34 +36,6 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
           ),
           SizedBox(
             height: 40.h,
-          ),
-          Padding(
-            padding: REdgeInsets.symmetric(horizontal: 10.0),
-            child: Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Transaction ID:',
-                    style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: Styles.font,
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xff000000))),
-                SizedBox(
-                  width: 20.w,
-                ),
-                Expanded(
-                  child: Text('#38741084',
-                      style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: Styles.font,
-                          fontWeight: FontWeight.w700,
-                          color: const Color(0xff000000))),
-                ),
-              ],
-            ),
-          ),
-          const Divider(
-            color: Color(0xff000000),
           ),
           Padding(
             padding: REdgeInsets.symmetric(vertical: 18.0, horizontal: 10),
@@ -122,12 +93,40 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                   width: 20.w,
                 ),
                 Expanded(
-                  child: Text('Application Form Payment',
+                  child: BlocBuilder<ApplicationPaymentCubit,
+                      ApplicationPaymentState>(builder: (context, stateBloc) {
+                    if (stateBloc is ApplicationPaymentLoading) {
+                      const Loader();
+                    } else if (stateBloc is ApplicationPaymentLoaded) {
+                      Map<String, dynamic> payment =
+                          stateBloc.paymentLink.datas;
+                      return payment.isNotEmpty
+                          ? Text(
+                              payment["description"],
+                              style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: Styles.font,
+                                  color: const Color(0xff000000)),
+                            )
+                          : Text(
+                              '',
+                              style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: Styles.font,
+                                  color: const Color(0xff000000)),
+                            );
+                    }
+                    return Text(
+                      '',
                       style: TextStyle(
-                          fontSize: 16.sp,
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.w700,
                           fontFamily: Styles.font,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xff000000))),
+                          color: const Color(0xffffffff)),
+                    );
+                  }),
                 ),
               ],
             ),
@@ -149,12 +148,45 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
                   width: 20.w,
                 ),
                 Expanded(
-                  child: Text('N10,000.00',
+                  child: BlocBuilder<ApplicationPaymentCubit,
+                      ApplicationPaymentState>(builder: (context, stateBloc) {
+                    if (stateBloc is ApplicationPaymentLoaded) {
+                      Map<String, dynamic> payment =
+                          stateBloc.paymentLink.datas;
+                      final NumberFormat currencyFormatter =
+                          NumberFormat.currency(symbol: '₦');
+
+                      final amount = payment["amount"];
+                      final numericAmount =
+                          amount is String ? int.parse(amount) : amount;
+
+                      return payment.isNotEmpty
+                          ? Text(
+                              currencyFormatter.format(numericAmount),
+                              style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: Styles.font,
+                                  color: const Color(0xff000000)),
+                            )
+                          : Text(
+                              '',
+                              style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: Styles.font,
+                                  color: const Color(0xff000000)),
+                            );
+                    }
+                    return Text(
+                      '',
                       style: TextStyle(
-                          fontSize: 16.sp,
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.w700,
                           fontFamily: Styles.font,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xff000000))),
+                          color: const Color(0xffffffff)),
+                    );
+                  }),
                 ),
               ],
             ),
@@ -165,16 +197,24 @@ class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
           SizedBox(
             height: 80.h,
           ),
-          ElevatedButtonWidget(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          const Payments("Application Payment")),
-                );
-              },
-              title: 'continue'.tr())
+          BlocBuilder<ApplicationPaymentCubit, ApplicationPaymentState>(
+              builder: (context, stateBloc) {
+            if (stateBloc is ApplicationPaymentLoaded) {
+              Map<String, dynamic> payment = stateBloc.paymentLink.datas;
+              var link = payment["payment_url"];
+              return payment.isNotEmpty
+                  ? ElevatedButtonWidget(
+                      onTap: () {
+                        if (link != null) {
+                          WidgetHelper().launchURL(link);
+                        }
+                        state.goToApplicationConfirmation();
+                      },
+                      title: 'proceed'.tr())
+                  : const SizedBox();
+            }
+            return const SizedBox();
+          }),
         ],
       ),
     );

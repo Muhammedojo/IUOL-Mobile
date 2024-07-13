@@ -70,10 +70,11 @@ class AdmissionPaymentView
                     onTap: () => state.selectedValue == "Scratch Card"
                         ? NavigatorHelper(context)
                             .pushNamedScreen(RouteConstants.scratchCard)
-                        : NavigatorHelper(context).pushNamedScreen(
-                            RouteConstants.applicationConfirmation),
-                    // NavigatorHelper(context).pushNamedScreen(
-                    //     RouteConstants.admissionPaymentInvoice),
+                        :
+                        // NavigatorHelper(context).pushNamedScreen(
+                        //     RouteConstants.applicationConfirmation),
+                        NavigatorHelper(context).pushNamedScreen(
+                            RouteConstants.admissionPaymentInvoice),
                   ),
                 ],
               ),

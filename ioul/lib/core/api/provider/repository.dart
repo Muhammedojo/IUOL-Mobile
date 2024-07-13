@@ -29,6 +29,9 @@ class AppRepository {
   Future<GenericResponse> loadPaymentType() async =>
       _apiProvider.getPaymentTypeList();
 
+  Future<GenericResponse> loadApplicationPaymentLink() async =>
+      _apiProvider.getApplicationPaymentLink();
+
   Future<GenericResponse> loadSemesterFormData() async =>
       _apiProvider.getSemesterFormData();
 

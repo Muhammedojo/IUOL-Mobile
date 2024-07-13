@@ -1,11 +1,10 @@
+import '../core/core.dart';
 import '../screen_views/document_resources_view.dart';
-import 'package:flutter/material.dart';
-import '../core/helpers/helper.dart';
 
 class DocumentResources extends StatefulWidget {
-  // static const routeName = Strings.SCREEN_BLANK;
+  final Course? course;
 
-  const DocumentResources({Key? key}) : super(key: key);
+  const DocumentResources({Key? key, this.course}) : super(key: key);
 
   @override
   DocumentResourcesController createState() => DocumentResourcesController();

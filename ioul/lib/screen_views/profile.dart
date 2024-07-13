@@ -194,7 +194,7 @@ class ProfileView extends StatelessView<Profile, ProfileController> {
                             style: Styles.x16dp_72777A_400w(),
                             disableLengthCheck: true,
                             cursorColor: AppColors.lightGrey,
-                            dropdownDecoration: BoxDecoration(),
+                            dropdownDecoration: const BoxDecoration(),
                             dropdownTextStyle: Styles.x16dp_72777A_400w(),
                             decoration: InputDecoration(
                               helperStyle: Styles.x16dp_72777A_400w(),

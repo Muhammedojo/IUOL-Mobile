@@ -24,3 +24,4 @@ export 'upcoming_task/cubit.dart';
 export 'journal/cubit.dart';
 export 'collection/cubit.dart';
 export 'notification/cubit.dart';
+export 'application_payment/cubit.dart';

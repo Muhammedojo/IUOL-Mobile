@@ -1,4 +1,3 @@
-import 'dart:developer';
 import '../../core.dart';
 import '../../utils/global_states.dart';
 import 'resend_email_verification_state.dart';
@@ -11,11 +10,11 @@ class ResendEmailVerificationCubit extends Cubit<ResendEmailVerificationState> {
       emit(ResendEmailVerificationLoading());
       final response =
           await repository.resendEmailVerification('${data.email}');
-      log("response body first: ${response.datas}");
+      //log("response body first: ${response.datas}");
       if (response.isConnectionSuccessful()) {
         emit(ResendEmailVerificationLoaded(response));
       } else {
-        log("response error body: ${response.responseMessage}");
+        // log("response error body: ${response.responseMessage}");
         emit(ResendEmailVerificationFailure(message: response.responseMessage));
       }
     } catch (e) {
