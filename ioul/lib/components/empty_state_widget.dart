@@ -29,7 +29,7 @@ class ErrorItemWidget extends StatelessWidget {
         Container(
           //height: height ?? null,
           alignment: Alignment.center,
-          //padding: EdgeInsets.only(top: 18.0, left: 10.0, right: 10.0, bottom: 10.0),
+          padding: REdgeInsets.symmetric(horizontal: 10, vertical: 30),
           margin: REdgeInsets.only(
               left: 5.0, right: 5.0, top: marginTop ?? 5.0, bottom: 20),
           decoration: const BoxDecoration(
@@ -42,13 +42,14 @@ class ErrorItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               SizedBox(
-                height: 5.h,
+                height: 30.h,
               ),
               Center(
                   child: SvgPicture.asset(
-                "assets/images/empty-dark.svg",
+                "assets/images/error.svg",
+                // "assets/images/empty-dark.svg",
+                // "assets/images/no_data.svg",
                 fit: BoxFit.cover,
-                // color: Colors.black,
                 height: imageHeight,
               )),
               SizedBox(
