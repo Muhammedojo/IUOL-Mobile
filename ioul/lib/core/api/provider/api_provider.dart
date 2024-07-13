@@ -186,7 +186,7 @@ class ApiProvider {
   Future<RegisterResponse> pushRegisterStudent(Register register) async {
     int? statusCode;
     try {
-      //print("student registration request payload: $cashAdvanceRequest");
+      //print("student registration request payload: $register");
       Response response = await doPostRequest(registerEndpoint, register);
       statusCode = response.statusCode;
 

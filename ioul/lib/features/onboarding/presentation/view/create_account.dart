@@ -157,10 +157,6 @@ class CreateAccountView
                             keyboardType: TextInputType.emailAddress,
                           ),
                           SizedBox(height: 20.h),
-                          // TextFieldWidget(
-                          //   title: "Phone number",
-                          //   controller: state.phoneController,
-                          // ),
                           IntlPhoneField(
                             initialCountryCode: 'NG',
                             languageCode: 'en',
@@ -169,7 +165,8 @@ class CreateAccountView
                             disableLengthCheck: false,
                             pickerDialogStyle: PickerDialogStyle(
                                 backgroundColor: AppColors.primary,
-                                searchFieldInputDecoration: InputDecoration(),
+                                searchFieldInputDecoration:
+                                    const InputDecoration(),
                                 countryNameStyle: const TextStyle(
                                   color: AppColors.lightGrey,
                                 )),
@@ -199,8 +196,13 @@ class CreateAccountView
                                 borderRadius: BorderRadius.circular(8.r),
                               ),
                             ),
-                            onChanged: (value) =>
-                                state.phoneController.text = value.number,
+                            onChanged: (value) {
+                              state.countryCode = value.countryCode;
+                              state.phoneController.text = value.number;
+                            },
+                            onCountryChanged: (country) {
+                              state.countryCode = country.dialCode;
+                            },
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(

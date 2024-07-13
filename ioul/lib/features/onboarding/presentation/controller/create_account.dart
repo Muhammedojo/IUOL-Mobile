@@ -30,6 +30,7 @@ class CreateAccountController extends State<CreateAccount> {
   String email = "";
   String confirmEmail = "";
   bool checked = false;
+  String countryCode = "";
 
   toggleVisibility() {
     setState(() {
@@ -144,7 +145,7 @@ class CreateAccountController extends State<CreateAccount> {
     register.middleName = middlenameController.text.trim();
     register.password = passwordController.text.trim();
     register.passwordConfirmation = passwordConfirmController.text.trim();
-    register.phone = phoneController.text.trim();
+    register.phone = countryCode + phoneController.text.trim();
 
     context.read<RegisterCubit>().pushRegisterationToServer(register);
     // WidgetHelper.hideProgress();

@@ -55,6 +55,7 @@ class PersonalController extends State<Personal>
   String? employmentStatus;
   String? selectedIDType;
 
+  String countryCode = "";
   onNextPressed() {
     // if (widget.selectedIndex! < 6) {
     setState(() {
@@ -136,7 +137,7 @@ class PersonalController extends State<Personal>
       application.email = emailController.text.trim();
       application.gender = genderController.text.trim();
       application.middleName = middlenameController.text.trim();
-      application.phone = phoneController.text.trim();
+      application.phone = countryCode + phoneController.text.trim();
       application.identificationNumber = identityNumberController.text.trim();
       application.language = nativeLanguageController.text.trim();
       application.religion = religionController.text.trim();

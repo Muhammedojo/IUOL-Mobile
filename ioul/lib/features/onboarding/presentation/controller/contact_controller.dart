@@ -37,6 +37,8 @@ class ContactController extends State<Contact>
   final TextEditingController refAddressController = TextEditingController();
 
   String selectedValue = "";
+  String nokCountryCode = "";
+  String refCountryCode = "";
 
   setSelectedValue(String value) {
     setState(() {
@@ -107,12 +109,13 @@ class ContactController extends State<Contact>
       application.nokAddress = nokAddressController.text.trim();
       application.nokEmail = nokEmailController.text.trim();
       application.nokName = nokNameController.text.trim();
-      application.nokPhone = nokPhoneController.text.trim();
+      application.nokPhone = nokCountryCode + nokPhoneController.text.trim();
       application.nokEmail = nokEmailController.text.trim();
       application.refereeAddress = refAddressController.text.trim();
       application.refereeEmail = refEmailController.text.trim();
       application.refereeName = refNameController.text.trim();
-      application.refereePhone = refPhoneController.text.trim();
+      application.refereePhone =
+          refCountryCode + refPhoneController.text.trim();
 
       GlobalVariables.applications.value = application;
 

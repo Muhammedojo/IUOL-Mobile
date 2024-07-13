@@ -218,8 +218,13 @@ class ProfileView extends StatelessView<Profile, ProfileController> {
                                 borderRadius: BorderRadius.circular(8.r),
                               ),
                             ),
-                            onChanged: (value) =>
-                                state.phoneController.text = value.number,
+                            onChanged: (value) {
+                              state.countryCode = value.countryCode;
+                              state.phoneController.text = value.number;
+                            },
+                            onCountryChanged: (country) {
+                              state.countryCode = country.dialCode;
+                            },
                           ),
                           SizedBox(height: 28.h),
                           Row(

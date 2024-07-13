@@ -106,8 +106,13 @@ class ContactView extends StatelessView<Contact, ContactController> {
                     borderRadius: BorderRadius.circular(8.r),
                   ),
                 ),
-                onChanged: (value) =>
-                    state.nokPhoneController.text = value.number,
+                onChanged: (value) {
+                  state.nokCountryCode = value.countryCode;
+                  state.nokPhoneController.text = value.number;
+                },
+                onCountryChanged: (country) {
+                  state.nokCountryCode = country.dialCode;
+                },
               ),
               SizedBox(height: 28.h),
               Row(
@@ -214,8 +219,13 @@ class ContactView extends StatelessView<Contact, ContactController> {
                     borderRadius: BorderRadius.circular(8.r),
                   ),
                 ),
-                onChanged: (value) =>
-                    state.refPhoneController.text = value.number,
+                onChanged: (value) {
+                  state.refCountryCode = value.countryCode;
+                  state.refPhoneController.text = value.number;
+                },
+                onCountryChanged: (country) {
+                  state.refCountryCode = country.dialCode;
+                },
               ),
               SizedBox(height: 28.h),
               Row(
