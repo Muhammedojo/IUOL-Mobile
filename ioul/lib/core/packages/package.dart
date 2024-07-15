@@ -8,6 +8,7 @@ export 'package:flutter/gestures.dart';
 export 'package:flutter/material.dart';
 export 'package:responsive_framework/responsive_framework.dart';
 export "package:dio/dio.dart";
+export 'package:flutter_custom_theme/flutter_custom_theme.dart';
 export 'package:file_picker/file_picker.dart';
 export 'package:pretty_dio_logger/pretty_dio_logger.dart';
 export 'package:flutter_dotenv/flutter_dotenv.dart';
