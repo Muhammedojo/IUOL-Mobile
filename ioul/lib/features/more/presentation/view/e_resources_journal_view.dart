@@ -2,7 +2,7 @@ import '../../../../core/core.dart';
 import '../../../../components/components.dart';
 import '../../../../screens/screens.dart';
 import '../controller/e_resources_journal_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class EResourcesView extends StatelessView<EResources, EResourcesController> {
   const EResourcesView(EResourcesController state, {Key? key})

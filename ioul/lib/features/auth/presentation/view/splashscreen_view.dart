@@ -1,7 +1,7 @@
 import 'package:ioul/components/text_widget.dart';
 import '../../../../core/core.dart';
 import '../../../../screens/screens.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class SplashScreenView
     extends StatelessView<SplashScreen, SplashScreenController> {

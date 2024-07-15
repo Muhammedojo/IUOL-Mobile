@@ -1,4 +1,4 @@
-import '../screen_views/sample_view.dart';
+import '../screen_views/mvc_view.dart';
 import 'package:flutter/material.dart';
 import '../core/helpers/helper.dart';
 

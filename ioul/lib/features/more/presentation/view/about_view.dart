@@ -1,7 +1,7 @@
 import '../../../../components/components.dart';
 import '../../../../screens/screens.dart';
 import '../../../../core/core.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class AboutView extends StatelessView<About, AboutController> {
   const AboutView(AboutController state, {Key? key}) : super(state, key: key);

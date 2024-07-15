@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
-import '../core/core.dart';
-import '../screen_views/admission_payment_invoice_view.dart';
-import '../screens/screens.dart';
+import '../../../../core/core.dart';
+import '../view/admission_payment_invoice_view.dart';
+import '../../../../screens/screens.dart';
 
 class AdmissionPaymentInvoice extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

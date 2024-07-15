@@ -2,7 +2,7 @@ import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/test_reset_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class TestResetView extends StatelessView<TestReset, TestResetController> {
   const TestResetView(TestResetController state, {Key? key})

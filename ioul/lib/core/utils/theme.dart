@@ -5,7 +5,7 @@ class CustomTheme {
   static ThemeData lightThemeData(BuildContext context) {
     return ThemeData(
       fontFamily: 'Inter',
-      // useMaterial3: true,
+
       primarySwatch: Colors.blue,
       textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
     );

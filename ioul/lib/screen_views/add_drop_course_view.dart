@@ -2,7 +2,7 @@ import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/add_drop_course_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class AddDropCourseView
     extends StatelessView<AddDropCourse, AddDropCourseController> {

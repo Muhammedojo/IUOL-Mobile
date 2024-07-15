@@ -3,7 +3,7 @@ import '../components/components.dart';
 import '../components/custom_dropdown_widget.dart';
 import '../screens_controllers/semester_registration_controller.dart';
 import '../core/core.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class SemesterRegistrationView extends StatelessView<SemesterRegistration,
     SemesterRegistrationController> {

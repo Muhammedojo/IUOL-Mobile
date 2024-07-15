@@ -3,7 +3,7 @@ import '../../../../components/components.dart';
 import '../../../../core/core.dart';
 import '../../../../screens/screens.dart';
 import '../controller/settings_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class SettingsView extends StatelessView<Settings, SettingsController> {
   const SettingsView(SettingsController state, {Key? key})

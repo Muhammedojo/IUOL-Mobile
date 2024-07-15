@@ -1,7 +1,7 @@
 import '../components/components.dart';
 import '../screens_controllers/more_controller.dart';
 import '../core/core.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class MoreView extends StatelessView<More, MoreController> {
   const MoreView(MoreController state, {Key? key}) : super(state, key: key);

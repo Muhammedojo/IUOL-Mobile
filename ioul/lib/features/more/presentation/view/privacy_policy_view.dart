@@ -2,7 +2,7 @@ import '../../../../components/components.dart';
 import '../../../../core/core.dart';
 import '../../../../screens/screens.dart';
 import '../controller/privacy_policy_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class PrivacyPolicyView
     extends StatelessView<PrivacyPolicy, PrivacyPolicyController> {

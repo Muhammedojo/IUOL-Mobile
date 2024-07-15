@@ -3,7 +3,7 @@ import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/audio_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class AudioView extends StatelessView<Audio, AudioController> {
   const AudioView(AudioController state, {Key? key}) : super(state, key: key);

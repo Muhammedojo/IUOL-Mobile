@@ -3,7 +3,7 @@ import 'package:ioul/components/outlined_button.dart';
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
 import '../../../../screens_controllers/upload_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class UploadView extends StatelessView<Upload, UploadController> {
   const UploadView(UploadController state, {Key? key}) : super(state, key: key);

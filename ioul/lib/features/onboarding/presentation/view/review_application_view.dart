@@ -2,7 +2,7 @@ import '../../../../core/core.dart';
 import 'package:ioul/features/auth/presentation/controller/login_controller.dart';
 import '../../../../components/components.dart';
 import '../controller/review_application_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class ReviewApplicationView
     extends StatelessView<ReviewApplication, ReviewApplicationController> {

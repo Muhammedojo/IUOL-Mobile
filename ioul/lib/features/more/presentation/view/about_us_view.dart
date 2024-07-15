@@ -2,7 +2,7 @@ import '../../../../components/components.dart';
 import '../../../../core/core.dart';
 import '../../../../screens/screens.dart';
 import '../controller/about_us_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class AboutUsView extends StatelessView<AboutUs, AboutUsController> {
   const AboutUsView(AboutUsController state, {Key? key})

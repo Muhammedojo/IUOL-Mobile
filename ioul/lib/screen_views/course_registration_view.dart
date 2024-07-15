@@ -2,7 +2,7 @@ import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/course_registration_controller.dart';
 import '../core/core.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class CourseRegistrationView
     extends StatelessView<CourseRegistration, CourseRegistrationController> {

@@ -53,6 +53,6 @@ export '../screens_controllers/terms_and_services_controller.dart';
 export '../features/more/presentation/controller/privacy_policy_controller.dart';
 export '../features/onboarding/presentation/controller/review_application_controller.dart';
 export '../screens_controllers/semester_registration_controller.dart';
-export '../screens_controllers/admission_payment_invoice_controller.dart';
+export '../features/onboarding/presentation/controller/admission_payment_invoice_controller.dart';
 export '../features/onboarding/presentation/controller/pending_application_controller.dart';
 export '../features/more/presentation/controller/about_us_controller.dart';

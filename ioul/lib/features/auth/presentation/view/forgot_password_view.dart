@@ -1,6 +1,6 @@
 import '../../../../components/components.dart';
 import '../controller/forgot_password_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 import '../../../../core/core.dart';
 
 class ForgotPasswordView

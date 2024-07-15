@@ -2,7 +2,7 @@ import '../../../../core/core.dart';
 import '../../../../components/components.dart';
 import '../../../../screens/screens.dart';
 import '../controller/examination_extension_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class ExaminationExtensionView extends StatelessView<ExaminationExtension,
     ExaminationExtensionController> {

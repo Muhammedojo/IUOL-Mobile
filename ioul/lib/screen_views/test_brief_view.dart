@@ -2,7 +2,7 @@ import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class TestBriefView extends StatelessView<TestBriefView, TestBriefController> {
   const TestBriefView(TestBriefController state, {Key? key})

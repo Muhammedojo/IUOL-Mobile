@@ -2,7 +2,7 @@ import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/course_detail_overview_controller.dart';
 import '../core/core.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class CourseOverviewView
     extends StatelessView<CourseDetailOverview, CourseOverviewController> {

@@ -4,7 +4,7 @@ import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/terms_and_services_controller.dart';
 
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class TermsAndServicesView
     extends StatelessView<TermsAndServices, TermsAndServicesController> {

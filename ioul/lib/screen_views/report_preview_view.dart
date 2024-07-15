@@ -2,7 +2,7 @@ import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/report_preview_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class ReportPreviewView
     extends StatelessView<ReportPreview, ReportPreviewController> {

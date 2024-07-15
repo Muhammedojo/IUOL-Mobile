@@ -1,8 +1,8 @@
-import '../components/components.dart';
-import '../core/core.dart';
-import '../screens/screens.dart';
-import '../screens_controllers/assignment_preview_controller.dart';
-import 'stateless_view.dart';
+import '../../../../components/components.dart';
+import '../../../../core/core.dart';
+import '../../../../screens/screens.dart';
+import '../../../../screens_controllers/assignment_preview_controller.dart';
+import '../../../../core/utils/mvc.dart';
 
 class AssignmentPreviewView
     extends StatelessView<AssignmentPreview, AssignmentPreviewController> {

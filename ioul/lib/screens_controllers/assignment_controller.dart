@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../screen_views/assignment_view.dart';
+import '../features/assignments/presentation/view/assignment_view.dart';
 import '../core/core.dart';
 import '../screens/screens.dart';
 

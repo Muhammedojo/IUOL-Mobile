@@ -2,7 +2,7 @@ import 'package:form_validator/form_validator.dart';
 import 'package:ioul/screens/screens.dart';
 import '../../../../core/core.dart';
 import '../../../../components/components.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class LoginView extends StatelessView<LoginScreen, LoginController> {
   const LoginView(LoginController state, {Key? key}) : super(state, key: key);

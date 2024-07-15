@@ -9,7 +9,7 @@ import '../../../../components/components.dart';
 import '../../../../screens/screens.dart';
 
 import '../controller/address_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class AddressView extends StatelessView<Address, AddressController> {
   const AddressView(AddressController state, {Key? key})

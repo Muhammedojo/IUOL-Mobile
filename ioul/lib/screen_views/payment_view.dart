@@ -4,7 +4,7 @@ import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/payment_controller.dart';
 import 'payment.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class PaymentView extends StatelessView<Payment, PaymentController> {
   const PaymentView(PaymentController state, {Key? key})

@@ -1,7 +1,7 @@
 import '../../../../core/core.dart';
 import '../../../../components/components.dart';
 import '../../../../screens/screens.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class PendingApplicationView
     extends StatelessView<PendingApplication, PendingApplicationController> {

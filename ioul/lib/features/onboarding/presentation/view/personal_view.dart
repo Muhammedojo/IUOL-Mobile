@@ -7,7 +7,7 @@ import 'package:ioul/components/textfield_widget.dart';
 import '../../../../components/custom_dropdown_widget.dart';
 import '../../../../core/core.dart';
 import '../controller/personal_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class PersonalView extends StatelessView<Personal, PersonalController> {
   const PersonalView(PersonalController state, {Key? key})

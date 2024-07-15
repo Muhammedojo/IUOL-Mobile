@@ -1,6 +1,6 @@
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ioul/components/components.dart';
-import 'package:ioul/screen_views/stateless_view.dart';
+import 'package:ioul/core/utils/mvc.dart';
 import '../components/custom_dropdown_widget.dart';
 import '../core/core.dart';
 import '../screens_controllers/profile.dart';

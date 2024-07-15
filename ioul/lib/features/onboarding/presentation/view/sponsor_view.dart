@@ -3,7 +3,7 @@ import '../../../../components/components.dart';
 import '../../../../components/custom_dropdown_widget.dart';
 import '../../../../core/core.dart';
 import '../controller/sponsor_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class SponsorView extends StatelessView<Sponsor, SponsorController> {
   const SponsorView(SponsorController state, {Key? key})

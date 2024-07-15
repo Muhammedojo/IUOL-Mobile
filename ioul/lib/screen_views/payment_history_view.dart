@@ -3,7 +3,7 @@ import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/payment_history_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class PaymentHistoryView
     extends StatelessView<PaymentHistory, PaymentHistoryController> {

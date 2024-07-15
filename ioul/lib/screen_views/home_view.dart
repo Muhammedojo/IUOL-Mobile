@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import '../core/core.dart';
 import '../screens/screens.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class HomeView extends StatelessView<Home, HomeController> {
   const HomeView(HomeController state, {Key? key}) : super(state, key: key);

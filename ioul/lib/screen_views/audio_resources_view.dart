@@ -3,7 +3,7 @@ import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/audio_resources_controller.dart';
 
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class AudioResourcesView
     extends StatelessView<AudioResources, AudioResourcesController> {

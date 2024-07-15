@@ -3,7 +3,7 @@ import '../../../../components/components.dart';
 import '../../../../screens/screens.dart';
 import '../../../../screens_controllers/take_test_controller.dart';
 import '../../../../core/values/values.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class TakeTestView extends StatelessView<TakeTest, TakeTestController> {
   const TakeTestView(TakeTestController state, {Key? key})

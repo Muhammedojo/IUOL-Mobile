@@ -2,7 +2,7 @@ import '../core/core.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/course_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class CourseView extends StatelessView<Courses, CourseController> {
   const CourseView(CourseController state, {Key? key}) : super(state, key: key);

@@ -2,7 +2,7 @@ import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/user_profile_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class UserProfileView
     extends StatelessView<UserProfile, UserProfileController> {

@@ -1,5 +1,5 @@
 import '../core/data/model/model.dart';
-import '../screen_views/assignment_preview_view.dart';
+import '../features/assignments/presentation/view/assignment_preview_view.dart';
 import 'package:flutter/material.dart';
 import '../core/helpers/helper.dart';
 

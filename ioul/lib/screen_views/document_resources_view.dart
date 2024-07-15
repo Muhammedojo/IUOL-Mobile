@@ -2,7 +2,7 @@ import '../components/components.dart';
 import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/document_resources_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class DocumentResourcesView
     extends StatelessView<DocumentResources, DocumentResourcesController> {

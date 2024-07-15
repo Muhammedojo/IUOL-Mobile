@@ -5,7 +5,7 @@ import 'package:pinput/pinput.dart';
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
 import '../controller/code_input_controller.dart';
-import '../../../../screen_views/stateless_view.dart';
+import '../../../../core/utils/mvc.dart';
 
 class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
   const CodeInputView(CodeInputController state, {Key? key})

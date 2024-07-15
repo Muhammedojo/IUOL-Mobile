@@ -2,7 +2,7 @@ import '../components/components.dart';
 import '../core/core.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/video_resources_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class VideoResourcesView
     extends StatelessView<VideoResources, VideoResourcesController> {

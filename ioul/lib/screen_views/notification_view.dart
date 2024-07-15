@@ -2,7 +2,7 @@ import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/notification_controller.dart';
 import '../core/core.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class NotificationView
     extends StatelessView<Notifications, NotificationController> {

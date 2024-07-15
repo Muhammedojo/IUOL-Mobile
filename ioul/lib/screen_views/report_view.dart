@@ -2,7 +2,7 @@ import '../core/core.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/report_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class ReportView extends StatelessView<ReportScreen, ReportController> {
   const ReportView(ReportController state, {Key? key}) : super(state, key: key);

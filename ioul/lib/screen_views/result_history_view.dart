@@ -3,7 +3,7 @@ import '../core/core.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/result_history_controller.dart';
-import 'stateless_view.dart';
+import '../core/utils/mvc.dart';
 
 class ResultHistoryView
     extends StatelessView<ResultHistory, ResultHistoryController> {
