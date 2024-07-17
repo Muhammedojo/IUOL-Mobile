@@ -3,7 +3,6 @@ import '../core/core.dart';
 import '../screens/screens.dart';
 import '../components/components.dart';
 import '../screens_controllers/result_history_controller.dart';
-import '../core/utils/mvc.dart';
 
 class ResultHistoryView
     extends StatelessView<ResultHistory, ResultHistoryController> {
@@ -52,10 +51,6 @@ class ResultHistoryView
 
   Widget _body(context) {
     return Column(mainAxisSize: MainAxisSize.min, children: [
-      // const Column(
-      //   mainAxisSize: MainAxisSize.min,
-      //   children: [],
-      // ),
       Expanded(
         child: SingleChildScrollView(
           child: Padding(

@@ -1,8 +1,8 @@
+import 'package:flutter/cupertino.dart';
+
 import '../components/components.dart';
 import '../screens/screens.dart';
-import '../screens_controllers/course_registration_controller.dart';
 import '../core/core.dart';
-import '../core/utils/mvc.dart';
 
 class CourseRegistrationView
     extends StatelessView<CourseRegistration, CourseRegistrationController> {
@@ -115,7 +115,7 @@ class CourseRegistrationView
                                             ? true
                                             : false,
                                         selectBox: () {
-                                          state.toggleSelection(index);
+                                          state.toggleSelection(courseSummary);
                                         },
                                       );
                                     })
@@ -142,17 +142,34 @@ class CourseRegistrationView
                         SizedBox(
                           height: 30.h,
                         ),
-                        BlocBuilder<CourseRegCubit, CourseRegState>(
-                            builder: (context, stateBloc) {
-                          if (stateBloc is CourseRegLoaded) {
-                            return stateBloc
-                                    .courseRegData.availableCourses!.isNotEmpty
-                                ? SubmitButtonWidget(
-                                    label: 'preview'.tr(), onPressed: () {})
-                                : const SizedBox.shrink();
-                          }
-                          return const SizedBox.shrink();
-                        }),
+                        state.selectedCourses.isEmpty
+                            ? const SizedBox.shrink()
+                            : BlocBuilder<CourseRegCubit, CourseRegState>(
+                                builder: (context, stateBloc) {
+                                if (stateBloc is CourseRegLoaded) {
+                                  return stateBloc.courseRegData
+                                          .availableCourses!.isNotEmpty
+                                      ? SubmitButtonWidget(
+                                          label: 'preview'.tr(),
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              CupertinoPageRoute(
+                                                builder: (context) =>
+                                                    CourseRegistrationPreview(
+                                                  selectedObjects:
+                                                      state.selectedCourses,
+                                                  semesterRegId: stateBloc
+                                                      .courseRegData
+                                                      .studentRegID!,
+                                                ),
+                                              ),
+                                            );
+                                          })
+                                      : const SizedBox.shrink();
+                                }
+                                return const SizedBox.shrink();
+                              }),
                       ],
                     )),
               ),
@@ -174,7 +191,7 @@ class CourseRegistrationView
                 if (stateBloc is CourseRegLoaded) {
                   return stateBloc.courseRegData.availableCourses!.isNotEmpty
                       ? Text(
-                          '0/${stateBloc.courseRegData.units?.max}',
+                          '${state.totalUnits}/${stateBloc.courseRegData.units?.max}',
                           style: Styles.x14dp_090A0A_400w(),
                         )
                       : const SizedBox.shrink();

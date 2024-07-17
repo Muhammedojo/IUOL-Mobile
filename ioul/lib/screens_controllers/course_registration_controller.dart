@@ -13,23 +13,25 @@ class CourseRegistration extends StatefulWidget {
 class CourseRegistrationController extends State<CourseRegistration> {
   //... //Initialization code, state vars etc, all go here
   late final CourseRegCubit initCourseRegCubit;
-  List<int> selectedCourses = [];
+  List<SummaryCourse> selectedCourses = [];
+
+  int totalUnits = 0;
+
   @override
   void initState() {
     super.initState();
     context.read<CourseRegCubit>().initCourseRegistration();
   }
 
-  void toggleSelection(int id) {
+  void toggleSelection(SummaryCourse course) {
     setState(() {
-      if (selectedCourses.contains(id)) {
-        selectedCourses.remove(id);
+      if (selectedCourses.contains(course)) {
+        selectedCourses.remove(course);
       } else {
-        selectedCourses.add(id);
+        selectedCourses.add(course);
       }
+      //totalUnits = selectedCourses.fold(0, (sum, course) => sum + int.parse(course.units));
     });
-    // print('Selected: ${id}');
-    // print('Selected: ${selectedCourses.toString()}');
   }
 
   @override

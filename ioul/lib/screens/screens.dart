@@ -22,6 +22,7 @@ export '../features/auth/presentation/controller/forgot_password_controller.dart
 export '../screens_controllers/notification_controller.dart';
 export '../screens_controllers/assignment_preview_controller.dart';
 export '../screens_controllers/audio_resources_controller.dart';
+export '../screens_controllers/course_reg_preview_controller.dart';
 export '../screens_controllers/document_resources_controller.dart';
 export '../screens_controllers/video_resources_controller.dart';
 export '../screens_controllers/take_test_controller.dart';

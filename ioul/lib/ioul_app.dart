@@ -96,9 +96,9 @@ class IOULApp extends StatelessWidget {
                   debugShowCheckedModeBanner: false,
                   routerConfig: AppRouter.router,
                   title: 'IOUL',
-                  theme: CustomTheme.lightThemeData(context),
-                  darkTheme: CustomTheme.darkThemeData(),
-                  themeMode: ThemeMode.system,
+                  // theme: CustomTheme.lightThemeData(context),
+                  // darkTheme: CustomTheme.darkThemeData(),
+                  // themeMode: ThemeMode.system,
                   builder: EasyLoading.init(builder: (context, child) {
                     EasyLoading.init();
                     ResponsiveBreakpoints.builder(

@@ -17,6 +17,7 @@ export 'payment_history_widget.dart';
 export 'exam_schedule_widget.dart';
 export 'test_reset_widget.dart';
 export 'response_confirmation_widget.dart';
+export 'preview_course_reg_widget.dart';
 export 'exam_extension_widget.dart';
 export 'about_us_widget.dart';
 export 'upcoming_task.dart';

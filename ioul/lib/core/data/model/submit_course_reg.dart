@@ -1,5 +1,5 @@
 class SubmitCourseReg {
-  String? semesterRegId;
+  int? semesterRegId;
   List<int>? courseIds;
 
   SubmitCourseReg();
@@ -11,7 +11,7 @@ class SubmitCourseReg {
 
 SubmitCourseReg _$SubmitCourseRegFromJson(Map<String, dynamic> json) {
   var obj = SubmitCourseReg();
-  obj.semesterRegId = json["semester_reg_id"];
+  obj.semesterRegId = json["semester_registration_id"];
 
   List<int>? courseIdsList = [];
   var list = json["course_ids"] as List;
@@ -25,6 +25,6 @@ SubmitCourseReg _$SubmitCourseRegFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$SubmitCourseRegToJson(SubmitCourseReg obj) =>
     <String, dynamic>{
-      "semester_reg_id": obj.semesterRegId,
+      "semester_registration_id": obj.semesterRegId,
       "course_ids": obj.courseIds,
     };

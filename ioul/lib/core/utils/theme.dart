@@ -4,7 +4,7 @@ import '../values/values.dart';
 class ThemeManager extends CustomThemeData {
   static ThemeManager of(BuildContext context) => CustomThemes.safeOf(
         context,
-        mainDefault: const ThemeManager(),
+        mainDefault: const ThemeManager.light(),
         darkDefault: const ThemeManager.dark(),
       );
 
@@ -30,7 +30,7 @@ class ThemeManager extends CustomThemeData {
   final Color? inkBase;
   final Color? skyDark;
 
-  const ThemeManager(
+  const ThemeManager.light(
       {this.backgroundWhite = AppColors.backgroundWhite,
       this.lightBlue = AppColors.lightBlue,
       this.blueBase = AppColors.blueBase,
