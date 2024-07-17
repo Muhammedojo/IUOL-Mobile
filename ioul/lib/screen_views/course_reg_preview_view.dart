@@ -80,7 +80,7 @@ class CourseRegistrationPreviewView extends StatelessView<
                         if (regState is CourseRegLoaded) {
                           WidgetHelper.hideProgress();
                           WidgetHelper.showSuccessToast(
-                              context, 'registration_successful'.tr());
+                              context, '${regState.courseRegData.message}');
                           context.goNamed(RouteConstants.courses);
                         }
                         if (regState is CourseRegFailure) {
