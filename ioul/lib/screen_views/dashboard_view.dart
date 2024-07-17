@@ -2,7 +2,6 @@ import '../core/core.dart';
 import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/dashboard_controller.dart';
-import '../core/utils/mvc.dart';
 
 class DashboardView extends StatelessView<Dashboard, DashboardController> {
   const DashboardView(DashboardController state, {Key? key})

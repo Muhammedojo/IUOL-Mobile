@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import '../components/components.dart';
 import '../core/core.dart';
 import '../screens/screens.dart';
-import '../core/utils/mvc.dart';
 
 class HomeView extends StatelessView<Home, HomeController> {
   const HomeView(HomeController state, {Key? key}) : super(state, key: key);
@@ -368,46 +368,36 @@ class HomeView extends StatelessView<Home, HomeController> {
                                 color: Color(0xff0f0f0f),
                               ),
                               SizedBox(
-                                height: 16.h,
+                                height: 15.h,
                               ),
                               Row(
                                 children: [
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        CupertinoPageRoute(
-                                          builder: (context) =>
-                                              const ExaminationSchedule(),
-                                        ),
-                                      );
-                                    },
-                                    child: SvgPicture.asset(
-                                      'assets/images/exa.svg',
-                                      fit: BoxFit.scaleDown,
+                                  ImageWithTitle(
+                                    imageUrl: 'examination',
+                                    title: 'examination',
+                                    onTap: () => Navigator.push(
+                                      context,
+                                      CupertinoPageRoute(
+                                        builder: (context) =>
+                                            const ExaminationSchedule(),
+                                      ),
                                     ),
                                   ),
-                                  SizedBox(
-                                    width: 30.w,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.pushReplacement(
-                                        context,
-                                        CupertinoPageRoute(
-                                          builder: (context) =>
-                                              const TestSplashScreen(),
-                                        ),
-                                      );
-                                    },
-                                    child: SvgPicture.asset(
-                                        'assets/images/test.svg',
-                                        fit: BoxFit.scaleDown),
+                                  ImageWithTitle(
+                                    imageUrl: 'tests',
+                                    title: 'test',
+                                    onTap: () => Navigator.pushReplacement(
+                                      context,
+                                      CupertinoPageRoute(
+                                        builder: (context) =>
+                                            const TestSplashScreen(),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
                               SizedBox(
-                                height: 35.h,
+                                height: 15.h,
                               ),
                               Row(
                                 children: [

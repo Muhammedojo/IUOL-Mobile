@@ -4,7 +4,6 @@ import '../components/components.dart';
 import '../screens/screens.dart';
 import '../screens_controllers/payment_controller.dart';
 import 'payment.dart';
-import '../core/utils/mvc.dart';
 
 class PaymentView extends StatelessView<Payment, PaymentController> {
   const PaymentView(PaymentController state, {Key? key})
@@ -13,8 +12,7 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.transparent,
-        //AppColors.backgroundWhite,
+        backgroundColor: AppColors.backgroundWhite,
         appBar: WidgetHelper().appBackArrowWithTitle(context,
             title: 'payment'.tr(), onTap: () => state.onBackPressed()),
         body: WidgetWrapper(child: _body(context)));
@@ -37,7 +35,7 @@ class PaymentView extends StatelessView<Payment, PaymentController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     TextWidget(
-                      text: "Select Payment Type:",
+                      text: "select_payment_type".tr(),
                       style: Styles.x16dp_202325_400w(),
                     ),
                     SizedBox(width: 10.w),

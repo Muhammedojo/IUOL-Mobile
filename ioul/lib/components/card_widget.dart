@@ -23,8 +23,6 @@ class CardWidget extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: Container(
-          // height: 110.h,
-          // width: 165.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.r),
             color: AppColors.lightBlue,
