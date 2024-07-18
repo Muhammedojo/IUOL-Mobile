@@ -9,6 +9,8 @@
     "payment_history":"Payment History",
     "message_to_reset_password":"Don't worry, we'll send you a message to help you reset your password.",
     "about":"About",
+    "course_registration": "Course Registration",
+    "add_drop_course": "Add/Drop Course",
     "notification":"Notification",
     "notification_list_empty":"Notification List Empty",
     "semester_report":"Semester Report",

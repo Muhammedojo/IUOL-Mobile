@@ -232,7 +232,6 @@ class HomeView extends StatelessView<Home, HomeController> {
         builder: (context) {
           return Container(
             decoration: BoxDecoration(
-                // border: Border.all(color: Color(0xffD1D5DB)),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16.r),
                     topRight: Radius.circular(16.r)),
@@ -242,7 +241,6 @@ class HomeView extends StatelessView<Home, HomeController> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    // border: Border.all(color: Color(0xffD1D5DB)),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(16.r),
                         topRight: Radius.circular(16.r)),
@@ -267,25 +265,16 @@ class HomeView extends StatelessView<Home, HomeController> {
                         child: Padding(
                           padding: REdgeInsets.symmetric(horizontal: 18.0),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Row(
-                                children: [
-                                  const Divider(
-                                    color: Colors.red,
-                                  ),
-                                  Text(
-                                    'course'.tr(),
-                                    style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontFamily: Styles.font,
-                                        fontWeight: FontWeight.w400,
-                                        color: const Color(0xff202325)),
-                                  ),
-                                  const Divider(
-                                    color: Colors.red,
-                                  ),
-                                ],
+                              Text(
+                                'course'.tr(),
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontFamily: Styles.font,
+                                    fontWeight: FontWeight.w400,
+                                    color: const Color(0xff202325)),
                               ),
                               const Divider(
                                 color: Color(0xff0f0f0f),
@@ -295,62 +284,45 @@ class HomeView extends StatelessView<Home, HomeController> {
                               ),
                               Row(
                                 children: [
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          CupertinoPageRoute(
-                                            builder: (context) =>
-                                                const CourseRegistration(),
-                                          ));
-                                    },
-                                    child: SvgPicture.asset(
-                                      'assets/images/reg.svg',
-                                      fit: BoxFit.scaleDown,
+                                  ImageWithTitle(
+                                    imageUrl: 'co_reg',
+                                    title: 'course_registration',
+                                    onTap: () => Navigator.push(
+                                      context,
+                                      CupertinoPageRoute(
+                                        builder: (context) =>
+                                            const CourseRegistration(),
+                                      ),
                                     ),
                                   ),
-                                  SizedBox(
-                                    width: 30.w,
+                                  ImageWithTitle(
+                                    imageUrl: 'adder',
+                                    title: 'add_drop_course',
+                                    onTap: () => Navigator.push(
+                                      context,
+                                      CupertinoPageRoute(
+                                        builder: (context) =>
+                                            const AddDropCourse(),
+                                      ),
+                                    ),
                                   ),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          CupertinoPageRoute(
-                                            builder: (context) =>
-                                                const AddDropCourse(),
-                                          ));
-                                    },
-                                    child: SvgPicture.asset(
-                                        'assets/images/add.svg',
-                                        fit: BoxFit.scaleDown),
+                                  ImageWithTitle(
+                                    imageUrl: 'res_his',
+                                    title: 'result_history',
+                                    onTap: () => Navigator.push(
+                                      context,
+                                      CupertinoPageRoute(
+                                        builder: (context) =>
+                                            const ResultHistory(),
+                                      ),
+                                    ),
                                   ),
-                                  SizedBox(
-                                    width: 30.w,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          CupertinoPageRoute(
-                                            builder: (context) =>
-                                                const ResultHistory(),
-                                          ));
-                                    },
-                                    child: SvgPicture.asset(
-                                        'assets/images/res.svg',
-                                        fit: BoxFit.scaleDown),
-                                  )
                                 ],
                               ),
                               SizedBox(
-                                height: 35.h,
+                                height: 15.h,
                               ),
-                              Row(
-                                children: [
-                                  const Divider(
-                                    color: Colors.red,
-                                  ),
+
                                   Text(
                                     'assessment'.tr(),
                                     style: TextStyle(
@@ -358,12 +330,9 @@ class HomeView extends StatelessView<Home, HomeController> {
                                         fontFamily: Styles.font,
                                         fontWeight: FontWeight.w400,
                                         color: const Color(0xff202325)),
-                                  ),
-                                  const Divider(
-                                    color: Colors.red,
-                                  ),
-                                ],
-                              ),
+
+
+
                               const Divider(
                                 color: Color(0xff0f0f0f),
                               ),
@@ -399,15 +368,8 @@ class HomeView extends StatelessView<Home, HomeController> {
                               SizedBox(
                                 height: 15.h,
                               ),
-                              Row(
-                                children: [
-                                  const Divider(
-                                    height: 10,
-                                    color: Colors.black,
-                                  ),
-                                  SizedBox(
-                                    width: 5.w,
-                                  ),
+
+
                                   Text(
                                     'extension'.tr(),
                                     style: TextStyle(
@@ -416,11 +378,8 @@ class HomeView extends StatelessView<Home, HomeController> {
                                         fontWeight: FontWeight.w400,
                                         color: const Color(0xff202325)),
                                   ),
-                                  const Divider(
-                                    color: Colors.red,
-                                  ),
-                                ],
-                              ),
+
+
                               const Divider(
                                 color: Color(0xff0f0f0f),
                               ),
@@ -429,6 +388,17 @@ class HomeView extends StatelessView<Home, HomeController> {
                               ),
                               Row(
                                 children: [
+                                  ImageWithTitle(
+                                    imageUrl: 'ass_ext',
+                                    title: 'assignment_extension',
+                                    onTap: () => Navigator.push(
+                                      context,
+                                      CupertinoPageRoute(
+                                        builder: (context) =>
+                                        const ExaminationExtension(),
+                                      ),
+                                    ),
+                                  ),
                                   InkWell(
                                     onTap: () {
                                       Navigator.push(
