@@ -1,5 +1,5 @@
-import '../../data/response/responses.dart';
-import '../../core.dart';
+import '../../../../../core/data/response/responses.dart';
+import '../../../../../core/core.dart';
 
 abstract class SubmitApplicationState extends Equatable {
   @override

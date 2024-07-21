@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/bloc/verify_scratch_pin/verify_scratch_pin_cubit.dart';
+import '../bloc/verify_scratch_pin/verify_scratch_pin_cubit.dart';
 import '../../../../core/helpers/helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/data/model/model.dart';

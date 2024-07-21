@@ -1,5 +1,5 @@
 import 'package:ioul/core/packages/package.dart';
-import '../../../../core/bloc/collection/collection_cubit.dart';
+import '../bloc/collection/collection_cubit.dart';
 import '../view/ioul_library_view.dart';
 import '../../../../core/helpers/helper.dart';
 

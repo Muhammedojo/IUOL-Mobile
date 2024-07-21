@@ -1,5 +1,5 @@
 import '../../../../../core/core.dart';
-import '../../../../../core/utils/global_states.dart';
+import '../bloc.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserLoading());

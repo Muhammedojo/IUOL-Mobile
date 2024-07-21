@@ -1,6 +1,6 @@
 
-import '../../core.dart';
-import '../../data/response/responses.dart';
+import '../../../../../core/core.dart';
+import '../../../../../core/data/response/responses.dart';
 
 abstract class JournalState extends Equatable {
   const JournalState();

@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:ioul/core/utils/global_states.dart';
-import '../../core.dart';
+import '../../../../../core/core.dart';
 import 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
