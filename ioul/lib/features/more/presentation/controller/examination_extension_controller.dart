@@ -1,6 +1,5 @@
+import '../../../../core/core.dart';
 import '../view/examination_extension_view.dart';
-import 'package:flutter/material.dart';
-import '../../../../core/helpers/helper.dart';
 
 class ExaminationExtension extends StatefulWidget {
   // static const routeName = Strings.SCREEN_BLANK;

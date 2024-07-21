@@ -1,9 +1,7 @@
-import 'package:form_validator/form_validator.dart';
 import '../../../../components/components.dart';
-import '../../../../components/custom_dropdown_widget.dart';
 import '../../../../core/core.dart';
-import '../controller/sponsor_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../bloc/bloc.dart';
+import '../controller/controller.dart';
 
 class SponsorView extends StatelessView<Sponsor, SponsorController> {
   const SponsorView(SponsorController state, {Key? key})

@@ -1,6 +1,12 @@
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import '../core/core.dart';
-import 'core/utils/theme.dart';
+import 'core/core.dart';
+import 'features/assignments/presentation/bloc/bloc.dart';
+import 'features/auth/presentation/bloc/bloc.dart';
+import 'features/courses/presentation/bloc/bloc.dart';
+import 'features/dashboard/presentation/bloc/bloc.dart';
+import 'features/more/presentation/bloc/bloc.dart';
+import 'features/onboarding/presentation/bloc/bloc.dart';
+import 'features/reports/presentation/bloc/bloc.dart';
 
 class IOULApp extends StatelessWidget {
   const IOULApp({super.key});

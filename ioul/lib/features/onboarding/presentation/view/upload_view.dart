@@ -1,9 +1,7 @@
-import 'package:image_picker/image_picker.dart';
-import 'package:ioul/components/outlined_button.dart';
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
-import '../../../../screens_controllers/upload_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../bloc/bloc.dart';
+import '../controller/controller.dart';
 
 class UploadView extends StatelessView<Upload, UploadController> {
   const UploadView(UploadController state, {Key? key}) : super(state, key: key);

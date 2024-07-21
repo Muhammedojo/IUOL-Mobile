@@ -1,4 +1,3 @@
-import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import '../core/core.dart';
 
 class CustomDropdownWidget extends StatelessWidget {

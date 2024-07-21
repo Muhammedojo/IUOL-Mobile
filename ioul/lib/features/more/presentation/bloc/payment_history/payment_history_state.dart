@@ -1,0 +1,34 @@
+import '../../../../../core/core.dart';
+
+abstract class PaymentHistoryState extends Equatable {
+  const PaymentHistoryState();
+
+  @override
+  List<Object> get props => [];
+}
+
+class PaymentHistoryInitialState extends PaymentHistoryState {
+  @override
+  List<Object> get props => [];
+}
+
+class PaymentHistoryLoading extends PaymentHistoryState {
+  @override
+  List<Object> get props => [];
+}
+
+class PaymentHistoryLoaded extends PaymentHistoryState {
+  final List<PaymentsHistory> paymentHistoryList;
+
+  const PaymentHistoryLoaded(this.paymentHistoryList);
+
+  @override
+  List<Object> get props => [paymentHistoryList];
+}
+
+class PaymentHistoryFailure extends PaymentHistoryState {
+  final String message;
+  const PaymentHistoryFailure({required this.message});
+  @override
+  List<Object> get props => [message];
+}

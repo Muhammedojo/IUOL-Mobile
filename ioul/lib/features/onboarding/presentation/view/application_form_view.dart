@@ -1,9 +1,6 @@
-import '../../../../core/core.dart';
-import 'package:ioul/features/onboarding/presentation/controller/programme_controller.dart';
-import 'package:ioul/screens_controllers/upload_controller.dart';
 import '../../../../components/components.dart';
-import '../../../../screens/screens.dart';
-import '../../../../core/utils/mvc.dart';
+import '../../../../core/core.dart';
+import '../controller/controller.dart';
 
 class ApplicationFormView
     extends StatelessView<ApplicationForm, ApplicationFormController> {

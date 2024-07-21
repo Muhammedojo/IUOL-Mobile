@@ -16,6 +16,7 @@ export 'department_widget.dart';
 export 'submit_button.dart';
 export 'payment_history_widget.dart';
 export 'exam_schedule_widget.dart';
+export 'outlined_button.dart';
 export 'test_reset_widget.dart';
 export 'response_confirmation_widget.dart';
 export 'preview_course_reg_widget.dart';
@@ -32,4 +33,6 @@ export 'audio_control_widget.dart';
 export 'empty_state_widget.dart';
 export 'report_widget.dart';
 export 'assignment_widget.dart';
+export 'custom_dropdown_widget.dart';
+
 export 'loader_widget.dart';

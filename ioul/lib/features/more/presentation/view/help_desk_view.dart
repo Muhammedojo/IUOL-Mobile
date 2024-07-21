@@ -1,8 +1,6 @@
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
-import '../../../../screens/screens.dart';
-import '../controller/help_desk_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../controller/controller.dart';
 
 class HelpDeskView extends StatelessView<HelpDesk, HelpDeskController> {
   const HelpDeskView(HelpDeskController state, {Key? key})

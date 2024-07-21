@@ -1,10 +1,7 @@
-import 'package:ioul/core/utils/extension.dart';
-
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
-import '../../../../screens/screens.dart';
-import '../controller/ioul_library_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../bloc/bloc.dart';
+import '../controller/controller.dart';
 
 class IOULLibraryView
     extends StatelessView<IOULLibrary, IOULLibraryController> {

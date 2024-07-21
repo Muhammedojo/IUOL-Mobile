@@ -1,7 +1,6 @@
-import '../../../../core/core.dart';
 import '../../../../components/components.dart';
-import '../controller/reset_password.dart';
-import '../../../../core/utils/mvc.dart';
+import '../../../../core/core.dart';
+import '../controller/controller.dart';
 
 class ResetPasswordView
     extends StatelessView<ResetPasswordScreen, ResetPasswordController> {

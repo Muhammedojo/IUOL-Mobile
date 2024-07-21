@@ -1,8 +1,7 @@
-import '../../../../core/core.dart';
 import '../../../../components/components.dart';
-import '../../../../screens/screens.dart';
-import '../controller/e_resources_journal_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../../../../core/core.dart';
+import '../bloc/bloc.dart';
+import '../controller/controller.dart';
 
 class EResourcesView extends StatelessView<EResources, EResourcesController> {
   const EResourcesView(EResourcesController state, {Key? key})

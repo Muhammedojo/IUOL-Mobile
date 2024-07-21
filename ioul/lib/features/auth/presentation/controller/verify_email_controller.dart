@@ -1,5 +1,6 @@
 import '../../../../core/core.dart';
 import '../../../../core/api/provider/repository.dart';
+import '../bloc/bloc.dart';
 import '../view/verify_email_view.dart';
 
 class VerifyEmail extends StatefulWidget {

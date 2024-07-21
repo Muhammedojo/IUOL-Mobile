@@ -1,13 +1,7 @@
-import 'package:form_validator/form_validator.dart';
-import 'package:intl_phone_field/country_picker_dialog.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:ioul/components/elevated_button_widget.dart';
-import 'package:ioul/components/text_widget.dart';
-import 'package:ioul/components/textfield_widget.dart';
-import '../../../../components/custom_dropdown_widget.dart';
+import '../../../../components/components.dart';
 import '../../../../core/core.dart';
-import '../controller/personal_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../bloc/bloc.dart';
+import '../controller/controller.dart';
 
 class PersonalView extends StatelessView<Personal, PersonalController> {
   const PersonalView(PersonalController state, {Key? key})

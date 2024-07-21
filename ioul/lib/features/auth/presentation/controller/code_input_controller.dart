@@ -1,6 +1,7 @@
 import '../../../../core/core.dart';
 import '../../../../core/api/provider/provider.dart';
 
+import '../bloc/bloc.dart';
 import '../view/code_input_view.dart';
 
 class CodeInput extends StatefulWidget {

@@ -1,4 +1,5 @@
 import '../../../../core/core.dart';
+import '../bloc/bloc.dart';
 import '../view/create_account.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -136,8 +137,6 @@ class CreateAccountController extends State<CreateAccount> {
   }
 
   void registerStudent() async {
-    // try {
-    // WidgetHelper.showProgress(text: 'Processing');
     var register = Register();
     register.firstName = firstNameController.text.trim();
     register.email = emailConfirmController.text.trim();
@@ -148,11 +147,6 @@ class CreateAccountController extends State<CreateAccount> {
     register.phone = countryCode + phoneController.text.trim();
 
     context.read<RegisterCubit>().pushRegisterationToServer(register);
-    // WidgetHelper.hideProgress();
-    // context.pushNamed(RouteConstants.accountVerification);
-    // } catch (e) {
-    //   // WidgetHelper.hideProgress();
-    // }
   }
 
   @override

@@ -1,8 +1,8 @@
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
-import '../../../../screens/screens.dart';
-import '../controller/admission_payment_invoice_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../../../dashboard/presentation/bloc/bloc.dart';
+import '../bloc/bloc.dart';
+import '../controller/controller.dart';
 
 class AdmissionPaymentInvoiceView extends StatelessView<AdmissionPaymentInvoice,
     AdmissionPaymentInvoiceController> {

@@ -1,13 +1,11 @@
-import 'package:ioul/screen_views/payment.dart';
-import 'package:ioul/screens/screens.dart';
-import 'package:ioul/screens_controllers/more_controller.dart';
-import 'package:ioul/screens_controllers/profile.dart';
-import 'package:ioul/features/onboarding/presentation/controller/programme_controller.dart';
-import 'package:ioul/features/onboarding/presentation/controller/scratch_card.dart';
-import 'package:ioul/screens_controllers/upload_controller.dart';
-import '../packages/package.dart';
-import '../utils/utils.dart';
-import 'router.dart';
+import '../../features/assignments/presentation/controller/controller.dart';
+import '../../features/auth/presentation/controller/controller.dart';
+import '../../features/courses/presentation/controller/controller.dart';
+import '../../features/dashboard/presentation/controller/controller.dart';
+import '../../features/more/presentation/controller/controller.dart';
+import '../../features/onboarding/presentation/controller/controller.dart';
+import '../../features/reports/presentation/controller/controller.dart';
+import '../core.dart';
 
 class AppRouter {
   // var email;
@@ -67,11 +65,11 @@ class AppRouter {
         name: RouteConstants.admissionPaymentInvoice,
         builder: (context, state) => const AdmissionPaymentInvoice(),
       ),
-      GoRoute(
-        path: '/${RouteConstants.payments}',
-        name: RouteConstants.payments,
-        builder: (context, state) => const Payments(""),
-      ),
+      // GoRoute(
+      //   path: '/${RouteConstants.payments}',
+      //   name: RouteConstants.payments,
+      //   builder: (context, state) => const Payments(""),
+      // ),
       GoRoute(
         path: '/${RouteConstants.applicationConfirmation}',
         name: RouteConstants.applicationConfirmation,

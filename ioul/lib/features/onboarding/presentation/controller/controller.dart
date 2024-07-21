@@ -11,3 +11,5 @@ export 'programme_controller.dart';
 export 'review_application_controller.dart';
 export 'scratch_card.dart';
 export 'sponsor_controller.dart';
+export 'admission_payment_invoice_controller.dart';
+export 'upload_controller.dart';

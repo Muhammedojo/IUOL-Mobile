@@ -1,8 +1,6 @@
-import '../../../../core/core.dart';
 import '../../../../components/components.dart';
-import '../../../../screens/screens.dart';
-import '../controller/library_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../../../../core/core.dart';
+import '../controller/controller.dart';
 
 class LibraryView extends StatelessView<Library, LibraryController> {
   const LibraryView(LibraryController state, {Key? key})

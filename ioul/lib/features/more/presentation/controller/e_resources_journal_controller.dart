@@ -1,4 +1,5 @@
 import '../../../../core/core.dart';
+import '../bloc/bloc.dart';
 import '../view/e_resources_journal_view.dart';
 
 class EResources extends StatefulWidget {

@@ -1,8 +1,7 @@
-import 'package:form_validator/form_validator.dart';
-import '../../../../core/core.dart';
 import '../../../../components/components.dart';
-import '../controller/scratch_card.dart';
-import '../../../../core/utils/mvc.dart';
+import '../../../../core/core.dart';
+import '../bloc/bloc.dart';
+import '../controller/controller.dart';
 
 class ScratchCardView
     extends StatelessView<ScratchCard, ScratchCardController> {

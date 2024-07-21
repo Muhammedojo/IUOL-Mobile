@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ioul/features/auth/presentation/controller/reset_password.dart';
-import '../../../../core/bloc/resend_email_verification/cubit.dart';
-import 'package:pinput/pinput.dart';
+
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
-import '../controller/code_input_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../bloc/bloc.dart';
+import '../controller/controller.dart';
 
 class CodeInputView extends StatelessView<CodeInput, CodeInputController> {
   const CodeInputView(CodeInputController state, {Key? key})

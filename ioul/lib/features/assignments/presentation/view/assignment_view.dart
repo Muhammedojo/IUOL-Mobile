@@ -1,8 +1,7 @@
-import '../../../../core/core.dart';
-import '../../../../screens/screens.dart';
 import '../../../../components/components.dart';
-import '../../../../screens_controllers/assignment_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../../../../core/core.dart';
+import '../bloc/bloc.dart';
+import '../controller/controller.dart';
 
 class AssignmentView extends StatelessView<Assignments, AssignmentController> {
   const AssignmentView(AssignmentController state, {Key? key})

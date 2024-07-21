@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
-import '../../../../screens/screens.dart';
-import '../controller/settings_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../controller/controller.dart';
 
 class SettingsView extends StatelessView<Settings, SettingsController> {
   const SettingsView(SettingsController state, {Key? key})

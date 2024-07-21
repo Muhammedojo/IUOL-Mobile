@@ -1,8 +1,6 @@
-import '../../../../core/core.dart';
 import '../../../../components/components.dart';
-import '../../../../components/custom_dropdown_widget.dart';
-import '../controller/admission_payment.dart';
-import '../../../../core/utils/mvc.dart';
+import '../../../../core/core.dart';
+import '../controller/controller.dart';
 
 class AdmissionPaymentView
     extends StatelessView<AdmissionPayment, AdmissionPaymentController> {

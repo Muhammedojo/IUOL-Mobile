@@ -1,7 +1,6 @@
-import 'package:ioul/components/text_widget.dart';
+import '../../../../components/components.dart';
 import '../../../../core/core.dart';
-import '../../../../screens/screens.dart';
-import '../../../../core/utils/mvc.dart';
+import '../controller/controller.dart';
 
 class SplashScreenView
     extends StatelessView<SplashScreen, SplashScreenController> {
@@ -23,7 +22,6 @@ class SplashScreenView
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(28.r),
                   bottomRight: Radius.circular(28.r),
-
                 ),
               ),
             ),

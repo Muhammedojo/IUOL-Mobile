@@ -1,9 +1,6 @@
-import 'package:form_validator/form_validator.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-import '../../../../core/core.dart';
 import '../../../../components/components.dart';
-import '../controller/contact_controller.dart';
-import '../../../../core/utils/mvc.dart';
+import '../../../../core/core.dart';
+import '../controller/controller.dart';
 
 class ContactView extends StatelessView<Contact, ContactController> {
   const ContactView(ContactController state, {Key? key})
