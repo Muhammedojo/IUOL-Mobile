@@ -126,7 +126,7 @@ class VerifyEmailView
                         context.goNamed(RouteConstants.login);
                       } else if (verifyState is VerifyEmailFailure) {
                         WidgetHelper.hideProgress();
-                        WidgetHelper.showSuccessToast(
+                        WidgetHelper.showToastError(
                             context, verifyState.message);
                       }
                     },

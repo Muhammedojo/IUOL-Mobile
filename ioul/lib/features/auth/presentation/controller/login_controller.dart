@@ -1,11 +1,9 @@
 import 'package:ioul/core/api/provider/provider.dart';
-import 'package:ioul/core/api/provider/shared_prefrence.dart';
 import '../../../../core/core.dart';
+import '../bloc/bloc.dart';
 import '../view/login_view.dart';
 
 class LoginScreen extends StatefulWidget {
-  // static const routeName = Strings.SCREEN_BLANK;
-
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -46,7 +44,6 @@ class LoginController extends State<LoginScreen> {
   }
 
   bool isStrongPassword(String password) {
-    // Regular expression for a strong password (at least 8 characters with a mix of uppercase, lowercase, and numbers)
     final passwordRegex =
         RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$');
     return passwordRegex.hasMatch(password);
@@ -65,26 +62,9 @@ class LoginController extends State<LoginScreen> {
   }
 
   void loginUser(String username, String password) async {
-    try {
-      WidgetHelper.showProgress(text: 'checking'.tr());
-      var loginResponse =
-          await repository.login(username, password, deviceToken);
-      WidgetHelper.hideProgress();
-      if (!mounted) return;
-      if (loginResponse.isConnectionSuccessful()) {
-        AppPrefs().saveTokenToPrefs(loginResponse);
-        loginResponse.user!.hasApplication == false
-            ? context.goNamed(RouteConstants.admissionPayment)
-            : (loginResponse.user!.isAdmitted == false
-                ? context.goNamed(RouteConstants.pendingApplication)
-                : context.goNamed(RouteConstants.dashboard,
-                    extra: loginResponse.user));
-      } else {
-        WidgetHelper.showToastError(context, ('${loginResponse.message}'));
-        return;
-      }
-    } catch (e) {
-      WidgetHelper.hideProgress();
-    }
+    final Login data = Login();
+    data.username = username;
+    data.password = password;
+    context.read<LoginCubit>().loginUser(data);
   }
 }

@@ -5,6 +5,9 @@ class Login {
   String? message;
   UserData? user;
   String? token;
+  String? password;
+  String? username;
+  String? deviceToken;
   String? responseCode = "-700";
   int statusCode = 400;
   List<dynamic>? metadata;
@@ -12,7 +15,6 @@ class Login {
   bool isConnectionSuccessful() => statusCode == 200;
   bool isRequestSuccessful() => responseCode == "100";
   bool isValidationError() => message == "Invalid Credentials";
-
   String? fullName() => user!.name;
   String? level() => '${user!.level} level,';
   String? department() => 'Department of ${user!.department}';
@@ -23,6 +25,9 @@ class Login {
       this.user,
       this.token,
       this.metadata,
+      this.password,
+      this.deviceToken,
+      this.username,
       this.responseCode});
 
   factory Login.fromJson(Map<String, dynamic> json) {

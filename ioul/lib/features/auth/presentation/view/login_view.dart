@@ -1,6 +1,7 @@
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
 import '../../../more/presentation/controller/controller.dart';
+import '../bloc/bloc.dart';
 import '../controller/controller.dart';
 
 class LoginView extends StatelessView<LoginScreen, LoginController> {
@@ -112,9 +113,31 @@ class LoginView extends StatelessView<LoginScreen, LoginController> {
                       ),
                     ),
                     SizedBox(height: 20.h),
-                    ElevatedButtonWidget(
-                      title: "login".tr(),
-                      onTap: () => state.onPressLoginButton(),
+                    BlocListener<LoginCubit, LoginState>(
+                      listener: (context, loginState) {
+                        if (loginState is LoginLoading) {
+                          WidgetHelper.showProgress(text: "checking".tr());
+                        } else if (loginState is LoginLoaded) {
+                          WidgetHelper.hideProgress();
+
+                          loginState.loginResponse.user!.hasApplication == false
+                              ? context.goNamed(RouteConstants.admissionPayment)
+                              : (loginState.loginResponse.user!.isAdmitted ==
+                                      false
+                                  ? context.goNamed(
+                                      RouteConstants.pendingApplication)
+                                  : context.goNamed(RouteConstants.dashboard,
+                                      extra: loginState.loginResponse.user));
+                        } else if (loginState is LoginFailure) {
+                          WidgetHelper.hideProgress();
+                          WidgetHelper.showToastError(
+                              context, loginState.message.toString());
+                        }
+                      },
+                      child: ElevatedButtonWidget(
+                        title: "login".tr(),
+                        onTap: () => state.onPressLoginButton(),
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     Align(
