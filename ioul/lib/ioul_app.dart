@@ -93,7 +93,10 @@ class IOULApp extends StatelessWidget {
         child: ScreenUtilInit(
             designSize: const Size(428, 926),
             minTextAdapt: true,
-            splitScreenMode: false,
+            splitScreenMode: true,
+            useInheritedMediaQuery: false,
+            ensureScreenSize: true,
+            fontSizeResolver: FontSizeResolvers.height,
             rebuildFactor: (old, data) {
               return true;
             },
@@ -122,10 +125,11 @@ class IOULApp extends StatelessWidget {
                     );
                     return MediaQuery(
                       data: MediaQuery.of(context).copyWith(
-                        textScaler: MediaQuery.of(context).size.width > 428
-                            ? TextScaler.noScaling
-                            : const TextScaler.linear(1.2),
-                      ),
+                          textScaleFactor:
+                              MediaQuery.of(context).size.width > 428 ? 1 : 1.12
+                          // ? TextScaler.noScaling
+                          // : const TextScaler.linear(1.2),
+                          ),
                       child: child,
                     );
                   }));

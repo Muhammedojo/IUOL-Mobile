@@ -15,6 +15,7 @@ class CourseView extends StatelessView<Courses, CourseController> {
           centerTitle: true,
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(40.0.h), child: const SizedBox()),
+
           title: Text(
             'enrolled_course'.tr(),
             style: Styles.x18dp_202326_700w(),

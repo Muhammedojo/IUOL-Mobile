@@ -45,7 +45,7 @@ class PendingApplicationView
             ),
           ),
           Positioned(
-            bottom: 37,
+            bottom: 37.sp,
             left: 0,
             right: 0,
             child: Padding(

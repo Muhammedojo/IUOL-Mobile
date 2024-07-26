@@ -13,7 +13,7 @@ class SplashScreenView
       body: Stack(
         children: [
           Positioned(
-            top: 0.h,
+            top: 0.sp,
             child: Container(
               height: 505.h,
               width: MediaQuery.of(context).size.width,
@@ -27,7 +27,7 @@ class SplashScreenView
             ),
           ),
           Positioned(
-            top: 0.h,
+            top: 0.sp,
             child: Container(
               height: 490.h,
               width: MediaQuery.of(context).size.width,
@@ -58,7 +58,7 @@ class SplashScreenView
             ),
           ),
           Positioned(
-            top: 431.h,
+            top: 431.sp,
             child: Container(
               height: 59.h,
               width: MediaQuery.of(context).size.width,
@@ -114,7 +114,7 @@ class SplashScreenView
             ),
           ),
           Positioned(
-            top: 540.h,
+            top: 540.sp,
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Column(
@@ -139,7 +139,7 @@ class SplashScreenView
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(height: 84.h),
+                  SizedBox(height: 60.h),
                   ElevatedButton(
                     onPressed: () => state.changeOnboardView(),
                     style: ElevatedButton.styleFrom(
@@ -179,7 +179,7 @@ class SplashScreenView
                             child: Icon(
                               Icons.arrow_forward_ios,
                               color: AppColors.primary,
-                              size: 16.w.h,
+                              size: 16.sp,
                             ),
                           )
                         ],
@@ -191,33 +191,33 @@ class SplashScreenView
             ),
           ),
           Positioned(
-            bottom: 418.h,
-            left: 88.w,
+            bottom: 418.sp,
+            left: 88.sp,
             child: SvgPicture.asset("assets/images/back_circle.svg"),
           ),
           Positioned(
-            bottom: 388.h,
-            right: 74.w,
+            bottom: 388.sp,
+            right: 74.sp,
             child: SvgPicture.asset("assets/images/back_circle.svg"),
           ),
           Positioned(
-            bottom: 306.h,
-            right: 142.w,
+            bottom: 306.sp,
+            right: 142.sp,
             child: SvgPicture.asset("assets/images/back_circle.svg"),
           ),
           Positioned(
-            bottom: 249.h,
-            right: 26.w,
+            bottom: 249.sp,
+            right: 26.sp,
             child: SvgPicture.asset("assets/images/back_circle.svg"),
           ),
           Positioned(
-            bottom: 165.h,
-            left: 31.w,
+            bottom: 165.sp,
+            left: 31.sp,
             child: SvgPicture.asset("assets/images/back_circle.svg"),
           ),
           Positioned(
-            left: 173.h,
-            bottom: 26.w,
+            left: 163.sp,
+            bottom: 20.sp,
             child: SvgPicture.asset("assets/images/back_circle.svg"),
           ),
         ],

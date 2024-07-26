@@ -177,7 +177,7 @@ class CourseRegistrationView
             )
           ])),
       Positioned(
-          top: 187,
+          top: 190.sp,
           right: 0,
           child: Container(
             decoration: const BoxDecoration(

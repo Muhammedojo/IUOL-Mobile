@@ -43,18 +43,15 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                         width: 174.w,
                       ),
                     ),
-                    SizedBox(height: 36.h),
+                    SizedBox(height: 30.h),
                     Padding(
                       padding: REdgeInsets.symmetric(horizontal: 10.0),
                       child: Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Transaction ID:',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontFamily: Styles.font,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xff000000))),
+                          'Transaction ID:'.toText(
+                            color: AppColors.inkDarkerDark,
+                            fontSize: 16,
+                          ),
                           SizedBox(
                             width: 20.w,
                           ),
@@ -76,15 +73,13 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                     ),
                     Padding(
                       padding:
-                          REdgeInsets.symmetric(vertical: 18.0, horizontal: 10),
+                          REdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
                       child: Row(
                         children: [
-                          Text('Name:',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontFamily: Styles.font,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xff000000))),
+                          'Name:'.toText(
+                            color: AppColors.inkDarkerDark,
+                            fontSize: 16,
+                          ),
                           SizedBox(
                             width: 20.w,
                           ),
@@ -104,15 +99,13 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                     ),
                     Padding(
                       padding:
-                          REdgeInsets.symmetric(vertical: 18.0, horizontal: 10),
+                          REdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
                       child: Row(
                         children: [
-                          Text('Admission Number:',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontFamily: Styles.font,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xff000000))),
+                          'Admission Number:'.toText(
+                            color: AppColors.inkDarkerDark,
+                            fontSize: 16,
+                          ),
                           SizedBox(
                             width: 20.w,
                           ),
@@ -133,15 +126,13 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                     ),
                     Padding(
                       padding:
-                          REdgeInsets.symmetric(vertical: 18.0, horizontal: 10),
+                          REdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
                       child: Row(
                         children: [
-                          Text('Product/Service:',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontFamily: Styles.font,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xff000000))),
+                          'Product/Service:'.toText(
+                            color: AppColors.inkDarkerDark,
+                            fontSize: 16,
+                          ),
                           SizedBox(
                             width: 20.w,
                           ),
@@ -161,15 +152,13 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                     ),
                     Padding(
                       padding:
-                          REdgeInsets.symmetric(vertical: 18.0, horizontal: 10),
+                          REdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
                       child: Row(
                         children: [
-                          Text('Amount:',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontFamily: Styles.font,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xff000000))),
+                          'Amount:'.toText(
+                            color: AppColors.inkDarkerDark,
+                            fontSize: 16,
+                          ),
                           SizedBox(
                             width: 20.w,
                           ),
@@ -188,7 +177,7 @@ class PaymentHistoryInvoiceView extends StatelessView<PaymentHistoryInvoice,
                       color: Color(0xff000000),
                     ),
                     SizedBox(
-                      height: 80.h,
+                      height: 75.h,
                     ),
                   ],
                 ),

@@ -24,10 +24,10 @@ class CourseInfoWidget extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: REdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
+          padding: REdgeInsets.symmetric(vertical: 15.0, horizontal: 6),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -43,115 +43,51 @@ class CourseInfoWidget extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 15.w,
+                height: 10.w,
               ),
               const Divider(
                 color: Colors.grey,
               ),
               SizedBox(
-                height: 15.w,
+                height: 10.w,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/images/clock.svg',
-                            height: 24.w,
-                            width: 24.w,
-                            fit: BoxFit.scaleDown,
-                          ),
-                          SizedBox(
-                            width: 5.w,
-                          ),
-                          Text(
-                            '${course?.courseSummary?.semesterName} Semester',
-                            style: TextStyle(
-                                fontSize: 15.sp,
-                                fontFamily: Styles.font,
-                                fontWeight: FontWeight.w400,
-                                color: const Color(0xff000000)),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/images/grommet.svg',
-                            height: 24.w,
-                            width: 24.w,
-                            fit: BoxFit.scaleDown,
-                          ),
-                          SizedBox(
-                            width: 5.w,
-                          ),
-                          Text(
-                            '${course?.courseSummary?.resourcesCount} Resources',
-                            style: TextStyle(
-                                fontSize: 15.sp,
-                                fontFamily: Styles.font,
-                                fontWeight: FontWeight.w400,
-                                color: const Color(0xff000000)),
-                          )
-                        ],
-                      ),
-                    ],
+                  'clock'.toSvg(height: 23.w, width: 23.w),
+                  SizedBox(
+                    width: 4.w,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/images/assignment.svg',
-                            height: 24.w,
-                            width: 24.w,
-                            fit: BoxFit.scaleDown,
-                          ),
-                          Text(
-                            '${course?.courseSummary?.assignmentCount} Assignment',
-                            style: TextStyle(
-                                fontSize: 15.sp,
-                                fontFamily: Styles.font,
-                                fontWeight: FontWeight.w400,
-                                color: const Color(0xff000000)),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/images/report.svg',
-                            height: 24.w,
-                            width: 24.w,
-                            fit: BoxFit.scaleDown,
-                          ),
-                          Text(
-                            '${course?.courseSummary?.reportCount} Report',
-                            style: TextStyle(
-                                fontSize: 15.sp,
-                                fontFamily: Styles.font,
-                                fontWeight: FontWeight.w400,
-                                color: const Color(0xff000000)),
-                          )
-                        ],
-                      ),
-                    ],
-                  )
+                  '${course?.courseSummary?.semesterName} Semester'
+                      .toText(color: AppColors.inkDarker),
+                  const Spacer(),
+                  'assignment'.toSvg(height: 23.w, width: 23.w),
+                  SizedBox(
+                    width: 4.w,
+                  ),
+                  '${course?.courseSummary?.assignmentCount} Assignment'
+                      .toText(color: AppColors.inkDarker)
                 ],
               ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Row(
+                children: [
+                  'grommet'.toSvg(height: 23.w, width: 23.w),
+                  SizedBox(
+                    width: 4.w,
+                  ),
+                  '${course?.courseSummary?.resourcesCount} Resources'
+                      .toText(color: AppColors.inkDarker),
+                  const Spacer(),
+                  'report'.toSvg(height: 23.w, width: 23.w),
+                  SizedBox(
+                    width: 4.w,
+                  ),
+                  '${course?.courseSummary?.reportCount} Report'
+                      .toText(color: AppColors.inkDarker),
+                ],
+              )
             ],
           ),
         ),

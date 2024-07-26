@@ -10,151 +10,129 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50.h,
-      color: const Color(0xff25435B),
-      child: SafeArea(
-        right: false,
-        left: false,
-        bottom: false,
-        child: Scaffold(
-            backgroundColor: AppColors.skyLightest,
-            appBar: AppBar(
-              // backgroundColor: const Color(0xff25435B),
-              centerTitle: true,
-              bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(71.0.h),
-                  child: const SizedBox()),
-              flexibleSpace: Container(
-                //color: Color(0xff2799F7),
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
-                ),
-                child: Padding(
-                  padding: REdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          BlocBuilder<UserCubit, UserState>(
-                              builder: (context, stateBloc) {
-                            if (stateBloc is UserLoaded) {
-                              return InkWell(
-                                  onTap: () {
-                                    context.pushNamed(
-                                      RouteConstants.userProfile,
-                                    );
-                                  },
-                                  child: Container(
-                                    width: 48,
-                                    height: 48,
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.blue,
-                                    ),
-                                    child: Center(
-                                      child: Image.network(
-                                        width: 38,
-                                        height: 38,
-                                        '${stateBloc.login.user?.imageUrl}',
-                                        loadingBuilder: (BuildContext context,
-                                            Widget child,
-                                            ImageChunkEvent? loadingProgress) {
-                                          if (loadingProgress == null) {
-                                            return child;
-                                          } else {
-                                            return Center(
-                                              child: CircularProgressIndicator(
-                                                value: loadingProgress
-                                                            .expectedTotalBytes !=
-                                                        null
-                                                    ? loadingProgress
-                                                            .cumulativeBytesLoaded /
-                                                        (loadingProgress
-                                                                .expectedTotalBytes ??
-                                                            1)
-                                                    : null,
-                                              ),
-                                            );
-                                          }
-                                        },
-                                        errorBuilder: (BuildContext context,
-                                            Object exception,
-                                            StackTrace? stackTrace) {
-                                          return Text(
-                                            state.extractLetters(
-                                                '${stateBloc.login.fullName()}'),
-                                            style: TextStyle(
-                                                fontSize: 22.sp,
-                                                fontWeight: FontWeight.w600,
-                                                fontFamily: Styles.font,
-                                                color: const Color(0xffffffff)),
+    return Scaffold(
+        backgroundColor: AppColors.skyLightest,
+        appBar: AppBar(
+          centerTitle: true,
+          bottom: PreferredSize(
+              preferredSize: Size.fromHeight(56.0.sp),
+              child: Padding(
+                padding: REdgeInsets.symmetric(horizontal: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        BlocBuilder<UserCubit, UserState>(
+                            builder: (context, stateBloc) {
+                          if (stateBloc is UserLoaded) {
+                            return InkWell(
+                                onTap: () {
+                                  context.pushNamed(
+                                    RouteConstants.userProfile,
+                                  );
+                                },
+                                child: Container(
+                                  width: 48.w,
+                                  height: 48.h,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.blue,
+                                  ),
+                                  child: Center(
+                                    child: Image.network(
+                                      width: 38.w,
+                                      height: 38.h,
+                                      '${stateBloc.login.user?.imageUrl}',
+                                      loadingBuilder: (BuildContext context,
+                                          Widget child,
+                                          ImageChunkEvent? loadingProgress) {
+                                        if (loadingProgress == null) {
+                                          return child;
+                                        } else {
+                                          return Center(
+                                            child: CircularProgressIndicator(
+                                              value: loadingProgress
+                                                          .expectedTotalBytes !=
+                                                      null
+                                                  ? loadingProgress
+                                                          .cumulativeBytesLoaded /
+                                                      (loadingProgress
+                                                              .expectedTotalBytes ??
+                                                          1)
+                                                  : null,
+                                            ),
                                           );
-                                        },
-                                      ),
+                                        }
+                                      },
+                                      errorBuilder: (BuildContext context,
+                                          Object exception,
+                                          StackTrace? stackTrace) {
+                                        return Text(
+                                          state.extractLetters(
+                                              '${stateBloc.login.fullName()}'),
+                                          style: TextStyle(
+                                              fontSize: 22.sp,
+                                              fontWeight: FontWeight.w600,
+                                              fontFamily: Styles.font,
+                                              color: const Color(0xffffffff)),
+                                        );
+                                      },
                                     ),
-                                  ));
-                            }
-                            return Text(
-                              '',
-                              style: TextStyle(
-                                  fontSize: 24.sp,
-                                  fontWeight: FontWeight.w700,
-                                  fontFamily: Styles.font,
-                                  color: const Color(0xffffffff)),
-                            );
-                          }),
-                          InkWell(
-                            onTap: () => state.notificationPage(),
-                            child: SvgPicture.asset('assets/images/bell.svg',
-                                fit: BoxFit.scaleDown),
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 15.h),
-                      BlocBuilder<UserCubit, UserState>(
-                          builder: (context, stateBloc) {
-                        if (stateBloc is UserLoaded) {
+                                  ),
+                                ));
+                          }
                           return Text(
-                            'Hi, ${stateBloc.login.fullName() ?? ''}',
+                            '',
                             style: TextStyle(
-                                fontSize: 22.sp,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 24.sp,
+                                fontWeight: FontWeight.w700,
                                 fontFamily: Styles.font,
-                                //height: 32.00 / 24.0,
                                 color: const Color(0xffffffff)),
                           );
-                        }
+                        }),
+                        InkWell(
+                            onTap: () => state.notificationPage(),
+                            child: const Icon(
+                              Icons.notifications_none,
+                              color: Colors.white,
+                            )
+                            // SvgPicture.asset('assets/images/bell.svg',
+                            //     fit: BoxFit.scaleDown),
+                            ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                    BlocBuilder<UserCubit, UserState>(
+                        builder: (context, stateBloc) {
+                      if (stateBloc is UserLoaded) {
                         return Text(
-                          '',
+                          'Hi, ${stateBloc.login.fullName() ?? ''}',
                           style: TextStyle(
                               fontSize: 22.sp,
                               fontWeight: FontWeight.w600,
                               fontFamily: Styles.font,
+                              //height: 32.00 / 24.0,
                               color: const Color(0xffffffff)),
                         );
-                      }),
-                      BlocBuilder<UserCubit, UserState>(
-                          builder: (context, stateBloc) {
-                        if (stateBloc is UserLoaded) {
-                          return Text(
-                            '${stateBloc.login.level()} ${stateBloc.login.department()}',
-                            style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: Styles.font,
-                                height: 20.00 / 14.0,
-                                color: const Color(0xffffffff)),
-                          );
-                        }
+                      }
+                      return Text(
+                        '',
+                        style: TextStyle(
+                            fontSize: 22.sp,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: Styles.font,
+                            color: const Color(0xffffffff)),
+                      );
+                    }),
+                    BlocBuilder<UserCubit, UserState>(
+                        builder: (context, stateBloc) {
+                      if (stateBloc is UserLoaded) {
                         return Text(
-                          '',
+                          '${stateBloc.login.level()} ${stateBloc.login.department()}',
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
@@ -162,16 +140,33 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                               height: 20.00 / 14.0,
                               color: const Color(0xffffffff)),
                         );
-                      }),
-                      SizedBox(height: 9.h),
-                    ],
-                  ),
+                      }
+                      return Text(
+                        '',
+                        style: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: Styles.font,
+                            height: 20.00 / 14.0,
+                            color: const Color(0xffffffff)),
+                      );
+                    }),
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                  ],
                 ),
-              ),
+              )),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[Color(0xff25435B), Color(0xff2799F7)]),
             ),
-            body: WidgetWrapper(child: _body(context))),
-      ),
-    );
+          ),
+        ),
+        body: WidgetWrapper(child: _body(context)));
   }
 
   Widget _body(context) {

@@ -9,9 +9,7 @@ class CourseOverviewView
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        //  backgroundColor: AppColors.backgroundWhite,
-        body: _body(context));
+    return Scaffold(body: WidgetWrapper(child: _body(context)));
   }
 
   Widget _body(context) {
@@ -22,7 +20,7 @@ class CourseOverviewView
           right: false,
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             Container(
-              height: 205.h,
+              height: 215.h,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
@@ -50,7 +48,7 @@ class CourseOverviewView
               ),
             ),
             SizedBox(
-              height: 145.h,
+              height: 130.sp,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -330,9 +328,9 @@ class CourseOverviewView
             )
           ])),
       Positioned(
-          top: 145,
-          left: 19,
-          right: 19,
+          top: 145.sp,
+          left: 19.sp,
+          right: 19.sp,
           child: CourseInfoWidget(
             onTap: null,
             course: widget.course,

@@ -7,7 +7,7 @@ extension StringExtension on String {
     bool translate = true,
     FontWeight fontWeight = FontWeight.w400,
     double fontSize = 14,
-    double textHeight = 27.45 / 14.0,
+    //double textHeight = 27.45 / 14.0,
     Color? color,
     TextAlign? textAlign,
     FontStyle? fontStyle,
@@ -19,7 +19,7 @@ extension StringExtension on String {
       style: TextStyle(
           fontFamily: Styles.font,
           fontWeight: fontWeight,
-          height: textHeight,
+          // height: textHeight,
           fontSize: fontSize.sp,
           fontStyle: fontStyle,
           color: color ?? AppColors.inkBase,

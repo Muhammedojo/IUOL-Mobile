@@ -471,9 +471,9 @@ class ReportPreviewView
         ),
       ),
       Positioned(
-        top: 145,
-        left: 19,
-        right: 19,
+        top: 145.sp,
+        left: 19.sp,
+        right: 19.sp,
         child: Column(
           children: [
             Row(
@@ -483,7 +483,7 @@ class ReportPreviewView
                   '2023 Spring Semester Assignment',
                   style: TextStyle(
                       fontSize: 18.sp,
-                      fontFamily: 'Inter',
+                      fontFamily: Styles.font,
                       fontWeight: FontWeight.w700),
                 ),
               ],

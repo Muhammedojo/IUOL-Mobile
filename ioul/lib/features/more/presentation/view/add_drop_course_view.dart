@@ -97,7 +97,7 @@ class AddDropCourseView
             )
           ])),
       Positioned(
-          top: 187,
+          top: 187.sp,
           right: 0,
           child: Container(
             decoration: const BoxDecoration(

@@ -19,7 +19,7 @@ class ImageWithTitle extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: SizedBox(
-        height: 96.w,
+        height: 99.w,
         width: 90.w,
         child: Column(
           children: [
@@ -33,15 +33,16 @@ class ImageWithTitle extends StatelessWidget {
                       REdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
                   child: imageUrl.toSvg(),
                 )),
-            const SizedBox(
-                height: 8.0), // Add some space between the image and the title
             SizedBox(
-              width: 90.w,
+                height:
+                    5.0.h), // Add some space between the image and the title
+            SizedBox(
+              width: 95.w,
               child: Text(
                 title.tr(),
                 style: TextStyle(
                   fontSize: 14.sp,
-                  fontFamily: 'Inter',
+                  fontFamily: Styles.font,
                   fontWeight: FontWeight.w400,
                 ),
                 textAlign: TextAlign.center,
