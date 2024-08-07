@@ -178,11 +178,6 @@ class WidgetHelper {
       return EasyLoading.show(
         status: text,
         maskType: EasyLoadingMaskType.black,
-
-        // indicator: const CircularProgressIndicator(
-        //   strokeWidth: 2.0,
-        //   color: Colors.white,
-        // )
       );
     }
     return EasyLoading.show(

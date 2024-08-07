@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import '../../../../core/core.dart';
 import '../view/home_view.dart';
 
@@ -13,11 +15,40 @@ class Home extends StatefulWidget {
 
 class HomeController extends State<Home> {
   //... //Initialization code, state vars etc, all go here
+  bool isupdateModal = false;
+  // AppUpdateInfo? updateInfo;
+
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
+  Future<void> checkForUpdate() async {
+    //log('checking for update', name: 'inapp update');
+    try {
+      final updateInfo = await InAppUpdate.checkForUpdate();
+      // log(updateInfo.updateAvailability.toString(), name: 'inapp update');
+      if (updateInfo.updateAvailability == UpdateAvailability.updateAvailable) {
+        isupdateModal = true;
+        await InAppUpdate.startFlexibleUpdate();
+        isupdateModal = false;
+      }
+    } catch (e) {
+      showSnack(e.toString());
+      // log(e.toString(), name: 'inapp update');
+    }
+  }
+
+  void showSnack(String text) {
+    if (scaffoldKey.currentContext != null) {
+      ScaffoldMessenger.of(scaffoldKey.currentContext!)
+          .showSnackBar(SnackBar(content: Text(text)));
+    }
+  }
+
   int selectedPage = 0;
 
   @override
   void initState() {
     super.initState();
+    checkForUpdate();
   }
 
   @override

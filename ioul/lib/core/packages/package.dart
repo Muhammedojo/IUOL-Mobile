@@ -8,6 +8,7 @@ export 'package:flutter/gestures.dart';
 export 'package:intl_phone_field/country_picker_dialog.dart';
 export 'package:flutter/material.dart';
 export 'package:intl_phone_field/intl_phone_field.dart';
+export 'package:in_app_update/in_app_update.dart';
 export 'package:group_button/group_button.dart';
 export 'package:responsive_framework/responsive_framework.dart';
 export "package:dio/dio.dart";
