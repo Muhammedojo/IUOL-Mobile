@@ -46,6 +46,9 @@ class AppRepository {
   Future<GenericResponse> loadCollection() async =>
       _apiProvider.getCollection();
 
+  Future<GenericResponse> searchCollection(String searchTerm) async =>
+      _apiProvider.getCollection();
+
   Future<GenericResponse> loadCoursesWithReport() async =>
       _apiProvider.getCoursesWithReportList();
 

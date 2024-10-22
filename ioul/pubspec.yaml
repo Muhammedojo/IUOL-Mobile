@@ -49,8 +49,8 @@ dependencies:
   responsive_framework: ^1.4.0
   url_launcher: ^6.1.14
   form_validator: ^2.1.1
-  flutterwave_standard: ^1.0.8
-  easy_localization: ^3.0.7
+  #flutterwave_standard: ^1.0.8
+  easy_localization: ^3.0.5
   screenshot: ^2.4.0
   path_provider: ^2.1.2
   image_gallery_saver: ^2.0.3
@@ -59,6 +59,7 @@ dependencies:
 
 
 dev_dependencies:
+  build_runner: any
   flutter_test:
     sdk: flutter
 

@@ -121,7 +121,10 @@ class LoginView extends StatelessView<LoginScreen, LoginController> {
                           WidgetHelper.hideProgress();
 
                           loginState.loginResponse.user!.hasApplication == false
-                              ? context.goNamed(RouteConstants.admissionPayment)
+                              ?
+                              //context.goNamed(RouteConstants.admissionPayment)
+                              context.goNamed(RouteConstants.dashboard,
+                                  extra: loginState.loginResponse.user)
                               : (loginState.loginResponse.user!.isAdmitted ==
                                       false
                                   ? context.goNamed(

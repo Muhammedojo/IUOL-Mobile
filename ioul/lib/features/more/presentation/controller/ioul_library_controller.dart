@@ -16,6 +16,7 @@ class IOULLibraryController extends State<IOULLibrary> {
   //... //Initialization code, state vars etc, all go here
 
   TextEditingController searchController = TextEditingController();
+  String searchTerm = '';
 
   @override
   void initState() {
