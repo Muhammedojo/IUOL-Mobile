@@ -19,6 +19,10 @@ class DocumentResourcesController extends State<DocumentResources> {
     "Second Study Period",
     "Third Study Period",
   ];
+  List<String> pdfUrls = [
+    'https://www.invoicely.com/download/pdf/Invoice-Sample.pdf',
+    'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+  ];
 
   @override
   void initState() {

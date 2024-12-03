@@ -1,6 +1,7 @@
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
 import '../controller/controller.dart';
+import '../widget/pdf_page.dart';
 
 class DocumentResourcesView
     extends StatelessView<DocumentResources, DocumentResourcesController> {
@@ -86,7 +87,10 @@ class DocumentResourcesView
           itemCount: 5,
           shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
-              onTap: () {}, image: 'assets/images/pdf.svg'),
+              onTap: () {
+                _openPdf(context, state.pdfUrls[index]);
+              },
+              image: 'assets/images/pdf.svg'),
         ),
       ],
     );
@@ -123,6 +127,15 @@ class DocumentResourcesView
               onTap: () {}, image: 'assets/images/pdf.svg'),
         ),
       ],
+    );
+  }
+
+  void _openPdf(BuildContext context, String pdfUrl) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PdfViewerPage(pdfUrl: pdfUrl),
+      ),
     );
   }
 }

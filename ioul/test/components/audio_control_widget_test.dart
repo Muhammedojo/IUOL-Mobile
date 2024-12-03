@@ -15,7 +15,7 @@ void main() {
       await tester.pumpWidget(ScreenUtilInit(
           designSize: screenSize.size,
           builder: (context, child) => MaterialApp(
-                home: Material(child: AudioControl()),
+                home: Material(child: SizedBox()),
               )));
     }
   });

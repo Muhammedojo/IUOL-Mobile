@@ -135,9 +135,12 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
             10.verticalSpace,
             if (_chewieController != null &&
                 _videoPlayerController!.value.isInitialized)
-              AspectRatio(
-                aspectRatio: _videoPlayerController!.value.aspectRatio,
-                child: Chewie(controller: _chewieController!),
+              SizedBox(
+                height: 300.h,
+                child: AspectRatio(
+                  aspectRatio: _videoPlayerController!.value.aspectRatio,
+                  child: Chewie(controller: _chewieController!),
+                ),
               )
             else
               Container(
