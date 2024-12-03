@@ -17,7 +17,7 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginLoaded(response));
       } else {
         // log("response error body: ${response.responseMessage}");
-        emit(LoginFailure(message: '${response.message}'));
+        emit(LoginFailure(message: response.responseMessage));
       }
     } catch (e) {
       debugPrint("problem sending request: ${e.toString()}");

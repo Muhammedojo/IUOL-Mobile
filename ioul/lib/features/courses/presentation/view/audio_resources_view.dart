@@ -1,3 +1,5 @@
+import 'package:ioul/features/courses/presentation/widget/audio_page.dart';
+
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
 import '../controller/controller.dart';
@@ -76,8 +78,10 @@ class AudioResourcesView
           shrinkWrap: true,
           itemBuilder: (context, index) => DocumentResourcesWidget(
               onTap: () {
-                NavigatorHelper(context).pushNamedScreen(
-                  RouteConstants.audio,
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AudioPlayerPage()),
                 );
               },
               image: 'assets/images/audio_doc.svg'),

@@ -32,25 +32,23 @@ class CreateAccountView
                             text: "create_an_account".tr(),
                             style: Styles.x24dp_090A0A_700w(),
                           ),
-                          // SizedBox(height: 8.h),
-                          // TextWidget(
-                          //   text: "Log in to your account",
-                          //   style: Styles.x16dp_090A0A_400w(),
-                          // ),
                           SizedBox(height: 26.h),
                           TextFieldWidget(
                             title: "firstname".tr(),
                             controller: state.firstNameController,
+                            onValidate: ValidationBuilder().required().build(),
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
                             title: "surname".tr(),
                             controller: state.surnameController,
+                            onValidate: ValidationBuilder().required().build(),
                           ),
                           SizedBox(height: 20.h),
                           TextFieldWidget(
                             title: "middlename".tr(),
                             controller: state.middlenameController,
+                            onValidate: ValidationBuilder().required().build(),
                             textInputAction: TextInputAction.done,
                           ),
                           SizedBox(height: 108.h),
@@ -99,60 +97,16 @@ class CreateAccountView
                             style: Styles.x24dp_090A0A_700w(),
                           ),
                           SizedBox(height: 26.h),
-                          TextFormField(
-                            style: Styles.x16dp_72777A_400w(),
+                          TextFieldWidget(
+                            title: "email".tr(),
                             controller: state.emailController,
-                            decoration: InputDecoration(
-                              isCollapsed: true,
-                              isDense: true,
-                              contentPadding: REdgeInsets.all(16),
-                              fillColor: AppColors.backgroundWhite,
-                              filled: true,
-                              labelText: "email".tr(),
-                              hintStyle: Styles.x12dp_72777A_400w(),
-                              labelStyle: Styles.x12dp_72777A_400w(),
-
-                              enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: AppColors.inkLight),
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    color: AppColors.inkLighter),
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              // enabledBorder: OutlineInputBorder(
-                              //   borderSide: BorderSide.none,
-                              // ),
-                            ),
-                            keyboardType: TextInputType.emailAddress,
+                            onValidate: ValidationBuilder().required().build(),
                           ),
                           SizedBox(height: 20.h),
-                          TextFormField(
-                            style: Styles.x16dp_72777A_400w(),
+                          TextFieldWidget(
+                            title: "confirm_email_address".tr(),
                             controller: state.emailConfirmController,
-                            decoration: InputDecoration(
-                              isCollapsed: true,
-                              isDense: true,
-                              contentPadding: REdgeInsets.all(16),
-                              fillColor: AppColors.backgroundWhite,
-                              filled: true,
-                              labelText: "Confirm Email address",
-                              hintStyle: Styles.x12dp_72777A_400w(),
-                              labelStyle: Styles.x12dp_72777A_400w(),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: AppColors.inkLight),
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    color: AppColors.inkLighter),
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                            ),
-                            keyboardType: TextInputType.emailAddress,
+                            onValidate: ValidationBuilder().required().build(),
                           ),
                           SizedBox(height: 20.h),
                           IntlPhoneField(

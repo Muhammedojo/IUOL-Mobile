@@ -54,7 +54,11 @@ class LoginController extends State<LoginScreen> {
     String password = passwordController.text.trim();
 
     if (!WidgetHelper().isValidEmail(email)) {
-      WidgetHelper.showToastError(context, "invalid_email");
+      WidgetHelper.showToastError(context, "invalid_email".tr());
+      return;
+    }
+    if (password.isEmpty) {
+      WidgetHelper.showToastError(context, "invalid_password".tr());
       return;
     }
 

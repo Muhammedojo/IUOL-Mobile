@@ -1,5 +1,6 @@
 import '../../../../components/components.dart';
 import '../../../../core/core.dart';
+import '../../../courses/presentation/controller/controller.dart';
 import '../../../more/presentation/controller/controller.dart';
 import '../bloc/bloc.dart';
 import '../controller/controller.dart';
@@ -12,12 +13,10 @@ class LoginView extends StatelessView<LoginScreen, LoginController> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.backgroundWhite,
-      // appBar: WidgetHelper().appBackArrowOnly(context),
       body: SafeArea(
         child: WidgetWrapper(
           child: SingleChildScrollView(
             child: SizedBox(
-              // padding: MediaQuery.of(context).viewInsets,
               child: Padding(
                 padding: REdgeInsets.symmetric(horizontal: 24),
                 child: Column(
@@ -59,7 +58,7 @@ class LoginView extends StatelessView<LoginScreen, LoginController> {
                             state.visible
                                 ? Icons.visibility_off_outlined
                                 : Icons.visibility_outlined,
-                            size: 22.w.h,
+                            size: 22.sp,
                             color: AppColors.inkDarkest,
                           ),
                         ),
@@ -135,6 +134,13 @@ class LoginView extends StatelessView<LoginScreen, LoginController> {
                           WidgetHelper.hideProgress();
                           WidgetHelper.showToastError(
                               context, loginState.message.toString());
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const CourseDetailOverview()),
+                          );
                         }
                       },
                       child: ElevatedButtonWidget(

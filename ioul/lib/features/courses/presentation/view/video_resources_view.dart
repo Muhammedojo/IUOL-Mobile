@@ -1,6 +1,8 @@
 import '../../../../components/components.dart';
+import '../../../../components/video_resource_widget.dart';
 import '../../../../core/core.dart';
 import '../controller/controller.dart';
+import '../widget/video_page.dart';
 
 class VideoResourcesView
     extends StatelessView<VideoResources, VideoResourcesController> {
@@ -70,12 +72,22 @@ class VideoResourcesView
       children: [
         ListView.separated(
           separatorBuilder: (context, index) => SizedBox(
-            height: 10.h,
+            height: 15.h,
           ),
           itemCount: 5,
           shrinkWrap: true,
-          itemBuilder: (context, index) => DocumentResourcesWidget(
-              onTap: () {}, image: 'assets/images/audio_doc.svg'),
+          itemBuilder: (context, index) => VideoResourceWidget(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const VideoPlayerPage()),
+              );
+            },
+            index: '02',
+            title: 'Module One Test 1',
+            time: '6:10 mins',
+          ),
         ),
       ],
     );
@@ -91,8 +103,12 @@ class VideoResourcesView
           ),
           itemCount: 2,
           shrinkWrap: true,
-          itemBuilder: (context, index) => DocumentResourcesWidget(
-              onTap: () {}, image: 'assets/images/audio_doc.svg'),
+          itemBuilder: (context, index) => VideoResourceWidget(
+            onTap: () {},
+            index: '02',
+            title: 'Module One Test 1',
+            time: '6:10 mins',
+          ),
         ),
       ],
     );
@@ -108,8 +124,12 @@ class VideoResourcesView
           ),
           itemCount: 4,
           shrinkWrap: true,
-          itemBuilder: (context, index) => DocumentResourcesWidget(
-              onTap: () {}, image: 'assets/images/audio_doc.svg'),
+          itemBuilder: (context, index) => VideoResourceWidget(
+            onTap: () {},
+            index: '02',
+            title: 'Module One Test 1',
+            time: '6:10 mins',
+          ),
         ),
       ],
     );

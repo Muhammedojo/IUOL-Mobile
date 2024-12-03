@@ -77,6 +77,7 @@ class CreateAccountController extends State<CreateAccount> {
   }
 
   void validateConfirmEmail() {
+    print('object');
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
       // Perform actions with the validated email and confirmEmail
@@ -125,6 +126,10 @@ class CreateAccountController extends State<CreateAccount> {
       }
       if (confirmPassword.isEmpty) {
         WidgetHelper.showToastError(context, "Confirm password is required.");
+        return;
+      }
+      if (password != confirmPassword) {
+        WidgetHelper.showToastError(context, "Passwords do not match.");
         return;
       }
       if (checked == false) {

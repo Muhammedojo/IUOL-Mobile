@@ -40,7 +40,7 @@ class CourseOverviewView
                           ),
                           child: Padding(
                             padding: REdgeInsets.all(10.0),
-                            child: SvgPicture.asset('assets/images/back.svg'),
+                            child: 'back'.toSvg(),
                           )),
                     )
                   ],
@@ -126,7 +126,7 @@ class CourseOverviewView
                                           padding: REdgeInsets.symmetric(
                                               horizontal: 10.0, vertical: 5),
                                           child: Text(
-                                            '${widget.course!.courseDetails?.overview?.introduction}',
+                                            '${widget.course?.courseDetails?.overview?.introduction}',
                                             textAlign: TextAlign.justify,
                                             style: TextStyle(
                                               color: const Color(0xff000000),
@@ -170,7 +170,7 @@ class CourseOverviewView
                                           padding: REdgeInsets.symmetric(
                                               horizontal: 10.0, vertical: 5),
                                           child: Text(
-                                            '${widget.course!.courseDetails?.overview?.description}',
+                                            '${widget.course?.courseDetails?.overview?.description}',
                                             textAlign: TextAlign.justify,
                                             style: TextStyle(
                                               color: const Color(0xff000000),
@@ -216,7 +216,7 @@ class CourseOverviewView
                                           child: Container(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
-                                              '${widget.course!.courseDetails?.overview?.outline}',
+                                              '${widget.course?.courseDetails?.overview?.outline}',
                                               textAlign: TextAlign.justify,
                                               style: TextStyle(
                                                 color: const Color(0xff000000),
@@ -291,7 +291,7 @@ class CourseOverviewView
                                       ),
                                       type: 'document'.tr(),
                                       number:
-                                          '${widget.course!.courseDetails?.resources?.documentResources}',
+                                          '${widget.course?.courseDetails?.resources?.documentResources}',
                                       color: const Color(0xffFFD188),
                                       image: 'assets/images/documents.svg',
                                     ),
@@ -302,7 +302,7 @@ class CourseOverviewView
                                       ),
                                       type: 'video'.tr(),
                                       number:
-                                          '${widget.course!.courseDetails?.resources?.videoResources}',
+                                          '${widget.course?.courseDetails?.resources?.videoResources}',
                                       color: const Color(0xffC4E4FF),
                                       image: 'assets/images/videos.svg',
                                     ),
@@ -313,7 +313,7 @@ class CourseOverviewView
                                       ),
                                       type: 'audio'.tr(),
                                       number:
-                                          '${widget.course!.courseDetails?.resources?.audioResources}',
+                                          '${widget.course?.courseDetails?.resources?.audioResources}',
                                       color: const Color(0xff7DDE86),
                                       image: 'assets/images/audios.svg',
                                     ),

@@ -115,7 +115,6 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                               fontSize: 22.sp,
                               fontWeight: FontWeight.w600,
                               fontFamily: Styles.font,
-                              //height: 32.00 / 24.0,
                               color: const Color(0xffffffff)),
                         );
                       }
@@ -132,7 +131,7 @@ class DashboardView extends StatelessView<Dashboard, DashboardController> {
                         builder: (context, stateBloc) {
                       if (stateBloc is UserLoaded) {
                         return Text(
-                          '${stateBloc.login.level()} ${stateBloc.login.department()}',
+                          '${stateBloc.login.level() ?? ''} ${stateBloc.login.department() ?? ''}',
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
