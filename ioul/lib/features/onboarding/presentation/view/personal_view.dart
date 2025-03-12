@@ -29,280 +29,280 @@ class PersonalView extends StatelessView<Personal, PersonalController> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(height: 24.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          text: "firstname".tr(),
-                          style: Styles.x16dp_202325_400w(),
-                        ),
-                        SizedBox(width: 10.w),
-                        SvgPicture.asset("assets/images/red_star.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 10.w),
-                    TextFieldWidget(
-                      hint: "Ojo",
-                      controller: state.firstNameController,
-                      onValidate: ValidationBuilder().required().build(),
-                    ),
-                    SizedBox(height: 28.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          text: "surname".tr(),
-                          style: Styles.x16dp_202325_400w(),
-                        ),
-                        SizedBox(width: 10.w),
-                        SvgPicture.asset("assets/images/red_star.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 10.w),
-                    TextFieldWidget(
-                      hint: "Muhammad",
-                      controller: state.surnameController,
-                      onValidate: ValidationBuilder().required().build(),
-                    ),
-                    SizedBox(height: 28.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          text: "middlename".tr(),
-                          style: Styles.x16dp_202325_400w(),
-                        ),
-                        SizedBox(width: 10.w),
-                        SvgPicture.asset("assets/images/red_star.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 10.w),
-                    TextFieldWidget(
-                      hint: "Ayodele",
-                      controller: state.middlenameController,
-                      onValidate: ValidationBuilder().required().build(),
-                    ),
-                    SizedBox(height: 28.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          text: "email".tr(),
-                          style: Styles.x16dp_202325_400w(),
-                        ),
-                        SizedBox(width: 10.w),
-                        SvgPicture.asset("assets/images/red_star.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 10.w),
-                    TextFieldWidget(
-                      hint: "s******@gmail.com",
-                      controller: state.emailController,
-                      onValidate: ValidationBuilder().required().build(),
-                    ),
-                    SizedBox(height: 28.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          text: "gender".tr(),
-                          style: Styles.x16dp_202325_400w(),
-                        ),
-                        SizedBox(width: 10.w),
-                        SvgPicture.asset("assets/images/red_star.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 10.w),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: CustomDropdownWidget(
-                          dropdownList: const [
-                            'Male',
-                            'Female',
-                            'Others',
-                          ],
-                          controller: state.genderController,
-                          onChange: (value) => state.setSelectedValue(value),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 28.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          text: "phone_number".tr(),
-                          style: Styles.x16dp_202325_400w(),
-                        ),
-                        SizedBox(width: 10.w),
-                        SvgPicture.asset("assets/images/red_star.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 10.w),
-                    IntlPhoneField(
-                      initialCountryCode: 'NG',
-                      languageCode: 'en',
-                      controller: state.phoneController,
-                      style: Styles.x16dp_72777A_400w(),
-                      disableLengthCheck: false,
-                      pickerDialogStyle: PickerDialogStyle(
-                          backgroundColor: AppColors.primary,
-                          searchFieldInputDecoration: const InputDecoration(),
-                          countryNameStyle: const TextStyle(
-                            color: AppColors.lightGrey,
-                          )),
-                      dropdownDecoration: const BoxDecoration(),
-                      dropdownTextStyle: Styles.x16dp_72777A_400w(),
-                      decoration: InputDecoration(
-                        helperStyle: Styles.x16dp_72777A_400w(),
-                        hintTextDirection: TextDirection.ltr,
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     TextWidget(
+                    //       text: "firstname".tr(),
+                    //       style: Styles.x16dp_202325_400w(),
+                    //     ),
+                    //     SizedBox(width: 10.w),
+                    //     SvgPicture.asset("assets/images/red_star.svg"),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 10.w),
+                    // TextFieldWidget(
+                    //   hint: "Ojo",
+                    //   controller: state.firstNameController,
+                    //   onValidate: ValidationBuilder().required().build(),
+                    // ),
+                    // SizedBox(height: 28.h),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     TextWidget(
+                    //       text: "surname".tr(),
+                    //       style: Styles.x16dp_202325_400w(),
+                    //     ),
+                    //     SizedBox(width: 10.w),
+                    //     SvgPicture.asset("assets/images/red_star.svg"),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 10.w),
+                    // TextFieldWidget(
+                    //   hint: "Muhammad",
+                    //   controller: state.surnameController,
+                    //   onValidate: ValidationBuilder().required().build(),
+                    // ),
+                    // SizedBox(height: 28.h),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     TextWidget(
+                    //       text: "middlename".tr(),
+                    //       style: Styles.x16dp_202325_400w(),
+                    //     ),
+                    //     SizedBox(width: 10.w),
+                    //     SvgPicture.asset("assets/images/red_star.svg"),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 10.w),
+                    // TextFieldWidget(
+                    //   hint: "Ayodele",
+                    //   controller: state.middlenameController,
+                    //   onValidate: ValidationBuilder().required().build(),
+                    // ),
+                    // SizedBox(height: 28.h),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     TextWidget(
+                    //       text: "email".tr(),
+                    //       style: Styles.x16dp_202325_400w(),
+                    //     ),
+                    //     SizedBox(width: 10.w),
+                    //     SvgPicture.asset("assets/images/red_star.svg"),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 10.w),
+                    // TextFieldWidget(
+                    //   hint: "s******@gmail.com",
+                    //   controller: state.emailController,
+                    //   onValidate: ValidationBuilder().required().build(),
+                    // ),
+                    // SizedBox(height: 28.h),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     TextWidget(
+                    //       text: "gender".tr(),
+                    //       style: Styles.x16dp_202325_400w(),
+                    //     ),
+                    //     SizedBox(width: 10.w),
+                    //     SvgPicture.asset("assets/images/red_star.svg"),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 10.w),
+                    // Align(
+                    //   alignment: Alignment.centerLeft,
+                    //   child: SizedBox(
+                    //     width: MediaQuery.of(context).size.width,
+                    //     child: CustomDropdownWidget(
+                    //       dropdownList: const [
+                    //         'Male',
+                    //         'Female',
+                    //         'Others',
+                    //       ],
+                    //       controller: state.genderController,
+                    //       onChange: (value) => state.setSelectedValue(value),
+                    //     ),
+                    //   ),
+                    // ),
+                    // SizedBox(height: 28.h),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     TextWidget(
+                    //       text: "phone_number".tr(),
+                    //       style: Styles.x16dp_202325_400w(),
+                    //     ),
+                    //     SizedBox(width: 10.w),
+                    //     SvgPicture.asset("assets/images/red_star.svg"),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 10.w),
+                    // IntlPhoneField(
+                    //   initialCountryCode: 'NG',
+                    //   languageCode: 'en',
+                    //   controller: state.phoneController,
+                    //   style: Styles.x16dp_72777A_400w(),
+                    //   disableLengthCheck: false,
+                    //   pickerDialogStyle: PickerDialogStyle(
+                    //       backgroundColor: AppColors.primary,
+                    //       searchFieldInputDecoration: const InputDecoration(),
+                    //       countryNameStyle: const TextStyle(
+                    //         color: AppColors.lightGrey,
+                    //       )),
+                    //   dropdownDecoration: const BoxDecoration(),
+                    //   dropdownTextStyle: Styles.x16dp_72777A_400w(),
+                    //   decoration: InputDecoration(
+                    //     helperStyle: Styles.x16dp_72777A_400w(),
+                    //     hintTextDirection: TextDirection.ltr,
 
-                        contentPadding: REdgeInsets.only(
-                            top: 16, right: 16, bottom: 16, left: 0),
-                        hintStyle: Styles.x12dp_72777A_400w(),
-                        fillColor: AppColors.backgroundWhite,
-                        filled: false,
-                        // isDense: true,
-                        isCollapsed: true,
-                        hintText: 'phone_number'.tr(),
+                    //     contentPadding: REdgeInsets.only(
+                    //         top: 16, right: 16, bottom: 16, left: 0),
+                    //     hintStyle: Styles.x12dp_72777A_400w(),
+                    //     fillColor: AppColors.backgroundWhite,
+                    //     filled: false,
+                    //     // isDense: true,
+                    //     isCollapsed: true,
+                    //     hintText: 'phone_number'.tr(),
 
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: AppColors.inkLight),
-                          borderRadius: BorderRadius.circular(8.r),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: AppColors.inkLighter),
-                          borderRadius: BorderRadius.circular(8.r),
-                        ),
-                      ),
-                      onChanged: (value) {
-                        state.countryCode = value.countryCode;
-                        state.phoneController.text = value.number;
-                      },
-                      onCountryChanged: (country) {
-                        state.countryCode = country.dialCode;
-                      },
-                    ),
-                    SizedBox(height: 28.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          text: "marital_status".tr(),
-                          style: Styles.x16dp_202325_400w(),
-                        ),
-                        SizedBox(width: 10.w),
-                        SvgPicture.asset("assets/images/red_star.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 10.w),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: BlocBuilder<ApplicationFormDataCubit,
-                            ApplicationFormDataState>(
-                          builder: (context, applicationState) {
-                            if (applicationState is ApplicationFormDataLoaded) {
-                              return CustomDropdownWidget(
-                                dropdownList:
-                                    applicationState.formData.maritalStatuses ??
-                                        [],
-                                controller: state.maritalStatusController,
-                                onChange: (value) =>
-                                    state.setSelectedValue(value),
-                              );
-                            }
-                            return CustomDropdownWidget(
-                              dropdownList: const [
-                                'Single',
-                                'Married',
-                                'Divorced',
-                                'Others',
-                              ],
-                              controller: state.maritalStatusController,
-                              onChange: (value) =>
-                                  state.setSelectedValue(value),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 28.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          text: "religion".tr(),
-                          style: Styles.x16dp_202325_400w(),
-                        ),
-                        SizedBox(width: 10.w),
-                        SvgPicture.asset("assets/images/red_star.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 10.w),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: BlocBuilder<ApplicationFormDataCubit,
-                            ApplicationFormDataState>(
-                          builder: (context, applicationState) {
-                            if (applicationState is ApplicationFormDataLoaded) {
-                              return CustomDropdownWidget(
-                                dropdownList:
-                                    applicationState.formData.religions ?? [],
-                                controller: state.religionController,
-                                onChange: (value) =>
-                                    state.setSelectedValue(value),
-                              );
-                            }
-                            return CustomDropdownWidget(
-                              dropdownList: const [
-                                'Islam',
-                                'Christianity',
-                                'Others',
-                              ],
-                              controller: state.religionController,
-                              onChange: (value) =>
-                                  state.setSelectedValue(value),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 28.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          text: "employment_status".tr(),
-                          style: Styles.x16dp_202325_400w(),
-                        ),
-                        SizedBox(width: 10.w),
-                        SvgPicture.asset("assets/images/red_star.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 10.w),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: CustomDropdownWidget(
-                          dropdownList: const [
-                            'Employed',
-                            'Unemployed',
-                          ],
-                          controller: state.employmentStatusController,
-                          onChange: (value) => state.setSelectedValue(value),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 28.h),
+                    //     enabledBorder: OutlineInputBorder(
+                    //       borderSide:
+                    //           const BorderSide(color: AppColors.inkLight),
+                    //       borderRadius: BorderRadius.circular(8.r),
+                    //     ),
+                    //     focusedBorder: OutlineInputBorder(
+                    //       borderSide:
+                    //           const BorderSide(color: AppColors.inkLighter),
+                    //       borderRadius: BorderRadius.circular(8.r),
+                    //     ),
+                    //   ),
+                    //   onChanged: (value) {
+                    //     state.countryCode = value.countryCode;
+                    //     state.phoneController.text = value.number;
+                    //   },
+                    //   onCountryChanged: (country) {
+                    //     state.countryCode = country.dialCode;
+                    //   },
+                    // ),
+                    // SizedBox(height: 28.h),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     TextWidget(
+                    //       text: "marital_status".tr(),
+                    //       style: Styles.x16dp_202325_400w(),
+                    //     ),
+                    //     SizedBox(width: 10.w),
+                    //     SvgPicture.asset("assets/images/red_star.svg"),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 10.w),
+                    // Align(
+                    //   alignment: Alignment.centerLeft,
+                    //   child: SizedBox(
+                    //     width: MediaQuery.of(context).size.width,
+                    //     child: BlocBuilder<ApplicationFormDataCubit,
+                    //         ApplicationFormDataState>(
+                    //       builder: (context, applicationState) {
+                    //         if (applicationState is ApplicationFormDataLoaded) {
+                    //           return CustomDropdownWidget(
+                    //             dropdownList:
+                    //                 applicationState.formData.maritalStatuses ??
+                    //                     [],
+                    //             controller: state.maritalStatusController,
+                    //             onChange: (value) =>
+                    //                 state.setSelectedValue(value),
+                    //           );
+                    //         }
+                    //         return CustomDropdownWidget(
+                    //           dropdownList: const [
+                    //             'Single',
+                    //             'Married',
+                    //             'Divorced',
+                    //             'Others',
+                    //           ],
+                    //           controller: state.maritalStatusController,
+                    //           onChange: (value) =>
+                    //               state.setSelectedValue(value),
+                    //         );
+                    //       },
+                    //     ),
+                    //   ),
+                    // ),
+                    // SizedBox(height: 28.h),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     TextWidget(
+                    //       text: "religion".tr(),
+                    //       style: Styles.x16dp_202325_400w(),
+                    //     ),
+                    //     SizedBox(width: 10.w),
+                    //     SvgPicture.asset("assets/images/red_star.svg"),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 10.w),
+                    // Align(
+                    //   alignment: Alignment.centerLeft,
+                    //   child: SizedBox(
+                    //     width: MediaQuery.of(context).size.width,
+                    //     child: BlocBuilder<ApplicationFormDataCubit,
+                    //         ApplicationFormDataState>(
+                    //       builder: (context, applicationState) {
+                    //         if (applicationState is ApplicationFormDataLoaded) {
+                    //           return CustomDropdownWidget(
+                    //             dropdownList:
+                    //                 applicationState.formData.religions ?? [],
+                    //             controller: state.religionController,
+                    //             onChange: (value) =>
+                    //                 state.setSelectedValue(value),
+                    //           );
+                    //         }
+                    //         return CustomDropdownWidget(
+                    //           dropdownList: const [
+                    //             'Islam',
+                    //             'Christianity',
+                    //             'Others',
+                    //           ],
+                    //           controller: state.religionController,
+                    //           onChange: (value) =>
+                    //               state.setSelectedValue(value),
+                    //         );
+                    //       },
+                    //     ),
+                    //   ),
+                    // ),
+                    // SizedBox(height: 28.h),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     TextWidget(
+                    //       text: "employment_status".tr(),
+                    //       style: Styles.x16dp_202325_400w(),
+                    //     ),
+                    //     SizedBox(width: 10.w),
+                    //     SvgPicture.asset("assets/images/red_star.svg"),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 10.w),
+                    // Align(
+                    //   alignment: Alignment.centerLeft,
+                    //   child: SizedBox(
+                    //     width: MediaQuery.of(context).size.width,
+                    //     child: CustomDropdownWidget(
+                    //       dropdownList: const [
+                    //         'Employed',
+                    //         'Unemployed',
+                    //       ],
+                    //       controller: state.employmentStatusController,
+                    //       onChange: (value) => state.setSelectedValue(value),
+                    //     ),
+                    //   ),
+                    // ),
+                    // SizedBox(height: 28.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [

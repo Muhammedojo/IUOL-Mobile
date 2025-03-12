@@ -24,6 +24,16 @@ class ApplicationFormController extends State<ApplicationForm>
   final TextEditingController passwordConfirmController =
       TextEditingController();
 
+  final List<String> _tabs = [
+    'Personal',
+    'Address',
+    'Contacts',
+    'Sponsor',
+    'Program',
+    'Certificate',
+    'Upload',
+  ];
+
   late TabController tabController;
 
   int selectedIndex = 0;

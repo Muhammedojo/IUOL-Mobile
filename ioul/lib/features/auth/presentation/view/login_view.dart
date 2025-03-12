@@ -2,6 +2,7 @@ import '../../../../components/components.dart';
 import '../../../../core/core.dart';
 import '../../../courses/presentation/controller/controller.dart';
 import '../../../more/presentation/controller/controller.dart';
+import '../../../onboarding/presentation/controller/application_controller.dart';
 import '../bloc/bloc.dart';
 import '../controller/controller.dart';
 
@@ -144,9 +145,14 @@ class LoginView extends StatelessView<LoginScreen, LoginController> {
                         }
                       },
                       child: ElevatedButtonWidget(
-                        title: "login".tr(),
-                        onTap: () => state.onPressLoginButton(),
-                      ),
+                          title: "login".tr(),
+                          onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Application()),
+                              )
+                          //state.onPressLoginButton(),
+                          ),
                     ),
                     SizedBox(height: 20.h),
                     Align(
